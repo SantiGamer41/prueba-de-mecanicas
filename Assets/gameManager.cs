@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
+
 
 public class gameManager : MonoBehaviour
 {
+    public Tilemap canchaIluminadaTilemap; // Referencia al Tilemap "canchailuminada"
+    public Color colorToApply;
     public GameObject[] personajes; // Array de personajes
     private GameObject personajeActual; // Personaje actualmente seleccionado
     public Button botonMoverPersonaje1; // Referencia al botón en Unity
@@ -15,7 +19,9 @@ public class gameManager : MonoBehaviour
 
     void Start()
     {
+        
         // Desactivar el botón al inicio
+        DesactivarCasillasIluminadas();
         botonMoverPersonaje1.gameObject.SetActive(false);
         maxMovementRange = 2; // Ejemplo de rango máximo de movimiento
     }
@@ -29,6 +35,93 @@ public class gameManager : MonoBehaviour
         }
     }
 
+
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void ActivarBotonMoverPersonaje()
+    {
+        // Activar el GameObject asociado al botón de mover personaje
+        botonMoverPersonaje1.gameObject.SetActive(true);
+    }
+
+    public void ObtenerUbicacionDelPersonaje()
+    {
+        if (personajeActual != null)
+        {
+            PersonajeScript personajeComponent = personajeActual.GetComponent<PersonajeScript>();
+            if (personajeComponent != null)
+            {
+                startTile = personajeComponent.GetGridPosition(personajeActual.transform.position);
+            }
+        }
+    }
+
+    public void OnButtonClick()
+    {
+        ObtenerUbicacionDelPersonaje();
+        MostrarCasillasAlcanzables();
+    }
+
+    public void MostrarCasillasAlcanzables()
+    {
+
+        // Obtener los tiles alcanzables utilizando startTile y maxMovementRange
+        List<Vector2Int> reachableTiles = GetReachableTiles(startTile, maxMovementRange);
+
+        // Instanciar las casillas iluminadas en las posiciones alcanzables
+        foreach (var tile in reachableTiles)
+        {
+            // Calcular la posición en el mundo a partir de la posición de la grid
+            Vector3 worldPosition = new Vector3(tile.x + 0.5f, tile.y + 0.5f, 0f);
+
+            // Instanciar el prefab de la casilla iluminada en la posición calculada
+            GameObject casilla = Instantiate(casillaIluminadaPrefab, worldPosition, Quaternion.identity);
+            casilla.tag = "Iluminada";
+            Vector3Int gridPosition = new Vector3Int(tile.x, tile.y, 0);
+            Debug.Log("Reachable tiles count: " + reachableTiles.Count);
+
+            //mostrar los tiles del otro tilemap
+
+
+        }
+
+        // Mostrar los valores de startTile y maxMovementRange en la consola para verificar
+        Debug.Log("startTile: " + startTile);
+        Debug.Log("maxMovementRange: " + maxMovementRange);
+    }
+    public void SetTilesAlpha()
+    {
+
+    }
+
+    public void MoverPersonajeA(Vector3 nuevaPosicion)
+    {
+        if (personajeActual != null)
+        {
+            // Mover el personaje a la nueva posición
+            personajeActual.transform.position = nuevaPosicion;
+
+            // Opcional: Desactivar las casillas iluminadas después de mover
+            DesactivarCasillasIluminadas();
+            botonMoverPersonaje1.gameObject.SetActive(false);
+        }
+    }
+
+    private void DesactivarCasillasIluminadas()
+    {
+        // Encuentra todos los objetos instanciados de casillas iluminadas y destrúyelos
+        GameObject[] casillas = GameObject.FindGameObjectsWithTag("Iluminada");
+        foreach (GameObject casilla in casillas)
+        {
+            // Destruye cada objeto casilla iluminada
+            Destroy(casilla);
+        }
+    }
     // Función para obtener los tiles alcanzables dentro de un rango específico desde un tile inicial
     List<Vector2Int> GetReachableTiles(Vector2Int startTile, int maxMovementRange)
     {
@@ -73,80 +166,5 @@ public class gameManager : MonoBehaviour
         }
 
         return reachableTiles;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void ActivarBotonMoverPersonaje()
-    {
-        // Activar el GameObject asociado al botón de mover personaje
-        botonMoverPersonaje1.gameObject.SetActive(true);
-    }
-
-    public void ObtenerUbicacionDelPersonaje()
-    {
-        if (personajeActual != null)
-        {
-            PersonajeScript personajeComponent = personajeActual.GetComponent<PersonajeScript>();
-            if (personajeComponent != null)
-            {
-                startTile = personajeComponent.GetGridPosition(personajeActual.transform.position);
-            }
-        }
-    }
-
-    public void OnButtonClick()
-    {
-        ObtenerUbicacionDelPersonaje();
-        MostrarCasillasAlcanzables();
-    }
-
-    public void MostrarCasillasAlcanzables()
-    {
-        // Obtener los tiles alcanzables utilizando startTile y maxMovementRange
-        List<Vector2Int> reachableTiles = GetReachableTiles(startTile, maxMovementRange);
-
-        // Instanciar las casillas iluminadas en las posiciones alcanzables
-        foreach (var tile in reachableTiles)
-        {
-            // Calcular la posición en el mundo a partir de la posición de la grid
-            Vector3 worldPosition = new Vector3(tile.x + 0.5f, tile.y + 0.5f, 0f);
-
-            // Instanciar el prefab de la casilla iluminada en la posición calculada
-            GameObject casilla = Instantiate(casillaIluminadaPrefab, worldPosition, Quaternion.identity);
-            casilla.tag = "Iluminada";
-        }
-
-        // Mostrar los valores de startTile y maxMovementRange en la consola para verificar
-        Debug.Log("startTile: " + startTile);
-        Debug.Log("maxMovementRange: " + maxMovementRange);
-    }
-
-    public void MoverPersonajeA(Vector3 nuevaPosicion)
-    {
-        if (personajeActual != null)
-        {
-            // Mover el personaje a la nueva posición
-            personajeActual.transform.position = nuevaPosicion;
-
-            // Opcional: Desactivar las casillas iluminadas después de mover
-            DesactivarCasillasIluminadas();
-            botonMoverPersonaje1.gameObject.SetActive(false);
-        }
-    }
-
-    private void DesactivarCasillasIluminadas()
-    {
-        // Encuentra todos los objetos instanciados de casillas iluminadas y destrúyelos
-        GameObject[] casillas = GameObject.FindGameObjectsWithTag("Iluminada");
-        foreach (GameObject casilla in casillas)
-        {
-            // Destruye cada objeto casilla iluminada
-            Destroy(casilla);
-        }
     }
 }
