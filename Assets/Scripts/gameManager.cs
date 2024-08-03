@@ -15,7 +15,7 @@ public class gameManager : MonoBehaviour
     public GameObject casillaIluminadaPrefab;
     private Vector2Int startTile;
     private int maxMovementRange;
-    float tileSize = 1.0f;
+    //float tileSize = 1.0f;
 
     void Start()
     {
@@ -83,7 +83,7 @@ public class gameManager : MonoBehaviour
             GameObject casilla = Instantiate(casillaIluminadaPrefab, worldPosition, Quaternion.identity);
             casilla.tag = "Iluminada";
             Vector3Int gridPosition = new Vector3Int(tile.x, tile.y, 0);
-            Debug.Log("Reachable tiles count: " + reachableTiles.Count);
+            //Debug.Log("Reachable tiles count: " + reachableTiles.Count);
 
             //mostrar los tiles del otro tilemap
 
@@ -123,20 +123,61 @@ public class gameManager : MonoBehaviour
         }
     }
     // Función para verificar si una tile es accesible
-    bool IsTileAccessible(Vector2Int tile)
+   bool IsTileAccessible(Vector2Int tile)
     {
-        // Aquí puedes definir la lógica para determinar si una tile es accesible
-        // Por ejemplo, podrías comparar con una lista de tiles no accesibles
+        // Lista de coordenadas de tiles individuales no accesibles (ej. red)
         List<Vector2Int> nonAccessibleTiles = new List<Vector2Int>
-    {
-        new Vector2Int(-17, -7),
-        new Vector2Int(19, -7),
+        {
+        //Limite de red
+        new Vector2Int(1, -5), new Vector2Int(1, -7), new Vector2Int(1, -6),
+        new Vector2Int(1, -5), new Vector2Int(1, -4), new Vector2Int(0, -3),
+        new Vector2Int(0, -2), new Vector2Int(0, -1), new Vector2Int(-1, -1),
+        new Vector2Int(-1, 0), new Vector2Int(-1, 1), new Vector2Int(-1, 2),
+        new Vector2Int(-2, 2),
+        //Limite superior
+        new Vector2Int(-15, 1), new Vector2Int(-14, 1), new Vector2Int(-13, 1),
+        new Vector2Int(-12, 1), new Vector2Int(-11, 1), new Vector2Int(-10, 1),
+        new Vector2Int(-9, 1), new Vector2Int(-8, 1), new Vector2Int(-7, 1),
+        new Vector2Int(-6, 1), new Vector2Int(-5, 1), new Vector2Int(-4, 1),
+        new Vector2Int(-3, 1), new Vector2Int(-2, 1), new Vector2Int(-1, 1),
+        new Vector2Int(0, 1), new Vector2Int(1, 1), new Vector2Int(2, 1),
+        new Vector2Int(3, 1), new Vector2Int(4, 1), new Vector2Int(5, 1),
+        new Vector2Int(6, 1), new Vector2Int(7, 1), new Vector2Int(8, 1),
+        new Vector2Int(9, 1), new Vector2Int(10, 1), new Vector2Int(11, 1),
+        new Vector2Int(12, 1), new Vector2Int(13, 1),
+        //Limite izquierdo
+        new Vector2Int(-17, -7), new Vector2Int(-17, -6), new Vector2Int(-17, -5),
+        new Vector2Int(-16, -4),new Vector2Int(-16, -3), new Vector2Int(-15, -2),
+        new Vector2Int(-15, -1),new Vector2Int(-15, 0), new Vector2Int(-14, 1),
+        //Limite Derecho
+        new Vector2Int(19, -7), new Vector2Int(19, -6), new Vector2Int(18, -5),
+        new Vector2Int(17, -4),new Vector2Int(16, -3),new Vector2Int(16, -2),
+        new Vector2Int(15, -1),new Vector2Int(14, 0),new Vector2Int(13, 1),
+            // Agrega más coordenadas específicas no accesibles aquí
+        };
 
-        // Agrega más coordenadas no accesibles aquí
-    };
+        // Verificar si el tile está en la lista de tiles individuales no accesibles
+        if (nonAccessibleTiles.Contains(tile))
+        {
+            return false; // No accesible
+        }
 
-        return !nonAccessibleTiles.Contains(tile);
+        // Definir las coordenadas del área no accesible (ej. bordes de la cancha)
+        Vector2Int topLeftInferior = new Vector2Int(-17, -8);
+        Vector2Int bottomRightInferior = new Vector2Int(19, -9);
+        Vector2Int topLeftSuperior = new Vector2Int(-13, 4);
+        Vector2Int bottomRightSuperior = new Vector2Int(-13, 5);
+
+
+        // Comprobar si el tile está dentro de los límites del área no accesible
+        if (tile.x >= topLeftInferior.x && tile.x <= bottomRightInferior.x && tile.y >= bottomRightInferior.y && tile.y <= topLeftInferior.y)
+        {
+            return false; // No accesible
+        }
+
+        return true; // Accesible
     }
+    
     // Función para obtener los tiles alcanzables dentro de un rango específico desde un tile inicial
     List<Vector2Int> GetReachableTiles(Vector2Int startTile, int maxMovementRange)
     {
