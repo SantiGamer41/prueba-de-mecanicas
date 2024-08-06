@@ -583,8 +583,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -305.8, y: -185.3}
-  m_SizeDelta: {x: 115.245605, y: 40.748474}
+  m_AnchoredPosition: {x: -246.89, y: -145.2}
+  m_SizeDelta: {x: 78.51047, y: 25.415512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322083826
 MonoBehaviour:
@@ -810,7 +810,7 @@ PrefabInstance:
     - target: {fileID: 7149067201123429327, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.500784
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 7149067201123429327, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -43334,6 +43334,7 @@ MonoBehaviour:
   - {fileID: 831166051}
   botonMoverPersonaje1: {fileID: 322083826}
   casillaIluminadaPrefab: {fileID: 1011711765}
+  animator: {fileID: 1311079939}
 --- !u!4 &1413959868
 Transform:
   m_ObjectHideFlags: 0
@@ -43615,7 +43616,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 31
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6

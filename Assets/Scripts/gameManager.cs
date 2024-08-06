@@ -14,28 +14,41 @@ public class gameManager : MonoBehaviour
     public GameObject casillaIluminadaPrefab;
     private Vector2Int startTile;
     private int maxMovementRange;
+    private bool IsMoving;
+    public Animator animator;
+    private Vector2Int[] posicionesIniciales = new Vector2Int[]
+  {
+        new Vector2Int(-18, -6), 
+        new Vector2Int(-11, -1),
+        new Vector2Int(-5, -1),
+        new Vector2Int(-5, -6),
+        new Vector2Int(-2, -3)
+  };
+
 
     // Diccionario para almacenar las casillas por su posición
     private Dictionary<Vector2Int, GameObject> casillasPorPosicion = new Dictionary<Vector2Int, GameObject>();
 
     void Start()
     {
+        IsMoving = false;
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         botonMoverPersonaje1.gameObject.SetActive(false);
         maxMovementRange = 2; // Ejemplo de rango máximo de movimiento
+        InstanciarPersonajesEnPosicionesIniciales();
     }
 
     private void InstanciarCasillas()
     {
         for (int x = -17; x <= 19; x++)
         {
-            for (int y = -9; y <= 4; y++)
+            for (int y = -9; y <= 1; y++)
             {
                 Vector3 worldPosition = new Vector3(x + 0.5f, y + 0.5f, 0f);
                 GameObject casilla = Instantiate(casillaIluminadaPrefab, worldPosition, Quaternion.identity);
                 casilla.tag = "Iluminada";
-                casilla.SetActive(false); // Ocultar la casilla al inicio
+                casilla.SetActive(true); // Ocultar la casilla al inicio
 
                 // Almacenar la casilla en el diccionario
                 Vector2Int tilePosition = new Vector2Int(x, y);
@@ -44,17 +57,26 @@ public class gameManager : MonoBehaviour
         }
     }
 
+
+    private void InstanciarPersonajesEnPosicionesIniciales()
+    {
+        for (int i = 0; i < personajes.Length && i < posicionesIniciales.Length; i++)
+        {
+            Vector3 worldPosition = new Vector3(posicionesIniciales[i].x + 0.5f , posicionesIniciales[i].y, 0f);
+            personajes[i].transform.position = worldPosition;
+            //Debug.Log("Se instanciaron en" + worldPosition);
+        }
+    }
+
+
     public void SeleccionarPersonaje(int indice)
     {
         if (indice >= 0 && indice < personajes.Length)
         {
             personajeActual = personajes[indice];
             ObtenerUbicacionDelPersonaje();
+            animator = personajeActual.GetComponentInChildren<Animator>();
         }
-    }
-
-    void Update()
-    {
     }
 
     public void ActivarBotonMoverPersonaje()
@@ -99,10 +121,30 @@ public class gameManager : MonoBehaviour
     {
         if (personajeActual != null)
         {
+            StartCoroutine(MovimientoPersonaje(personajeActual.transform.position, nuevaPosicion));
             personajeActual.transform.position = nuevaPosicion;
             DesactivarCasillasIluminadas();
             botonMoverPersonaje1.gameObject.SetActive(false);
         }
+    }
+    private IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end)
+    {
+        float duration = 2.0f; // Duración de la animación
+        float elapsedTime = 0;
+        IsMoving = true;
+        Vector3 startPosition = new Vector3(start.x + 0.5f, start.y + 0.5f, start.z); // Ajustar la posición inicial
+        Vector3 endPosition = new Vector3(end.x + 0.5f, end.y + 0.5f, end.z); // Ajustar la posición final
+        while (elapsedTime < duration)
+        {
+            animator.SetBool("IsMoving", true);
+            personajeActual.transform.position = Vector3.Lerp(start, end, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        IsMoving = false;
+        Debug.Log(start);
+        Debug.Log(end);
+        animator.SetBool("IsMoving", false);
     }
 
     private void DesactivarCasillasIluminadas()
