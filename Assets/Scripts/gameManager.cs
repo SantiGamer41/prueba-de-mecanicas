@@ -132,18 +132,25 @@ public class gameManager : MonoBehaviour
         float duration = 2.0f; // Duración de la animación
         float elapsedTime = 0;
         IsMoving = true;
-        Vector3 startPosition = new Vector3(start.x + 0.5f, start.y + 0.5f, start.z); // Ajustar la posición inicial
-        Vector3 endPosition = new Vector3(end.x + 0.5f, end.y + 0.5f, end.z); // Ajustar la posición final
+
+        // Ajusta la posición inicial al centro de la casilla
+        Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
+        Vector3 endPosition = new Vector3(end.x, end.y -0.5f, end.z); // end ya está ajustado en MoverPersonajeA
+
+        // Imprime las posiciones ajustadas
+        Debug.Log("Start (ajustado): " + startPosition);
+        Debug.Log("End (ajustado): " + endPosition);
+
         while (elapsedTime < duration)
         {
             animator.SetBool("IsMoving", true);
-            personajeActual.transform.position = Vector3.Lerp(start, end, elapsedTime / duration);
+            personajeActual.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
+        personajeActual.transform.position = endPosition; // Asegurar que el personaje termine exactamente en la posición final
         IsMoving = false;
-        Debug.Log(start);
-        Debug.Log(end);
         animator.SetBool("IsMoving", false);
     }
 
