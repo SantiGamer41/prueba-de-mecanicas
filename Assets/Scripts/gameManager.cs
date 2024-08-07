@@ -11,10 +11,12 @@ public class gameManager : MonoBehaviour
     public GameObject[] personajes; // Array de personajes
     private GameObject personajeActual; // Personaje actualmente seleccionado
     public Button botonMoverPersonaje1; // Referencia al botón en Unity
+    public Button botonSacar;
     public GameObject casillaIluminadaPrefab;
     private Vector2Int startTile;
     private int maxMovementRange;
     private bool IsMoving;
+    private bool IsServing;
     public Animator animator;
     private Vector2Int[] posicionesIniciales = new Vector2Int[]
   {
@@ -35,6 +37,7 @@ public class gameManager : MonoBehaviour
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         botonMoverPersonaje1.gameObject.SetActive(false);
+        botonSacar.gameObject.SetActive(false);
         maxMovementRange = 2; // Ejemplo de rango máximo de movimiento
         InstanciarPersonajesEnPosicionesIniciales();
     }
