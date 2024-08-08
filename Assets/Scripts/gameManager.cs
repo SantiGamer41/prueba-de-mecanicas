@@ -87,6 +87,10 @@ public class gameManager : MonoBehaviour
         botonMoverPersonaje1.gameObject.SetActive(true);
     }
 
+    public void ActivarBotonSacar()
+    {
+        botonSacar.gameObject.SetActive(true);
+    }
     public void ObtenerUbicacionDelPersonaje()
     {
         if (personajeActual != null)

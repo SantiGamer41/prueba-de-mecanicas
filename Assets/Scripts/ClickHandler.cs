@@ -5,13 +5,39 @@ using UnityEngine;
 public class ClickHandler : MonoBehaviour
 {
     public gameManager GameManager; // Referencia al GameManager
-     public int personajeIndice;
+    public int personajeIndice;
 
     private void OnMouseDown()
     {
+
         // Llamar al método para activar el botón en el GameManager
         GameManager.SeleccionarPersonaje(personajeIndice);
-        GameManager.ActivarBotonMoverPersonaje();
+        switch (personajeIndice)
+        {
+            case 4:
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
+                break;
+            case 3:
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
+                break;
+            case 2:
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
+                break;
+            case 1:
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
+                break;
+            case 0:
+                GameManager.botonMoverPersonaje1.gameObject.SetActive(false);
+                GameManager.ActivarBotonSacar();
+                break;
+        
+       
+        }
+
     }
     // Start is called before the first frame update
     void Start()
