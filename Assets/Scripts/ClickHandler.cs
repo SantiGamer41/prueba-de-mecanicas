@@ -12,6 +12,7 @@ public class ClickHandler : MonoBehaviour
 
         // Llamar al método para activar el botón en el GameManager
         GameManager.SeleccionarPersonaje(personajeIndice);
+        //If (situacion de remate)
         switch (personajeIndice)
         {
             case 4:

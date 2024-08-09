@@ -15,7 +15,6 @@ public class gameManager : MonoBehaviour
     public GameObject casillaIluminadaPrefab;
     private Vector2Int startTile;
     private int maxMovementRange;
-    private bool IsMoving;
     private bool IsServing;
     public Animator animator;
     private Vector2Int[] posicionesIniciales = new Vector2Int[]
@@ -33,7 +32,7 @@ public class gameManager : MonoBehaviour
 
     void Start()
     {
-        IsMoving = false;
+        
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         botonMoverPersonaje1.gameObject.SetActive(false);
@@ -138,7 +137,6 @@ public class gameManager : MonoBehaviour
     {
         float duration = 2.0f; // Duración de la animación
         float elapsedTime = 0;
-        IsMoving = true;
 
         // Ajusta la posición inicial al centro de la casilla
         Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
@@ -157,7 +155,6 @@ public class gameManager : MonoBehaviour
         }
 
         personajeActual.transform.position = endPosition; // Asegurar que el personaje termine exactamente en la posición final
-        IsMoving = false;
         animator.SetBool("IsMoving", false);
     }
 

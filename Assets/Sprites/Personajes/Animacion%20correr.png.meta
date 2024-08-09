@@ -1,20 +1,19 @@
 fileFormatVersion: 2
-guid: d0e45e6b97a0452488690ba6df6f808b
+guid: 3fd6fa597b51d4b49a550f13f8bce155
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Animacion%20Remate_0
-    21300002: Animacion%20Remate_1
-    21300004: Animacion%20Remate_2
-    21300006: Animacion%20Remate_3
-    21300008: Animacion%20Remate_4
-    21300010: Animacion%20Remate_5
-    21300012: Animacion%20Remate_6
-    21300014: Animacion%20Remate_7
-    21300016: Animacion%20Remate_8
-    21300018: Animacion%20Remate_9
-    21300020: Animacion%20Remate_10
-    21300022: Animacion%20Remate_11
-    21300024: Animacion%20Remate_12
+    21300000: Animacion%20correr_0
+    21300002: Animacion%20correr_1
+    21300004: Animacion%20correr_2
+    21300006: Animacion%20correr_3
+    21300008: Animacion%20correr_4
+    21300010: Animacion%20correr_5
+    21300012: Animacion%20correr_6
+    21300014: Animacion%20correr_7
+    21300016: Animacion%20correr_8
+    21300018: Animacion%20correr_9
+    21300020: Animacion%20correr_10
+    21300022: Animacion%20correr_11
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -86,261 +85,241 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Animacion%20Remate_0
+      name: Animacion%20correr_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 150
-        width: 27
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e32c22d76986b2428b5ef0195d03983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Remate_1
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 150
-        width: 25
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2131f78ae28c38d408cde0128bc5fe85
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Remate_2
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 151
-        width: 27
+        x: 9
+        y: 100
+        width: 22
         height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a171c72134f97d444b0f5d6cab794af1
+      spriteID: 1e06137521cdaec40964def9c04716a6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion%20Remate_3
+      name: Animacion%20correr_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 100
+        width: 23
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e2847786392d1e4bb5a1b1aaa24b349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20correr_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 100
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3df1dd7f7c9f04489493fbc4e156e10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20correr_3
       rect:
         serializedVersion: 2
         x: 106
-        y: 153
-        width: 29
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20eb988263c83924496d79948ca91d04
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Remate_4
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 108
-        width: 29
-        height: 41
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9f342caec9f8efd43ba3c9f313b8df19
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Remate_5
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 111
+        y: 100
         width: 27
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c68e9203762779742a537176b9819fd2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Remate_6
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 109
-        width: 25
         height: 42
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eaaef505de1d02d44b71cde08b99896d
+      spriteID: 9343749cb54af5e4cb05b5eacb33b023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion%20Remate_7
+      name: Animacion%20correr_4
       rect:
         serializedVersion: 2
-        x: 103
-        y: 109
-        width: 29
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db9625f3d9db2434bb5ba5817fe77634
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Remate_8
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 59
-        width: 30
-        height: 41
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 339660ffb1ba4d9478a97c90caa11282
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Remate_9
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 57
-        width: 33
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74a14f920e6347c4e835e83a61fa0536
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Remate_10
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 53
+        x: 3
+        y: 52
         width: 28
-        height: 42
+        height: 41
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3645545be5b175146ab60b89dcab3d36
+      spriteID: 6477c715e0234334e9279f34435918fb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion%20Remate_11
+      name: Animacion%20correr_5
       rect:
         serializedVersion: 2
-        x: 102
+        x: 38
         y: 51
-        width: 29
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aff663a4dc86a4b46ad674d4dda40a25
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Remate_12
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 0
         width: 27
         height: 43
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fd88380ce8c12a4ea042fb4b5a0275d
+      spriteID: 45bd8bd45a277ef48823f9e9c6c87843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20correr_6
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 50
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251f689f0dff3d5438fced463900d015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20correr_7
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 50
+        width: 19
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7855d2b735424294fa82cc022be5cc0e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20correr_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 17
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 766db0330853bf74abfcb57747c31723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20correr_9
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 18
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0104794edeb385d4ca7afaf2c109a67a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20correr_10
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07e38102f24342249b8e586c359cca14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20correr_11
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 20
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7bac43d16abb7a4aa46e151fb3c0039
       vertices: []
       indices: 
       edges: []
@@ -348,7 +327,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8ae974d57e5a75e47bbe65f675b16535
+    spriteID: 305dc5edf7ef50b41bbaa703c7b4917c
     vertices: []
     indices: 
     edges: []
