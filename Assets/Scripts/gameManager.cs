@@ -9,7 +9,6 @@ public enum estado
 Saque,
 Ataque,
 Defensa,
-
 }
 public class gameManager : MonoBehaviour
 {
@@ -25,11 +24,11 @@ public class gameManager : MonoBehaviour
     private int maxMovementRange;
     private float ballPickupRange = 4.0f;
     private bool IsServing;
-     private bool isMovingMode = false; 
+    private bool isMovingMode = false;
     public Animator animator;
     private Vector2Int[] posicionesIniciales = new Vector2Int[]
   {
-        new Vector2Int(-18, -6), 
+        new Vector2Int(-18, -6),
         new Vector2Int(-11, -1),
         new Vector2Int(-5, -1),
         new Vector2Int(-5, -6),
@@ -50,7 +49,21 @@ public class gameManager : MonoBehaviour
         maxMovementRange = 2; // Ejemplo de rango máximo de movimiento
         InstanciarPersonajesEnPosicionesIniciales();
     }
-
+    void RecibirPelota()
+    {
+        List<Vector2Int> reachableTiles = GetReachableTiles(startTile, maxMovementRange);
+        Vector2Int ballPosition = GetGridPosition(ball.transform.position);
+        if (estado == estado.Ataque)
+        {
+        for(int i = 0; i<=4; i++)
+            {
+                if(reachableTiles.Contains(ballPosition))
+                {
+                    
+                }
+            }
+        }
+    }
     private void InstanciarCasillas()
     {
         for (int x = -17; x <= 19; x++)
