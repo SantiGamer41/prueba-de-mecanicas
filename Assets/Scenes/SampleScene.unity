@@ -20901,7 +20901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad68173d73911534bb068450833036e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  estado: 0
+  estado: 2
   personajes:
   - {fileID: 558735169}
   - {fileID: 2115225200}

@@ -13,7 +13,7 @@ public class ClickHandler : MonoBehaviour
         // Llamar al método para activar el botón en el GameManager
         GameManager.SeleccionarPersonaje(personajeIndice);
         //If (situacion de remate)
-        if (GameManager.estado == estado.Saque)
+        if (GameManager.estado == estado.SaqueP1)
         {
         switch (personajeIndice)
         {
@@ -41,7 +41,7 @@ public class ClickHandler : MonoBehaviour
        
         }
         }
-        else if (GameManager.estado == estado.Ataque)
+        else if (GameManager.estado == estado.AtaqueP1DefensaP2)
         {
             switch (personajeIndice)
             {

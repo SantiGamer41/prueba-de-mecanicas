@@ -6,9 +6,10 @@ using UnityEngine.Tilemaps;
 
 public enum estado
 {
-Saque,
-Ataque,
-Defensa,
+SaqueP1,
+SaqueP2,
+AtaqueP1DefensaP2,
+AtaqueP2DefensaP1,
 }
 public class gameManager : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class gameManager : MonoBehaviour
 
     void Start()
     {
-        estado = estado.Saque;
+        estado = estado.SaqueP1;
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         botonMoverPersonaje1.gameObject.SetActive(false);
@@ -53,18 +54,26 @@ public class gameManager : MonoBehaviour
     {
         List<Vector2Int> reachableTiles = GetReachableTiles(startTile, maxMovementRange);
         Vector2Int ballPosition = GetGridPosition(ball.transform.position);
-        if (estado == estado.Ataque)
+    
+        if (estado == estado.AtaqueP1DefensaP2)
         {
-        for(int i = 0; i<=4; i++)
+            foreach (var personaje in personajes)
             {
-                if(reachableTiles.Contains(ballPosition))
+                Vector2Int personajePosition = GetGridPosition(personaje.transform.position);
+                float distance = Vector2Int.Distance(personajePosition, ballPosition);
+                Debug.Log(personajePosition);
+    
+                if (distance <= ballPickupRange)
                 {
+                    
+                    ball.transform.SetParent(personaje.transform);
+                    ball.transform.localPosition = new Vector3(7, 12, 0);
                     
                 }
             }
         }
     }
-    private void InstanciarCasillas()
+        private void InstanciarCasillas()
     {
         for (int x = -17; x <= 19; x++)
         {
@@ -127,8 +136,10 @@ public class gameManager : MonoBehaviour
 
             if (distance <= ballPickupRange)
             {
+                animator.SetBool("IsRecieving", true);
                 ball.transform.SetParent(personajeActual.transform);
                 ball.transform.localPosition = new Vector3(7,12,0);
+                animator.SetBool("IsRecieving", false);
             }
         }
     }
