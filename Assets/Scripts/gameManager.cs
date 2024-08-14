@@ -129,6 +129,7 @@ public class gameManager : MonoBehaviour
     {
         if (personajeActual != null && ball != null)
         {
+            
             Vector2Int ballPosition = GetGridPosition(ball.transform.position);
             Vector2Int personajePosition = GetGridPosition(personajeActual.transform.position);
 
@@ -136,10 +137,11 @@ public class gameManager : MonoBehaviour
 
             if (distance <= ballPickupRange)
             {
-                animator.SetBool("IsRecieving", true);
+                
+                animator.SetTrigger("recieve");
                 ball.transform.SetParent(personajeActual.transform);
                 ball.transform.localPosition = new Vector3(7,12,0);
-                animator.SetBool("IsRecieving", false);
+                //animator.SetBool("IsRecieving", false);
             }
         }
     }
@@ -184,7 +186,6 @@ public class gameManager : MonoBehaviour
         if (personajeActual != null && isMovingMode)
         {
             StartCoroutine(MovimientoPersonaje(personajeActual.transform.position, nuevaPosicion));
-            personajeActual.transform.position = nuevaPosicion;
             DesactivarCasillasIluminadas();
             botonMoverPersonaje1.gameObject.SetActive(false);
             isMovingMode = false;
@@ -200,14 +201,14 @@ public class gameManager : MonoBehaviour
     */
 
      public void Sacar()
-{
-    // Primero mostramos las casillas del lado contrario
-    MostrarLadoContrario();
+     {
+      //Primero mostramos las casillas del lado contrario
+      MostrarLadoContrario();
 
-    // Activamos el sistema de selección de casillas
-    StartCoroutine(SeleccionDeSaque(ball.transform.position));
+      //Activamos el sistema de selección de casillas
+      StartCoroutine(SeleccionDeSaque(ball.transform.position));
     
-}
+     }
 
 
 
