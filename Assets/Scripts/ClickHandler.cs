@@ -17,7 +17,27 @@ public class ClickHandler : MonoBehaviour
         {
         switch (personajeIndice)
         {
-            case 4:
+                case 9:
+                    GameManager.botonSacar.gameObject.SetActive(false);
+                    GameManager.ActivarBotonMoverPersonaje();
+                    break;
+                case 8:
+                    GameManager.botonSacar.gameObject.SetActive(false);
+                    GameManager.ActivarBotonMoverPersonaje();
+                    break;
+                case 7:
+                    GameManager.botonSacar.gameObject.SetActive(false);
+                    GameManager.ActivarBotonMoverPersonaje();
+                    break;
+                case 6:
+                    GameManager.botonSacar.gameObject.SetActive(false);
+                    GameManager.ActivarBotonMoverPersonaje();
+                    break;
+                case 5:
+                    GameManager.botonSacar.gameObject.SetActive(false);
+                    GameManager.ActivarBotonMoverPersonaje();
+                    break;
+                case 4:
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
                 break;

@@ -33,7 +33,13 @@ public class gameManager : MonoBehaviour
         new Vector2Int(-11, -1),
         new Vector2Int(-5, -1),
         new Vector2Int(-5, -6),
-        new Vector2Int(-2, -3)
+        new Vector2Int(-2, -3),
+        new Vector2Int(13, -5),
+        new Vector2Int(12, -1),
+        new Vector2Int(8, -6),
+        new Vector2Int(5, -1),
+        new Vector2Int(3, -4)
+
   };
 
 
@@ -67,6 +73,7 @@ public class gameManager : MonoBehaviour
                 {
                     
                     ball.transform.SetParent(personaje.transform);
+                    if (personajeActual)
                     ball.transform.localPosition = new Vector3(7, 12, 0);
                     
                 }
