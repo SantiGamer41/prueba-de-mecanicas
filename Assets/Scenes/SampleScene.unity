@@ -522,7 +522,7 @@ GameObject:
   - component: {fileID: 322083827}
   - component: {fileID: 322083826}
   m_Layer: 5
-  m_Name: Btn Mover Personaje1
+  m_Name: Btn Mover Personaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21305,10 +21305,11 @@ MonoBehaviour:
   - {fileID: 621050157}
   - {fileID: 1750846197}
   - {fileID: 132511775}
+  personajeActual: {fileID: 0}
   ball: {fileID: 1598535763}
-  botonMoverPersonaje1: {fileID: 322083826}
-  botonSacar: {fileID: 1217195555}
   casillaIluminadaPrefab: {fileID: 1011711765}
+  botonMoverPersonaje: {fileID: 322083826}
+  botonSacar: {fileID: 1217195555}
   animator: {fileID: 1311079939}
 --- !u!4 &1413959868
 Transform:

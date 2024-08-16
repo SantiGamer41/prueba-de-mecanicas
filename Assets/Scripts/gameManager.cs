@@ -15,17 +15,25 @@ public class gameManager : MonoBehaviour
 {
 
     public estado estado;
+    [Header("Personajes")]
     public GameObject[] personajes; // Array de personajes
-    private GameObject personajeActual; // Personaje actualmente seleccionado
+    [Space(25)]
+    [HideInInspector]
+    public GameObject personajeActual; // Personaje actualmente seleccionado
+    [Header("Objetos")]
     public GameObject ball; //Pelota
-    public Button botonMoverPersonaje1; // Referencia al botón en Unity
-    public Button botonSacar;
     public GameObject casillaIluminadaPrefab;
-    private Vector2Int startTile;
     private int maxMovementRange;
     private float ballPickupRange = 4.0f;
     private bool IsServing;
-    private bool isMovingMode = false;
+    [Space(25)]
+    private bool isMovingMode = false; 
+    [Header("Botónes")]
+    public Button botonMoverPersonaje; // Referencia al botón en Unity
+    public Button botonSacar;
+    [Space(25)]
+    private Vector2Int startTile;
+    [Header("Animator")]
     public Animator animator;
     private Vector2Int[] posicionesIniciales = new Vector2Int[]
   {
@@ -51,10 +59,14 @@ public class gameManager : MonoBehaviour
         estado = estado.SaqueP1;
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
-        botonMoverPersonaje1.gameObject.SetActive(false);
+        botonMoverPersonaje.gameObject.SetActive(false);
         botonSacar.gameObject.SetActive(false);
         maxMovementRange = 2; // Ejemplo de rango máximo de movimiento
         InstanciarPersonajesEnPosicionesIniciales();
+    }
+    public void OnEstadoChange()
+    {
+
     }
     void RecibirPelota()
     {
@@ -123,18 +135,18 @@ public class gameManager : MonoBehaviour
             if (ball.transform.parent == personajeActual.transform)
             {
                 botonSacar.gameObject.SetActive(true);
-                botonMoverPersonaje1.gameObject.SetActive(false);
+                botonMoverPersonaje.gameObject.SetActive(false);
             }
             else
             {
                 botonSacar.gameObject.SetActive(false);
-                botonMoverPersonaje1.gameObject.SetActive(true);
+                botonMoverPersonaje.gameObject.SetActive(true);
             }
         }
     }
      private void IntentarRecogerPelota()
     {
-        if (personajeActual != null && ball != null)
+        if (personajeActual != null && ball != null && ball.transform.parent == null)
         {
             
             Vector2Int ballPosition = GetGridPosition(ball.transform.position);
@@ -145,9 +157,17 @@ public class gameManager : MonoBehaviour
             if (distance <= ballPickupRange)
             {
                 
-                animator.SetTrigger("recieve");
+                animator.SetTrigger("receive");
                 ball.transform.SetParent(personajeActual.transform);
-                ball.transform.localPosition = new Vector3(7,12,0);
+                if (ballPosition.x < 1)
+                {
+                    ball.transform.localPosition = new Vector3(7, 12, 0);
+                }
+                else
+                {
+                    ball.transform.localPosition = new Vector3(-7, 12, 0);
+                }
+                
                 //animator.SetBool("IsRecieving", false);
             }
         }
@@ -155,7 +175,7 @@ public class gameManager : MonoBehaviour
 
     public void ActivarBotonMoverPersonaje()
     {
-        botonMoverPersonaje1.gameObject.SetActive(true);
+        botonMoverPersonaje.gameObject.SetActive(true);
     }
 
     public void ActivarBotonSacar()
@@ -194,7 +214,7 @@ public class gameManager : MonoBehaviour
         {
             StartCoroutine(MovimientoPersonaje(personajeActual.transform.position, nuevaPosicion));
             DesactivarCasillasIluminadas();
-            botonMoverPersonaje1.gameObject.SetActive(false);
+            botonMoverPersonaje.gameObject.SetActive(false);
             isMovingMode = false;
         }
     }
@@ -302,6 +322,15 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
 
     // Asegura que la pelota termine exactamente en la posición final
     ball.transform.position = endPosition;
+    if (endPosition.x > 1 )
+    {
+        estado = estado.AtaqueP1DefensaP2;
+
+    }
+    else
+    {
+        estado = estado.AtaqueP2DefensaP1;
+    }
     
 }
     //}
@@ -339,7 +368,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
 */
 
     
-    private IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end)
+    public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end)
     {
         float duration = 1.0f; // Duración de la animación
         float elapsedTime = 0;
