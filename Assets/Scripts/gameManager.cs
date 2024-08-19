@@ -96,7 +96,7 @@ public class gameManager : MonoBehaviour
     {
         for (int x = -17; x <= 19; x++)
         {
-            for (int y = -7; y <= 0; y++)
+            for (int y = -7; y <= 1; y++)
             {
                 Vector3 worldPosition = new Vector3(x + 0.5f, y + 0.5f, 0f);
                 GameObject casilla = Instantiate(casillaIluminadaPrefab, worldPosition, Quaternion.identity);
