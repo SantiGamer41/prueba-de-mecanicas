@@ -1,15 +1,27 @@
 fileFormatVersion: 2
 guid: 5e9d872eb1d35c1429119df61e0ef993
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Animacion%20idle_0
-    21300002: Animacion%20idle_1
-    21300004: Animacion%20idle_2
-    21300006: Animacion%20idle_3
-    21300008: Animacion%20idle_4
-    21300010: Animacion%20idle_5
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Animacion%20idle_0
+  - first:
+      213: 21300002
+    second: Animacion%20idle_1
+  - first:
+      213: 21300004
+    second: Animacion%20idle_2
+  - first:
+      213: 21300006
+    second: Animacion%20idle_3
+  - first:
+      213: 21300008
+    second: Animacion%20idle_4
+  - first:
+      213: 21300010
+    second: Animacion%20idle_5
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -29,6 +41,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -38,8 +51,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -60,11 +73,16 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -75,6 +93,31 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -94,6 +137,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 269e44bfac0d16c4d8aa8db7b1989722
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -114,6 +158,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 995a8cca6c2bdc04096b33320c55a267
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -134,6 +179,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ae1f2fe989e036d4eb9073704151ddf4
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -154,6 +200,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bca9f935ace99964790475c459199f2f
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -174,6 +221,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d33d811a29efdf347b692d1734dcb534
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -194,6 +242,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bb2d1069e8960434fba3549313c3dd4f
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -202,10 +251,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 41827c86d561fe04aac2cf836fb404a4
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

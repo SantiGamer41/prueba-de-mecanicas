@@ -70,26 +70,17 @@ public class gameManager : MonoBehaviour
     }
     void RecibirPelota()
     {
-        List<Vector2Int> reachableTiles = GetReachableTiles(startTile, maxMovementRange);
-        Vector2Int ballPosition = GetGridPosition(ball.transform.position);
-    
-        if (estado == estado.AtaqueP1DefensaP2)
+        bool enRango = false;
+        int personajeIindex = 0;
+        while(!enRango && personajeIindex <personajes.Length)
+        { 
+            
+            enRango = IntentarRecogerPelota(personajes[personajeIindex]);
+            personajeIindex++;
+        }
+        if (!enRango)
         {
-            foreach (var personaje in personajes)
-            {
-                Vector2Int personajePosition = GetGridPosition(personaje.transform.position);
-                float distance = Vector2Int.Distance(personajePosition, ballPosition);
-                Debug.Log(personajePosition);
-    
-                if (distance <= ballPickupRange)
-                {
-                    
-                    ball.transform.SetParent(personaje.transform);
-                    if (personajeActual)
-                    ball.transform.localPosition = new Vector3(7, 12, 0);
-                    
-                }
-            }
+            //punto
         }
     }
         private void InstanciarCasillas()
@@ -110,6 +101,8 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    
+
 
     private void InstanciarPersonajesEnPosicionesIniciales()
     {
@@ -129,7 +122,7 @@ public class gameManager : MonoBehaviour
             personajeActual = personajes[indice];
             ObtenerUbicacionDelPersonaje();
             animator = personajeActual.GetComponentInChildren<Animator>();
-            IntentarRecogerPelota();
+            
 
             // Mostrar botones según el estado
             if (ball.transform.parent == personajeActual.transform)
@@ -144,13 +137,13 @@ public class gameManager : MonoBehaviour
             }
         }
     }
-     private void IntentarRecogerPelota()
+     private bool IntentarRecogerPelota(GameObject personaje)
     {
         if (personajeActual != null && ball != null && ball.transform.parent == null)
         {
             
             Vector2Int ballPosition = GetGridPosition(ball.transform.position);
-            Vector2Int personajePosition = GetGridPosition(personajeActual.transform.position);
+            Vector2Int personajePosition = GetGridPosition(personaje.transform.position);
 
             float distance = Vector2Int.Distance(personajePosition, ballPosition);
 
@@ -167,10 +160,12 @@ public class gameManager : MonoBehaviour
                 {
                     ball.transform.localPosition = new Vector3(-7, 12, 0);
                 }
-                
-                //animator.SetBool("IsRecieving", false);
+
+                return true;//animator.SetBool("IsRecieving", false);
             }
+            return false;
         }
+        return false;
     }
 
     public void ActivarBotonMoverPersonaje()
@@ -322,6 +317,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
 
     // Asegura que la pelota termine exactamente en la posición final
     ball.transform.position = endPosition;
+        RecibirPelota();
     if (endPosition.x > 1 )
     {
         estado = estado.AtaqueP1DefensaP2;
