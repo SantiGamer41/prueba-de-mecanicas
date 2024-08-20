@@ -24,7 +24,7 @@ public class gameManager : MonoBehaviour
     public GameObject ball; //Pelota
     public GameObject casillaIluminadaPrefab;
     private int maxMovementRange;
-    private float ballPickupRange = 4.0f;
+    private float ballPickupRange = 2.0f;
     private bool IsServing;
     [Space(25)]
     private bool isMovingMode = false; 
@@ -77,10 +77,15 @@ public class gameManager : MonoBehaviour
             
             enRango = IntentarRecogerPelota(personajes[personajeIindex]);
             personajeIindex++;
-        }
+        }        
         if (!enRango)
         {
             //punto
+        }
+        else
+        {
+            
+
         }
     }
         private void InstanciarCasillas()
@@ -139,7 +144,7 @@ public class gameManager : MonoBehaviour
     }
      private bool IntentarRecogerPelota(GameObject personaje)
     {
-        if (personajeActual != null && ball != null && ball.transform.parent == null)
+        if (personaje != null && ball != null && ball.transform.parent == null)
         {
             
             Vector2Int ballPosition = GetGridPosition(ball.transform.position);
@@ -149,9 +154,10 @@ public class gameManager : MonoBehaviour
 
             if (distance <= ballPickupRange)
             {
-                
+
+                animator = personaje.GetComponentInChildren<Animator>();
                 animator.SetTrigger("receive");
-                ball.transform.SetParent(personajeActual.transform);
+                ball.transform.SetParent(personaje.transform);
                 if (ballPosition.x < 1)
                 {
                     ball.transform.localPosition = new Vector3(7, 12, 0);
