@@ -24,13 +24,14 @@ public class gameManager : MonoBehaviour
     public GameObject ball; //Pelota
     public GameObject casillaIluminadaPrefab;
     private int maxMovementRange;
-    private float ballPickupRange = 2.0f;
+    private float ballPickupRange = 3.0f;
     private bool IsServing;
     [Space(25)]
     private bool isMovingMode = false; 
     [Header("Botónes")]
     public Button botonMoverPersonaje; // Referencia al botón en Unity
     public Button botonSacar;
+    public Button botonDevolver;
     [Space(25)]
     private Vector2Int startTile;
     [Header("Animator")]
@@ -61,6 +62,7 @@ public class gameManager : MonoBehaviour
         DesactivarCasillasIluminadas();
         botonMoverPersonaje.gameObject.SetActive(false);
         botonSacar.gameObject.SetActive(false);
+        botonDevolver.gameObject.SetActive(false);
         maxMovementRange = 2; // Ejemplo de rango máximo de movimiento
         InstanciarPersonajesEnPosicionesIniciales();
     }
@@ -133,10 +135,12 @@ public class gameManager : MonoBehaviour
             if (ball.transform.parent == personajeActual.transform)
             {
                 botonSacar.gameObject.SetActive(true);
+                botonDevolver.gameObject.SetActive(true);
                 botonMoverPersonaje.gameObject.SetActive(false);
             }
             else
             {
+                botonDevolver.gameObject.SetActive(false);
                 botonSacar.gameObject.SetActive(false);
                 botonMoverPersonaje.gameObject.SetActive(true);
             }
@@ -208,6 +212,13 @@ public class gameManager : MonoBehaviour
         ball.transform.SetParent(null);
         Sacar();
     }
+
+    public void OnBotonDevolverClick()
+    {
+        isMovingMode = false;
+        ball.transform.SetParent(null);
+        Devolver();
+    }
     
     public void MoverPersonajeA(Vector3 nuevaPosicion)
     {
@@ -238,6 +249,11 @@ public class gameManager : MonoBehaviour
     
      }
 
+    public void Devolver()
+    {
+        MostrarLadoContrario();
+        StartCoroutine(SeleccionDeRemate(ball.transform.position));
+    }
 
 
     public void MostrarCasillasAlcanzables()
@@ -324,7 +340,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
     // Asegura que la pelota termine exactamente en la posición final
     ball.transform.position = endPosition;
         RecibirPelota();
-    if (endPosition.x > 1 )
+    if (endPosition.x < 1 )
     {
         estado = estado.AtaqueP1DefensaP2;
 
@@ -335,6 +351,56 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
     }
     
 }
+    private IEnumerator SeleccionDeRemate(Vector3 start)
+    {
+        bool casillaSeleccionada = false;
+        Vector2Int casillaObjetivo = Vector2Int.zero;
+
+        // Espera hasta que se seleccione una casilla
+        while (!casillaSeleccionada)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2Int gridPosition = GetGridPosition(mouseWorldPosition);
+
+                if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
+                {
+                    casillaObjetivo = gridPosition;
+                    casillaSeleccionada = true;
+                }
+            }
+
+            yield return null;
+        }
+
+        // Mover la pelota a la casilla seleccionada
+        float duration = 2.0f;
+        float elapsedTime = 0;
+
+        Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
+        Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
+        DesactivarCasillasIluminadas();
+        while (elapsedTime < duration)
+        {
+            ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Asegura que la pelota termine exactamente en la posición final
+        ball.transform.position = endPosition;
+        RecibirPelota();
+        if (endPosition.x < 1)
+        {
+            estado = estado.AtaqueP1DefensaP2;
+
+        }
+        else
+        {
+            estado = estado.AtaqueP2DefensaP1;
+        }
+    }
     //}
 
 
@@ -342,34 +408,34 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
     //GenerarRangoDeCaida(casillaObjetivo);
 
 
-/*private void GenerarRangoDeCaida(Vector2Int casillaObjetivo)
-{
-    // Definimos un rango alrededor de la casilla objetivo
-    int rangoCaida = 1; // Puedes ajustar este valor según tus necesidades
-
-    List<Vector2Int> posiblesCaidas = new List<Vector2Int>();
-
-    for (int x = -rangoCaida; x <= rangoCaida; x++)
+    /*private void GenerarRangoDeCaida(Vector2Int casillaObjetivo)
     {
-        for (int y = -rangoCaida; y <= rangoCaida; y++)
+        // Definimos un rango alrededor de la casilla objetivo
+        int rangoCaida = 1; // Puedes ajustar este valor según tus necesidades
+
+        List<Vector2Int> posiblesCaidas = new List<Vector2Int>();
+
+        for (int x = -rangoCaida; x <= rangoCaida; x++)
         {
-            Vector2Int posibleCaida = casillaObjetivo + new Vector2Int(x, y);
-            if (casillasPorPosicion.ContainsKey(posibleCaida))
+            for (int y = -rangoCaida; y <= rangoCaida; y++)
             {
-                posiblesCaidas.Add(posibleCaida);
+                Vector2Int posibleCaida = casillaObjetivo + new Vector2Int(x, y);
+                if (casillasPorPosicion.ContainsKey(posibleCaida))
+                {
+                    posiblesCaidas.Add(posibleCaida);
+                }
             }
         }
+
+        // Selecciona una casilla al azar dentro del rango donde caerá la pelota
+        Vector2Int casillaFinal = posiblesCaidas[Random.Range(0, posiblesCaidas.Count)];
+
+        // Mueve la pelota a la casilla seleccionada
+        MoverPelotaA(new Vector3(casillaFinal.x + 0.5f, casillaFinal.y + 0.5f, 0f));
     }
+    */
 
-    // Selecciona una casilla al azar dentro del rango donde caerá la pelota
-    Vector2Int casillaFinal = posiblesCaidas[Random.Range(0, posiblesCaidas.Count)];
 
-    // Mueve la pelota a la casilla seleccionada
-    MoverPelotaA(new Vector3(casillaFinal.x + 0.5f, casillaFinal.y + 0.5f, 0f));
-}
-*/
-
-    
     public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end)
     {
         float duration = 1.0f; // Duración de la animación

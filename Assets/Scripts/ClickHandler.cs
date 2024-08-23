@@ -19,44 +19,54 @@ public class ClickHandler : MonoBehaviour
         {
                 case 9:
                     GameManager.botonSacar.gameObject.SetActive(false);
+                    GameManager.botonDevolver.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
+
                     break;
                 case 8:
                     GameManager.botonSacar.gameObject.SetActive(false);
+                    GameManager.botonDevolver.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
                     break;
                 case 7:
                     GameManager.botonSacar.gameObject.SetActive(false);
+                    GameManager.botonDevolver.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
                     break;
                 case 6:
                     GameManager.botonSacar.gameObject.SetActive(false);
+                    GameManager.botonDevolver.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
                     break;
                 case 5:
                     GameManager.botonSacar.gameObject.SetActive(false);
+                    GameManager.botonDevolver.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
                     break;
                 //Equipo 1
                 case 4:
                 GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    GameManager.botonDevolver.gameObject.SetActive(false);
+                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                 break;
             case 3:
                 GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    GameManager.botonDevolver.gameObject.SetActive(false);
+                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                 break;
             case 2:
                 GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                 break;
             case 1:
                 GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    GameManager.botonDevolver.gameObject.SetActive(false);
+                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                 break;
             case 0:
                 GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                GameManager.ActivarBotonSacar();
+                    GameManager.botonDevolver.gameObject.SetActive(false);
+                    GameManager.ActivarBotonSacar();
                 break;
         
        
@@ -68,24 +78,24 @@ public class ClickHandler : MonoBehaviour
             {
             case 9:
                 GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
-                break;
+                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                    break;
             case 8:
                 GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
-                break;
+                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                    break;
             case 7:
                 GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
-                break;
+                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                    break;
             case 6:
                 GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
-                break;
+                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                    break;
             case 5:
                 GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
-                break;
+                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                    break;
             //Equipo 1
             case 4:
                 GameManager.botonSacar.gameObject.SetActive(false);
