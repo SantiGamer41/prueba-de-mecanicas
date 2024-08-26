@@ -144,6 +144,7 @@ public class gameManager : MonoBehaviour
                 botonSacar.gameObject.SetActive(false);
                 botonMoverPersonaje.gameObject.SetActive(true);
             }
+            
         }
     }
      private bool IntentarRecogerPelota(GameObject personaje)

@@ -272,7 +272,7 @@ PrefabInstance:
     - target: {fileID: 7149067201123429312, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: personajeIndice
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7149067201123429313, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -766,7 +766,7 @@ PrefabInstance:
     - target: {fileID: 7149067201123429312, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: personajeIndice
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7149067201123429313, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -1038,6 +1038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7149067199659091669, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149067199659091669, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
       propertyPath: m_Size.x
       value: 3.4
       objectReference: {fileID: 0}
@@ -1070,7 +1075,7 @@ PrefabInstance:
     - target: {fileID: 7149067201123429312, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: personajeIndice
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7149067201123429313, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -20835,7 +20840,7 @@ PrefabInstance:
     - target: {fileID: 7149067201123429312, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: personajeIndice
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7149067201123429313, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -21127,7 +21132,7 @@ PrefabInstance:
     - target: {fileID: 7149067201123429312, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: personajeIndice
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7149067201123429313, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -21372,7 +21377,7 @@ PrefabInstance:
     - target: {fileID: 7149067201123429312, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: personajeIndice
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7149067201123429313, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -22470,13 +22475,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   estado: 0
   personajes:
-  - {fileID: 558735169}
-  - {fileID: 2115225200}
-  - {fileID: 1050756893}
-  - {fileID: 375273556}
   - {fileID: 831166051}
-  - {fileID: 44972659}
+  - {fileID: 375273556}
+  - {fileID: 1050756893}
+  - {fileID: 2115225200}
+  - {fileID: 558735169}
   - {fileID: 1300216950}
+  - {fileID: 44972659}
   - {fileID: 621050157}
   - {fileID: 1750846197}
   - {fileID: 132511775}
