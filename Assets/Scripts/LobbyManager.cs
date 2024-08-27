@@ -21,6 +21,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public float tiempoEntreUpdate = 1.5f;
     float nextUpateTime;
 
+    public List<PlayerItem> playerItemsList = new List<PlayerItem>();
+    public PlayerItem playerItemPrefab;
+    public Transform playerItemParent;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -32,45 +36,46 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ClickCrear()
     {
-        if(roomInputField.text.Length >= 1)
+        if (roomInputField.text.Length >= 1)
         {
             PhotonNetwork.CreateRoom(roomInputField.text);
             nombreBoton.text = "Creando Sala...";
         }
-        
+
     }
     public override void OnJoinedRoom()
     {
         lobbyPanel.SetActive(false);
         roomPanel.SetActive(true);
         nombreRoom.text = "Nombre de la sala: " + PhotonNetwork.CurrentRoom.Name;
+        UpdateListaJugadores();
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        if(Time.time >= nextUpateTime)
+        if (Time.time >= nextUpateTime)
         {
             UpdateRoomList(roomList);
             nextUpateTime = Time.time + tiempoEntreUpdate;
         }
 
-        
+
     }
 
     void UpdateRoomList(List<RoomInfo> list)
     {
-        foreach(RoomItem item in roomItemsList)
+        foreach (RoomItem item in roomItemsList)
         {
             Destroy(item.gameObject);
         }
         roomItemsList.Clear();
 
-        foreach(RoomInfo room in list)
+        foreach (RoomInfo room in list)
         {
             RoomItem newRoom = Instantiate(roomItemPrefab, contentObject);
             newRoom.SetRoomName(room.Name);
@@ -97,5 +102,36 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
+    }
+
+    void UpdateListaJugadores()
+    {
+        foreach (PlayerItem item in playerItemsList)
+        {
+            Destroy(item.gameObject);
+        }
+        playerItemsList.Clear();
+
+        if (PhotonNetwork.CurrentRoom == null)
+        {
+            return;
+        }
+
+        foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
+        {
+            PlayerItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
+            playerItemsList.Add(newPlayerItem);
+        } 
+     
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        UpdateListaJugadores();
+    }
+
+    public override void OnPlayerLeftRoom(Player newPlayer)
+    {
+        UpdateListaJugadores();
     }
 }
