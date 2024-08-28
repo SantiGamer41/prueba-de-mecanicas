@@ -30,7 +30,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.JoinLobby();
 
-        audioManager.Instance.PlaySoundLobby();
+        //audioManager.Instance.PlaySoundLobby();
     }
 
     // Update is called once per frame
@@ -54,6 +54,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         roomPanel.SetActive(true);
         nombreRoom.text = "Nombre de la sala: " + PhotonNetwork.CurrentRoom.Name;
         UpdateListaJugadores();
+        nombreBoton.text = "Crear Sala";
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -120,6 +121,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
         {
             PlayerItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
+            newPlayerItem.SetPlayerInfo(player.Value);
+
+            if (player.Value == PhotonNetwork.LocalPlayer)
+            {
+                newPlayerItem.ApplyLocalChanges();
+            }
+
             playerItemsList.Add(newPlayerItem);
         } 
      

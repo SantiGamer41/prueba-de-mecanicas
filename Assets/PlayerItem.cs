@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class PlayerItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Text playerName;
+
+    Image backgroundImage;
+    public Color highlightColor;
+    public GameObject flechaDerecha;
+    public GameObject flechaIzquierda;
+
+    private void Start()
     {
-        
+        backgroundImage = GetComponent<Image>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetPlayerInfo(Player _player)
     {
-        
+        playerName.text = _player.NickName;
+    }
+
+    public void ApplyLocalChanges()
+    {
+        //backgroundImage.color = highlightColor;
+        flechaDerecha.SetActive(true);
+        flechaIzquierda.SetActive(true);
     }
 }
