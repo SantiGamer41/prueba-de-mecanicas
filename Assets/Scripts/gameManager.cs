@@ -22,6 +22,7 @@ public class gameManager : MonoBehaviour
     public GameObject personajeActual; // Personaje actualmente seleccionado
     [Header("Objetos")]
     public GameObject ball; //Pelota
+    public GameObject flecha; 
     public GameObject casillaIluminadaPrefab;
     private int maxMovementRange;
     private float ballPickupRange = 3.0f;
@@ -58,6 +59,7 @@ public class gameManager : MonoBehaviour
     void Start()
     {
         estado = estado.SaqueP1;
+        flecha.SetActive(false);
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         botonMoverPersonaje.gameObject.SetActive(false);
@@ -126,9 +128,14 @@ public class gameManager : MonoBehaviour
     {
     if (indice >= 0 && indice < personajes.Length)
         {
+            DestroyImmediate(flecha, true);
             personajeActual = personajes[indice];
             ObtenerUbicacionDelPersonaje();
             animator = personajeActual.GetComponentInChildren<Animator>();
+            Instantiate(flecha);
+            flecha.transform.SetParent(personajeActual.transform);
+            flecha.transform.localPosition = new Vector3(0.2f, 6.0f, 0);
+            flecha.SetActive(true);
             
 
             // Mostrar botones según el estado
