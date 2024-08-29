@@ -22,7 +22,6 @@ public class gameManager : MonoBehaviour
     public GameObject personajeActual; // Personaje actualmente seleccionado
     [Header("Objetos")]
     public GameObject ball; //Pelota
-    public GameObject flecha; 
     public GameObject casillaIluminadaPrefab;
     private int maxMovementRange;
     private float ballPickupRange = 3.0f;
@@ -41,8 +40,8 @@ public class gameManager : MonoBehaviour
   {
         new Vector2Int(-18, -6),
         new Vector2Int(-11, -1),
-        new Vector2Int(-5, -1),
         new Vector2Int(-5, -6),
+        new Vector2Int(-5, -1),
         new Vector2Int(-2, -3),
         new Vector2Int(13, -5),
         new Vector2Int(12, -1),
@@ -59,7 +58,6 @@ public class gameManager : MonoBehaviour
     void Start()
     {
         estado = estado.SaqueP1;
-        flecha.SetActive(false);
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         botonMoverPersonaje.gameObject.SetActive(false);
@@ -126,32 +124,62 @@ public class gameManager : MonoBehaviour
 
     public void SeleccionarPersonaje(int indice)
     {
-    if (indice >= 0 && indice < personajes.Length)
+        if (personajeActual != null)
         {
-            DestroyImmediate(flecha, true);
-            personajeActual = personajes[indice];
-            ObtenerUbicacionDelPersonaje();
-            animator = personajeActual.GetComponentInChildren<Animator>();
-            Instantiate(flecha);
-            flecha.transform.SetParent(personajeActual.transform);
-            flecha.transform.localPosition = new Vector3(0.2f, 6.0f, 0);
-            flecha.SetActive(true);
-            
 
-            // Mostrar botones según el estado
-            if (ball.transform.parent == personajeActual.transform)
+            personajeActual.transform.GetChild(1).gameObject.SetActive(false);
+            if (indice >= 0 && indice < personajes.Length)
             {
-                botonSacar.gameObject.SetActive(true);
-                botonDevolver.gameObject.SetActive(true);
-                botonMoverPersonaje.gameObject.SetActive(false);
+
+                personajeActual = personajes[indice];
+                ObtenerUbicacionDelPersonaje();
+                animator = personajeActual.GetComponentInChildren<Animator>();
+                personajeActual.transform.GetChild(1).gameObject.SetActive(true);
+
+
+                // Mostrar botones según el estado
+                if (ball.transform.parent == personajeActual.transform)
+                {
+                    botonSacar.gameObject.SetActive(true);
+                    botonDevolver.gameObject.SetActive(true);
+                    botonMoverPersonaje.gameObject.SetActive(false);
+                }
+                else
+                {
+                    botonDevolver.gameObject.SetActive(false);
+                    botonSacar.gameObject.SetActive(false);
+                    botonMoverPersonaje.gameObject.SetActive(true);
+                }
+
             }
-            else
+        }
+        else
+        {
+           
+            if (indice >= 0 && indice < personajes.Length)
             {
-                botonDevolver.gameObject.SetActive(false);
-                botonSacar.gameObject.SetActive(false);
-                botonMoverPersonaje.gameObject.SetActive(true);
+
+                personajeActual = personajes[indice];
+                ObtenerUbicacionDelPersonaje();
+                animator = personajeActual.GetComponentInChildren<Animator>();
+                personajeActual.transform.GetChild(1).gameObject.SetActive(true);
+
+
+                // Mostrar botones según el estado
+                if (ball.transform.parent == personajeActual.transform)
+                {
+                    botonSacar.gameObject.SetActive(true);
+                    botonDevolver.gameObject.SetActive(true);
+                    botonMoverPersonaje.gameObject.SetActive(false);
+                }
+                else
+                {
+                    botonDevolver.gameObject.SetActive(false);
+                    botonSacar.gameObject.SetActive(false);
+                    botonMoverPersonaje.gameObject.SetActive(true);
+                }
+
             }
-            
         }
     }
      private bool IntentarRecogerPelota(GameObject personaje)
