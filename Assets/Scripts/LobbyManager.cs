@@ -25,6 +25,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public PlayerItem playerItemPrefab;
     public Transform playerItemParent;
 
+    public GameObject playButton;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -34,16 +36,29 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 2)
+    
+        {
+            playButton.SetActive(true);
+        }
+        else
+        {
+            playButton.SetActive(false);
+        }
+    }
 
+    public void OnClickBotonJugar()
+    {
+        PhotonNetwork.LoadLevel("Juego");
     }
 
     public void ClickCrear()
     {
         if (roomInputField.text.Length >= 1)
         {
-            PhotonNetwork.CreateRoom(roomInputField.text);
+            PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions() { MaxPlayers = 2, BroadcastPropsChangeToAll = true });
             nombreBoton.text = "Creando Sala...";
         }
 
@@ -56,6 +71,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         UpdateListaJugadores();
         nombreBoton.text = "Crear Sala";
     }
+
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {

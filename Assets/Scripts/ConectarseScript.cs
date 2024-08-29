@@ -16,6 +16,7 @@ public class ConectarseScript : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.NickName = usernameInput.text;
             buttonText.text = "Conectandose...";
+            PhotonNetwork.AutomaticallySyncScene = true;
             PhotonNetwork.ConnectUsingSettings();
         }
     }
