@@ -22989,6 +22989,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   estado: 0
+  turno: 0
+  txt_Turno: {fileID: 1603881499}
   personajes:
   - {fileID: 831166051}
   - {fileID: 375273556}
@@ -23003,6 +23005,10 @@ MonoBehaviour:
   personajeActual: {fileID: 0}
   ball: {fileID: 1598535763}
   casillaIluminadaPrefab: {fileID: 1011711765}
+  botones:
+  - {fileID: 322083824}
+  - {fileID: 1217195554}
+  - {fileID: 1797640737}
   botonMoverPersonaje: {fileID: 322083826}
   botonSacar: {fileID: 1217195555}
   botonDevolver: {fileID: 1797640739}
@@ -23482,7 +23488,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10

@@ -117,7 +117,6 @@ public class ClickHandler : MonoBehaviour
             case 0:
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
-                GameManager.StartCoroutine(GameManager.MovimientoPersonaje(GameManager.personajeActual.transform.position, new Vector3(-12, -6, 0)));
                 break;
         
             }
@@ -167,7 +166,6 @@ public class ClickHandler : MonoBehaviour
                 case 0:
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
-                    GameManager.StartCoroutine(GameManager.MovimientoPersonaje(GameManager.personajeActual.transform.position, new Vector3(-12, -6, 0)));
                     break;
 
             }

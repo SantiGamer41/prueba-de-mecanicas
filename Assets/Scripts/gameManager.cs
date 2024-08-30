@@ -15,6 +15,12 @@ public class gameManager : MonoBehaviour
 {
 
     public estado estado;
+    [Space(25)]
+    [Header("UI")]
+    private estado estadoActual;
+    public int turno;
+    public Text txt_Turno;
+    [Space(25)]
     [Header("Personajes")]
     public GameObject[] personajes; // Array de personajes
     [Space(25)]
@@ -24,11 +30,12 @@ public class gameManager : MonoBehaviour
     public GameObject ball; //Pelota
     public GameObject casillaIluminadaPrefab;
     private int maxMovementRange;
-    private float ballPickupRange = 3.0f;
+    private float ballPickupRange = 2.5f;
     private bool IsServing;
     [Space(25)]
-    private bool isMovingMode = false; 
+    private bool isMovingMode = false;
     [Header("Botónes")]
+    public GameObject[] botones;
     public Button botonMoverPersonaje; // Referencia al botón en Unity
     public Button botonSacar;
     public Button botonDevolver;
@@ -58,6 +65,7 @@ public class gameManager : MonoBehaviour
     void Start()
     {
         estado = estado.SaqueP1;
+        estadoActual = estado;
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         botonMoverPersonaje.gameObject.SetActive(false);
@@ -80,9 +88,19 @@ public class gameManager : MonoBehaviour
             enRango = IntentarRecogerPelota(personajes[personajeIindex]);
             personajeIindex++;
         }        
-        if (!enRango)
+        if (enRango == false)
         {
-            //punto
+            //Sumar punto
+            if (ball.transform.position.x > 1)
+            {
+                estado = estado.SaqueP1;
+            }
+            else
+            {
+                estado = estado.SaqueP2;
+            }
+
+
         }
         else
         {
@@ -260,7 +278,7 @@ public class gameManager : MonoBehaviour
     {
         if (personajeActual != null && isMovingMode)
         {
-            StartCoroutine(MovimientoPersonaje(personajeActual.transform.position, nuevaPosicion));
+            StartCoroutine(MovimientoPersonaje(personajeActual.transform.position, nuevaPosicion, personajeActual));
             DesactivarCasillasIluminadas();
             botonMoverPersonaje.gameObject.SetActive(false);
             isMovingMode = false;
@@ -295,6 +313,7 @@ public class gameManager : MonoBehaviour
     public void MostrarCasillasAlcanzables()
     {
         DesactivarCasillasIluminadas(); // Asegurarse de ocultar todas las casillas primero
+        DeactivateAllButtons();
 
         List<Vector2Int> reachableTiles = GetReachableTiles(startTile, maxMovementRange);
 
@@ -368,6 +387,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
     DesactivarCasillasIluminadas();
     while (elapsedTime < duration)
     {
+        DeactivateAllButtons();
         ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
         elapsedTime += Time.deltaTime;
         yield return null;
@@ -383,10 +403,15 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
     }
     else
     {
-        estado = estado.AtaqueP2DefensaP1;
+      estado = estado.AtaqueP2DefensaP1;
+      StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12, -6, 0), personajes[0]));
     }
-    
-}
+    if (estadoActual != estado)
+    {
+            turno++;
+            txt_Turno.text =  turno.ToString();
+    }
+    }
     private IEnumerator SeleccionDeRemate(Vector3 start)
     {
         bool casillaSeleccionada = false;
@@ -417,8 +442,10 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
         Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
         Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
         DesactivarCasillasIluminadas();
+        DeactivateAllButtons();
         while (elapsedTime < duration)
         {
+            DeactivateAllButtons();
             ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -435,6 +462,11 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
         else
         {
             estado = estado.AtaqueP2DefensaP1;
+        }
+        if(estadoActual != estado)
+        {
+            turno++;
+            txt_Turno.text = turno.ToString();
         }
     }
     //}
@@ -472,7 +504,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
     */
 
 
-    public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end)
+    public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end, GameObject personaje)
     {
         float duration = 1.0f; // Duración de la animación
         float elapsedTime = 0;
@@ -484,11 +516,12 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
         // Imprime las posiciones ajustadas
         Debug.Log("Start (ajustado): " + startPosition);
         Debug.Log("End (ajustado): " + endPosition);
-
+        DeactivateAllButtons();
         while (elapsedTime < duration)
         {
+            DeactivateAllButtons();
             animator.SetBool("IsMoving", true);
-            personajeActual.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+            personaje.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -600,5 +633,13 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
             int xpos = Mathf.RoundToInt(worldPosition.x);
             int ypos = Mathf.RoundToInt(worldPosition.y);
             return new Vector2Int(xpos, ypos);
+    }
+    public void DeactivateAllButtons()
+    {
+      for (int i = 0; i <= botones.Length - 1; i++)
+      {
+            Debug.Log(botones[i].name);
+            botones[i].SetActive(false);
+      }
     }
 }
