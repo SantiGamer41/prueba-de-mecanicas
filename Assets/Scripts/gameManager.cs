@@ -44,7 +44,7 @@ public class gameManager : MonoBehaviour
     private Vector2Int startTile;
     [Header("Animator")]
     public Animator animator;
-    private Vector2Int[] posicionesIniciales = new Vector2Int[]
+    private Vector2Int[] posicionesInicialesSaque1 = new Vector2Int[]
   {
         new Vector2Int(-18, -6),
         new Vector2Int(-11, -1),
@@ -52,6 +52,20 @@ public class gameManager : MonoBehaviour
         new Vector2Int(-5, -1),
         new Vector2Int(-2, -3),
         new Vector2Int(13, -5),
+        new Vector2Int(12, -1),
+        new Vector2Int(8, -6),
+        new Vector2Int(5, -1),
+        new Vector2Int(3, -4)
+
+  };
+    private Vector2Int[] posicionesInicialesSaque2 = new Vector2Int[]
+  {
+        new Vector2Int(-12, -1),
+        new Vector2Int(-11, -1),
+        new Vector2Int(-5, -6),
+        new Vector2Int(-5, -1),
+        new Vector2Int(-2, -3),
+        new Vector2Int(10, -5),
         new Vector2Int(12, -1),
         new Vector2Int(8, -6),
         new Vector2Int(5, -1),
@@ -97,11 +111,13 @@ public class gameManager : MonoBehaviour
             {
                 estado = estado.SaqueP2;
                 InstanciarPersonajesEnPosicionesIniciales();
+                ball.transform.parent = personajes[9].transform;
             }
             else
             {
                 estado = estado.SaqueP1;
                 InstanciarPersonajesEnPosicionesIniciales();
+                ball.transform.parent = personajes[0].transform;
             }
 
 
@@ -144,11 +160,23 @@ public class gameManager : MonoBehaviour
 
     private void InstanciarPersonajesEnPosicionesIniciales()
     {
-        for (int i = 0; i < personajes.Length && i < posicionesIniciales.Length; i++)
+        if (estado == estado.SaqueP1)
         {
-            Vector3 worldPosition = new Vector3(posicionesIniciales[i].x + 0.5f , posicionesIniciales[i].y, 0f);
-            personajes[i].transform.position = worldPosition;
-            //Debug.Log("Se instanciaron en" + worldPosition);
+            for (int i = 0; i < personajes.Length && i < posicionesInicialesSaque1.Length; i++)
+            {
+                Vector3 worldPosition = new Vector3(posicionesInicialesSaque1[i].x + 0.5f, posicionesInicialesSaque1[i].y, 0f);
+                personajes[i].transform.position = worldPosition;
+                //Debug.Log("Se instanciaron en" + worldPosition);
+            }
+        }
+        else if (estado == estado.SaqueP2)
+        {
+            for (int i = 0; i < personajes.Length && i < posicionesInicialesSaque2.Length; i++)
+            {
+                Vector3 worldPosition = new Vector3(posicionesInicialesSaque2[i].x + 0.5f, posicionesInicialesSaque2[i].y, 0f);
+                personajes[i].transform.position = worldPosition;
+                //Debug.Log("Se instanciaron en" + worldPosition);
+            }
         }
     }
 
@@ -404,8 +432,10 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
 
             if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
             {
-                casillaObjetivo = gridPosition;
-                casillaSeleccionada = true;
+               List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 3);
+               int randomIndex = Random.Range(0, CasillasPosibles.Count);
+               casillaObjetivo = CasillasPosibles[randomIndex];
+               casillaSeleccionada = true;
             }
         }
 
@@ -461,7 +491,9 @@ private IEnumerator SeleccionDeRemate(Vector3 start)
 
                 if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
                 {
-                    casillaObjetivo = gridPosition;
+                    List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 2);
+                    int randomIndex = Random.Range(0, CasillasPosibles.Count);
+                    casillaObjetivo = CasillasPosibles[randomIndex];
                     casillaSeleccionada = true;
                 }
             }
