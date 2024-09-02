@@ -15,62 +15,113 @@ public class ClickHandler : MonoBehaviour
         //If (situacion de remate)
         if (GameManager.estado == estado.SaqueP1) //Saque P1
         {
-        switch (personajeIndice)
-        {
+            switch (personajeIndice)
+            {
                 case 9:
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonDevolver.gameObject.SetActive(false);
-                    GameManager.ActivarBotonMoverPersonaje();
-
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonDevolver.gameObject.SetActive(false);
+                GameManager.botonPasar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
                     break;
                 case 8:
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonDevolver.gameObject.SetActive(false);
-                    GameManager.ActivarBotonMoverPersonaje();
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonDevolver.gameObject.SetActive(false);
+                GameManager.botonPasar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
                     break;
                 case 7:
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonDevolver.gameObject.SetActive(false);
-                    GameManager.ActivarBotonMoverPersonaje();
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonDevolver.gameObject.SetActive(false);
+                GameManager.botonPasar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
                     break;
                 case 6:
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonDevolver.gameObject.SetActive(false);
-                    GameManager.ActivarBotonMoverPersonaje();
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonDevolver.gameObject.SetActive(false);
+                GameManager.botonPasar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
                     break;
                 case 5:
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonDevolver.gameObject.SetActive(false);
-                    GameManager.ActivarBotonMoverPersonaje();
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonDevolver.gameObject.SetActive(false);
+                GameManager.botonPasar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
                     break;
                 //Equipo 1
                 case 4:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonDevolver.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                break;
-            case 3:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonDevolver.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                break;
-            case 2:
-                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.DeactivateAllButtons();
+                    break;
+                case 3:
+                GameManager.DeactivateAllButtons();
+                    break;
+                case 2:
+                GameManager.DeactivateAllButtons();
+                    break;
+                case 1:
+                GameManager.DeactivateAllButtons();
+                    break;
+                case 0:
                 GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                break;
-            case 1:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonDevolver.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                break;
-            case 0:
-                GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                    GameManager.botonDevolver.gameObject.SetActive(false);
-                    GameManager.ActivarBotonSacar();
-                break;
-        
-       
+                GameManager.botonDevolver.gameObject.SetActive(false);
+                GameManager.botonPasar.gameObject.SetActive(false);
+                GameManager.ActivarBotonSacar();
+                    break;
+            }
         }
+        else if (GameManager.estado == estado.SaqueP2) //Saque P2
+        {
+            switch (personajeIndice)
+            {
+                case 4:
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonDevolver.gameObject.SetActive(false);
+                GameManager.botonPasar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
+                    break;
+                case 3:
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonDevolver.gameObject.SetActive(false);
+                GameManager.botonPasar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
+                    break;
+                case 2:
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonDevolver.gameObject.SetActive(false);
+                GameManager.botonPasar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
+                    break;
+                case 1:
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonDevolver.gameObject.SetActive(false);
+                GameManager.botonPasar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
+                    break;
+                case 0:
+                GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonDevolver.gameObject.SetActive(false);
+                GameManager.botonPasar.gameObject.SetActive(false);
+                GameManager.ActivarBotonMoverPersonaje();
+                    break;
+                //Equipo 2
+                case 9:
+                GameManager.DeactivateAllButtons();
+                    break;
+                case 8:
+                GameManager.DeactivateAllButtons();
+                    break;
+                case 7:
+                GameManager.DeactivateAllButtons();
+                    break;
+                case 6:
+                GameManager.DeactivateAllButtons();
+                    break;
+                case 5:
+                GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                GameManager.botonDevolver.gameObject.SetActive(false);
+                GameManager.botonPasar.gameObject.SetActive(false);
+                GameManager.ActivarBotonSacar();
+                    break;
+            }
         }
         else if (GameManager.estado == estado.AtaqueP2DefensaP1) //Ataque P2 Defensa P1
         {
