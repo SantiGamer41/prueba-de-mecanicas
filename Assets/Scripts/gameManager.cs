@@ -51,8 +51,8 @@ public class gameManager : MonoBehaviour
         new Vector2Int(-5, -6),
         new Vector2Int(-5, -1),
         new Vector2Int(-2, -3),
-        new Vector2Int(13, -5),
         new Vector2Int(12, -1),
+        new Vector2Int(13, -5),
         new Vector2Int(8, -6),
         new Vector2Int(5, -1),
         new Vector2Int(3, -4)
@@ -64,9 +64,9 @@ public class gameManager : MonoBehaviour
         new Vector2Int(-11, -1),
         new Vector2Int(-5, -6),
         new Vector2Int(-5, -1),
-        new Vector2Int(-2, -3),
-        new Vector2Int(10, -5),
+        new Vector2Int(-2, -3),       
         new Vector2Int(12, -1),
+        new Vector2Int(10, -5),
         new Vector2Int(8, -6),
         new Vector2Int(5, -1),
         new Vector2Int(3, -4)
