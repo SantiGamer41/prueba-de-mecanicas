@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 public class audioManager : MonoBehaviour
 {
     public static audioManager Instance;
-    public AudioSource muscicaMenu;
-    public AudioSource muscicaLobby;
-    public AudioSource muscicaJuego;
+    public AudioSource musicSource;
 
     private void Awake()
     {
@@ -23,31 +21,10 @@ public class audioManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    public void PlaySoundMenu()
+    public void PlayMusic(AudioClip clip)
     {
-        muscicaMenu.Play();
-        muscicaLobby.Stop();
-        muscicaJuego.Stop();
-    }
-
-    public void PlaySoundLobby()
-    {
-        muscicaLobby.Play();
-        muscicaMenu.Stop();
-        muscicaJuego.Stop();
-    }
-
-    public void PlaySoundJuego()
-    {
-        muscicaJuego.Play();
-        muscicaMenu.Stop();
-        muscicaLobby.Stop();
-    }
-    public void StopMusic()
-    {
-        muscicaJuego.Stop();
-        muscicaMenu.Stop();
-        muscicaLobby.Stop();
+        musicSource.clip = clip;
+        musicSource.Play();
     }
 
     // Start is called before the first frame update

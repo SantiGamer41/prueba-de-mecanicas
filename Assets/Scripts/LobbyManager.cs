@@ -32,7 +32,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.JoinLobby();
 
-        //audioManager.Instance.PlaySoundLobby();
+     
     }
 
     // Update is called once per frame

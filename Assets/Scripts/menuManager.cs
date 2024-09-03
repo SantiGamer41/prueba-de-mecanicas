@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class menuManager : MonoBehaviour
 {
+    public AudioClip menuMusic;
+
     // Start is called before the first frame update
     void Start()
     {
-        audioManager.Instance.PlaySoundMenu();
+        audioManager.Instance.PlayMusic(menuMusic);
     }
 
     // Update is called once per frame
@@ -20,6 +22,5 @@ public class menuManager : MonoBehaviour
     public void OnClick()
     {
         SceneManager.LoadScene("InicioMultijugador");
-        audioManager.Instance.StopMusic();
     }
 }
