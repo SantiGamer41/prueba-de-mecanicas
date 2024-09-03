@@ -249,7 +249,7 @@ public class gameManager : MonoBehaviour
         {
             
             Vector2Int ballPosition = GetGridPosition(ball.transform.position);
-            Vector2Int personajePosition = GetGridPosition(personaje.transform.position);
+            Vector2Int personajePosition = GetGridPosition(personaje.transform.GetChild(2).position);
 
             float distance = Vector2Int.Distance(personajePosition, ballPosition);
 
