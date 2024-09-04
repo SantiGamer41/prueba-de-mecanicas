@@ -29,8 +29,11 @@ public class gameManager : MonoBehaviour
     [Header("Objetos")]
     public GameObject ball; //Pelota
     public GameObject casillaIluminadaPrefab;
+    public GameObject ballHolderAlto;
+    public GameObject ballHolderBajo;
     private int maxMovementRange;
     public float ballPickupRange = 2.5f;
+    private bool enRango = false;
     private bool IsServing;
     [Space(25)]
     private bool isMovingMode = false;
@@ -40,6 +43,7 @@ public class gameManager : MonoBehaviour
     public Button botonSacar;
     public Button botonDevolver;
     public Button botonPasar;
+    public Button botonArmar;
     [Space(25)]
     private Vector2Int startTile;
     [Header("Animator")]
@@ -60,13 +64,13 @@ public class gameManager : MonoBehaviour
   };
     private Vector2Int[] posicionesInicialesSaque2 = new Vector2Int[]
   {
-        new Vector2Int(-12, -1),
+        new Vector2Int(-12, -6),
         new Vector2Int(-11, -1),
         new Vector2Int(-5, -6),
         new Vector2Int(-5, -1),
-        new Vector2Int(-2, -3),       
-        new Vector2Int(12, -1),
-        new Vector2Int(10, -5),
+        new Vector2Int(-2, -3),
+        new Vector2Int(17, -1),
+        new Vector2Int(13, -5),
         new Vector2Int(8, -6),
         new Vector2Int(5, -1),
         new Vector2Int(3, -4)
@@ -83,20 +87,18 @@ public class gameManager : MonoBehaviour
         estadoActual = estado;
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
-        botonMoverPersonaje.gameObject.SetActive(false);
-        botonSacar.gameObject.SetActive(false);
-        botonDevolver.gameObject.SetActive(false);
-        botonPasar.gameObject.SetActive(false);
+        DeactivateAllButtons();
         maxMovementRange = 2; // Ejemplo de rango máximo de movimiento
         InstanciarPersonajesEnPosicionesIniciales();
+        MostrarOpcionesDeArmar();
     }
     public void OnEstadoChange()
     {
 
     }
-    void RecibirPelota()
+     void RecibirPelota()
     {
-        bool enRango = false;
+        enRango = false;
         int personajeIindex = 0;
         while(!enRango && personajeIindex <personajes.Length)
         { 
@@ -109,15 +111,17 @@ public class gameManager : MonoBehaviour
             //Sumar punto Añadir logica de cambiar a estado AtaqueP2 y ataque p1 a este if asi no se contradicen
             if (ball.transform.position.x > 1)
             {
-                estado = estado.SaqueP2;
-                InstanciarPersonajesEnPosicionesIniciales();
-                ball.transform.parent = personajes[9].transform;
-            }
-            else
-            {
                 estado = estado.SaqueP1;
                 InstanciarPersonajesEnPosicionesIniciales();
                 ball.transform.parent = personajes[0].transform;
+                ball.transform.localPosition = new Vector3(7,12, 0);
+            }
+            else
+            {
+                estado = estado.SaqueP2;
+                InstanciarPersonajesEnPosicionesIniciales();
+                ball.transform.parent = personajes[5].transform;
+                ball.transform.localPosition = new Vector3(-7,12, 0);
             }
 
 
@@ -202,6 +206,7 @@ public class gameManager : MonoBehaviour
                     botonSacar.gameObject.SetActive(true);
                     botonDevolver.gameObject.SetActive(true);
                     botonPasar.gameObject.SetActive(true);
+                    botonArmar.gameObject.SetActive(true);
                     botonMoverPersonaje.gameObject.SetActive(false);
                 }
                 else
@@ -209,6 +214,7 @@ public class gameManager : MonoBehaviour
                     botonDevolver.gameObject.SetActive(false);
                     botonSacar.gameObject.SetActive(false);
                     botonPasar.gameObject.SetActive(false);
+                    botonArmar.gameObject.SetActive(false);
                     botonMoverPersonaje.gameObject.SetActive(true);
                 }
 
@@ -323,6 +329,12 @@ public class gameManager : MonoBehaviour
         ball.transform.SetParent(null);
         Pasar();
     }
+    public void OnBotonArmarClick()
+    {
+        isMovingMode = false;
+        ball.transform.SetParent(null);
+        Armar();
+    }
     
     public void MoverPersonajeA(Vector3 nuevaPosicion)
     {
@@ -371,6 +383,12 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    public void Armar()
+    {
+        MostrarOpcionesDeArmar();
+        StartCoroutine(SeleccionDeArmado(ball.transform.position));
+    }
+
 
     public void MostrarCasillasAlcanzables()
     {
@@ -414,6 +432,41 @@ public class gameManager : MonoBehaviour
 
      //}
      
+    }
+
+    public void MostrarOpcionesDeArmar()
+    {
+        DesactivarCasillasIluminadas();
+        
+        Vector2Int tileAltaP1 = new Vector2Int(-3, 1);
+        Vector2Int tileBajaP1 = new Vector2Int(-3, -6);
+        
+        Vector2Int tileAltaP2 = new Vector2Int(3, 1);
+        Vector2Int tileBajaP2 = new Vector2Int(3, -6);
+        if(ball.transform.parent == personajes[9].transform)
+        {
+          if(casillasPorPosicion.ContainsKey(tileAltaP2))
+          {
+          casillasPorPosicion[tileAltaP2].SetActive(true);
+          }
+
+          if(casillasPorPosicion.ContainsKey(tileBajaP2))
+          {
+          casillasPorPosicion[tileBajaP2].SetActive(true);
+          }
+        }
+        else if(ball.transform.parent == personajes[4].transform)
+        {
+          if(casillasPorPosicion.ContainsKey(tileAltaP1))
+          {
+          casillasPorPosicion[tileAltaP1].SetActive(true);
+          }
+
+          if(casillasPorPosicion.ContainsKey(tileBajaP1))
+          {
+          casillasPorPosicion[tileBajaP1].SetActive(true);
+          }
+        }
     }
 
    
@@ -460,16 +513,19 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
     // Asegura que la pelota termine exactamente en la posición final
     ball.transform.position = endPosition;
         RecibirPelota();
-    if (endPosition.x < 1 )
+    
+    
+    if (endPosition.x < 1 && enRango == true)
     {
         
-        StartCoroutine(MovimientoPersonaje(personajes[5].transform.position, new Vector3(12.5f, 3.5f, 0), personajes[5]));
+        StartCoroutine(MovimientoPersonaje(personajes[5].transform.position, new Vector3(12.5f, -0.5f, 0), personajes[5]));
     }
-    else
+    else if (endPosition.x > -1 && enRango == true)
     {
       
-      StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
-    }
+        StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
+    }   
+    
     if (estadoActual != estado)
     {
             turno++;
@@ -550,37 +606,61 @@ private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 p
         ball.transform.parent = armador.transform;
         ball.transform.localPosition = posicionArmadoDePelota;
 }
-    //}
-    // Genera el rango de caída y mueve la pelota
-    //GenerarRangoDeCaida(casillaObjetivo);
-    /*private void GenerarRangoDeCaida(Vector2Int casillaObjetivo)
-    {
-        // Definimos un rango alrededor de la casilla objetivo
-        int rangoCaida = 1; // Puedes ajustar este valor según tus necesidades
+    
+private IEnumerator SeleccionDeArmado(Vector3 start)
+{
+        Vector3 tileAltaP1 = new Vector3(-3, 1, 0);
+        Vector3 tileBajaP1 = new Vector3(-3, -6, 0);
+        
+        Vector3 tileAltaP2 = new Vector3(3, 1, 0);
+        Vector3 tileBajaP2 = new Vector3(3, -6, 0);
 
-        List<Vector2Int> posiblesCaidas = new List<Vector2Int>();
+        bool casillaSeleccionada = false;
+        Vector2Int casillaObjetivo = Vector2Int.zero;
 
-        for (int x = -rangoCaida; x <= rangoCaida; x++)
+        // Espera hasta que se seleccione una casilla
+        while (!casillaSeleccionada)
         {
-            for (int y = -rangoCaida; y <= rangoCaida; y++)
+            if (Input.GetMouseButtonDown(0))
             {
-                Vector2Int posibleCaida = casillaObjetivo + new Vector2Int(x, y);
-                if (casillasPorPosicion.ContainsKey(posibleCaida))
+                Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2Int gridPosition = GetGridPosition(mouseWorldPosition);
+
+                if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
                 {
-                    posiblesCaidas.Add(posibleCaida);
+                    casillaObjetivo = gridPosition;
+                    casillaSeleccionada = true;
                 }
             }
+
+            yield return null;
         }
 
-        // Selecciona una casilla al azar dentro del rango donde caerá la pelota
-        Vector2Int casillaFinal = posiblesCaidas[Random.Range(0, posiblesCaidas.Count)];
+        // Mover la pelota a la casilla seleccionada
+        float duration = 1.0f;
+        float elapsedTime = 0;
 
-        // Mueve la pelota a la casilla seleccionada
-        MoverPelotaA(new Vector3(casillaFinal.x + 0.5f, casillaFinal.y + 0.5f, 0f));
-    }
-    */
+        Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
+        Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
+        DesactivarCasillasIluminadas();
+        DeactivateAllButtons();
+        while (elapsedTime < duration)
+        {
+            DeactivateAllButtons();
+            ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
 
-
+        if(ball.transform.position == tileAltaP1 || ball.transform.position == tileAltaP2)
+        {
+            ball.transform.parent = ballHolderAlto.transform;
+        }
+        else if(ball.transform.position == tileBajaP1 || ball.transform.position == tileBajaP2)
+        {
+            ball.transform.parent = ballHolderBajo.transform;
+        }
+}
     public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end, GameObject personaje)
     {
         Debug.Log(personaje);

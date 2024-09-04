@@ -131,6 +131,8 @@ public class ClickHandler : MonoBehaviour
             case 9:
                 GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                    GameManager.botonPasar.gameObject.SetActive(false);
+                    GameManager.botonArmar.gameObject.SetActive(true);
                     break;
             case 8:
                 GameManager.botonSacar.gameObject.SetActive(false);
@@ -201,6 +203,8 @@ public class ClickHandler : MonoBehaviour
                 case 4:
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                    GameManager.botonPasar.gameObject.SetActive(false);
+                    GameManager.botonArmar.gameObject.SetActive(true);
                     break;
                 case 3:
                     GameManager.botonSacar.gameObject.SetActive(false);
