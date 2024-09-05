@@ -64,7 +64,8 @@ public class ClickHandler : MonoBehaviour
                 GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                 GameManager.botonDevolver.gameObject.SetActive(false);
                 GameManager.botonPasar.gameObject.SetActive(false);
-                GameManager.ActivarBotonSacar();
+                    GameManager.botonArmar.gameObject.SetActive(false);
+                    GameManager.ActivarBotonSacar();
                     break;
             }
         }
@@ -119,7 +120,8 @@ public class ClickHandler : MonoBehaviour
                 GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                 GameManager.botonDevolver.gameObject.SetActive(false);
                 GameManager.botonPasar.gameObject.SetActive(false);
-                GameManager.ActivarBotonSacar();
+                    GameManager.botonArmar.gameObject.SetActive(false);
+                    GameManager.ActivarBotonSacar();
                     break;
             }
         }
@@ -224,7 +226,14 @@ public class ClickHandler : MonoBehaviour
                     break;
                 case 5:
                     GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.ActivarBotonMoverPersonaje();
+                    if (GameManager.ball.transform.parent == GameManager.personajes[5])
+                    {
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        GameManager.ActivarBotonMoverPersonaje();
+                    }
                     break;
                 //Equipo 1
                 case 4:
