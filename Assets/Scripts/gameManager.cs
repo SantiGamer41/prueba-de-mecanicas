@@ -44,6 +44,7 @@ public class gameManager : MonoBehaviour
     public Button botonDevolver;
     public Button botonPasar;
     public Button botonArmar;
+    public Button botonRematar;
     [Space(25)]
     private Vector2Int startTile;
     [Header("Animator")]
@@ -145,7 +146,7 @@ public class gameManager : MonoBehaviour
     {
         for (int x = -17; x <= 19; x++)
         {
-            for (int y = -7; y <= 1; y++)
+            for (int y = -7; y <= 3; y++)
             {
                 Vector3 worldPosition = new Vector3(x + 0.5f, y + 0.5f, 0f);
                 GameObject casilla = Instantiate(casillaIluminadaPrefab, worldPosition, Quaternion.identity);
@@ -332,10 +333,16 @@ public class gameManager : MonoBehaviour
     public void OnBotonArmarClick()
     {
         isMovingMode = false;
-        ball.transform.SetParent(null);
         Armar();
     }
     
+    public void OnBotonRematarClick()
+    {
+        isMovingMode = false;
+        ball.transform.SetParent(null);
+        Rematar();
+    }
+
     public void MoverPersonajeA(Vector3 nuevaPosicion)
     {
         if (personajeActual != null && isMovingMode)
@@ -368,7 +375,7 @@ public class gameManager : MonoBehaviour
     public void Devolver()
     {
         MostrarLadoContrario();
-        StartCoroutine(SeleccionDeRemate(ball.transform.position));
+        StartCoroutine(SeleccionDeDevolver(ball.transform.position));
     }
 
     public void Pasar()
@@ -387,6 +394,12 @@ public class gameManager : MonoBehaviour
     {
         MostrarOpcionesDeArmar();
         StartCoroutine(SeleccionDeArmado(ball.transform.position));
+    }
+
+    public void Rematar()
+    {
+        MostrarLadoContrario();
+        StartCoroutine(SeleccionDeRemate(ball.transform.position));
     }
 
 
@@ -438,11 +451,11 @@ public class gameManager : MonoBehaviour
     {
         DesactivarCasillasIluminadas();
         
-        Vector2Int tileAltaP1 = new Vector2Int(-3, 1);
-        Vector2Int tileBajaP1 = new Vector2Int(-3, -6);
+        Vector2Int tileAltaP1 = new Vector2Int(-3, 3);
+        Vector2Int tileBajaP1 = new Vector2Int(-2, -4);
         
-        Vector2Int tileAltaP2 = new Vector2Int(3, 1);
-        Vector2Int tileBajaP2 = new Vector2Int(3, -6);
+        Vector2Int tileAltaP2 = new Vector2Int(3, 3);
+        Vector2Int tileBajaP2 = new Vector2Int(3, -5);
         if(ball.transform.parent == personajes[9].transform)
         {
           if(casillasPorPosicion.ContainsKey(tileAltaP2))
@@ -532,7 +545,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
             txt_Turno.text =  "Turno " +turno.ToString();
     }
     }
-private IEnumerator SeleccionDeRemate(Vector3 start)
+private IEnumerator SeleccionDeDevolver(Vector3 start)
     {
         bool casillaSeleccionada = false;
         Vector2Int casillaObjetivo = Vector2Int.zero;
@@ -547,7 +560,7 @@ private IEnumerator SeleccionDeRemate(Vector3 start)
 
                 if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
                 {
-                    List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 2);
+                    List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 3);
                     int randomIndex = Random.Range(0, CasillasPosibles.Count);
                     casillaObjetivo = CasillasPosibles[randomIndex];
                     casillaSeleccionada = true;
@@ -565,6 +578,7 @@ private IEnumerator SeleccionDeRemate(Vector3 start)
         Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
+        personajeActual.GetComponentInChildren<Animator>().SetTrigger("Pass");
         while (elapsedTime < duration)
         {
             DeactivateAllButtons();
@@ -609,12 +623,13 @@ private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 p
     
 private IEnumerator SeleccionDeArmado(Vector3 start)
 {
-        Vector3 tileAltaP1 = new Vector3(-3, 1, 0);
-        Vector3 tileBajaP1 = new Vector3(-3, -6, 0);
+        Vector2Int tileAltaP1 = new Vector2Int(-3, 3);
+        Vector2Int tileBajaP1 = new Vector2Int(-3, -4);
         
-        Vector3 tileAltaP2 = new Vector3(3, 1, 0);
-        Vector3 tileBajaP2 = new Vector3(3, -6, 0);
+        Vector2Int tileAltaP2 = new Vector2Int(3, 3);
+        Vector2Int tileBajaP2 = new Vector2Int(3, -5);
 
+        ball.transform.SetParent(null);
         bool casillaSeleccionada = false;
         Vector2Int casillaObjetivo = Vector2Int.zero;
 
@@ -631,6 +646,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
                     casillaObjetivo = gridPosition;
                     casillaSeleccionada = true;
                 }
+                Debug.Log(casillaObjetivo);
             }
 
             yield return null;
@@ -640,10 +656,12 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         float duration = 1.0f;
         float elapsedTime = 0;
 
-        Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
-        Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
+        Vector3 startPosition = new Vector3(start.x, start.y, start.z);
+        Vector3 endPosition = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
+        Debug.Log("Pepe" + endPosition);
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
+        personajeActual.GetComponentInChildren<Animator>().SetTrigger("Pass");
         while (elapsedTime < duration)
         {
             DeactivateAllButtons();
@@ -652,15 +670,68 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             yield return null;
         }
 
-        if(ball.transform.position == tileAltaP1 || ball.transform.position == tileAltaP2)
+        if(ball.transform.position.y > 2 )
         {
             ball.transform.parent = ballHolderAlto.transform;
         }
-        else if(ball.transform.position == tileBajaP1 || ball.transform.position == tileBajaP2)
+        else if(ball.transform.position.y < -2 )
         {
             ball.transform.parent = ballHolderBajo.transform;
         }
 }
+
+    public IEnumerator SeleccionDeRemate(Vector3 start)
+    {
+    bool casillaSeleccionada = false;
+        Vector2Int casillaObjetivo = Vector2Int.zero;
+
+        // Espera hasta que se seleccione una casilla
+        while (!casillaSeleccionada)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2Int gridPosition = GetGridPosition(mouseWorldPosition);
+
+                if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
+                {
+                    List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 2);
+                    int randomIndex = Random.Range(0, CasillasPosibles.Count);
+                    casillaObjetivo = CasillasPosibles[randomIndex];
+                    casillaSeleccionada = true;
+                }
+            }
+
+            yield return null;
+        }
+
+        // Mover la pelota a la casilla seleccionada
+        float duration = 2.0f;
+        float elapsedTime = 0;
+
+        Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
+        Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
+        DesactivarCasillasIluminadas();
+        DeactivateAllButtons();
+        personajeActual.GetComponentInChildren<Animator>().SetTrigger("Spike");
+        while (elapsedTime < duration)
+        {
+            DeactivateAllButtons();
+            ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Asegura que la pelota termine exactamente en la posición final
+        ball.transform.position = endPosition;
+        RecibirPelota();
+        
+        if(estadoActual != estado)
+        {
+            turno++;
+            txt_Turno.text = "Turno " + turno.ToString();
+        }
+    }
     public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end, GameObject personaje)
     {
         Debug.Log(personaje);
