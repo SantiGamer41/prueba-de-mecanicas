@@ -1,40 +1,28 @@
 fileFormatVersion: 2
-guid: 8a3cf84483b513e4280fbefed1ea6ce9
+guid: 0ff8393fd767fe64f8f239ef3e7733b6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 21300000
+      213: -1960722750498557365
     second: Animacion%20manos%20bajas%20%282%29_0
   - first:
-      213: 21300002
+      213: -6512380153317984050
     second: Animacion%20manos%20bajas%20%282%29_1
   - first:
-      213: 21300004
+      213: -4634747893876061654
     second: Animacion%20manos%20bajas%20%282%29_2
   - first:
-      213: 21300006
+      213: 4121640854048760447
     second: Animacion%20manos%20bajas%20%282%29_3
   - first:
-      213: 21300008
+      213: -6411434762898976753
     second: Animacion%20manos%20bajas%20%282%29_4
   - first:
-      213: 21300010
+      213: 3586871184549576037
     second: Animacion%20manos%20bajas%20%282%29_5
   - first:
-      213: 21300012
+      213: -6903901743588863543
     second: Animacion%20manos%20bajas%20%282%29_6
-  - first:
-      213: 21300014
-    second: Animacion%20manos%20bajas%20%282%29_7
-  - first:
-      213: 21300016
-    second: Animacion%20manos%20bajas%20%282%29_8
-  - first:
-      213: 21300018
-    second: Animacion%20manos%20bajas%20%282%29_9
-  - first:
-      213: 21300020
-    second: Animacion%20manos%20bajas%20%282%29_10
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -94,8 +82,8 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
-  cookieLightType: 1
+  applyGammaDecoding: 0
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -108,7 +96,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -120,7 +108,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
@@ -132,7 +120,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -151,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49019033dbecbc2409d917d048a57ece
-      internalID: 21300000
+      spriteID: b42b189fb0d1ac4e0800000000000000
+      internalID: -1960722750498557365
       vertices: []
       indices: 
       edges: []
@@ -172,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28776b6dee8146d49954d79c7d7636d6
-      internalID: 21300002
+      spriteID: ec87d2f21c06f95a0800000000000000
+      internalID: -6512380153317984050
       vertices: []
       indices: 
       edges: []
@@ -193,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8663c105a50b7284799ef6ae760f6a80
-      internalID: 21300004
+      spriteID: a2a0702b8511eafb0800000000000000
+      internalID: -4634747893876061654
       vertices: []
       indices: 
       edges: []
@@ -214,8 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12bc10548a3b4b4499e90c8b1026c8b4
-      internalID: 21300006
+      spriteID: f726055f482033930800000000000000
+      internalID: 4121640854048760447
       vertices: []
       indices: 
       edges: []
@@ -235,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 633899941b9fd32428152895d78fbd69
-      internalID: 21300008
+      spriteID: f00d0d86d020607a0800000000000000
+      internalID: -6411434762898976753
       vertices: []
       indices: 
       edges: []
@@ -256,8 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6ef277b3c228c842a51532106a55c32
-      internalID: 21300010
+      spriteID: 56d792a965027c130800000000000000
+      internalID: 3586871184549576037
       vertices: []
       indices: 
       edges: []
@@ -277,92 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1471233051ffd040a01bf2cfbc86361
-      internalID: 21300012
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20%282%29_7
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 50
-        width: 21
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20d8584a5c0af8d4fb81dc76209c276c
-      internalID: 21300014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20%282%29_8
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 0
-        width: 21
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aea760b3cf3d7c143b6a408570a1de95
-      internalID: 21300016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20%282%29_9
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 0
-        width: 24
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78a2dcb03c9f8ff4f9e7a37346b40f00
-      internalID: 21300018
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20%282%29_10
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 0
-        width: 27
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d8e2b9334051624fbd99c61ad9224ed
-      internalID: 21300020
+      spriteID: 9c19f2151f96030a0800000000000000
+      internalID: -6903901743588863543
       vertices: []
       indices: 
       edges: []
@@ -370,7 +274,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1020ec866ac6aa044842cc641d280733
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
