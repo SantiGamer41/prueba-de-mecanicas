@@ -393,7 +393,7 @@ public class gameManager : MonoBehaviour
       MostrarLadoContrario();
 
       //Activamos el sistema de selección de casillas
-      StartCoroutine(SeleccionDeSaque(ball.transform.position));
+      StartCoroutine(SeleccionDeSaque(ball.transform.position, personajeActual));
     
      }
 
@@ -508,7 +508,7 @@ public class gameManager : MonoBehaviour
     }
 
    
-private IEnumerator SeleccionDeSaque(Vector3 start)
+private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
 {
     bool casillaSeleccionada = false;
     Vector2Int casillaObjetivo = Vector2Int.zero;
@@ -551,24 +551,27 @@ private IEnumerator SeleccionDeSaque(Vector3 start)
     // Asegura que la pelota termine exactamente en la posición final
     ball.transform.position = endPosition;
         RecibirPelota();
-    
-    
-    if (endPosition.x < 1 && enRango == true)
-    {
-        
-        StartCoroutine(MovimientoPersonaje(personajes[5].transform.position, new Vector3(12.5f, -0.5f, 0), personajes[5]));
-    }
-    else if (endPosition.x > -1 && enRango == true)
-    {
-      
-        StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
-    }   
-    
-    if (estadoActual != estado)
-    {
+
+        if (estadoActual != estado)
+        {
             turno++;
-            txt_Turno.text =  "Turno " +turno.ToString();
-    }
+            txt_Turno.text = "Turno " + turno.ToString();
+        }
+
+ /*
+        if (Sacador.transform.position.x > 1)
+        {
+            //Logica para cuando hay punto de saque
+            yield return new WaitForSeconds(2);
+            StartCoroutine(MovimientoPersonaje(personajes[5].transform.position, new Vector3(12.5f, -0.5f, 0), personajes[5]));
+        }
+        else if (Sacador.transform.position.x < 1)
+        {
+            yield return new WaitForSeconds(2);
+            StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
+        }   
+  */  
+    
     }
 private IEnumerator SeleccionDeDevolver(Vector3 start)
     {
