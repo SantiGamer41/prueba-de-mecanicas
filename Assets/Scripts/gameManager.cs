@@ -295,6 +295,16 @@ public class gameManager : MonoBehaviour
         {
             ball.transform.localPosition = new Vector3(-7, 12, 0);
         }
+        
+        foreach (GameObject p in personajes)
+        {
+            Animator otherAnimator = p.GetComponentInChildren<Animator>();
+            if (p != personaje)
+            {
+                // Congelar la animación de los otros personajes
+                otherAnimator.speed = 0;
+            }
+        }
 
         // Cambiar el estado en función de la posición de la pelota
         if (ball.transform.position.x < 1)
@@ -354,6 +364,7 @@ public class gameManager : MonoBehaviour
         isMovingMode = false;
         ball.transform.SetParent(null);
         Pasar();
+        DescongelarAnimaciones();
     }
     public void OnBotonArmarClick()
     {
@@ -597,8 +608,9 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
 
             yield return null;
         }
-       
+
         // Mover la pelota a la casilla seleccionada
+        DescongelarAnimaciones();
         float duration = 2.0f;
         float elapsedTime = 0;
 
@@ -909,5 +921,24 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         Vector2Int personajePosition = GetGridPosition(personaje.transform.GetChild(2).position);
 
         return Vector2Int.Distance(personajePosition, ballPosition);
+    }
+
+    public void NoRematar()
+    {
+        if (ball.transform.parent == ballHolderBajo.transform || ball.transform.parent == ballHolderAlto.transform)
+        {
+            botonRematar.gameObject.SetActive(false);
+        }
+    }
+
+    public void DescongelarAnimaciones()
+    {
+        foreach (GameObject p in personajes)
+        {
+            Animator animator = p.GetComponentInChildren<Animator>();
+
+            // Restaurar la velocidad de la animación
+            animator.speed = 1;
+        }
     }
 }

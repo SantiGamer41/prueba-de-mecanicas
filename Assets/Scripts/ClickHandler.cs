@@ -142,6 +142,7 @@ public class ClickHandler : MonoBehaviour
                     {
                     GameManager.botonArmar.gameObject.SetActive(false);
                     }
+                    GameManager.NoRematar();
                     break;
             case 8:
                 GameManager.botonSacar.gameObject.SetActive(false);
@@ -173,33 +174,40 @@ public class ClickHandler : MonoBehaviour
                 GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonArmar.gameObject.SetActive(false);
+                    GameManager.NoRematar();
                     break;
             case 5:
                 GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonArmar.gameObject.SetActive(false);
+                    GameManager.NoRematar();
                     break;
             //Equipo 1
             case 4:
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
-                break;
+                GameManager.NoRematar();
+                    break;
             case 3:
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
-                break;
+                GameManager.NoRematar();
+                    break;
             case 2:
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
-                break;
+                GameManager.NoRematar();
+                    break;
             case 1:
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
-                break;
+                GameManager.NoRematar();
+                    break;
             case 0:
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
-                break;
+                GameManager.NoRematar();
+                    break;
         
             }
 
@@ -211,18 +219,22 @@ public class ClickHandler : MonoBehaviour
                 case 9:
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
+                    GameManager.NoRematar();
                     break;
                 case 8:
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
+                    GameManager.NoRematar();
                     break;
                 case 7:
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
+                    GameManager.NoRematar();
                     break;
                 case 6:
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
+                    GameManager.NoRematar();
                     break;
                 case 5:
                     GameManager.botonSacar.gameObject.SetActive(false);
@@ -234,6 +246,7 @@ public class ClickHandler : MonoBehaviour
                     {
                         GameManager.ActivarBotonMoverPersonaje();
                     }
+                    GameManager.NoRematar();
                     break;
                 //Equipo 1
                 case 4:
@@ -248,6 +261,7 @@ public class ClickHandler : MonoBehaviour
                     {
                     GameManager.botonArmar.gameObject.SetActive(false);
                     }
+                    GameManager.NoRematar();
                     break;
                 case 3:
                     GameManager.botonSacar.gameObject.SetActive(false);
@@ -279,11 +293,13 @@ public class ClickHandler : MonoBehaviour
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonArmar.gameObject.SetActive(false);
+                    GameManager.NoRematar();
                     break;
                 case 0:
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
                     GameManager.botonArmar.gameObject.SetActive(false);
+                    GameManager.NoRematar();
                     break;
 
             }
