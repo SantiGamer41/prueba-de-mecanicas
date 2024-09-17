@@ -649,7 +649,7 @@ private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 p
 
         // Imprime las posiciones ajustadas
         DeactivateAllButtons();
-        personajeActual.GetComponentInChildren<Animator>().SetTrigger("Pass");
+        //personajeActual.GetComponentInChildren<Animator>().SetTrigger("Pass");
         armador.GetComponentInChildren<SpriteRenderer>().flipX = !armador.GetComponentInChildren<SpriteRenderer>().flipX;
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("endreceive");
         personajeActual.GetComponentInChildren<Animator>().SetBool("receive", false);
@@ -662,7 +662,17 @@ private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 p
         }
         ball.transform.parent = armador.transform;
         ball.transform.localPosition = posicionArmadoDePelota;
-}
+        foreach (GameObject p in personajes)
+        {
+            Animator otherAnimator = p.GetComponentInChildren<Animator>();
+            if (p != armador)
+            {
+                // Congelar la animación de los otros personajes
+                otherAnimator.speed = 0;
+            }
+        }
+        //Congelaranimaciones
+    }
     
 private IEnumerator SeleccionDeArmado(Vector3 start)
 {
@@ -695,6 +705,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             yield return null;
         }
         personajeActual.GetComponentInChildren<SpriteRenderer>().flipX = !personajeActual.GetComponentInChildren<SpriteRenderer>().flipX;
+        DescongelarAnimaciones();
 
         // Mover la pelota a la casilla seleccionada
         float duration = 1.0f;
@@ -723,6 +734,8 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             ball.transform.parent = ballHolderBajo.transform;
         }
 }
+        //Vector2 Skibidi.Transform
+        //Console.Lenght mewing;
 
     public IEnumerator SeleccionDeRemate(Vector3 start)
     {
@@ -748,7 +761,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
             yield return null;
         }
-
+        DescongelarAnimaciones();
         // Mover la pelota a la casilla seleccionada
         float duration = 2.0f;
         float elapsedTime = 0;
