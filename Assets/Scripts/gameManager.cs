@@ -97,7 +97,7 @@ public class gameManager : MonoBehaviour
     {
 
     }
-    void RecibirPelota()
+    bool RecibirPelota()
     {
         GameObject personajeMasCercano = null;
         float menorDistancia = float.MaxValue; // Empezamos con la mayor distancia posible
@@ -119,6 +119,7 @@ public class gameManager : MonoBehaviour
         if (personajeMasCercano != null)
         {
             RecogerPelota(personajeMasCercano);
+            return true;
         }
         else
         {
@@ -137,6 +138,7 @@ public class gameManager : MonoBehaviour
                 ball.transform.parent = personajes[5].transform;
                 ball.transform.localPosition = new Vector3(-7, 12, 0);
             }
+            return false;
         }
     }
     private void InstanciarCasillas()
@@ -561,13 +563,26 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
 
     // Asegura que la pelota termine exactamente en la posición final
     ball.transform.position = endPosition;
-        RecibirPelota();
+       enRango = RecibirPelota();
+
+        if (endPosition.x < 1 && enRango == true)
+        {
+
+            StartCoroutine(MovimientoPersonaje(personajes[5].transform.position, new Vector3(12.5f, -0.5f, 0), personajes[5]));
+        }
+        else if (endPosition.x > -1 && enRango == true)
+        {
+
+            StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
+        }
+
 
         if (estadoActual != estado)
         {
             turno++;
             txt_Turno.text = "Turno " + turno.ToString();
         }
+        enRango = false;
 
  /*
         if (Sacador.transform.position.x > 1)
