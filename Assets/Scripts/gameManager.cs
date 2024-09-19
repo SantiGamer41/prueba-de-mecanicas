@@ -107,6 +107,20 @@ public class gameManager : MonoBehaviourPun
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            photonView.RPC("DarNombre", RpcTarget.All);
+        }
+    }
+
+    [PunRPC]
+    public void DarNombre()
+    {
+        Debug.LogError(photonView.Owner.NickName);
+    }
+
     void SetPlayers()
     {
         jugadorIzquierdo.photonView.TransferOwnership(1);
@@ -121,13 +135,13 @@ public class gameManager : MonoBehaviourPun
     {
 
     }
-    //[PunRPC]
+    [PunRPC]
     bool RecibirPelota()
 
     {
         GameObject personajeMasCercano = null;
         float menorDistancia = float.MaxValue; // Empezamos con la mayor distancia posible
-
+     
         foreach (GameObject personaje in personajes)
         {
             if (personaje != null && ball != null && ball.transform.parent == null)
@@ -677,7 +691,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
         RecibirPelota();
-        //photonView.RPC("RecibirPelota", RpcTarget.All);
+        // photonView.RPC("RecibirPelota", RpcTarget.All);
 
         if (estadoActual != estado)
         {
