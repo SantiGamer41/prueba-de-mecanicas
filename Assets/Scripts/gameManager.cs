@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
+using Photon.Pun;
+using Photon.Realtime;
 
 public enum estado
 {
@@ -11,7 +13,7 @@ SaqueP2,
 AtaqueP1DefensaP2,
 AtaqueP2DefensaP1,
 }
-public class gameManager : MonoBehaviour
+public class gameManager : MonoBehaviourPun
 {
 
     public estado estado;
@@ -49,6 +51,10 @@ public class gameManager : MonoBehaviour
     private Vector2Int startTile;
     [Header("Animator")]
     public Animator animator;
+
+    public playerController jugadorIzquierdo;
+    public playerController jugadorDerecho;
+
     private Vector2Int[] posicionesInicialesSaque1 = new Vector2Int[]
   {
         new Vector2Int(-18, -6),
@@ -82,21 +88,41 @@ public class gameManager : MonoBehaviour
     // Diccionario para almacenar las casillas por su posición
     private Dictionary<Vector2Int, GameObject> casillasPorPosicion = new Dictionary<Vector2Int, GameObject>();
 
+    [PunRPC]
     void Start()
     {
         estado = estado.SaqueP1;
         estadoActual = estado;
+        // photonView.RPC("InstanciarCasillas", RpcTarget.All);
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         maxMovementRange = 2; // Ejemplo de rango máximo de movimiento
         InstanciarPersonajesEnPosicionesIniciales();
         MostrarOpcionesDeArmar();
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            SetPlayers();
+        }
     }
+
+    void SetPlayers()
+    {
+        jugadorIzquierdo.photonView.TransferOwnership(1);
+        jugadorDerecho.photonView.TransferOwnership(2);
+
+        //Initialize
+        jugadorIzquierdo.photonView.RPC("Initialize", RpcTarget.AllBuffered, PhotonNetwork.CurrentRoom.GetPlayer(1));
+        jugadorDerecho.photonView.RPC("Initialize", RpcTarget.AllBuffered, PhotonNetwork.CurrentRoom.GetPlayer(2));
+    }
+
     public void OnEstadoChange()
     {
 
     }
+
+    //[PunRPC]
     void RecibirPelota()
     {
         GameObject personajeMasCercano = null;
@@ -119,6 +145,7 @@ public class gameManager : MonoBehaviour
         if (personajeMasCercano != null)
         {
             RecogerPelota(personajeMasCercano);
+            Debug.LogError("Gagante FC");
         }
         else
         {
@@ -139,6 +166,8 @@ public class gameManager : MonoBehaviour
             }
         }
     }
+
+    [PunRPC]
     private void InstanciarCasillas()
     {
         for (int x = -17; x <= 19; x++)
@@ -562,6 +591,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
     // Asegura que la pelota termine exactamente en la posición final
     ball.transform.position = endPosition;
         RecibirPelota();
+        //photonView.RPC("RecibirPelota",RpcTarget.All);
 
         if (estadoActual != estado)
         {
@@ -631,8 +661,9 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
         RecibirPelota();
-        
-        if(estadoActual != estado)
+        //photonView.RPC("RecibirPelota", RpcTarget.All);
+
+        if (estadoActual != estado)
         {
             turno++;
             txt_Turno.text = "Turno " + turno.ToString();
@@ -781,9 +812,11 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
+
         RecibirPelota();
-        
-        if(estadoActual != estado)
+        //photonView.RPC("RecibirPelota", RpcTarget.All);
+
+        if (estadoActual != estado)
         {
             turno++;
             txt_Turno.text = "Turno " + turno.ToString();
