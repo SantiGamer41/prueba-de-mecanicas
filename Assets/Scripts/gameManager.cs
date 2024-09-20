@@ -37,6 +37,7 @@ public class gameManager : MonoBehaviourPun
     public float ballPickupRange = 2.5f;
     private bool enRango = false;
     private bool IsServing;
+    private bool IsBlocking = false;
     [Space(25)]
     private bool isMovingMode = false;
     [Header("Botónes")]
@@ -47,6 +48,7 @@ public class gameManager : MonoBehaviourPun
     public Button botonPasar;
     public Button botonArmar;
     public Button botonRematar;
+    public Button botonBloquear;
     [Space(25)]
     private Vector2Int startTile;
     [Header("Animator")]
@@ -99,7 +101,7 @@ public class gameManager : MonoBehaviourPun
         DeactivateAllButtons();
         maxMovementRange = 2; // Ejemplo de rango máximo de movimiento
         InstanciarPersonajesEnPosicionesIniciales();
-        MostrarOpcionesDeArmar();
+        //MostrarOpcionesDeArmar();
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -422,7 +424,11 @@ public class gameManager : MonoBehaviourPun
         ball.transform.SetParent(null);
         Rematar();
     }
-
+    public void OnBotonBloquearClick()
+    {
+        isMovingMode = false;
+        Bloquear();
+    }
     public void MoverPersonajeA(Vector3 nuevaPosicion)
     {
         if (personajeActual != null && isMovingMode)
@@ -480,6 +486,11 @@ public class gameManager : MonoBehaviourPun
     {
         MostrarLadoContrario();
         StartCoroutine(SeleccionDeRemate(ball.transform.position));
+    }
+
+    public void Bloquear()
+    {
+        //StartCoroutine(SeleccionDeBloqueo(personajeActual, personajeActual.transform.position));
     }
 
 
@@ -561,6 +572,8 @@ public class gameManager : MonoBehaviourPun
           }
         }
     }
+
+    
 
    
 private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
@@ -823,6 +836,9 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             yield return null;
         }
         DescongelarAnimaciones();
+        float probabilidadDeBloqueo = Random.Range(0f, 1f);
+        Debug.Log(probabilidadDeBloqueo);
+        //if(pro)
         // Mover la pelota a la casilla seleccionada
         float duration = 2.0f;
         float elapsedTime = 0;
@@ -852,6 +868,30 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             txt_Turno.text = "Turno " + turno.ToString();
         }
     }
+
+    private IEnumerator SeleccionDeBloqueo(GameObject personaje, Vector3 start, Vector3 end)
+    {
+        float duration = 1.0f; // Duración de la animación
+        float elapsedTime = 0;
+
+        // Ajusta la posición inicial al centro de la casilla
+        Vector3 startPosition = new Vector3(start.x, start.y, start.z);
+        Vector3 endPosition = new Vector3(end.x, end.y, end.z);
+
+        // Imprime las posiciones ajustadas
+        DeactivateAllButtons();
+        //personaje.GetComponentInChildren<Animator>().SetTrigger("block");
+        
+        while (elapsedTime < duration)
+        {
+            DeactivateAllButtons();
+            personaje.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        IsBlocking = true;
+    }
+
     public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end, GameObject personaje)
     {
         Debug.Log(personaje);
@@ -1016,5 +1056,10 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             // Restaurar la velocidad de la animación
             animator.speed = 1;
         }
+    }
+
+    public void PelotaBloqueada()
+    {
+
     }
 }
