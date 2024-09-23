@@ -490,7 +490,8 @@ public class gameManager : MonoBehaviourPun
 
     public void Bloquear()
     {
-        //StartCoroutine(SeleccionDeBloqueo(personajeActual, personajeActual.transform.position));
+        if (estado == estado.AtaqueP2DefensaP1 && ball.transform.parent == ballHolderAlto)
+        StartCoroutine(SeleccionDeBloqueo(personajeActual, personajeActual.transform.position, new Vector3(-2, 5, 0)));
     }
 
 
@@ -890,6 +891,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             yield return null;
         }
         IsBlocking = true;
+        
     }
 
     public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end, GameObject personaje)
