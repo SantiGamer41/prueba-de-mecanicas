@@ -837,8 +837,15 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             yield return null;
         }
         DescongelarAnimaciones();
-        float probabilidadDeBloqueo = Random.Range(0f, 1f);
-        Debug.Log(probabilidadDeBloqueo);
+        if (IsBlocking == true)
+        {
+            float probabilidadDeBloqueo = Random.Range(0f, 1f);
+            Debug.Log(probabilidadDeBloqueo);
+            if(probabilidadDeBloqueo > 0.4f)
+            {
+                PelotaBloqueada(personajeActual);
+            }
+        }
         //if(pro)
         // Mover la pelota a la casilla seleccionada
         float duration = 2.0f;
@@ -1057,10 +1064,11 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
             // Restaurar la velocidad de la animación
             animator.speed = 1;
+            
         }
     }
 
-    public void PelotaBloqueada()
+    public void PelotaBloqueada(GameObject personaje)
     {
 
     }
