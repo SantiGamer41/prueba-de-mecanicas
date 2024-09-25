@@ -841,9 +841,9 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         {
             float probabilidadDeBloqueo = Random.Range(0f, 1f);
             Debug.Log(probabilidadDeBloqueo);
-            if(probabilidadDeBloqueo > 0.4f)
+            if(probabilidadDeBloqueo > 1f)
             {
-                PelotaBloqueada(personajeActual);
+                StartCoroutine(PelotaBloqueada(personajeActual));
             }
         }
         //if(pro)
@@ -1068,8 +1068,24 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         }
     }
 
-    public void PelotaBloqueada(GameObject personaje)
+    public IEnumerator PelotaBloqueada(GameObject bloqueador)
     {
+        DescongelarAnimaciones();
+        float duration = 0.5f;
+        float elapsedTime = 0;
 
+        Vector3 startPosition = ball.transform.position;
+        Vector3 endPosition = new Vector3(bloqueador.transform.position.x + bloqueador.transform.position.y + 0.5f,  bloqueador.transform.position.z);
+        DesactivarCasillasIluminadas();
+        DeactivateAllButtons();
+        while (elapsedTime < duration)
+        {
+            DeactivateAllButtons();
+            ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        
     }
 }
