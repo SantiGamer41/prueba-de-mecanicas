@@ -491,7 +491,7 @@ public class gameManager : MonoBehaviourPun
     public void Bloquear()
     {
         if (estado == estado.AtaqueP2DefensaP1 && ball.transform.parent == ballHolderAlto)
-        StartCoroutine(SeleccionDeBloqueo(personajeActual, personajeActual.transform.position, new Vector3(-2, 5, 0)));
+        StartCoroutine(SeleccionDeBloqueo(personajeActual, personajeActual.transform.position, new Vector3 (personajeActual.transform.position.x, personajeActual.transform.position.y + 1.0f, personajeActual.transform.position.z)));
     }
 
 
@@ -788,7 +788,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
         Vector3 startPosition = new Vector3(start.x, start.y, start.z);
         Vector3 endPosition = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
-        Debug.Log("Pepe" + endPosition);
+        //Debug.Log("Pepe" + endPosition);
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("Pass");
@@ -839,12 +839,12 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         DescongelarAnimaciones();
         if (IsBlocking == true)
         {
-            float probabilidadDeBloqueo = Random.Range(0f, 1f);
+           /* float probabilidadDeBloqueo = Random.Range(0f, 1f);
             Debug.Log(probabilidadDeBloqueo);
             if(probabilidadDeBloqueo > 1f)
-            {
+            {*/
                 StartCoroutine(PelotaBloqueada(personajeActual));
-            }
+           // }
         }
         //if(pro)
         // Mover la pelota a la casilla seleccionada
@@ -888,8 +888,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
         // Imprime las posiciones ajustadas
         DeactivateAllButtons();
-        //personaje.GetComponentInChildren<Animator>().SetTrigger("block");
-        
+        personaje.GetComponentInChildren<Animator>().SetBool("Bloquear", true);
         while (elapsedTime < duration)
         {
             DeactivateAllButtons();
@@ -1070,6 +1069,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
     public IEnumerator PelotaBloqueada(GameObject bloqueador)
     {
+        Debug.Log("PELOTA BLOQUEADA");
         DescongelarAnimaciones();
         float duration = 0.5f;
         float elapsedTime = 0;

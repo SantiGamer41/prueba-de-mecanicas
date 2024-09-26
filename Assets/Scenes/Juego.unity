@@ -26026,7 +26026,7 @@ MonoBehaviour:
   botonPasar: {fileID: 263810979}
   botonArmar: {fileID: 1283288267}
   botonRematar: {fileID: 1688068026}
-  botonBloquear: {fileID: 0}
+  botonBloquear: {fileID: 1880135134}
   animator: {fileID: 1311079939}
   jugadorIzquierdo: {fileID: 0}
   jugadorDerecho: {fileID: 0}
@@ -27122,7 +27122,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1413959867}
         m_TargetAssemblyTypeName: gameManager, Assembly-CSharp
-        m_MethodName: OnBotonRematarClick
+        m_MethodName: OnBotonBloquearClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

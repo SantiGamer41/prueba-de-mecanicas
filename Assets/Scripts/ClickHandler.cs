@@ -192,11 +192,28 @@ public class ClickHandler : MonoBehaviour
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
                 GameManager.NoRematar();
+                 if (GameManager.ball.transform.parent == GameManager.ballHolderAlto.transform)
+                    {
+                    GameManager.botonBloquear.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                    GameManager.botonBloquear.gameObject.SetActive(false);
+                    }
                     break;
+                    
             case 2:
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
                 GameManager.NoRematar();
+                 if (GameManager.ball.transform.parent == GameManager.ballHolderBajo.transform)
+                    {
+                    GameManager.botonBloquear.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                    GameManager.botonBloquear.gameObject.SetActive(false);
+                    }                
                     break;
             case 1:
                 GameManager.botonSacar.gameObject.SetActive(false);
