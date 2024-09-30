@@ -27,7 +27,9 @@ public class gameManager : MonoBehaviourPun
     public GameObject[] personajes; // Array de personajes
     [Space(25)]
     [HideInInspector]
-    public GameObject personajeActual; // Personaje actualmente seleccionado
+    public GameObject personajeActual;
+    [HideInInspector]
+    public GameObject personajeBloqueando; // Personaje actualmente seleccionado
     [Header("Objetos")]
     public GameObject ball; //Pelota
     public GameObject casillaIluminadaPrefab;
@@ -490,7 +492,7 @@ public class gameManager : MonoBehaviourPun
 
     public void Bloquear()
     {
-        if (estado == estado.AtaqueP2DefensaP1 && ball.transform.parent == ballHolderAlto)
+        //if (estado == estado.AtaqueP2DefensaP1 && ball.transform.parent == ballHolderAlto)
         StartCoroutine(SeleccionDeBloqueo(personajeActual, personajeActual.transform.position, new Vector3 (personajeActual.transform.position.x, personajeActual.transform.position.y + 1.0f, personajeActual.transform.position.z)));
     }
 
@@ -814,7 +816,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
     public IEnumerator SeleccionDeRemate(Vector3 start)
     {
-    bool casillaSeleccionada = false;
+        bool casillaSeleccionada = false;
         Vector2Int casillaObjetivo = Vector2Int.zero;
 
         // Espera hasta que se seleccione una casilla
@@ -843,9 +845,11 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             Debug.Log(probabilidadDeBloqueo);
             if(probabilidadDeBloqueo > 1f)
             {*/
-                StartCoroutine(PelotaBloqueada(personajeActual));
+                StartCoroutine(PelotaBloqueada());
            // }
         }
+        else
+        {
         //if(pro)
         // Mover la pelota a la casilla seleccionada
         float duration = 2.0f;
@@ -869,6 +873,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
         RecibirPelota();
         //photonView.RPC("RecibirPelota", RpcTarget.All);
+        }
 
         if (estadoActual != estado)
         {
@@ -879,24 +884,26 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
     private IEnumerator SeleccionDeBloqueo(GameObject personaje, Vector3 start, Vector3 end)
     {
-        float duration = 1.0f; // Duración de la animación
+        personajeBloqueando = personajeActual;
+       /* float duration = 1.0f; // Duración de la animación
         float elapsedTime = 0;
 
         // Ajusta la posición inicial al centro de la casilla
         Vector3 startPosition = new Vector3(start.x, start.y, start.z);
         Vector3 endPosition = new Vector3(end.x, end.y, end.z);
 
-        // Imprime las posiciones ajustadas
+        */// Imprime las posiciones ajustadas
         DeactivateAllButtons();
-        personaje.GetComponentInChildren<Animator>().SetBool("Bloquear", true);
-        while (elapsedTime < duration)
+        personaje.GetComponentInChildren<Animator>().SetBool("Block", true);
+        /*while (elapsedTime < duration)
         {
             DeactivateAllButtons();
             personaje.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
             yield return null;
-        }
+        *///}
         IsBlocking = true;
+        yield return null;
         
     }
 
@@ -1067,7 +1074,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         }
     }
 
-    public IEnumerator PelotaBloqueada(GameObject bloqueador)
+    public IEnumerator PelotaBloqueada()
     {
         Debug.Log("PELOTA BLOQUEADA");
         DescongelarAnimaciones();
@@ -1075,7 +1082,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         float elapsedTime = 0;
 
         Vector3 startPosition = ball.transform.position;
-        Vector3 endPosition = new Vector3(bloqueador.transform.position.x + bloqueador.transform.position.y + 0.5f,  bloqueador.transform.position.z);
+        Vector3 endPosition = new Vector3(personajeBloqueando.transform.position.x + personajeBloqueando.transform.position.y + 2.0f,  personajeBloqueando.transform.position.z);
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         while (elapsedTime < duration)
