@@ -26335,8 +26335,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   estado: 0
-  turno: 0
-  txt_Turno: {fileID: 1603881499}
   personajes:
   - {fileID: 831166051}
   - {fileID: 375273556}
@@ -26373,6 +26371,8 @@ MonoBehaviour:
   animator: {fileID: 1311079939}
   jugadorIzquierdo: {fileID: 0}
   jugadorDerecho: {fileID: 0}
+  jugadorPrefab: {fileID: 1121849688229140868, guid: 287ae45de1d05884d90ac5ac293843de,
+    type: 3}
 --- !u!4 &1413959868
 Transform:
   m_ObjectHideFlags: 0

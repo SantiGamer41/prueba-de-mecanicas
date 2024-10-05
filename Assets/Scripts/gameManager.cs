@@ -57,7 +57,9 @@ public class gameManager : MonoBehaviourPun
     public playerController jugadorIzquierdo;
     public playerController jugadorDerecho;
 
-    DisplayPuntosScript displayPuntosScript;
+    
+
+    public GameObject jugadorPrefab;
 
     private Vector2Int[] posicionesInicialesSaque1 = new Vector2Int[]
   {
@@ -103,21 +105,24 @@ public class gameManager : MonoBehaviourPun
         maxMovementRange = 2; // Ejemplo de rango máximo de movimiento
         InstanciarPersonajesEnPosicionesIniciales();
         //MostrarOpcionesDeArmar();
-        displayPuntosScript = FindObjectOfType<DisplayPuntosScript>();
+
+        
+        if (PhotonNetwork.IsConnected)
+        {
+            SpawnJugadores();
+        }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            displayPuntosScript.SumarTurnoDisplay();
-        }
+        
     }
 
-    public void OnEstadoChange()
+    public void SpawnJugadores()
     {
-
+        PhotonNetwork.Instantiate(jugadorPrefab.name, Vector3.zero, Quaternion.identity);
     }
+
     bool RecibirPelota()
 
     {
@@ -614,7 +619,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
 
         if (estadoActual != estado)
         {
-            displayPuntosScript.SumarTurnoDisplay();
+            //displayPuntosScript.SumarTurnoDisplay();
         }
         enRango = false;
 
@@ -683,7 +688,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
 
         if (estadoActual != estado)
         {
-            displayPuntosScript.SumarTurnoDisplay();
+            //displayPuntosScript.SumarTurnoDisplay();
         }
     }
 private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 posicionArmadoDePelota, int correccionDePase)
@@ -847,7 +852,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
         if (estadoActual != estado)
         {
-            displayPuntosScript.SumarTurnoDisplay();
+            //displayPuntosScript.SumarTurnoDisplay();
         }
     }
 
