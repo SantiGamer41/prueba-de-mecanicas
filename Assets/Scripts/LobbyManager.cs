@@ -51,7 +51,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickBotonJugar()
     {
-        PhotonNetwork.LoadLevel("PruebasPun");
+        PhotonNetwork.LoadLevel("Juego");
     }
 
     public void ClickCrear()

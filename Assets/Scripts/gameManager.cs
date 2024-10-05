@@ -20,8 +20,6 @@ public class gameManager : MonoBehaviourPun
     [Space(25)]
     [Header("UI")]
     private estado estadoActual;
-    public int turno;
-    public Text txt_Turno;
     [Space(25)]
     [Header("Personajes")]
     public GameObject[] personajes; // Array de personajes
@@ -59,6 +57,8 @@ public class gameManager : MonoBehaviourPun
     public playerController jugadorIzquierdo;
     public playerController jugadorDerecho;
 
+    DisplayPuntosScript displayPuntosScript;
+
     private Vector2Int[] posicionesInicialesSaque1 = new Vector2Int[]
   {
         new Vector2Int(-18, -6),
@@ -92,54 +92,32 @@ public class gameManager : MonoBehaviourPun
     // Diccionario para almacenar las casillas por su posición
     private Dictionary<Vector2Int, GameObject> casillasPorPosicion = new Dictionary<Vector2Int, GameObject>();
 
-    [PunRPC]
+    
     void Start()
     {
         estado = estado.SaqueP1;
         estadoActual = estado;
-        // photonView.RPC("InstanciarCasillas", RpcTarget.All);
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         maxMovementRange = 2; // Ejemplo de rango máximo de movimiento
         InstanciarPersonajesEnPosicionesIniciales();
         //MostrarOpcionesDeArmar();
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            SetPlayers();
-        }
+        displayPuntosScript = FindObjectOfType<DisplayPuntosScript>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            photonView.RPC("DarNombre", RpcTarget.All);
+            displayPuntosScript.SumarTurnoDisplay();
         }
-    }
-
-    [PunRPC]
-    public void DarNombre()
-    {
-        Debug.LogError(photonView.Owner.NickName);
-    }
-
-    void SetPlayers()
-    {
-        jugadorIzquierdo.photonView.TransferOwnership(1);
-        jugadorDerecho.photonView.TransferOwnership(2);
-
-        //Initialize
-        jugadorIzquierdo.photonView.RPC("Initialize", RpcTarget.AllBuffered, PhotonNetwork.CurrentRoom.GetPlayer(1));
-        jugadorDerecho.photonView.RPC("Initialize", RpcTarget.AllBuffered, PhotonNetwork.CurrentRoom.GetPlayer(2));
     }
 
     public void OnEstadoChange()
     {
 
     }
-    [PunRPC]
     bool RecibirPelota()
 
     {
@@ -186,7 +164,6 @@ public class gameManager : MonoBehaviourPun
         }
     }
 
-    [PunRPC]
     private void InstanciarCasillas()
     {
         for (int x = -17; x <= 19; x++)
@@ -635,13 +612,9 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         }
 
 
-        //photonView.RPC("RecibirPelota",RpcTarget.All);
-
-
         if (estadoActual != estado)
         {
-            turno++;
-            txt_Turno.text = "Turno " + turno.ToString();
+            displayPuntosScript.SumarTurnoDisplay();
         }
         enRango = false;
 
@@ -707,12 +680,10 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
         RecibirPelota();
-        // photonView.RPC("RecibirPelota", RpcTarget.All);
 
         if (estadoActual != estado)
         {
-            turno++;
-            txt_Turno.text = "Turno " + turno.ToString();
+            displayPuntosScript.SumarTurnoDisplay();
         }
     }
 private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 posicionArmadoDePelota, int correccionDePase)
@@ -872,13 +843,11 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         ball.transform.position = endPosition;
 
         RecibirPelota();
-        //photonView.RPC("RecibirPelota", RpcTarget.All);
         }
 
         if (estadoActual != estado)
         {
-            turno++;
-            txt_Turno.text = "Turno " + turno.ToString();
+            displayPuntosScript.SumarTurnoDisplay();
         }
     }
 
@@ -1095,4 +1064,6 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
         
     }
+
+    
 }

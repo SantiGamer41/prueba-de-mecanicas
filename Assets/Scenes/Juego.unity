@@ -26981,6 +26981,8 @@ GameObject:
   - component: {fileID: 1603881498}
   - component: {fileID: 1603881500}
   - component: {fileID: 1603881499}
+  - component: {fileID: 1603881502}
+  - component: {fileID: 1603881501}
   m_Layer: 5
   m_Name: Txt_Turno
   m_TagString: Untagged
@@ -27004,8 +27006,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -278, y: 99}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -249, y: 147.8916}
+  m_SizeDelta: {x: 250.2028, y: 93.6167}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1603881499
 MonoBehaviour:
@@ -27029,11 +27031,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 27
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 132
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -27049,6 +27051,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603881497}
   m_CullTransparentMesh: 1
+--- !u!114 &1603881501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603881497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87a11d85199c784c8c0f4d5a293e50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turno: 0
+  txt_Turno: {fileID: 1603881499}
+--- !u!114 &1603881502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603881497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 14
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1671578421
 GameObject:
   m_ObjectHideFlags: 0
