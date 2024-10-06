@@ -26315,6 +26315,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1413959868}
   - component: {fileID: 1413959867}
+  - component: {fileID: 1413959869}
+  - component: {fileID: 1413959871}
+  - component: {fileID: 1413959870}
   m_Layer: 0
   m_Name: GAME MANAGER
   m_TagString: Untagged
@@ -26369,8 +26372,6 @@ MonoBehaviour:
   botonRematar: {fileID: 1688068026}
   botonBloquear: {fileID: 1880135134}
   animator: {fileID: 1311079939}
-  jugadorIzquierdo: {fileID: 0}
-  jugadorDerecho: {fileID: 0}
   jugadorPrefab: {fileID: 1121849688229140868, guid: 287ae45de1d05884d90ac5ac293843de,
     type: 3}
 --- !u!4 &1413959868
@@ -26387,6 +26388,92 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1413959869
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413959866}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1413959870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413959866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsMoving
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsRecieving
+  - Type: 9
+    SynchronizeType: 1
+    Name: Pass
+  - Type: 9
+    SynchronizeType: 1
+    Name: Spike
+  - Type: 4
+    SynchronizeType: 1
+    Name: receive
+  - Type: 9
+    SynchronizeType: 1
+    Name: endreceive
+  - Type: 4
+    SynchronizeType: 1
+    Name: Block
+  - Type: 9
+    SynchronizeType: 1
+    Name: endblock
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
+--- !u!114 &1413959871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413959866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 1413959870}
+  sceneViewId: 15
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1428126866 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,

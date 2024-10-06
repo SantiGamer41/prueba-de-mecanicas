@@ -54,9 +54,6 @@ public class gameManager : MonoBehaviourPun
     [Header("Animator")]
     public Animator animator;
 
-    public playerController jugadorIzquierdo;
-    public playerController jugadorDerecho;
-
     
 
     public GameObject jugadorPrefab;
