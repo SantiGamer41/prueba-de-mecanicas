@@ -1423,6 +1423,16 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7149067199659091666, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149067199659091666, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.23
+      objectReference: {fileID: 0}
     - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: m_Name

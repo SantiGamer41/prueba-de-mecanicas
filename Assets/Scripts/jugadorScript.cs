@@ -18,13 +18,15 @@ public class jugadorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (view.IsMine)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+           if (Input.GetKeyDown(KeyCode.Space))
             {
                 displayPuntosScript.SumarTurnoDisplay();
             }
+          
         }
-        
+        */
     }
 }

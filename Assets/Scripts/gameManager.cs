@@ -15,9 +15,10 @@ AtaqueP2DefensaP1,
 }
 public class gameManager : MonoBehaviourPun
 {
-
     public estado estado;
     [Space(25)]
+    [Header("Scripts")]
+    DisplayPuntosScript displayPuntosScript;
     [Header("UI")]
     private estado estadoActual;
     [Space(25)]
@@ -102,6 +103,8 @@ public class gameManager : MonoBehaviourPun
         maxMovementRange = 2; // Ejemplo de rango máximo de movimiento
         InstanciarPersonajesEnPosicionesIniciales();
         //MostrarOpcionesDeArmar();
+
+        displayPuntosScript = FindObjectOfType<DisplayPuntosScript>();
 
         
         if (PhotonNetwork.IsConnected)
@@ -616,7 +619,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
 
         if (estadoActual != estado)
         {
-            //displayPuntosScript.SumarTurnoDisplay();
+            displayPuntosScript.SumarTurnoDisplay();
         }
         enRango = false;
 
@@ -685,7 +688,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
 
         if (estadoActual != estado)
         {
-            //displayPuntosScript.SumarTurnoDisplay();
+            displayPuntosScript.SumarTurnoDisplay();
         }
     }
 private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 posicionArmadoDePelota, int correccionDePase)
@@ -849,7 +852,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
         if (estadoActual != estado)
         {
-            //displayPuntosScript.SumarTurnoDisplay();
+            displayPuntosScript.SumarTurnoDisplay();
         }
     }
 
