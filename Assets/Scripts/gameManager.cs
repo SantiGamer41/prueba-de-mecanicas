@@ -57,7 +57,11 @@ public class gameManager : MonoBehaviourPun
 
     
 
-    public GameObject jugadorPrefab;
+    public GameObject jugadorPrefab1;
+    public GameObject jugadorPrefab2;
+    bool Jugador1activo = false;
+
+    PhotonView view;
 
     private Vector2Int[] posicionesInicialesSaque1 = new Vector2Int[]
   {
@@ -105,8 +109,9 @@ public class gameManager : MonoBehaviourPun
         //MostrarOpcionesDeArmar();
 
         displayPuntosScript = FindObjectOfType<DisplayPuntosScript>();
+        view = GetComponent<PhotonView>();
 
-        
+
         if (PhotonNetwork.IsConnected)
         {
             SpawnJugadores();
@@ -120,7 +125,24 @@ public class gameManager : MonoBehaviourPun
 
     public void SpawnJugadores()
     {
-        PhotonNetwork.Instantiate(jugadorPrefab.name, Vector3.zero, Quaternion.identity);
+        view.RPC("SpawnJugadoresRPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void SpawnJugadoresRPC()
+    {
+        if (Jugador1activo == false && view.IsMine)
+        {
+            PhotonNetwork.Instantiate(jugadorPrefab1.name, Vector3.zero, Quaternion.identity);
+            Jugador1activo = true;
+            Debug.LogError("Jugador 1 instanciado");
+        }
+        else if (Jugador1activo == true && view.IsMine)
+        {
+            PhotonNetwork.Instantiate(jugadorPrefab2.name, Vector3.zero, Quaternion.identity);
+            Debug.LogError("Jugador 2 instanciado");
+        }
+
     }
 
     bool RecibirPelota()

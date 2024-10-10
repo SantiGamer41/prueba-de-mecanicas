@@ -26382,7 +26382,9 @@ MonoBehaviour:
   botonRematar: {fileID: 1688068026}
   botonBloquear: {fileID: 1880135134}
   animator: {fileID: 1311079939}
-  jugadorPrefab: {fileID: 1121849688229140868, guid: 287ae45de1d05884d90ac5ac293843de,
+  jugadorPrefab1: {fileID: 1121849688229140868, guid: 287ae45de1d05884d90ac5ac293843de,
+    type: 3}
+  jugadorPrefab2: {fileID: 7236577798630731076, guid: dc6619f7dcd7a3f499de1403ef17350d,
     type: 3}
 --- !u!4 &1413959868
 Transform:
