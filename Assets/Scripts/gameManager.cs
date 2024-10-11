@@ -59,7 +59,7 @@ public class gameManager : MonoBehaviourPun
 
     public GameObject jugadorPrefab1;
     public GameObject jugadorPrefab2;
-    bool Jugador1activo = false;
+    public GameObject jugadorPruebaPrefab;
 
     PhotonView view;
 
@@ -125,24 +125,16 @@ public class gameManager : MonoBehaviourPun
 
     public void SpawnJugadores()
     {
-        view.RPC("SpawnJugadoresRPC", RpcTarget.All);
-    }
-
-    [PunRPC]
-    public void SpawnJugadoresRPC()
-    {
-        if (Jugador1activo == false && view.IsMine)
+        if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate(jugadorPrefab1.name, Vector3.zero, Quaternion.identity);
-            Jugador1activo = true;
-            Debug.LogError("Jugador 1 instanciado");
+            Vector3 spawnPosition = new Vector3(-17.54f, -3.68f, 0f);
+            PhotonNetwork.Instantiate(jugadorPruebaPrefab.name, spawnPosition, Quaternion.identity);
         }
-        else if (Jugador1activo == true && view.IsMine)
+        else
         {
             PhotonNetwork.Instantiate(jugadorPrefab2.name, Vector3.zero, Quaternion.identity);
-            Debug.LogError("Jugador 2 instanciado");
         }
-
     }
 
     bool RecibirPelota()
