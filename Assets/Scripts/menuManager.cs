@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class menuManager : MonoBehaviour
 {
     public AudioClip menuMusic;
-
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +21,13 @@ public class menuManager : MonoBehaviour
 
     public void OnClick()
     {
-        SceneManager.LoadScene("InicioMultijugador");
+        StartCoroutine(LoadScene("InicioMultijugador"));
+    }
+
+    public IEnumerator LoadScene(string scene)
+    {
+        anim.SetTrigger("endscene");
+        yield return new WaitForSeconds(1.1f);
+        SceneManager.LoadScene(scene);
     }
 }

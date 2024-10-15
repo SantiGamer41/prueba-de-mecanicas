@@ -9,6 +9,12 @@ public class ConectarseScript : MonoBehaviourPunCallbacks
 {
     public InputField usernameInput;
     public Text buttonText;
+    public Animator anim;
+
+    private void Start()
+    {
+        anim.SetTrigger("endscene");
+    }
 
     public void ClickConectarse()
     {
@@ -23,6 +29,12 @@ public class ConectarseScript : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        SceneManager.LoadScene("LobbyMultijugador");
+        StartCoroutine(LoadScene("LobbyMultijugador"));
+    }
+    public IEnumerator LoadScene(string scene)
+    {
+        anim.SetTrigger("endscene");
+        yield return new WaitForSeconds(1.1f);
+        SceneManager.LoadScene(scene);
     }
 }
