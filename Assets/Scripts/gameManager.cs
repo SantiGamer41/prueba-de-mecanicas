@@ -606,6 +606,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
 
     Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
     Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
+    //float heightMax =3.0f
     DesactivarCasillasIluminadas();
     while (elapsedTime < duration)
     {
@@ -613,6 +614,20 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
         elapsedTime += Time.deltaTime;
         yield return null;
+        /*
+           float t = elapsedTime / duration;
+
+        // Interpolación en X e Y con una parábola en Z para la altura
+        Vector3 currentPos = Vector3.Lerp(startPosition, endPosition, t);
+        
+        // Aplicar la parábola en la dirección Y (o Z si prefieres que sea la profundidad en lugar de altura)
+        currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
+
+        // Asignar la nueva posición
+        ball.transform.position = currentPos;
+
+        elapsedTime += Time.deltaTime;
+        */
     }
 
     // Asegura que la pelota termine exactamente en la posición final

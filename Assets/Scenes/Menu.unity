@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuMusic: {fileID: 8300000, guid: ab3ccef270d42ab4eb9189ccd0bce614, type: 3}
+  anim: {fileID: 1447735101}
 --- !u!4 &446434858
 Transform:
   m_ObjectHideFlags: 0
