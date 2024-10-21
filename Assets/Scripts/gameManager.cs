@@ -59,7 +59,9 @@ public class gameManager : MonoBehaviourPun
 
     public GameObject jugadorPrefab1;
     public GameObject jugadorPrefab2;
-    public GameObject personajePrefab;
+
+    public GameObject[] playerPrefabs;
+
 
     PhotonView view;
 
@@ -111,11 +113,14 @@ public class gameManager : MonoBehaviourPun
         displayPuntosScript = FindObjectOfType<DisplayPuntosScript>();
         view = GetComponent<PhotonView>();
 
+        
 
         if (PhotonNetwork.IsConnected)
         {
             SpawnJugadores();
         }
+
+        
     }
 
     private void Update()
@@ -125,6 +130,8 @@ public class gameManager : MonoBehaviourPun
 
     public void SpawnJugadores()
     {
+        GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
+
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate(jugadorPrefab1.name, Vector3.zero, Quaternion.identity);
@@ -133,11 +140,11 @@ public class gameManager : MonoBehaviourPun
             Vector3 spawnPosition13 = new Vector3(-4.5f, -1.3f, 0f);     //Rematdor Arriba
             Vector3 spawnPosition14 = new Vector3(-4.5f, -5.6f, 0f);    //Rematador Abajo
             Vector3 spawnPosition15 = new Vector3(-1.4f, -2.6f, 0f);    //Armador
-            PhotonNetwork.Instantiate(personajePrefab.name, spawnPosition11, Quaternion.identity);
-            PhotonNetwork.Instantiate(personajePrefab.name, spawnPosition12, Quaternion.identity);
-            PhotonNetwork.Instantiate(personajePrefab.name, spawnPosition13, Quaternion.identity);
-            PhotonNetwork.Instantiate(personajePrefab.name, spawnPosition14, Quaternion.identity);
-            PhotonNetwork.Instantiate(personajePrefab.name, spawnPosition15, Quaternion.identity);
+            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition11, Quaternion.identity);
+            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition12, Quaternion.identity);
+            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition14, Quaternion.identity);
+            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition13, Quaternion.identity);
+            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition15, Quaternion.identity);
         }
         else
         {
@@ -148,11 +155,11 @@ public class gameManager : MonoBehaviourPun
             Vector3 spawnPosition23 = new Vector3(5.5f, -1.3f, 0f);     //Rematador Arriba
             Vector3 spawnPosition24 = new Vector3(8.5f, -5.6f, 0f);    //Rematador Abajo
             Vector3 spawnPosition25 = new Vector3(3.4f, -3.6f, 0f);    //Armador
-            PhotonNetwork.Instantiate(personajePrefab.name, spawnPosition21, spawnRotation);
-            PhotonNetwork.Instantiate(personajePrefab.name, spawnPosition22, spawnRotation);
-            PhotonNetwork.Instantiate(personajePrefab.name, spawnPosition23, spawnRotation);
-            PhotonNetwork.Instantiate(personajePrefab.name, spawnPosition24, spawnRotation);
-            PhotonNetwork.Instantiate(personajePrefab.name, spawnPosition25, spawnRotation);
+            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition21, spawnRotation);
+            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition22, spawnRotation);
+            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition24, spawnRotation);
+            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition23, spawnRotation);
+            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition25, spawnRotation);
         }
     }
 
