@@ -601,37 +601,44 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
     }
 
     // Mover la pelota a la casilla seleccionada
-    float duration = 3.0f;
+    float duration = 1.5f;
     float elapsedTime = 0;
 
     Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
     Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
-    //float heightMax =3.0f
+
+    Debug.Log($"Posición inicial: {startPosition}, Posición final: {endPosition}");
+
+    // Determina la altura máxima de la parábola
+    float heightMax = 2.5f;
+
     DesactivarCasillasIluminadas();
+
     while (elapsedTime < duration)
     {
         DeactivateAllButtons();
-        ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
-        elapsedTime += Time.deltaTime;
-        yield return null;
-        /*
-           float t = elapsedTime / duration;
+
+        // Interpolación en el eje X e Y
+        float t = elapsedTime / duration;
 
         // Interpolación en X e Y con una parábola en Z para la altura
         Vector3 currentPos = Vector3.Lerp(startPosition, endPosition, t);
-        
-        // Aplicar la parábola en la dirección Y (o Z si prefieres que sea la profundidad en lugar de altura)
         currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
+
+        // Debug de la posición de la pelota en cada frame
+        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
 
         // Asignar la nueva posición
         ball.transform.position = currentPos;
 
         elapsedTime += Time.deltaTime;
-        */
+        yield return null;
     }
 
     // Asegura que la pelota termine exactamente en la posición final
     ball.transform.position = endPosition;
+    Debug.Log($"Pelota llegó a la posición final: {endPosition}");
+
        enRango = RecibirPelota();
 
         if (endPosition.x < 1 && enRango == true)
@@ -694,7 +701,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
 
         // Mover la pelota a la casilla seleccionada
         DescongelarAnimaciones();
-        float duration = 2.0f;
+        float duration = 2.5f;
         float elapsedTime = 0;
 
         Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
@@ -703,13 +710,30 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("endreceive");
         personajeActual.GetComponentInChildren<Animator>().SetBool("receive", false);
-        while (elapsedTime < duration)
-        {
-            DeactivateAllButtons();
-            ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+        float heightMax = 4.0f;
+
+    DesactivarCasillasIluminadas();
+
+    while (elapsedTime < duration)
+    {
+        DeactivateAllButtons();
+
+        // Interpolación en el eje X e Y
+        float t = elapsedTime / duration;
+
+        // Interpolación en X e Y con una parábola en Z para la altura
+        Vector3 currentPos = Vector3.Lerp(startPosition, endPosition, t);
+        currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
+
+        // Debug de la posición de la pelota en cada frame
+        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
+
+        // Asignar la nueva posición
+        ball.transform.position = currentPos;
+
+        elapsedTime += Time.deltaTime;
+        yield return null;
+    }
 
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
@@ -722,7 +746,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
     }
 private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 posicionArmadoDePelota, int correccionDePase)
 {
-        float duration = 1.0f; // Duración de la animación
+        float duration = 1.5f; // Duración de la animación
         float elapsedTime = 0;
 
         // Ajusta la posición inicial al centro de la casilla
@@ -735,13 +759,30 @@ private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 p
         armador.GetComponentInChildren<SpriteRenderer>().flipX = !armador.GetComponentInChildren<SpriteRenderer>().flipX;
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("endreceive");
         personajeActual.GetComponentInChildren<Animator>().SetBool("receive", false);
-        while (elapsedTime < duration)
-        {
-            DeactivateAllButtons();
-            ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+        float heightMax = 2.5f;
+
+    DesactivarCasillasIluminadas();
+
+    while (elapsedTime < duration)
+    {
+        DeactivateAllButtons();
+
+        // Interpolación en el eje X e Y
+        float t = elapsedTime / duration;
+
+        // Interpolación en X e Y con una parábola en Z para la altura
+        Vector3 currentPos = Vector3.Lerp(startPosition, endPosition, t);
+        currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
+
+        // Debug de la posición de la pelota en cada frame
+        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
+
+        // Asignar la nueva posición
+        ball.transform.position = currentPos;
+
+        elapsedTime += Time.deltaTime;
+        yield return null;
+    }
         ball.transform.parent = armador.transform;
         ball.transform.localPosition = posicionArmadoDePelota;
         foreach (GameObject p in personajes)
@@ -799,14 +840,30 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("Pass");
-        while (elapsedTime < duration)
-        {
-            DeactivateAllButtons();
-            ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+        float heightMax = 1.5f;
 
+    DesactivarCasillasIluminadas();
+
+    while (elapsedTime < duration)
+    {
+        DeactivateAllButtons();
+
+        // Interpolación en el eje X e Y
+        float t = elapsedTime / duration;
+
+        // Interpolación en X e Y con una parábola en Z para la altura
+        Vector3 currentPos = Vector3.Lerp(startPosition, endPosition, t);
+        currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
+
+        // Debug de la posición de la pelota en cada frame
+        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
+
+        // Asignar la nueva posición
+        ball.transform.position = currentPos;
+
+        elapsedTime += Time.deltaTime;
+        yield return null;
+    }
         if(ball.transform.position.y > 2 )
         {
             ball.transform.parent = ballHolderAlto.transform;
