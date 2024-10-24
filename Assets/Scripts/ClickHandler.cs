@@ -4,11 +4,42 @@ using UnityEngine;
 
 public class ClickHandler : MonoBehaviour
 {
-    public gameManager GameManager; // Referencia al GameManager
     public int personajeIndice;
+    private gameManager GameManager;
 
+    void Start()
+    {
+        // Intentar encontrar el objeto GameManager por nombre
+        GameObject gameManagerObject = GameObject.Find("GAME MANAGER");
+
+        if (gameManagerObject != null)
+        {
+            // Obtener el componente GameManager
+            GameManager = gameManagerObject.GetComponent<gameManager>();
+
+            if (GameManager != null)
+            {
+                Debug.Log("GameManager encontrado y componente asignado correctamente");
+            }
+            else
+            {
+                Debug.LogError("No se pudo encontrar el componente GameManager en el objeto");
+            }
+        }
+        else
+        {
+            Debug.LogError("No se pudo encontrar el objeto GameManager en la jerarquía");
+        }
+    }
+
+    void Update()
+    {
+
+    }
     private void OnMouseDown()
     {
+        Debug.LogError("Me han clickeado");
+
 
         // Llamar al método para activar el botón en el GameManager
         GameManager.SeleccionarPersonaje(personajeIndice);
@@ -40,12 +71,14 @@ public class ClickHandler : MonoBehaviour
                 GameManager.botonDevolver.gameObject.SetActive(false);
                 GameManager.botonPasar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
+                    Debug.LogErrorFormat("Caso 6");
                     break;
                 case 5:
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.botonDevolver.gameObject.SetActive(false);
                 GameManager.botonPasar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
+                    Debug.LogErrorFormat("Caso 5");
                     break;
                 //Equipo 1
                 case 4:
@@ -56,9 +89,11 @@ public class ClickHandler : MonoBehaviour
                     break;
                 case 2:
                 GameManager.DeactivateAllButtons();
+                    Debug.LogErrorFormat("Caso 2");
                     break;
                 case 1:
                 GameManager.DeactivateAllButtons();
+                    Debug.LogErrorFormat("Caso 1");
                     break;
                 case 0:
                 GameManager.botonMoverPersonaje.gameObject.SetActive(false);
@@ -324,17 +359,5 @@ public class ClickHandler : MonoBehaviour
         }
 
 
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
+    } 
 }

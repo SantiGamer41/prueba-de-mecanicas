@@ -140,11 +140,22 @@ public class gameManager : MonoBehaviourPun
             Vector3 spawnPosition13 = new Vector3(-4.5f, -1.3f, 0f);     //Rematdor Arriba
             Vector3 spawnPosition14 = new Vector3(-4.5f, -5.6f, 0f);    //Rematador Abajo
             Vector3 spawnPosition15 = new Vector3(-1.4f, -2.6f, 0f);    //Armador
-            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition11, Quaternion.identity);
-            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition12, Quaternion.identity);
-            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition14, Quaternion.identity);
-            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition13, Quaternion.identity);
-            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition15, Quaternion.identity);
+
+            GameObject sacador1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition11, Quaternion.identity);
+            sacador1.GetComponent<ClickHandler>().personajeIndice = 0;
+
+            GameObject receptor1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition12, Quaternion.identity);
+            receptor1.GetComponent<ClickHandler>().personajeIndice = 1;
+
+            GameObject rematadorArriba1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition13, Quaternion.identity);
+            rematadorArriba1.GetComponent<ClickHandler>().personajeIndice = 3;
+
+            GameObject rematadorabajo1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition14, Quaternion.identity);
+            rematadorabajo1.GetComponent<ClickHandler>().personajeIndice = 2;
+
+            GameObject armador1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition15, Quaternion.identity);
+            armador1.GetComponent<ClickHandler>().personajeIndice = 4;
+
         }
         else
         {
@@ -155,11 +166,27 @@ public class gameManager : MonoBehaviourPun
             Vector3 spawnPosition23 = new Vector3(5.5f, -1.3f, 0f);     //Rematador Arriba
             Vector3 spawnPosition24 = new Vector3(8.5f, -5.6f, 0f);    //Rematador Abajo
             Vector3 spawnPosition25 = new Vector3(3.4f, -3.6f, 0f);    //Armador
-            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition21, spawnRotation);
-            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition22, spawnRotation);
-            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition24, spawnRotation);
-            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition23, spawnRotation);
-            PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition25, spawnRotation);
+
+            GameObject sacador2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition21, spawnRotation);
+            sacador2.GetComponent<ClickHandler>().personajeIndice = 5;
+            Debug.LogError(sacador2.GetComponent<ClickHandler>().personajeIndice);
+
+            GameObject receptor2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition22, spawnRotation);
+            receptor2.GetComponent<ClickHandler>().personajeIndice = 6;
+            Debug.LogError(receptor2.GetComponent<ClickHandler>().personajeIndice);
+
+            GameObject rematadorArriba2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition23, spawnRotation);
+            rematadorArriba2.GetComponent<ClickHandler>().personajeIndice = 8;
+            Debug.LogError(rematadorArriba2.GetComponent<ClickHandler>().personajeIndice);
+
+            GameObject rematadorAbajo2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition24, spawnRotation);
+            rematadorAbajo2.GetComponent<ClickHandler>().personajeIndice = 7;
+            Debug.LogError(rematadorAbajo2.GetComponent<ClickHandler>().personajeIndice);
+
+            GameObject armador2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition25, spawnRotation);
+            armador2.GetComponent<ClickHandler>().personajeIndice = 9;
+            Debug.LogError(armador2.GetComponent<ClickHandler>().personajeIndice);
+
         }
     }
 
