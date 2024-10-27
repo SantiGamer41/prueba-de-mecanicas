@@ -39,6 +39,7 @@ public class gameManager : MonoBehaviourPun
     private bool enRango = false;
     private bool IsServing;
     private bool IsBlocking = false;
+    private bool IsDoingAction = false;
     [Space(25)]
     private bool isMovingMode = false;
     [Header("Botónes")]
@@ -101,6 +102,7 @@ public class gameManager : MonoBehaviourPun
     {
         estado = estado.SaqueP1;
         estadoActual = estado;
+        IsDoingAction = false;
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
@@ -164,20 +166,41 @@ public class gameManager : MonoBehaviourPun
         }
         else
         {
+            IsDoingAction = false;
             // Si no hay personajes en rango, ejecutamos la lógica del saque
             if (ball.transform.position.x > 1)
             {
-                estado = estado.SaqueP1;
-                InstanciarPersonajesEnPosicionesIniciales();
-                ball.transform.parent = personajes[0].transform;
-                ball.transform.localPosition = new Vector3(7, 12, 0);
+                if (ball.transform.position.x < 18 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
+                {
+                    estado = estado.SaqueP1;
+                    InstanciarPersonajesEnPosicionesIniciales();
+                    ball.transform.parent = personajes[0].transform;
+                    ball.transform.localPosition = new Vector3(7, 12, 0);
+                }
+                else
+                {
+                    estado = estado.SaqueP2;
+                    InstanciarPersonajesEnPosicionesIniciales();
+                    ball.transform.parent = personajes[5].transform;
+                    ball.transform.localPosition = new Vector3(-7, 12, 0);
+                }
             }
-            else
+            else if(ball.transform.position.x < 1)
             {
-                estado = estado.SaqueP2;
-                InstanciarPersonajesEnPosicionesIniciales();
-                ball.transform.parent = personajes[5].transform;
-                ball.transform.localPosition = new Vector3(-7, 12, 0);
+                if (ball.transform.position.x > -16 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
+                {
+                    estado = estado.SaqueP2;
+                    InstanciarPersonajesEnPosicionesIniciales();
+                    ball.transform.parent = personajes[5].transform;
+                    ball.transform.localPosition = new Vector3(-7, 12, 0);
+                }
+                else
+                {
+                    estado = estado.SaqueP1;
+                    InstanciarPersonajesEnPosicionesIniciales();
+                    ball.transform.parent = personajes[0].transform;
+                    ball.transform.localPosition = new Vector3(7, 12, 0);
+                }
             }
             return false;
         }
@@ -229,7 +252,7 @@ public class gameManager : MonoBehaviourPun
 
     public void SeleccionarPersonaje(int indice)
     {
-        if (personajeActual != null)
+        if (personajeActual != null && IsDoingAction == false)
         {
 
             personajeActual.transform.GetChild(1).gameObject.SetActive(false);
@@ -262,7 +285,7 @@ public class gameManager : MonoBehaviourPun
 
             }
         }
-        else
+        else if(personajeActual == null && IsDoingAction == false)
         {
            
             if (indice >= 0 && indice < personajes.Length)
@@ -577,6 +600,7 @@ public class gameManager : MonoBehaviourPun
    
 private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
 {
+    IsDoingAction = true;
     bool casillaSeleccionada = false;
     Vector2Int casillaObjetivo = Vector2Int.zero;
 
@@ -658,6 +682,8 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
             displayPuntosScript.SumarTurnoDisplay();
         }
         enRango = false;
+        yield return new WaitForSeconds(1.2f);
+        IsDoingAction = false;
 
  /*
         if (Sacador.transform.position.x > 1)
@@ -676,6 +702,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
     }
 private IEnumerator SeleccionDeDevolver(Vector3 start)
     {
+        IsDoingAction = true;
         bool casillaSeleccionada = false;
         Vector2Int casillaObjetivo = Vector2Int.zero;
 
@@ -712,10 +739,10 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         personajeActual.GetComponentInChildren<Animator>().SetBool("receive", false);
         float heightMax = 4.0f;
 
-    DesactivarCasillasIluminadas();
+        DesactivarCasillasIluminadas();
 
-    while (elapsedTime < duration)
-    {
+        while (elapsedTime < duration)
+        {
         DeactivateAllButtons();
 
         // Interpolación en el eje X e Y
@@ -733,7 +760,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
 
         elapsedTime += Time.deltaTime;
         yield return null;
-    }
+        }
 
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
@@ -743,6 +770,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         {
             displayPuntosScript.SumarTurnoDisplay();
         }
+        IsDoingAction = false;
     }
 private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 posicionArmadoDePelota, int correccionDePase)
 {
@@ -878,6 +906,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
     public IEnumerator SeleccionDeRemate(Vector3 start)
     {
+        IsDoingAction = true;
         bool casillaSeleccionada = false;
         Vector2Int casillaObjetivo = Vector2Int.zero;
 
@@ -940,6 +969,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         {
             displayPuntosScript.SumarTurnoDisplay();
         }
+        IsDoingAction = false;
     }
 
     private IEnumerator SeleccionDeBloqueo(GameObject personaje, Vector3 start, Vector3 end)
@@ -969,6 +999,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
     public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end, GameObject personaje)
     {
+        IsDoingAction = true;
         Debug.Log(personaje);
         float duration = 1.0f; // Duración de la animación
         float elapsedTime = 0;
@@ -992,6 +1023,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
         personajeActual.transform.position = endPosition; // Asegurar que el personaje termine exactamente en la posición final
         personaje.GetComponentInChildren<Animator>().SetBool("IsMoving", false);
+        IsDoingAction = false;
     }
 
     private void DesactivarCasillasIluminadas()
