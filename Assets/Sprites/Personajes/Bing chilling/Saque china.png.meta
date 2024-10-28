@@ -1,0 +1,661 @@
+fileFormatVersion: 2
+guid: d741d79264f55944e910417e287cc2f1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5606749997283500355
+    second: Animacion%20Saque%20Chi_0
+  - first:
+      213: -112824051389984686
+    second: Animacion%20Saque%20Chi_1
+  - first:
+      213: -4756530771689351902
+    second: Animacion%20Saque%20Chi_2
+  - first:
+      213: 1135129495246260976
+    second: Animacion%20Saque%20Chi_3
+  - first:
+      213: -1319634265966834804
+    second: Animacion%20Saque%20Chi_4
+  - first:
+      213: -2965285687967082438
+    second: Animacion%20Saque%20Chi_5
+  - first:
+      213: -731875296338497669
+    second: Animacion%20Saque%20Chi_6
+  - first:
+      213: -1169836091012246570
+    second: Animacion%20Saque%20Chi_7
+  - first:
+      213: -3303938872456807420
+    second: Animacion%20Saque%20Chi_8
+  - first:
+      213: -8790459816468532212
+    second: Animacion%20Saque%20Chi_9
+  - first:
+      213: -5275708364135969003
+    second: Animacion%20Saque%20Chi_10
+  - first:
+      213: 2943549441803867386
+    second: Animacion%20Saque%20Chi_11
+  - first:
+      213: -4695909695907890468
+    second: Animacion%20Saque%20Chi_12
+  - first:
+      213: -2105174423283929746
+    second: Animacion%20Saque%20Chi_13
+  - first:
+      213: -6188134333611441935
+    second: Animacion%20Saque%20Chi_14
+  - first:
+      213: 3793643510099590844
+    second: Animacion%20Saque%20Chi_15
+  - first:
+      213: 3003633406352704182
+    second: Animacion%20Saque%20Chi_16
+  - first:
+      213: -167381286459378540
+    second: Animacion%20Saque%20Chi_17
+  - first:
+      213: -6883419220086881762
+    second: Animacion%20Saque%20Chi_18
+  - first:
+      213: -6158244207564758275
+    second: Animacion%20Saque%20Chi_19
+  - first:
+      213: 4290875561284343875
+    second: Animacion%20Saque%20Chi_20
+  - first:
+      213: 1078135529681294361
+    second: Animacion%20Saque%20Chi_21
+  - first:
+      213: -4249268902295636268
+    second: Animacion%20Saque%20Chi_22
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 210
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe9e735592d032b0800000000000000
+      internalID: -5606749997283500355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 210
+        width: 22
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25097ce7f1b2f6ef0800000000000000
+      internalID: -112824051389984686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 210
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225dd3ed6786dfdb0800000000000000
+      internalID: -4756530771689351902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_3
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 210
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fac832034ac0cf00800000000000000
+      internalID: 1135129495246260976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_4
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 210
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b0d9770a7bfade0800000000000000
+      internalID: -1319634265966834804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_5
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 140
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a381c27a06039d6d0800000000000000
+      internalID: -2965285687967082438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_6
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 186
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f2cddab4bd7d5f0800000000000000
+      internalID: -731875296338497669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_7
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 193
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d398c5f548e3cfe0800000000000000
+      internalID: -1169836091012246570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c7b9bb91d0622d0800000000000000
+      internalID: -3303938872456807420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_9
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 191
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c043c0bee53020680800000000000000
+      internalID: -8790459816468532212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_10
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 141
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f4e19d13be8c6b0800000000000000
+      internalID: -5275708364135969003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_11
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 143
+        width: 28
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af4d4892f9699d820800000000000000
+      internalID: 2943549441803867386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_12
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 148
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdaf816f207c4deb0800000000000000
+      internalID: -4695909695907890468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_13
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 151
+        width: 25
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d6ce5040be8c2e0800000000000000
+      internalID: -2105174423283929746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 80
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f001b61c945f1aa0800000000000000
+      internalID: -6188134333611441935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_15
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 118
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbeb3ff3caab5a430800000000000000
+      internalID: 3793643510099590844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_16
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 25
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2462d4bac0fa920800000000000000
+      internalID: 3003633406352704182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_17
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4947a865b975dadf0800000000000000
+      internalID: -167381286459378540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_18
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 79
+        width: 39
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1200a270be2970a0800000000000000
+      internalID: -6883419220086881762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_19
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 77
+        width: 32
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df2eeff5585898aa0800000000000000
+      internalID: -6158244207564758275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_20
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 74
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34812c5c6904c8b30800000000000000
+      internalID: 4290875561284343875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_21
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91491625d8e46fe00800000000000000
+      internalID: 1078135529681294361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Chi_22
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6fd8b62709705c0800000000000000
+      internalID: -4249268902295636268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
