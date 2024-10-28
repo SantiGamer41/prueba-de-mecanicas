@@ -19,6 +19,7 @@ public class gameManager : MonoBehaviourPun
     [Space(25)]
     [Header("Scripts")]
     DisplayPuntosScript displayPuntosScript;
+    public leantweenScript LeantweenScript;
     [Header("UI")]
     private estado estadoActual;
     [Space(25)]
