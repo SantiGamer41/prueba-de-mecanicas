@@ -1,0 +1,661 @@
+fileFormatVersion: 2
+guid: 4c8303eb2b2ec5a4cb86e9c55a9f6e2b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4100959621000777882
+    second: Animacion%20Saque%20Bra_0
+  - first:
+      213: -7637658669865218082
+    second: Animacion%20Saque%20Bra_1
+  - first:
+      213: 392277007619608194
+    second: Animacion%20Saque%20Bra_2
+  - first:
+      213: -6857457491918158308
+    second: Animacion%20Saque%20Bra_3
+  - first:
+      213: -3060653280878578156
+    second: Animacion%20Saque%20Bra_4
+  - first:
+      213: -8812280496897189561
+    second: Animacion%20Saque%20Bra_5
+  - first:
+      213: 6125368068675890490
+    second: Animacion%20Saque%20Bra_6
+  - first:
+      213: 8698799977533199656
+    second: Animacion%20Saque%20Bra_7
+  - first:
+      213: -2430667697265745824
+    second: Animacion%20Saque%20Bra_8
+  - first:
+      213: 1947951006678019349
+    second: Animacion%20Saque%20Bra_9
+  - first:
+      213: 2801512288139006348
+    second: Animacion%20Saque%20Bra_10
+  - first:
+      213: -5995800239501008816
+    second: Animacion%20Saque%20Bra_11
+  - first:
+      213: -1299727145029102954
+    second: Animacion%20Saque%20Bra_12
+  - first:
+      213: -4763751653839079909
+    second: Animacion%20Saque%20Bra_13
+  - first:
+      213: 258316802383292319
+    second: Animacion%20Saque%20Bra_14
+  - first:
+      213: 2730702964155837754
+    second: Animacion%20Saque%20Bra_15
+  - first:
+      213: -6317132991937777810
+    second: Animacion%20Saque%20Bra_16
+  - first:
+      213: -880206535039500130
+    second: Animacion%20Saque%20Bra_17
+  - first:
+      213: -1963397948722999140
+    second: Animacion%20Saque%20Bra_18
+  - first:
+      213: 3089734604271992372
+    second: Animacion%20Saque%20Bra_19
+  - first:
+      213: -3061487537297666434
+    second: Animacion%20Saque%20Bra_20
+  - first:
+      213: 860151525084645722
+    second: Animacion%20Saque%20Bra_21
+  - first:
+      213: -3523030125011998294
+    second: Animacion%20Saque%20Bra_22
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 210
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a90d8f72c0989e830800000000000000
+      internalID: 4100959621000777882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 210
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf4003e7e5910690800000000000000
+      internalID: -7637658669865218082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 210
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28e48bc2cd5a17500800000000000000
+      internalID: 392277007619608194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_3
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 210
+        width: 27
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1680e35eba65d0a0800000000000000
+      internalID: -6857457491918158308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_4
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 210
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 416399c9e006685d0800000000000000
+      internalID: -3060653280878578156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_5
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 140
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7491759d39d74b580800000000000000
+      internalID: -8812280496897189561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_6
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 186
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3d62fb0ecda10550800000000000000
+      internalID: 6125368068675890490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_7
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 193
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 825da09cd7858b870800000000000000
+      internalID: 8698799977533199656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06065798b98844ed0800000000000000
+      internalID: -2430667697265745824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_9
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 191
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d68e0be13880b10800000000000000
+      internalID: 1947951006678019349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_10
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 141
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c81da604598f0e620800000000000000
+      internalID: 2801512288139006348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_11
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 143
+        width: 28
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05027540373aacca0800000000000000
+      internalID: -5995800239501008816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_12
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 148
+        width: 26
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6929b9f3c0176fde0800000000000000
+      internalID: -1299727145029102954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_13
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 151
+        width: 25
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b16fdba3c11c3edb0800000000000000
+      internalID: -4763751653839079909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 80
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f97229d53c9b59300800000000000000
+      internalID: 258316802383292319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_15
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 118
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3d6d95c0e765e520800000000000000
+      internalID: 2730702964155837754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_16
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6fe5a073090558a0800000000000000
+      internalID: -6317132991937777810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_17
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 113
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e904ef5e1d0e8c3f0800000000000000
+      internalID: -880206535039500130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_18
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 79
+        width: 39
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9092a9d7fb90c4e0800000000000000
+      internalID: -1963397948722999140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_19
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 77
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43e3dd1a041f0ea20800000000000000
+      internalID: 3089734604271992372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_20
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 74
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7e46172e496385d0800000000000000
+      internalID: -3061487537297666434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_21
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a594ea9314fdfeb00800000000000000
+      internalID: 860151525084645722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion%20Saque%20Bra_22
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1
+        width: 25
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9e8a164ceab1fc0800000000000000
+      internalID: -3523030125011998294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

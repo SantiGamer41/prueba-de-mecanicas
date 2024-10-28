@@ -7,6 +7,8 @@ public class menuManager : MonoBehaviour
 {
     public AudioClip menuMusic;
     public Animator anim;
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +25,11 @@ public class menuManager : MonoBehaviour
     {
         StartCoroutine(LoadScene("InicioMultijugador"));
     }
-
+   
     public IEnumerator LoadScene(string scene)
     {
         anim.SetTrigger("endscene");
         yield return new WaitForSeconds(1.1f);
-        SceneManager.LoadScene(scene);
+         SceneManager.LoadScene(scene);
     }
 }
