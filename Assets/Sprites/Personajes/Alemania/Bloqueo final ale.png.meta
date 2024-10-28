@@ -122,132 +122,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Animacion%20Bloqueo%20Ale%202_0
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 100
-        width: 23
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cc72434bdf282fad0800000000000000
-      internalID: -2669927602915629108
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Bloqueo%20Ale%202_1
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 100
-        width: 25
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d4538fe0103d3d50800000000000000
-      internalID: 6718579068402619606
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Bloqueo%20Ale%202_2
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 100
-        width: 24
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d285fc824a3bc640800000000000000
-      internalID: 5101235060434371287
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Bloqueo%20Ale%202_3
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 100
-        width: 21
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 211aaa8e981720bf0800000000000000
-      internalID: -359600183108263662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Bloqueo%20Ale%202_4
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 52
-        width: 22
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19a6856bab0684110800000000000000
-      internalID: 1245351652007373457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20Bloqueo%20Ale%202_5
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 52
-        width: 20
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3bdf6dc3b4d9c2f60800000000000000
-      internalID: 8010950783654100403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Animacion%20Bloqueo%20Ale%202_6
       rect:
         serializedVersion: 2
@@ -256,7 +130,7 @@ TextureImporter:
         width: 19
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -277,7 +151,7 @@ TextureImporter:
         width: 20
         height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -298,7 +172,7 @@ TextureImporter:
         width: 23
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -319,7 +193,7 @@ TextureImporter:
         width: 25
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
