@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1233567692429517604}
   - component: {fileID: 6819382316411265099}
   - component: {fileID: 7505141164278866428}
+  - component: {fileID: 2277326187322107702}
   m_Layer: 0
   m_Name: jugador2Prefab
   m_TagString: Untagged
@@ -66,3 +67,20 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &2277326187322107702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7236577798630731076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fdd0bab53d0a84089097de778c7877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  remateSource: {fileID: 0}
+  rematesSFX:
+  - {fileID: 8300000, guid: 3cfc0a139cc59e042a2238f78326b0b3, type: 3}
+  - {fileID: 8300000, guid: 211e9be47be754144b96d09e05bbb017, type: 3}
+  - {fileID: 8300000, guid: 695a387338b6e7d4db309c46553bee20, type: 3}
