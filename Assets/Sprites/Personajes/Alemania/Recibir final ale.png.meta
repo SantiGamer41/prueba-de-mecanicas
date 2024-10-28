@@ -119,132 +119,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20Ale2_0
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 100
-        width: 23
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f35453b47d104dff0800000000000000
-      internalID: -12382874783890113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20Ale2_1
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 100
-        width: 24
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01f36cd7996c54dd0800000000000000
-      internalID: -2502375655392002288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20Ale2_2
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 100
-        width: 23
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 637241921e18c3350800000000000000
-      internalID: 5997811607807469366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20Ale2_3
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 100
-        width: 21
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05569518496969e20800000000000000
-      internalID: 3357036136820729168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20Ale2_4
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 50
-        width: 21
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a34f4c337bb237460800000000000000
-      internalID: 7238177091962074170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20Ale2_5
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 50
-        width: 21
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c73ce27385f8ee270800000000000000
-      internalID: 8281714373826626428
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Animacion%20manos%20bajas%20Ale2_6
       rect:
         serializedVersion: 2
@@ -253,7 +127,7 @@ TextureImporter:
         width: 21
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -274,7 +148,7 @@ TextureImporter:
         width: 24
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -295,7 +169,7 @@ TextureImporter:
         width: 27
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
