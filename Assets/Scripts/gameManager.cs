@@ -40,7 +40,6 @@ public class gameManager : MonoBehaviourPun
     private bool enRango = false;
     private bool IsServing;
     private bool IsBlocking = false;
-    private bool IsDoingAction = false;
     [Space(25)]
     private bool isMovingMode = false;
     [Header("Botónes")]
@@ -52,6 +51,12 @@ public class gameManager : MonoBehaviourPun
     public Button botonArmar;
     public Button botonRematar;
     public Button botonBloquear;
+    [Space(25)]
+    private bool IsDoingAction = false;
+    [Header("Textos")]
+    public GameObject textoPointP1;
+    public Text textoPointP2;
+    public Text textoSpike;
     [Space(25)]
     private Vector2Int startTile;
     [Header("Animator")]
@@ -173,6 +178,8 @@ public class gameManager : MonoBehaviourPun
             {
                 if (ball.transform.position.x < 18 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
                 {
+                    LeantweenScript.AparecerTextoPunto(textoPointP1);
+                    Debug.Log("Se mostro el punto");
                     estado = estado.SaqueP1;
                     InstanciarPersonajesEnPosicionesIniciales();
                     ball.transform.parent = personajes[0].transform;

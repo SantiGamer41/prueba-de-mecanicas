@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class leantweenScript : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -16,9 +16,10 @@ public class leantweenScript : MonoBehaviour
         
     }
 
-    public void AparecerTextoPuntoJ1(GameObject texto)
+    public void AparecerTextoPunto(GameObject texto)
     {
-        LeanTween.moveY(texto, 4, 2);
-        LeanTween.scale(texto, new Vector3(200, 400, 1), 2);
+        LeanTween.move (texto, new Vector2(4,8), 5.0f);
+        //LeanTween.moveX(texto, 8, 5);
+        //LeanTween.scaleGUI(texto, new Vector3(200, 400, 1), 2);
     }
 }
