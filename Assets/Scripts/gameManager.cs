@@ -55,8 +55,8 @@ public class gameManager : MonoBehaviourPun
     private bool IsDoingAction = false;
     [Header("Textos")]
     public GameObject textoPointP1;
-    public Text textoPointP2;
-    public Text textoSpike;
+    public GameObject textoPointP2;
+    public GameObject textoSpike;
     [Space(25)]
     private Vector2Int startTile;
     [Header("Animator")]
@@ -187,6 +187,7 @@ public class gameManager : MonoBehaviourPun
                 }
                 else
                 {
+                    LeantweenScript.AparecerTextoPunto(textoPointP2);
                     estado = estado.SaqueP2;
                     InstanciarPersonajesEnPosicionesIniciales();
                     ball.transform.parent = personajes[5].transform;
@@ -197,6 +198,7 @@ public class gameManager : MonoBehaviourPun
             {
                 if (ball.transform.position.x > -16 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
                 {
+                    LeantweenScript.AparecerTextoPunto(textoPointP2);
                     estado = estado.SaqueP2;
                     InstanciarPersonajesEnPosicionesIniciales();
                     ball.transform.parent = personajes[5].transform;
@@ -204,6 +206,7 @@ public class gameManager : MonoBehaviourPun
                 }
                 else
                 {
+                    LeantweenScript.AparecerTextoPunto(textoPointP1);
                     estado = estado.SaqueP1;
                     InstanciarPersonajesEnPosicionesIniciales();
                     ball.transform.parent = personajes[0].transform;
