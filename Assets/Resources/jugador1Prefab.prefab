@@ -79,8 +79,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fdd0bab53d0a84089097de778c7877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remateSource: {fileID: 0}
+  audioSource: {fileID: 0}
   rematesSFX:
   - {fileID: 8300000, guid: 3cfc0a139cc59e042a2238f78326b0b3, type: 3}
   - {fileID: 8300000, guid: 211e9be47be754144b96d09e05bbb017, type: 3}
   - {fileID: 8300000, guid: 695a387338b6e7d4db309c46553bee20, type: 3}
+  piquesSFX:
+  - {fileID: 8300000, guid: f70362294fc4a294d87e17bcbc5a7d5e, type: 3}
+  - {fileID: 8300000, guid: 3392e92767b85e94199d626518cd3954, type: 3}
+  - {fileID: 8300000, guid: a25bfd71ecd112848a48ae0ab3c8f606, type: 3}
+  - {fileID: 8300000, guid: 6289fe710d3fabc4e9a9ce2663426191, type: 3}
+  pitidoSFX: {fileID: 8300000, guid: d220063d1d63c6e46a1bb02dc337b88b, type: 3}
