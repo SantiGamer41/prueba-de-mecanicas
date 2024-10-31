@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/InicioMultijugador.unity
     guid: c2a7d1ab074410a42931098184ab01f0
   - enabled: 1
-    path: Assets/LobbyMultijugador.unity
+    path: Assets/Scenes/LobbyMultijugador.unity
     guid: 0dbdd737494017d4ea63c065c6ae34f9
   - enabled: 1
     path: Assets/Scenes/Juego.unity

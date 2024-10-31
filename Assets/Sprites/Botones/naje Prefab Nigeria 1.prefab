@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1440399156353353956}
-  - component: {fileID: 9207649191806314119}
+  - component: {fileID: 8844427907966825403}
   m_Layer: 0
   m_Name: CentroDeRecepcion
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 7149067201123429327}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9207649191806314119
+--- !u!114 &8844427907966825403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,10 +57,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7149067199659091666}
   - component: {fileID: 7149067199659091669}
-  - component: {fileID: 320028335850334397}
-  - component: {fileID: 5352092935146773717}
-  - component: {fileID: 7053481799175092091}
-  - component: {fileID: 5730150967354221765}
+  - component: {fileID: 5377043816295054039}
+  - component: {fileID: 3578831652309441620}
+  - component: {fileID: 4578422357564255636}
   m_Layer: 0
   m_Name: Personaje1
   m_TagString: Untagged
@@ -122,7 +121,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -8612184337276016645, guid: 49db9cbfb93296b47a4f6aad2dc1a923,
+  m_Sprite: {fileID: -2637310204567641886, guid: e231b275074abe4429cda84ae06ab87f,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,7 +133,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &320028335850334397
+--- !u!114 &5377043816295054039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,7 +149,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!95 &5352092935146773717
+--- !u!95 &3578831652309441620
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -160,7 +159,7 @@ Animator:
   m_GameObject: {fileID: 7149067199659091667}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 34ae21accd61b0a43923eb86ba842828, type: 2}
+  m_Controller: {fileID: 9100000, guid: d3d743be620f2bc47b745db6029e902b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -171,22 +170,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!111 &7053481799175092091
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7149067199659091667}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!114 &5730150967354221765
+--- !u!114 &4578422357564255636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,34 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 0
-    Name: IsMoving
-  - Type: 4
-    SynchronizeType: 0
-    Name: IsRecieving
-  - Type: 9
-    SynchronizeType: 0
-    Name: Pass
-  - Type: 9
-    SynchronizeType: 0
-    Name: Spike
-  - Type: 4
-    SynchronizeType: 0
-    Name: receive
-  - Type: 9
-    SynchronizeType: 0
-    Name: endreceive
-  - Type: 4
-    SynchronizeType: 0
-    Name: Block
-  - Type: 9
-    SynchronizeType: 0
-    Name: endblock
-  m_SynchronizeLayers:
-  - SynchronizeType: 0
-    LayerIndex: 0
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &7149067201123429325
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +201,7 @@ GameObject:
   - component: {fileID: 5553185290907412718}
   - component: {fileID: 3797702183924270007}
   m_Layer: 0
-  m_Name: Personaje Prefab Brazil
+  m_Name: naje Prefab Nigeria 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,7 +249,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.26099098, y: 2.905373}
+  m_Offset: {x: 0.85467935, y: 8.9854145}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -302,7 +260,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.205972, y: 6.7744246}
+  m_Size: {x: 9.75606, y: 18.934505}
   m_EdgeRadius: 0
 --- !u!114 &7149067201123429312
 MonoBehaviour:
@@ -337,8 +295,8 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 3797702183924270007}
-  - {fileID: 320028335850334397}
-  - {fileID: 9207649191806314119}
+  - {fileID: 5377043816295054039}
+  - {fileID: 8844427907966825403}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 5553185290907412718}
   - component: {fileID: 3797702183924270007}
   m_Layer: 0
-  m_Name: Personaje Prefab Brazil
+  m_Name: Personaje Prefab Brazil 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
