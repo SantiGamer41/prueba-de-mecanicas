@@ -1,30 +1,34 @@
+using Photon.Pun.Demo.PunBasics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class leantweenScript : MonoBehaviour
 {
+    public Vector2 holderPosition;
+    gameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+       gameManager = FindObjectOfType<gameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        holderPosition = gameManager.textHolder.GetComponent<RectTransform>().position;
     }
 
-    public void AparecerTextoPunto(GameObject texto)
+    public void AparecerTextoPunto(GameObject texto,  GameObject textHolder)
     {
 
-        LeanTween.move (texto, new Vector2(220,167), 1.0f);
-        LeanTween.scale(texto, new Vector2(2.20f, 2.20f), 1.0f).setDelay(0);
+        LeanTween.move (texto, textHolder.GetComponent<RectTransform>().position, 1.0f);
+        LeanTween.scale(texto, new Vector2(2.20f, 2.20f), 1.0f);
         
        
         LeanTween.scale(texto, new Vector2(0f, 0f), 1.0f).setDelay(2);
-        LeanTween.move(texto, new Vector2(220, 10), 1.0f);
+        LeanTween.move(texto, new Vector2(textHolder.GetComponent<RectTransform>().position.x, textHolder.GetComponent<RectTransform>().position.y - 100), 1.0f).setDelay(2);
         //LeanTween.moveX(texto, 8, 5);
         //LeanTween.scaleGUI(texto, new Vector3(200, 400, 1), 2);
     }

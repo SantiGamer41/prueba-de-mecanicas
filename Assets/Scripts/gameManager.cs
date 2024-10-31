@@ -35,6 +35,7 @@ public class gameManager : MonoBehaviourPun
     public GameObject casillaIluminadaPrefab;
     public GameObject ballHolderAlto;
     public GameObject ballHolderBajo;
+    public GameObject textHolder;
     private int maxMovementRange;
     public float ballPickupRange = 2.5f;
     private bool enRango = false;
@@ -178,7 +179,7 @@ public class gameManager : MonoBehaviourPun
             {
                 if (ball.transform.position.x < 18 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
                 {
-                    LeantweenScript.AparecerTextoPunto(textoPointP1);
+                    LeantweenScript.AparecerTextoPunto(textoPointP1, textHolder);
                     Debug.Log("Se mostro el punto");
                     estado = estado.SaqueP1;
                     InstanciarPersonajesEnPosicionesIniciales();
@@ -187,7 +188,7 @@ public class gameManager : MonoBehaviourPun
                 }
                 else
                 {
-                    LeantweenScript.AparecerTextoPunto(textoPointP2);
+                    LeantweenScript.AparecerTextoPunto(textoPointP2,textHolder);
                     estado = estado.SaqueP2;
                     InstanciarPersonajesEnPosicionesIniciales();
                     ball.transform.parent = personajes[5].transform;
@@ -198,7 +199,7 @@ public class gameManager : MonoBehaviourPun
             {
                 if (ball.transform.position.x > -16 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
                 {
-                    LeantweenScript.AparecerTextoPunto(textoPointP2);
+                    LeantweenScript.AparecerTextoPunto(textoPointP2,textHolder);
                     estado = estado.SaqueP2;
                     InstanciarPersonajesEnPosicionesIniciales();
                     ball.transform.parent = personajes[5].transform;
@@ -206,7 +207,7 @@ public class gameManager : MonoBehaviourPun
                 }
                 else
                 {
-                    LeantweenScript.AparecerTextoPunto(textoPointP1);
+                    LeantweenScript.AparecerTextoPunto(textoPointP1,textHolder);
                     estado = estado.SaqueP1;
                     InstanciarPersonajesEnPosicionesIniciales();
                     ball.transform.parent = personajes[0].transform;
@@ -962,6 +963,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("Spike");
+        yield return new WaitForSeconds()
         while (elapsedTime < duration)
         {
             DeactivateAllButtons();
