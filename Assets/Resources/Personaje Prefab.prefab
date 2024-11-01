@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0874b34253a60140bf66a0e82a48924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  personajeIndice: 0
+  personajeIndice: 10
 --- !u!114 &5553185290907412718
 MonoBehaviour:
   m_ObjectHideFlags: 0

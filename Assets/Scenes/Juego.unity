@@ -26953,6 +26953,7 @@ MonoBehaviour:
   - {fileID: 621050157}
   - {fileID: 1750846197}
   - {fileID: 132511775}
+  - {fileID: 1062053392}
   personajeActual: {fileID: 0}
   personajeBloqueando: {fileID: 0}
   ball: {fileID: 1598535763}
