@@ -36,6 +36,8 @@ public class gameManager : MonoBehaviourPun
     public GameObject ballHolderAlto;
     public GameObject ballHolderBajo;
     public GameObject textHolder;
+    public GameObject textHolderPopUpLeft;
+    public GameObject textHolderPopUpRight;
     private int maxMovementRange;
     public float ballPickupRange = 2.5f;
     private bool enRango = false;
@@ -577,12 +579,13 @@ public class gameManager : MonoBehaviourPun
         DesactivarCasillasIluminadas();
         
         Vector2Int tileAltaP1 = new Vector2Int(-3, 3);
-        Vector2Int tileBajaP1 = new Vector2Int(-2, -4);
+        Vector2Int tileBajaP1 = new Vector2Int(-3, -3);
         
-        Vector2Int tileAltaP2 = new Vector2Int(3, 3);
+        Vector2Int tileAltaP2 = new Vector2Int(4, 3);
         Vector2Int tileBajaP2 = new Vector2Int(3, -5);
         if(ball.transform.parent == personajes[9].transform)
         {
+        //if (personajes[8].transform.position )
           if(casillasPorPosicion.ContainsKey(tileAltaP2))
           {
           casillasPorPosicion[tileAltaP2].SetActive(true);
@@ -955,7 +958,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         {
         //if(pro)
         // Mover la pelota a la casilla seleccionada
-        float duration = 2.0f;
+        float duration = 1.0f;
         float elapsedTime = 0;
 
         Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
@@ -963,13 +966,21 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("Spike");
-        yield return new WaitForSeconds()
+        yield return new WaitForSeconds(0.7f);
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(0.12f);
+        Time.timeScale = 1.0f;
+        LeantweenScript.AparecerTextoPunto(textoSpike, textHolderPopUpLeft);
         while (elapsedTime < duration)
         {
             DeactivateAllButtons();
             ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
-            yield return null;
+
+            Quaternion startRotation = ball.transform.rotation; // rotación inicial
+                Quaternion endRotation = Quaternion.Euler(0, 360, 0); // rotación final (ejemplo de 360 grados en Y)
+                ball.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / duration);
+                yield return null;
         }
 
         // Asegura que la pelota termine exactamente en la posición final
