@@ -349,7 +349,7 @@ public class ClickHandler : MonoBehaviour
                     break;
                 case 0:
                     GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.ActivarBotonMoverPersonaje();
+                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonArmar.gameObject.SetActive(false);
                     GameManager.NoRematar();
                     break;

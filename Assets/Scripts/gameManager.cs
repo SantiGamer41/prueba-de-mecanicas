@@ -19,6 +19,7 @@ public class gameManager : MonoBehaviourPun
     [Space(25)]
     [Header("Scripts")]
     DisplayPuntosScript displayPuntosScript;
+    public leantweenScript LeantweenScript;
     [Header("UI")]
     private estado estadoActual;
     [Space(25)]
@@ -34,6 +35,9 @@ public class gameManager : MonoBehaviourPun
     public GameObject casillaIluminadaPrefab;
     public GameObject ballHolderAlto;
     public GameObject ballHolderBajo;
+    public GameObject textHolder;
+    public GameObject textHolderPopUpLeft;
+    public GameObject textHolderPopUpRight;
     private int maxMovementRange;
     public float ballPickupRange = 2.5f;
     private bool enRango = false;
@@ -50,6 +54,12 @@ public class gameManager : MonoBehaviourPun
     public Button botonArmar;
     public Button botonRematar;
     public Button botonBloquear;
+    [Space(25)]
+    private bool IsDoingAction = false;
+    [Header("Textos")]
+    public GameObject textoPointP1;
+    public GameObject textoPointP2;
+    public GameObject textoSpike;
     [Space(25)]
     private Vector2Int startTile;
     [Header("Animator")]
@@ -103,6 +113,7 @@ public class gameManager : MonoBehaviourPun
     {
         estado = estado.SaqueP1;
         estadoActual = estado;
+        IsDoingAction = false;
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
@@ -217,20 +228,46 @@ public class gameManager : MonoBehaviourPun
         }
         else
         {
+            IsDoingAction = false;
             // Si no hay personajes en rango, ejecutamos la lógica del saque
             if (ball.transform.position.x > 1)
             {
-                estado = estado.SaqueP1;
-                InstanciarPersonajesEnPosicionesIniciales();
-                ball.transform.parent = personajes[0].transform;
-                ball.transform.localPosition = new Vector3(7, 12, 0);
+                if (ball.transform.position.x < 18 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
+                {
+                    LeantweenScript.AparecerTextoPunto(textoPointP1, textHolder);
+                    Debug.Log("Se mostro el punto");
+                    estado = estado.SaqueP1;
+                    InstanciarPersonajesEnPosicionesIniciales();
+                    ball.transform.parent = personajes[0].transform;
+                    ball.transform.localPosition = new Vector3(7, 12, 0);
+                }
+                else
+                {
+                    LeantweenScript.AparecerTextoPunto(textoPointP2,textHolder);
+                    estado = estado.SaqueP2;
+                    InstanciarPersonajesEnPosicionesIniciales();
+                    ball.transform.parent = personajes[5].transform;
+                    ball.transform.localPosition = new Vector3(-7, 12, 0);
+                }
             }
-            else
+            else if(ball.transform.position.x < 1)
             {
-                estado = estado.SaqueP2;
-                InstanciarPersonajesEnPosicionesIniciales();
-                ball.transform.parent = personajes[5].transform;
-                ball.transform.localPosition = new Vector3(-7, 12, 0);
+                if (ball.transform.position.x > -16 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
+                {
+                    LeantweenScript.AparecerTextoPunto(textoPointP2,textHolder);
+                    estado = estado.SaqueP2;
+                    InstanciarPersonajesEnPosicionesIniciales();
+                    ball.transform.parent = personajes[5].transform;
+                    ball.transform.localPosition = new Vector3(-7, 12, 0);
+                }
+                else
+                {
+                    LeantweenScript.AparecerTextoPunto(textoPointP1,textHolder);
+                    estado = estado.SaqueP1;
+                    InstanciarPersonajesEnPosicionesIniciales();
+                    ball.transform.parent = personajes[0].transform;
+                    ball.transform.localPosition = new Vector3(7, 12, 0);
+                }
             }
             return false;
         }
@@ -282,7 +319,7 @@ public class gameManager : MonoBehaviourPun
 
     public void SeleccionarPersonaje(int indice)
     {
-        if (personajeActual != null)
+        if (personajeActual != null && IsDoingAction == false)
         {
 
             personajeActual.transform.GetChild(1).gameObject.SetActive(false);
@@ -315,7 +352,7 @@ public class gameManager : MonoBehaviourPun
 
             }
         }
-        else
+        else if(personajeActual == null && IsDoingAction == false)
         {
            
             if (indice >= 0 && indice < personajes.Length)
@@ -595,12 +632,13 @@ public class gameManager : MonoBehaviourPun
         DesactivarCasillasIluminadas();
         
         Vector2Int tileAltaP1 = new Vector2Int(-3, 3);
-        Vector2Int tileBajaP1 = new Vector2Int(-2, -4);
+        Vector2Int tileBajaP1 = new Vector2Int(-3, -3);
         
-        Vector2Int tileAltaP2 = new Vector2Int(3, 3);
+        Vector2Int tileAltaP2 = new Vector2Int(4, 3);
         Vector2Int tileBajaP2 = new Vector2Int(3, -5);
         if(ball.transform.parent == personajes[9].transform)
         {
+        //if (personajes[8].transform.position )
           if(casillasPorPosicion.ContainsKey(tileAltaP2))
           {
           casillasPorPosicion[tileAltaP2].SetActive(true);
@@ -630,6 +668,7 @@ public class gameManager : MonoBehaviourPun
    
 private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
 {
+    IsDoingAction = true;
     bool casillaSeleccionada = false;
     Vector2Int casillaObjetivo = Vector2Int.zero;
 
@@ -654,37 +693,44 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
     }
 
     // Mover la pelota a la casilla seleccionada
-    float duration = 3.0f;
+    float duration = 1.5f;
     float elapsedTime = 0;
 
     Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
     Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
-    //float heightMax =3.0f
+
+    Debug.Log($"Posición inicial: {startPosition}, Posición final: {endPosition}");
+
+    // Determina la altura máxima de la parábola
+    float heightMax = 2.5f;
+
     DesactivarCasillasIluminadas();
+
     while (elapsedTime < duration)
     {
         DeactivateAllButtons();
-        ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
-        elapsedTime += Time.deltaTime;
-        yield return null;
-        /*
-           float t = elapsedTime / duration;
+
+        // Interpolación en el eje X e Y
+        float t = elapsedTime / duration;
 
         // Interpolación en X e Y con una parábola en Z para la altura
         Vector3 currentPos = Vector3.Lerp(startPosition, endPosition, t);
-        
-        // Aplicar la parábola en la dirección Y (o Z si prefieres que sea la profundidad en lugar de altura)
         currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
+
+        // Debug de la posición de la pelota en cada frame
+        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
 
         // Asignar la nueva posición
         ball.transform.position = currentPos;
 
         elapsedTime += Time.deltaTime;
-        */
+        yield return null;
     }
 
     // Asegura que la pelota termine exactamente en la posición final
     ball.transform.position = endPosition;
+    Debug.Log($"Pelota llegó a la posición final: {endPosition}");
+
        enRango = RecibirPelota();
 
         if (endPosition.x < 1 && enRango == true)
@@ -704,6 +750,8 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
             displayPuntosScript.SumarTurnoDisplay();
         }
         enRango = false;
+        yield return new WaitForSeconds(1.2f);
+        IsDoingAction = false;
 
  /*
         if (Sacador.transform.position.x > 1)
@@ -722,6 +770,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
     }
 private IEnumerator SeleccionDeDevolver(Vector3 start)
     {
+        IsDoingAction = true;
         bool casillaSeleccionada = false;
         Vector2Int casillaObjetivo = Vector2Int.zero;
 
@@ -747,7 +796,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
 
         // Mover la pelota a la casilla seleccionada
         DescongelarAnimaciones();
-        float duration = 2.0f;
+        float duration = 2.5f;
         float elapsedTime = 0;
 
         Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
@@ -756,12 +805,29 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("endreceive");
         personajeActual.GetComponentInChildren<Animator>().SetBool("receive", false);
+        float heightMax = 4.0f;
+
+        DesactivarCasillasIluminadas();
+
         while (elapsedTime < duration)
         {
-            DeactivateAllButtons();
-            ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
+        DeactivateAllButtons();
+
+        // Interpolación en el eje X e Y
+        float t = elapsedTime / duration;
+
+        // Interpolación en X e Y con una parábola en Z para la altura
+        Vector3 currentPos = Vector3.Lerp(startPosition, endPosition, t);
+        currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
+
+        // Debug de la posición de la pelota en cada frame
+        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
+
+        // Asignar la nueva posición
+        ball.transform.position = currentPos;
+
+        elapsedTime += Time.deltaTime;
+        yield return null;
         }
 
         // Asegura que la pelota termine exactamente en la posición final
@@ -772,10 +838,11 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         {
             displayPuntosScript.SumarTurnoDisplay();
         }
+        IsDoingAction = false;
     }
 private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 posicionArmadoDePelota, int correccionDePase)
 {
-        float duration = 1.0f; // Duración de la animación
+        float duration = 1.5f; // Duración de la animación
         float elapsedTime = 0;
 
         // Ajusta la posición inicial al centro de la casilla
@@ -788,13 +855,30 @@ private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 p
         armador.GetComponentInChildren<SpriteRenderer>().flipX = !armador.GetComponentInChildren<SpriteRenderer>().flipX;
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("endreceive");
         personajeActual.GetComponentInChildren<Animator>().SetBool("receive", false);
-        while (elapsedTime < duration)
-        {
-            DeactivateAllButtons();
-            ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+        float heightMax = 2.5f;
+
+    DesactivarCasillasIluminadas();
+
+    while (elapsedTime < duration)
+    {
+        DeactivateAllButtons();
+
+        // Interpolación en el eje X e Y
+        float t = elapsedTime / duration;
+
+        // Interpolación en X e Y con una parábola en Z para la altura
+        Vector3 currentPos = Vector3.Lerp(startPosition, endPosition, t);
+        currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
+
+        // Debug de la posición de la pelota en cada frame
+        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
+
+        // Asignar la nueva posición
+        ball.transform.position = currentPos;
+
+        elapsedTime += Time.deltaTime;
+        yield return null;
+    }
         ball.transform.parent = armador.transform;
         ball.transform.localPosition = posicionArmadoDePelota;
         foreach (GameObject p in personajes)
@@ -852,14 +936,30 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("Pass");
-        while (elapsedTime < duration)
-        {
-            DeactivateAllButtons();
-            ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+        float heightMax = 1.5f;
 
+    DesactivarCasillasIluminadas();
+
+    while (elapsedTime < duration)
+    {
+        DeactivateAllButtons();
+
+        // Interpolación en el eje X e Y
+        float t = elapsedTime / duration;
+
+        // Interpolación en X e Y con una parábola en Z para la altura
+        Vector3 currentPos = Vector3.Lerp(startPosition, endPosition, t);
+        currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
+
+        // Debug de la posición de la pelota en cada frame
+        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
+
+        // Asignar la nueva posición
+        ball.transform.position = currentPos;
+
+        elapsedTime += Time.deltaTime;
+        yield return null;
+    }
         if(ball.transform.position.y > 2 )
         {
             ball.transform.parent = ballHolderAlto.transform;
@@ -874,6 +974,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
     public IEnumerator SeleccionDeRemate(Vector3 start)
     {
+        IsDoingAction = true;
         bool casillaSeleccionada = false;
         Vector2Int casillaObjetivo = Vector2Int.zero;
 
@@ -910,7 +1011,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         {
         //if(pro)
         // Mover la pelota a la casilla seleccionada
-        float duration = 2.0f;
+        float duration = 1.0f;
         float elapsedTime = 0;
 
         Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
@@ -918,12 +1019,21 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("Spike");
+        yield return new WaitForSeconds(0.7f);
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(0.12f);
+        Time.timeScale = 1.0f;
+        LeantweenScript.AparecerTextoPunto(textoSpike, textHolderPopUpLeft);
         while (elapsedTime < duration)
         {
             DeactivateAllButtons();
             ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
-            yield return null;
+
+            Quaternion startRotation = ball.transform.rotation; // rotación inicial
+                Quaternion endRotation = Quaternion.Euler(0, 360, 0); // rotación final (ejemplo de 360 grados en Y)
+                ball.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / duration);
+                yield return null;
         }
 
         // Asegura que la pelota termine exactamente en la posición final
@@ -936,6 +1046,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         {
             displayPuntosScript.SumarTurnoDisplay();
         }
+        IsDoingAction = false;
     }
 
     private IEnumerator SeleccionDeBloqueo(GameObject personaje, Vector3 start, Vector3 end)
@@ -965,6 +1076,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
     public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end, GameObject personaje)
     {
+        IsDoingAction = true;
         Debug.Log(personaje);
         float duration = 1.0f; // Duración de la animación
         float elapsedTime = 0;
@@ -988,6 +1100,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
         personajeActual.transform.position = endPosition; // Asegurar que el personaje termine exactamente en la posición final
         personaje.GetComponentInChildren<Animator>().SetBool("IsMoving", false);
+        IsDoingAction = false;
     }
 
     private void DesactivarCasillasIluminadas()
