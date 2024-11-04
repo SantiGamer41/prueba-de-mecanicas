@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.EventSystems;
 
 public enum estado
 {
@@ -451,6 +452,7 @@ public class gameManager : MonoBehaviourPun
     {
         isMovingMode = false;
         Armar();
+        DeactivateAllButtons();
     }
     
     public void OnBotonRematarClick()
@@ -870,7 +872,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
             yield return null;
         }
-        personajeActual.GetComponentInChildren<SpriteRenderer>().flipX = !personajeActual.GetComponentInChildren<SpriteRenderer>().flipX;
+        IsDoingAction = true;
         DescongelarAnimaciones();
 
         // Mover la pelota a la casilla seleccionada
@@ -907,7 +909,9 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         elapsedTime += Time.deltaTime;
         yield return null;
     }
-        if(ball.transform.position.y > 2 )
+        //yield return new WaitForSeconds(1);
+        personajeActual.GetComponentInChildren<SpriteRenderer>().flipX = !personajeActual.GetComponentInChildren<SpriteRenderer>().flipX;
+        if (ball.transform.position.y > 2 )
         {
             ball.transform.parent = ballHolderAlto.transform;
         }
@@ -915,7 +919,8 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         {
             ball.transform.parent = ballHolderBajo.transform;
         }
-}
+        IsDoingAction = false;
+    }
         //Vector2 Skibidi.Transform
         //Console.Lenght mewing;
 
