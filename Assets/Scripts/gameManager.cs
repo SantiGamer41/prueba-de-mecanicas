@@ -149,7 +149,7 @@ public class gameManager : MonoBehaviourPun
         }
     }
     //RPCear
-    bool RecibirPelota()
+    bool RecibirPelota(Vector3 posicion)
 
     {
         GameObject personajeMasCercano = null;
@@ -171,6 +171,7 @@ public class gameManager : MonoBehaviourPun
 
         if (personajeMasCercano != null)
         {
+            StartCoroutine(MovimientoPersonaje((personajeMasCercano.transform.position, posicion,personajeMasCercano)));
             RecogerPelota(personajeMasCercano);
             return true;
         }
@@ -690,8 +691,8 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
     Debug.Log($"Pelota llegó a la posición final: {endPosition}");
-
-       enRango = RecibirPelota();
+     Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
+       enRango = RecibirPelota(casillaObjetivoV3);
 
 
 
@@ -782,7 +783,8 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
 
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
-        RecibirPelota();
+         Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
+        RecibirPelota(casillaObjetivoV3);
 
         if (estadoActual != estado)
         {
@@ -950,6 +952,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
             yield return null;
         }
+        Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
         DescongelarAnimaciones();
         if (IsBlocking == true)
         {
@@ -992,7 +995,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
 
-        RecibirPelota();
+        RecibirPelota(casillaObjetivoV3);
         }
 
         if (estadoActual != estado)
