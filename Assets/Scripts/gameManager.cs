@@ -148,7 +148,7 @@ public class gameManager : MonoBehaviourPun
             PhotonNetwork.Instantiate(jugadorPrefab2.name, Vector3.zero, Quaternion.identity);
         }
     }
-
+    //RPCear
     bool RecibirPelota()
 
     {
@@ -430,7 +430,7 @@ public class gameManager : MonoBehaviourPun
     public void OnBotonSacarClick()
     {
         isMovingMode = false;
-        ball.transform.SetParent(null);
+        ball.transform.SetParent(null); //mover a la funcion que se photonee
         Sacar();
     }
 
@@ -640,9 +640,19 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
 
         yield return null;
     }
+        yield return new WaitForSeconds(0.1f);
+        if (estado == estado.SaqueP2)
+        {
 
-    // Mover la pelota a la casilla seleccionada
-    float duration = 1.5f;
+            StartCoroutine(MovimientoPersonaje(personajes[5].transform.position, new Vector3(12.5f, -0.5f, 0), personajes[5]));
+        }
+        else if (estado == estado.SaqueP1)
+        {
+
+            StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
+        }
+        // Mover la pelota a la casilla seleccionada
+        float duration = 1.5f;
     float elapsedTime = 0;
 
     Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
@@ -675,23 +685,14 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         elapsedTime += Time.deltaTime;
         yield return null;
     }
+    
 
-    // Asegura que la pelota termine exactamente en la posición final
-    ball.transform.position = endPosition;
+        // Asegura que la pelota termine exactamente en la posición final
+        ball.transform.position = endPosition;
     Debug.Log($"Pelota llegó a la posición final: {endPosition}");
 
        enRango = RecibirPelota();
 
-        if (endPosition.x < 1 && enRango == true)
-        {
-
-            StartCoroutine(MovimientoPersonaje(personajes[5].transform.position, new Vector3(12.5f, -0.5f, 0), personajes[5]));
-        }
-        else if (endPosition.x > -1 && enRango == true)
-        {
-
-            StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
-        }
 
 
         if (estadoActual != estado)
