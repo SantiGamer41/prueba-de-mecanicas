@@ -171,7 +171,12 @@ public class gameManager : MonoBehaviourPun
 
         if (personajeMasCercano != null)
         {
-            StartCoroutine(MovimientoPersonaje((personajeMasCercano.transform.position, posicion,personajeMasCercano)));
+            Vector3 desiredPosition = posicion;
+            //cambiar
+            while(personajeMasCercano.transform.position != desiredPosition)
+            {
+            StartCoroutine(MovimientoPersonaje(personajeMasCercano.transform.position, posicion, personajeMasCercano));
+            }
             RecogerPelota(personajeMasCercano);
             return true;
         }
