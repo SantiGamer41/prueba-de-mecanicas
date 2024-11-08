@@ -37,4 +37,8 @@ public class ConectarseScript : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(1.1f);
         SceneManager.LoadScene(scene);
     }
+    public void OnClickBtnVolver()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }

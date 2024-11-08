@@ -26,12 +26,12 @@ public class menuManager : MonoBehaviour
     }
     public void OnCreditsClick()
     {
-        StartCoroutine(LoadPanel(creditos));
+        creditos.SetActive(true);
     }
     public void OnVolverClick()
     {
-        Debug.Log("volvido");
-        StartCoroutine(LoadPanel(panel));
+        creditos.SetActive(false);
+        panel.SetActive(true);
     }
     public void OnClick()
     {
@@ -43,18 +43,5 @@ public class menuManager : MonoBehaviour
         anim.SetTrigger("endscene");
         yield return new WaitForSeconds(1.1f);
          SceneManager.LoadScene(scene);
-    }
-
-    private IEnumerator LoadPanel(GameObject panel)
-    {
-        anim.SetTrigger("endscene");
-        yield return new WaitForSeconds(1.1f);
-
-        // Desactivar todos los paneles primero
-        if (panel != null) panel.SetActive(false);
-        if (creditos != null) creditos.SetActive(false);
-
-        // Activar el panel que se desea mostrar
-        panel.SetActive(true);
     }
 }
