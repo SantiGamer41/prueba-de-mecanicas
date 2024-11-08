@@ -4,44 +4,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class menuManager : MonoBehaviour
+public class MuteButton : MonoBehaviour
 {
-    public AudioClip menuMusic;
-    public Animator anim;
-    public GameObject panel;
-    public GameObject creditos;
+    private bool isMuted = false; // Variable para controlar el estado del sonido
+    public Button muteButton; // Asigna aquí el botón desde el Inspector
 
-   
-
-    // Start is called before the first frame update
     void Start()
     {
-        audioManager.Instance.PlayMusic(menuMusic);
+        // Agregamos el listener al botón para que ejecute el método ToggleMute al ser clickeado
+        muteButton.onClick.AddListener(ToggleMute);
     }
 
-    // Update is called once per frame
-    void Update()
+    // Método para activar/desactivar el sonido
+    public void ToggleMute()
     {
-        
-    }
-    public void OnCreditsClick()
-    {
-        creditos.SetActive(true);
-    }
-    public void OnVolverClick()
-    {
-        creditos.SetActive(false);
-        panel.SetActive(true);
-    }
-    public void OnClick()
-    {
-        StartCoroutine(LoadScene("InicioMultijugador"));
-    }
-   
-    public IEnumerator LoadScene(string scene)
-    {
-        anim.SetTrigger("endscene");
-        yield return new WaitForSeconds(1.1f);
-         SceneManager.LoadScene(scene);
+        if (isMuted)
+        {
+            // Si está silenciado, lo activamos
+            audioManager.Instance.musicSource.mute = false;
+            isMuted = false;
+        }
+        else
+        {
+            // Si no está silenciado, lo desactivamos
+            audioManager.Instance.musicSource.mute = true;
+            isMuted = true;
+        }
     }
 }
