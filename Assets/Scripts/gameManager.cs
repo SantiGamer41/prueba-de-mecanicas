@@ -149,8 +149,7 @@ public class gameManager : MonoBehaviourPun
         }
     }
     //RPCear
-    bool RecibirPelota(Vector3 posicion)
-
+    GameObject IrARecogerPelota(Vector2Int posicion)
     {
         GameObject personajeMasCercano = null;
         float menorDistancia = float.MaxValue; // Empezamos con la mayor distancia posible
@@ -159,7 +158,7 @@ public class gameManager : MonoBehaviourPun
         {
             if (personaje != null && ball != null && ball.transform.parent == null)
             {
-                float distancia = CalcularDistancia(personaje, ball);
+                float distancia = CalcularDistancia(personaje, posicion);
 
                 if (distancia <= ballPickupRange && distancia < menorDistancia)
                 {
@@ -168,15 +167,18 @@ public class gameManager : MonoBehaviourPun
                 }
             }
         }
+        Vector3 posicionV3 = new Vector3(posicion.x, posicion.y, 0);
+        if (personajeMasCercano != null)
+        {
+            StartCoroutine(MovimientoPersonaje(personajeMasCercano.transform.position, posicionV3, personajeMasCercano));
+        }
+        return personajeMasCercano;
+    }
+    bool RecibirPelota(GameObject personajeMasCercano)
+    {
 
         if (personajeMasCercano != null)
         {
-            Vector3 desiredPosition = posicion;
-            //cambiar
-            while(personajeMasCercano.transform.position != desiredPosition)
-            {
-            StartCoroutine(MovimientoPersonaje(personajeMasCercano.transform.position, posicion, personajeMasCercano));
-            }
             RecogerPelota(personajeMasCercano);
             return true;
         }
@@ -657,6 +659,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
 
             StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
         }
+       GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
         // Mover la pelota a la casilla seleccionada
         float duration = 1.5f;
     float elapsedTime = 0;
@@ -697,7 +700,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         ball.transform.position = endPosition;
     Debug.Log($"Pelota llegó a la posición final: {endPosition}");
      Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
-       enRango = RecibirPelota(casillaObjetivoV3);
+       enRango = RecibirPelota(personajeMasCercano);
 
 
 
@@ -764,6 +767,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         float heightMax = 4.0f;
 
         DesactivarCasillasIluminadas();
+        GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
 
         while (elapsedTime < duration)
         {
@@ -789,7 +793,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
          Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
-        RecibirPelota(casillaObjetivoV3);
+        RecibirPelota(personajeMasCercano);
 
         if (estadoActual != estado)
         {
@@ -985,6 +989,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         yield return new WaitForSecondsRealtime(0.12f);
         Time.timeScale = 1.0f;
         LeantweenScript.AparecerTextoPunto(textoSpike, textHolderPopUpLeft);
+        GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
         while (elapsedTime < duration)
         {
             DeactivateAllButtons();
@@ -1000,7 +1005,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
 
-        RecibirPelota(casillaObjetivoV3);
+        RecibirPelota(personajeMasCercano);
         }
 
         if (estadoActual != estado)
@@ -1046,9 +1051,6 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
         Vector3 endPosition = new Vector3(end.x, end.y -0.5f, end.z); // end ya está ajustado en MoverPersonajeA
 
-        // Imprime las posiciones ajustadas
-        Debug.Log("Start (ajustado): " + startPosition);
-        Debug.Log("End (ajustado): " + endPosition);
         DeactivateAllButtons();
         while (elapsedTime < duration)
         {
@@ -1059,7 +1061,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             yield return null;
         }
 
-        personajeActual.transform.position = endPosition; // Asegurar que el personaje termine exactamente en la posición final
+        personaje.transform.position = endPosition; // Asegurar que el personaje termine exactamente en la posición final
         personaje.GetComponentInChildren<Animator>().SetBool("IsMoving", false);
         IsDoingAction = false;
     }
@@ -1176,9 +1178,9 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             botones[i].SetActive(false);
       }
     }
-    float CalcularDistancia(GameObject personaje, GameObject pelota)
+    float CalcularDistancia(GameObject personaje, Vector2Int casillaObjetivo)
     {
-        Vector2Int ballPosition = GetGridPosition(pelota.transform.position);
+        Vector2Int ballPosition =  casillaObjetivo;
         Vector2Int personajePosition = GetGridPosition(personaje.transform.GetChild(2).position);
 
         return Vector2Int.Distance(personajePosition, ballPosition);
