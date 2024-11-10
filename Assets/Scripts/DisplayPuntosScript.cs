@@ -32,6 +32,6 @@ public class DisplayPuntosScript : MonoBehaviour
     {
         turno++;
         txt_Turno.text = "Turno " + turno.ToString();
-        Debug.LogError("Hola soy el display");
+        
     }
 }
