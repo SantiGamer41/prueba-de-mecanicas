@@ -675,7 +675,12 @@ public class gameManager : MonoBehaviourPun
 
     
 
-   
+   /*
+    Crear una funcion aparte que tire las posciciones finales y llame a recibir pelota (esto porque Photon no puede pasar IEnumerators)
+   Cosas a pasar en la funcion alternativa:
+   - El jugador saco (para los estados)
+   - El jugador del otro equipo recibio o no
+    */
 private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
 {
     IsDoingAction = true;
