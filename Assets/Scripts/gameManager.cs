@@ -201,7 +201,7 @@ public class gameManager : MonoBehaviourPun
 
         }
     }
-    //RPCear
+    //Probamos rpcear
     GameObject IrARecogerPelota(Vector2Int posicion)
     {
         GameObject personajeMasCercano = null;
@@ -227,13 +227,16 @@ public class gameManager : MonoBehaviourPun
         }
         return personajeMasCercano;
     }
-    bool RecibirPelota(GameObject personajeMasCercano)
-    {
 
+    //RPCear Los dos jugadores tienen que saber que la pelota se recibió
+    void RecibirPelota(int id)
+    {
+        PhotonView photonview = PhotonView.Find(id);
+        GameObject personajeMasCercano = photonview.gameObject;
         if (personajeMasCercano != null)
         {
             RecogerPelota(personajeMasCercano);
-            return true;
+            
         }
         else
         {
@@ -278,7 +281,7 @@ public class gameManager : MonoBehaviourPun
                     ball.transform.localPosition = new Vector3(7, 12, 0);
                 }
             }
-            return false;
+            
         }
     }
 
@@ -422,6 +425,7 @@ public class gameManager : MonoBehaviourPun
         return false;
     }
 
+    //RPCear
     void RecogerPelota(GameObject personaje)
     {
         animator = personaje.GetComponentInChildren<Animator>();
@@ -758,7 +762,10 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         ball.transform.position = endPosition;
     Debug.Log($"Pelota llegó a la posición final: {endPosition}");
      Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
-       enRango = RecibirPelota(personajeMasCercano);
+        int personajeMasCercanoId = personajeMasCercano.GetComponent<PhotonView>().ViewID;
+        RecibirPelota(personajeMasCercanoId);
+
+        //photonView.RPC("RecibirPelota", RpcTarget.All, personajeMasCercanoId);
 
 
 
@@ -766,7 +773,6 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         {
             displayPuntosScript.SumarTurnoDisplay();
         }
-        enRango = false;
         yield return new WaitForSeconds(1.2f);
         IsDoingAction = false;
 
@@ -851,7 +857,8 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
          Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
-        RecibirPelota(personajeMasCercano);
+        int personajeMasCercanoId = personajeMasCercano.GetComponent<PhotonView>().ViewID;
+        RecibirPelota(personajeMasCercanoId);
 
         if (estadoActual != estado)
         {
@@ -1063,7 +1070,8 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
 
-        RecibirPelota(personajeMasCercano);
+            int personajeMasCercanoId = personajeMasCercano.GetComponent<PhotonView>().ViewID;
+            RecibirPelota(personajeMasCercanoId);
         }
 
         if (estadoActual != estado)
