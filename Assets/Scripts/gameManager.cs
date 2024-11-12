@@ -70,9 +70,7 @@ public class gameManager : MonoBehaviourPun
 
     public GameObject jugadorPrefab1;
     public GameObject jugadorPrefab2;
-
-    public GameObject[] playerPrefabs;
-
+    public GameObject jugadorPruebaPrefab;
 
     PhotonView view;
 
@@ -125,14 +123,11 @@ public class gameManager : MonoBehaviourPun
         displayPuntosScript = FindObjectOfType<DisplayPuntosScript>();
         view = GetComponent<PhotonView>();
 
-        
 
         if (PhotonNetwork.IsConnected)
         {
             SpawnJugadores();
         }
-
-        
     }
 
     private void Update()
@@ -142,66 +137,18 @@ public class gameManager : MonoBehaviourPun
 
     public void SpawnJugadores()
     {
-        GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
-
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate(jugadorPrefab1.name, Vector3.zero, Quaternion.identity);
-            Vector3 spawnPosition11 = new Vector3(-17.5f, -1.6f, 0f);   //Sacador
-            Vector3 spawnPosition12 = new Vector3(-10.5f, -1.3f, 0f);    //Receptor
-            Vector3 spawnPosition13 = new Vector3(-4.5f, -1.3f, 0f);     //Rematdor Arriba
-            Vector3 spawnPosition14 = new Vector3(-4.5f, -5.6f, 0f);    //Rematador Abajo
-            Vector3 spawnPosition15 = new Vector3(-1.4f, -2.6f, 0f);    //Armador
-
-            GameObject sacador1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition11, Quaternion.identity);
-            sacador1.GetComponent<ClickHandler>().personajeIndice = 0;
-
-            GameObject receptor1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition12, Quaternion.identity);
-            receptor1.GetComponent<ClickHandler>().personajeIndice = 1;
-
-            GameObject rematadorArriba1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition13, Quaternion.identity);
-            rematadorArriba1.GetComponent<ClickHandler>().personajeIndice = 3;
-
-            GameObject rematadorabajo1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition14, Quaternion.identity);
-            rematadorabajo1.GetComponent<ClickHandler>().personajeIndice = 2;
-
-            GameObject armador1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition15, Quaternion.identity);
-            armador1.GetComponent<ClickHandler>().personajeIndice = 4;
-
+            Vector3 spawnPosition = new Vector3(-17.54f, -3.68f, 0f);
+            PhotonNetwork.Instantiate(jugadorPruebaPrefab.name, spawnPosition, Quaternion.identity);
         }
         else
         {
             PhotonNetwork.Instantiate(jugadorPrefab2.name, Vector3.zero, Quaternion.identity);
-            Quaternion spawnRotation = Quaternion.Euler(0, 180, 0);
-            Vector3 spawnPosition21 = new Vector3(13.5f, -4.6f, 0f);   //Sacador
-            Vector3 spawnPosition22 = new Vector3(12.5f, -1.3f, 0f);    //Receptor
-            Vector3 spawnPosition23 = new Vector3(5.5f, -1.3f, 0f);     //Rematador Arriba
-            Vector3 spawnPosition24 = new Vector3(8.5f, -5.6f, 0f);    //Rematador Abajo
-            Vector3 spawnPosition25 = new Vector3(3.4f, -3.6f, 0f);    //Armador
-
-            GameObject sacador2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition21, spawnRotation);
-            sacador2.GetComponent<ClickHandler>().personajeIndice = 5;
-            Debug.LogError(sacador2.GetComponent<ClickHandler>().personajeIndice);
-
-            GameObject receptor2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition22, spawnRotation);
-            receptor2.GetComponent<ClickHandler>().personajeIndice = 6;
-            Debug.LogError(receptor2.GetComponent<ClickHandler>().personajeIndice);
-
-            GameObject rematadorArriba2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition23, spawnRotation);
-            rematadorArriba2.GetComponent<ClickHandler>().personajeIndice = 8;
-            Debug.LogError(rematadorArriba2.GetComponent<ClickHandler>().personajeIndice);
-
-            GameObject rematadorAbajo2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition24, spawnRotation);
-            rematadorAbajo2.GetComponent<ClickHandler>().personajeIndice = 7;
-            Debug.LogError(rematadorAbajo2.GetComponent<ClickHandler>().personajeIndice);
-
-            GameObject armador2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition25, spawnRotation);
-            armador2.GetComponent<ClickHandler>().personajeIndice = 9;
-            Debug.LogError(armador2.GetComponent<ClickHandler>().personajeIndice);
-
         }
     }
-    //Probamos rpcear
+    
     GameObject IrARecogerPelota(Vector2Int posicion)
     {
         GameObject personajeMasCercano = null;
@@ -229,10 +176,9 @@ public class gameManager : MonoBehaviourPun
     }
 
     //RPCear Los dos jugadores tienen que saber que la pelota se recibió
-    void RecibirPelota(int id)
+    void RecibirPelota(GameObject personajeMasCercano)
     {
-        PhotonView photonview = PhotonView.Find(id);
-        GameObject personajeMasCercano = photonview.gameObject;
+
         if (personajeMasCercano != null)
         {
             RecogerPelota(personajeMasCercano);
@@ -679,16 +625,20 @@ public class gameManager : MonoBehaviourPun
 
     
 
-   /*
-    Crear una funcion aparte que tire las posciciones finales y llame a recibir pelota (esto porque Photon no puede pasar IEnumerators)
-   Cosas a pasar en la funcion alternativa:
-   - El jugador saco (para los estados)
-   - El jugador del otro equipo recibio o no
-    */
+   
 private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
 {
     IsDoingAction = true;
     bool casillaSeleccionada = false;
+    float correccion;
+    if(Sacador.transform.position.x < 0)
+    {
+     correccion = -1.2f;
+    }
+    else                
+    {
+     correccion = 1.2f;
+    }
     Vector2Int casillaObjetivo = Vector2Int.zero;
 
     // Espera hasta que se seleccione una casilla
@@ -727,7 +677,13 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
     float elapsedTime = 0;
 
     Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
-    Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
+    Vector3 endPosition = new Vector3(casillaObjetivo.x, casillaObjetivo.y + 0.5f, 0);
+    if(personajeMasCercano != null)
+    {
+    Debug.Log("Se aplico la correccion");
+     startPosition =  new Vector3(start.x, start.y + 0.5f, start.z);
+     endPosition =  new Vector3(casillaObjetivo.x + correccion, casillaObjetivo.y + 1.8f, 0);
+    }
 
     Debug.Log($"Posición inicial: {startPosition}, Posición final: {endPosition}");
 
@@ -748,7 +704,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
 
         // Debug de la posición de la pelota en cada frame
-        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
+        //Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
 
         // Asignar la nueva posición
         ball.transform.position = currentPos;
@@ -762,10 +718,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         ball.transform.position = endPosition;
     Debug.Log($"Pelota llegó a la posición final: {endPosition}");
      Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
-        int personajeMasCercanoId = personajeMasCercano.GetComponent<PhotonView>().ViewID;
-        RecibirPelota(personajeMasCercanoId);
-
-        //photonView.RPC("RecibirPelota", RpcTarget.All, personajeMasCercanoId);
+       RecibirPelota(personajeMasCercano);
 
 
 
@@ -795,6 +748,15 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
     {
         IsDoingAction = true;
         bool casillaSeleccionada = false;
+        float correccion;
+    if(personajeActual.transform.position.x < 0)
+    {
+     correccion = -1.2f;
+    }
+    else                
+    {
+     correccion = 1.2f;
+    }
         Vector2Int casillaObjetivo = Vector2Int.zero;
 
         // Espera hasta que se seleccione una casilla
@@ -821,9 +783,15 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         DescongelarAnimaciones();
         float duration = 2.5f;
         float elapsedTime = 0;
-
+        GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
         Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
-        Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
+        Vector3 endPosition = new Vector3(casillaObjetivo.x, casillaObjetivo.y + 0.5f, 0);
+        if(personajeMasCercano != null)
+        {
+            Debug.Log("Se aplico la correccion");
+            startPosition =  new Vector3(start.x, start.y + 0.5f, start.z);
+            endPosition =  new Vector3(casillaObjetivo.x + correccion, casillaObjetivo.y + 1.8f, 0);
+        }
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("endreceive");
@@ -831,7 +799,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         float heightMax = 4.0f;
 
         DesactivarCasillasIluminadas();
-        GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
+        
 
         while (elapsedTime < duration)
         {
@@ -857,8 +825,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
          Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
-        int personajeMasCercanoId = personajeMasCercano.GetComponent<PhotonView>().ViewID;
-        RecibirPelota(personajeMasCercanoId);
+        RecibirPelota(personajeMasCercano);
 
         if (estadoActual != estado)
         {
@@ -1005,6 +972,16 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
     {
         IsDoingAction = true;
         bool casillaSeleccionada = false;
+        float probabilidadDeBloqueo;
+        float correccion;
+    if(personajeActual.transform.position.x < 0)
+    {
+     correccion = -1.2f;
+    }
+    else                
+    {
+     correccion = 1.2f;
+    }
         Vector2Int casillaObjetivo = Vector2Int.zero;
 
         // Espera hasta que se seleccione una casilla
@@ -1030,12 +1007,12 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         DescongelarAnimaciones();
         if (IsBlocking == true)
         {
-           /* float probabilidadDeBloqueo = Random.Range(0f, 1f);
+           probabilidadDeBloqueo = Random.Range(0f, 1f);
             Debug.Log(probabilidadDeBloqueo);
-            if(probabilidadDeBloqueo > 1f)
-            {*/
-                StartCoroutine(PelotaBloqueada());
-           // }
+            if(probabilidadDeBloqueo > 0f)
+            {
+                StartCoroutine(PelotaBloqueada(personajeActual));
+            }
         }
         else
         {
@@ -1043,9 +1020,15 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         // Mover la pelota a la casilla seleccionada
         float duration = 1.0f;
         float elapsedTime = 0;
-
+        GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
         Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
-        Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
+        Vector3 endPosition = new Vector3(casillaObjetivo.x, casillaObjetivo.y + 0.5f, 0);
+        if(personajeMasCercano != null)
+        {
+            Debug.Log("Se aplico la correccion");
+            startPosition =  new Vector3(start.x, start.y + 0.5f, start.z);
+            endPosition =  new Vector3(casillaObjetivo.x + correccion, casillaObjetivo.y + 1.8f, 0);
+        }   
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("Spike");
@@ -1053,8 +1036,8 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(0.12f);
         Time.timeScale = 1.0f;
+        //Remate SFX
         LeantweenScript.AparecerTextoPunto(textoSpike, textHolderPopUpLeft);
-        GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
         while (elapsedTime < duration)
         {
             DeactivateAllButtons();
@@ -1070,8 +1053,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
 
-            int personajeMasCercanoId = personajeMasCercano.GetComponent<PhotonView>().ViewID;
-            RecibirPelota(personajeMasCercanoId);
+        RecibirPelota(personajeMasCercano);
         }
 
         if (estadoActual != estado)
@@ -1083,7 +1065,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
     private IEnumerator SeleccionDeBloqueo(GameObject personaje, Vector3 start, Vector3 end)
     {
-        personajeBloqueando = personajeActual;
+        personajeBloqueando = personaje;
        /* float duration = 1.0f; // Duración de la animación
         float elapsedTime = 0;
 
@@ -1272,25 +1254,45 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         }
     }
 
-    public IEnumerator PelotaBloqueada()
+    public IEnumerator PelotaBloqueada(GameObject rematador)
     {
         Debug.Log("PELOTA BLOQUEADA");
         DescongelarAnimaciones();
         float duration = 0.5f;
+        float halfDuration = duration / 2f;
         float elapsedTime = 0;
 
         Vector3 startPosition = ball.transform.position;
-        Vector3 endPosition = new Vector3(personajeBloqueando.transform.position.x + personajeBloqueando.transform.position.y + 2.0f,  personajeBloqueando.transform.position.z);
+        Vector3 midPosition = new Vector3(
+        (startPosition.x + personajeBloqueando.transform.position.x) / 2,
+        startPosition.y + 2.0f,
+        startPosition.z);
+        Vector3 endPosition = new Vector3(startPosition.x + startPosition.y - 2.0f,  startPosition.z);
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
-        while (elapsedTime < duration)
+        rematador.GetComponentInChildren<Animator>().SetTrigger("Spike");
+        yield return new WaitForSeconds(0.7f);
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(0.12f);
+        Time.timeScale = 1.0f;
+        while (elapsedTime < halfDuration)
         {
-            DeactivateAllButtons();
-            ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
+        ball.transform.position = Vector3.Lerp(startPosition, midPosition, elapsedTime / halfDuration);
+        elapsedTime += Time.deltaTime;
+        yield return null;
         }
+        ball.transform.position = midPosition;
 
+        elapsedTime = 0;
+        while (elapsedTime < halfDuration)
+        {   
+        ball.transform.position = Vector3.Lerp(midPosition, endPosition, elapsedTime / halfDuration);
+        elapsedTime += Time.deltaTime;
+        yield return null;
+        }
+        ball.transform.position = endPosition;
+
+        Debug.Log("Pelota llegó al punto final.");
         
     }
 
