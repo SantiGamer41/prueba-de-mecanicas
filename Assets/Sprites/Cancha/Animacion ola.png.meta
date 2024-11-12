@@ -34,10 +34,10 @@ TextureImporter:
     second: Animacion ola_9
   - first:
       213: 3380225556393540660
-    second: Animacion ola_10
+    second: Animacion ola_9
   - first:
       213: -7663641798442047351
-    second: Animacion ola_11
+    second: Animacion ola_8
   - first:
       213: 6629133641313012247
     second: Animacion ola_12
@@ -70,10 +70,10 @@ TextureImporter:
     second: Animacion ola_21
   - first:
       213: 2566086424739525137
-    second: Animacion ola_22
+    second: Animacion ola_21
   - first:
       213: 829087641503269607
-    second: Animacion ola_23
+    second: Animacion ola_20
   - first:
       213: -1568777701567660422
     second: Animacion ola_24
@@ -156,7 +156,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -168,7 +168,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -182,10 +182,10 @@ TextureImporter:
       name: Animacion ola_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 1809
-        width: 409
-        height: 52
+        width: 411
+        height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +203,8 @@ TextureImporter:
       name: Animacion ola_1
       rect:
         serializedVersion: 2
-        x: 410
-        y: 1808
+        x: 411
+        y: 1809
         width: 411
         height: 54
       alignment: 0
@@ -224,9 +224,9 @@ TextureImporter:
       name: Animacion ola_2
       rect:
         serializedVersion: 2
-        x: 820
-        y: 1808
-        width: 412
+        x: 822
+        y: 1809
+        width: 411
         height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -245,10 +245,10 @@ TextureImporter:
       name: Animacion ola_3
       rect:
         serializedVersion: 2
-        x: 1232
-        y: 1808
-        width: 412
-        height: 55
+        x: 1233
+        y: 1809
+        width: 411
+        height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,7 +268,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 1576
-        width: 410
+        width: 411
         height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -287,9 +287,9 @@ TextureImporter:
       name: Animacion ola_5
       rect:
         serializedVersion: 2
-        x: 409
+        x: 411
         y: 1576
-        width: 412
+        width: 411
         height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -308,9 +308,9 @@ TextureImporter:
       name: Animacion ola_6
       rect:
         serializedVersion: 2
-        x: 823
+        x: 822
         y: 1576
-        width: 409
+        width: 411
         height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -329,9 +329,9 @@ TextureImporter:
       name: Animacion ola_7
       rect:
         serializedVersion: 2
-        x: 1234
+        x: 1233
         y: 1576
-        width: 409
+        width: 411
         height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -347,12 +347,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion ola_8
+      name: Animacion ola_11
       rect:
         serializedVersion: 2
-        x: 1234
+        x: 1233
         y: 1343
-        width: 409
+        width: 411
         height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -368,12 +368,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion ola_9
+      name: Animacion ola_10
       rect:
         serializedVersion: 2
-        x: 823
+        x: 822
         y: 1343
-        width: 409
+        width: 411
         height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -389,12 +389,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion ola_10
+      name: Animacion ola_9
       rect:
         serializedVersion: 2
-        x: 412
+        x: 411
         y: 1343
-        width: 409
+        width: 411
         height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -410,12 +410,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion ola_11
+      name: Animacion ola_8
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 1343
-        width: 409
+        width: 411
         height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -434,12 +434,12 @@ TextureImporter:
       name: Animacion ola_12
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 1110
-        width: 409
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -455,12 +455,12 @@ TextureImporter:
       name: Animacion ola_13
       rect:
         serializedVersion: 2
-        x: 412
+        x: 411
         y: 1110
-        width: 409
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -476,12 +476,12 @@ TextureImporter:
       name: Animacion ola_14
       rect:
         serializedVersion: 2
-        x: 823
+        x: 822
         y: 1110
-        width: 409
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -497,12 +497,12 @@ TextureImporter:
       name: Animacion ola_15
       rect:
         serializedVersion: 2
-        x: 1234
+        x: 1233
         y: 1110
-        width: 409
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -518,12 +518,12 @@ TextureImporter:
       name: Animacion ola_16
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 877
-        width: 409
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -539,12 +539,12 @@ TextureImporter:
       name: Animacion ola_17
       rect:
         serializedVersion: 2
-        x: 412
+        x: 411
         y: 877
-        width: 409
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -560,12 +560,12 @@ TextureImporter:
       name: Animacion ola_18
       rect:
         serializedVersion: 2
-        x: 823
+        x: 822
         y: 877
-        width: 409
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -581,12 +581,12 @@ TextureImporter:
       name: Animacion ola_19
       rect:
         serializedVersion: 2
-        x: 1234
+        x: 1233
         y: 877
-        width: 409
-        height: 55
+        width: 411
+        height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -599,15 +599,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion ola_20
+      name: Animacion ola_23
       rect:
         serializedVersion: 2
-        x: 1234
+        x: 1233
         y: 644
-        width: 410
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -620,15 +620,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion ola_21
+      name: Animacion ola_22
       rect:
         serializedVersion: 2
-        x: 823
+        x: 822
         y: 644
-        width: 410
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -641,15 +641,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion ola_22
+      name: Animacion ola_21
       rect:
         serializedVersion: 2
-        x: 412
+        x: 411
         y: 644
-        width: 409
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -662,15 +662,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion ola_23
+      name: Animacion ola_20
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 644
-        width: 409
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -686,12 +686,12 @@ TextureImporter:
       name: Animacion ola_24
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 411
-        width: 410
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -707,12 +707,12 @@ TextureImporter:
       name: Animacion ola_25
       rect:
         serializedVersion: 2
-        x: 412
+        x: 411
         y: 411
-        width: 410
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -728,12 +728,12 @@ TextureImporter:
       name: Animacion ola_26
       rect:
         serializedVersion: 2
-        x: 823
+        x: 822
         y: 411
-        width: 410
+        width: 411
         height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -749,12 +749,12 @@ TextureImporter:
       name: Animacion ola_27
       rect:
         serializedVersion: 2
-        x: 1234
+        x: 1233
         y: 411
-        width: 409
-        height: 53
+        width: 411
+        height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -770,12 +770,12 @@ TextureImporter:
       name: Animacion ola_28
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 178
-        width: 409
-        height: 53
+        width: 411
+        height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
