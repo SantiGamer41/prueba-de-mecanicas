@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: faf9a395cb5563743ba8d8a856318b87
+guid: c077fae213b01314aaeee3a61a7eeb97
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5052874414704856895
-    second: Timer2_0
+      213: 6538370590225753201
+    second: Timer3 (1)_0
   - first:
-      213: 1659174448828462616
-    second: Timer2_1
+      213: -5238457696458302102
+    second: Timer3 (1)_1
   - first:
-      213: 6129285125536539532
-    second: Timer2_2
+      213: 5604650733981057
+    second: Timer3 (1)_2
   - first:
-      213: 5375120559351674282
-    second: Timer2_3
+      213: 5066486673071149723
+    second: Timer3 (1)_3
   - first:
-      213: -6434657123129018366
-    second: Timer2_4
+      213: -195620574076118917
+    second: Timer3 (1)_4
   - first:
-      213: -2004467649439170689
-    second: Timer2_5
+      213: 1299025887341085477
+    second: Timer3 (1)_5
   - first:
-      213: 8045357853298447686
-    second: Timer2_6
+      213: 5955046876034483640
+    second: Timer3 (1)_6
   - first:
-      213: -7499907538105413967
-    second: Timer2_7
+      213: -3516105013438126004
+    second: Timer3 (1)_7
   - first:
-      213: -2037790658788456928
-    second: Timer2_8
+      213: -1349086147152670539
+    second: Timer3 (1)_8
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Timer2_0
+      name: Timer3 (1)_0
       rect:
         serializedVersion: 2
         x: 1
@@ -133,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3f8427428a6f1640800000000000000
-      internalID: 5052874414704856895
+      spriteID: 1746448f865fcba50800000000000000
+      internalID: 6538370590225753201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timer2_1
+      name: Timer3 (1)_1
       rect:
         serializedVersion: 2
         x: 18
@@ -154,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81633dade52960710800000000000000
-      internalID: 1659174448828462616
+      spriteID: a6d11b7ca724d47b0800000000000000
+      internalID: -5238457696458302102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timer2_2
+      name: Timer3 (1)_2
       rect:
         serializedVersion: 2
         x: 35
@@ -175,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c83e0bae8589f0550800000000000000
-      internalID: 6129285125536539532
+      spriteID: 18dc6107669e31000800000000000000
+      internalID: 5604650733981057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timer2_3
+      name: Timer3 (1)_3
       rect:
         serializedVersion: 2
         x: 1
@@ -196,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa53e0d8ba3489a40800000000000000
-      internalID: 5375120559351674282
+      spriteID: b9218a729c6cf4640800000000000000
+      internalID: 5066486673071149723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timer2_4
+      name: Timer3 (1)_4
       rect:
         serializedVersion: 2
         x: 18
@@ -217,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2083574507183b6a0800000000000000
-      internalID: -6434657123129018366
+      spriteID: b785f63df14094df0800000000000000
+      internalID: -195620574076118917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timer2_5
+      name: Timer3 (1)_5
       rect:
         serializedVersion: 2
         x: 35
@@ -238,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7f7a6ffa43be24e0800000000000000
-      internalID: -2004467649439170689
+      spriteID: 52380097921170210800000000000000
+      internalID: 1299025887341085477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timer2_6
+      name: Timer3 (1)_6
       rect:
         serializedVersion: 2
         x: 1
@@ -259,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 645d0c8675ad6af60800000000000000
-      internalID: 8045357853298447686
+      spriteID: 8b5c5d2259394a250800000000000000
+      internalID: 5955046876034483640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timer2_7
+      name: Timer3 (1)_7
       rect:
         serializedVersion: 2
         x: 18
@@ -280,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bec3fe84d9fae790800000000000000
-      internalID: -7499907538105413967
+      spriteID: c48ec019e19443fc0800000000000000
+      internalID: -3516105013438126004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Timer2_8
+      name: Timer3 (1)_8
       rect:
         serializedVersion: 2
         x: 35
@@ -301,8 +301,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0260e48413058b3e0800000000000000
-      internalID: -2037790658788456928
+      spriteID: 5b090930c45174de0800000000000000
+      internalID: -1349086147152670539
       vertices: []
       indices: 
       edges: []
