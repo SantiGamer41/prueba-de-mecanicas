@@ -27632,9 +27632,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1587464794}
   - component: {fileID: 1587464798}
-  - component: {fileID: 1587464797}
   - component: {fileID: 1587464796}
   - component: {fileID: 1587464795}
+  - component: {fileID: 1587464797}
   m_Layer: 5
   m_Name: Txt_Spike
   m_TagString: Untagged
@@ -27674,7 +27674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turno: 0
-  txt_Turno: {fileID: 1587464797}
+  txt_Turno: {fileID: 0}
 --- !u!114 &1587464796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27706,31 +27706,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1587464793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 132
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 0.98
-  m_Text: SPIKE!
+  m_Sprite: {fileID: -5159362228428509745, guid: 00ab2e98a61ea2b4e8366bd372ed2a53,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1587464798
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27811,9 +27808,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1599332512}
   - component: {fileID: 1599332516}
-  - component: {fileID: 1599332515}
   - component: {fileID: 1599332514}
   - component: {fileID: 1599332513}
+  - component: {fileID: 1599332515}
   m_Layer: 5
   m_Name: Txt_PointRightPlayer
   m_TagString: Untagged
@@ -27853,7 +27850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turno: 0
-  txt_Turno: {fileID: 1599332515}
+  txt_Turno: {fileID: 0}
 --- !u!114 &1599332514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27885,31 +27882,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1599332511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 132
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 0.98
-  m_Text: Point Right Player!
+  m_Sprite: {fileID: 5849612727162771064, guid: d3fd6bcc05d3ff24585edd6a4df9a541,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1599332516
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28279,9 +28273,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1675606354}
   - component: {fileID: 1675606358}
-  - component: {fileID: 1675606357}
   - component: {fileID: 1675606356}
   - component: {fileID: 1675606355}
+  - component: {fileID: 1675606357}
   m_Layer: 5
   m_Name: Txt_PointLeftPlayer
   m_TagString: Untagged
@@ -28321,7 +28315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turno: 0
-  txt_Turno: {fileID: 1675606357}
+  txt_Turno: {fileID: 0}
 --- !u!114 &1675606356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28353,31 +28347,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1675606353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 132
-    m_Alignment: 1
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 0.98
-  m_Text: Point Left Player!
+  m_Sprite: {fileID: 5849612727162771064, guid: d3fd6bcc05d3ff24585edd6a4df9a541,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1675606358
 CanvasRenderer:
   m_ObjectHideFlags: 0
