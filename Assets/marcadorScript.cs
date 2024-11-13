@@ -35,12 +35,6 @@ public class marcadorScript : MonoBehaviour
 
     public void SumarMarcadorLeft()
     {
-        viewMarcador.RPC("SumarMarcadorLeft_RPC", RpcTarget.All);
-    }
-
-    [PunRPC]
-    public void SumarMarcadorLeft_RPC()
-    {
         if (puntosLeft < MarcadorLeft.Length)
         {
             MarcadorLeft[puntosLeft].SetActive(true);
@@ -52,15 +46,17 @@ public class marcadorScript : MonoBehaviour
 
             puntosLeft++;
         }
-    }
 
-    public void SumarMarcadorRight()
-    {
-        viewMarcador.RPC("SumarMarcadorRight_RPC", RpcTarget.All);
+        //viewMarcador.RPC("SumarMarcadorLeft_RPC", RpcTarget.All);
     }
 
     [PunRPC]
-    public void SumarMarcadorRight_RPC()
+    public void SumarMarcadorLeft_RPC()
+    {
+        
+    }
+
+    public void SumarMarcadorRight()
     {
         if (puntosRight < MarcadorRight.Length)
         {
@@ -73,6 +69,14 @@ public class marcadorScript : MonoBehaviour
 
             puntosRight++; // Aumenta el puntaje de la derecha
         }
+
+        //viewMarcador.RPC("SumarMarcadorRight_RPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void SumarMarcadorRight_RPC()
+    {
+        
     }
 
 }
