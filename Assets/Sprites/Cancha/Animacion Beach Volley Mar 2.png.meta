@@ -25,7 +25,7 @@ TextureImporter:
     second: Animacion Beach Volley Mar 2_6
   - first:
       213: 8277410911403754450
-    second: Animacion Beach Volley Mar 2_7
+    second: Animacion Beach Volley Mar 2_6
   - first:
       213: -2279292146811007804
     second: Animacion Beach Volley Mar 2_8
@@ -37,7 +37,7 @@ TextureImporter:
     second: Animacion Beach Volley Mar 2_10
   - first:
       213: -855553622940470398
-    second: Animacion Beach Volley Mar 2_11
+    second: Animacion Beach Volley Mar 2_10
   - first:
       213: 1396297312493774694
     second: Animacion Beach Volley Mar 2_12
@@ -55,7 +55,7 @@ TextureImporter:
     second: Animacion Beach Volley Mar 2_16
   - first:
       213: -2181699448046225791
-    second: Animacion Beach Volley Mar 2_17
+    second: Animacion Beach Volley Mar 2_16
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -154,7 +154,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,7 +175,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,7 +196,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,7 +217,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -238,7 +238,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -259,7 +259,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,7 +272,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion Beach Volley Mar 2_6
+      name: Animacion Beach Volley Mar 2_7
       rect:
         serializedVersion: 2
         x: 411
@@ -280,7 +280,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -293,7 +293,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion Beach Volley Mar 2_7
+      name: Animacion Beach Volley Mar 2_6
       rect:
         serializedVersion: 2
         x: 0
@@ -301,7 +301,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -322,7 +322,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -343,7 +343,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -356,7 +356,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion Beach Volley Mar 2_10
+      name: Animacion Beach Volley Mar 2_11
       rect:
         serializedVersion: 2
         x: 411
@@ -364,7 +364,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -377,7 +377,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion Beach Volley Mar 2_11
+      name: Animacion Beach Volley Mar 2_10
       rect:
         serializedVersion: 2
         x: 0
@@ -385,7 +385,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -406,7 +406,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -427,7 +427,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -448,7 +448,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -469,7 +469,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -482,7 +482,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion Beach Volley Mar 2_16
+      name: Animacion Beach Volley Mar 2_17
       rect:
         serializedVersion: 2
         x: 411
@@ -490,7 +490,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -503,7 +503,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion Beach Volley Mar 2_17
+      name: Animacion Beach Volley Mar 2_16
       rect:
         serializedVersion: 2
         x: 0
@@ -511,7 +511,7 @@ TextureImporter:
         width: 411
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
