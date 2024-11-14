@@ -14,6 +14,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public Text nombreRoom;
     public Text nombreBoton;
     public RoomItem roomItemPrefab;
+    public GameObject CreandoSalaButton;
 
     List<RoomItem> roomItemsList = new List<RoomItem>();
     public Transform contentObject;
@@ -59,7 +60,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         if (roomInputField.text.Length >= 1)
         {
             PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions() { MaxPlayers = 2, BroadcastPropsChangeToAll = true });
-            nombreBoton.text = "Creando Sala...";
+            CreandoSalaButton.SetActive(true);
         }
 
     }
@@ -67,6 +68,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         lobbyPanel.SetActive(false);
         roomPanel.SetActive(true);
+        CreandoSalaButton.SetActive(false);
         nombreRoom.text = "Nombre de la sala: " + PhotonNetwork.CurrentRoom.Name;
         UpdateListaJugadores();
         nombreBoton.text = "Crear Sala";

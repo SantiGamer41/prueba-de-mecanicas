@@ -10,6 +10,7 @@ public class ConectarseScript : MonoBehaviourPunCallbacks
     public InputField usernameInput;
     public Text buttonText;
     public Animator anim;
+    public GameObject ConectandoseButton;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class ConectarseScript : MonoBehaviourPunCallbacks
         if (usernameInput.text.Length >= 1)
         {
             PhotonNetwork.NickName = usernameInput.text;
-            buttonText.text = "Conectandose...";
+            ConectandoseButton.SetActive(true);
             PhotonNetwork.AutomaticallySyncScene = true;
             PhotonNetwork.ConnectUsingSettings();
         }

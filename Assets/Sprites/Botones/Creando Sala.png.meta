@@ -1,40 +1,10 @@
 fileFormatVersion: 2
-guid: 1e55917b4fdfb454a9073392699a0889
+guid: 57986b5b77a3b294ea54a88dc5e83ab4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2669927602915629108
-    second: Animacion%20Bloqueo%20Ale%202_0
-  - first:
-      213: 6718579068402619606
-    second: Animacion%20Bloqueo%20Ale%202_1
-  - first:
-      213: 5101235060434371287
-    second: Animacion%20Bloqueo%20Ale%202_2
-  - first:
-      213: -359600183108263662
-    second: Animacion%20Bloqueo%20Ale%202_3
-  - first:
-      213: 1245351652007373457
-    second: Animacion%20Bloqueo%20Ale%202_4
-  - first:
-      213: 8010950783654100403
-    second: Animacion%20Bloqueo%20Ale%202_5
-  - first:
-      213: 5842251354126866795
-    second: Bloqueo final_6
-  - first:
-      213: 1483074648305867119
-    second: Bloqueo final ale_7
-  - first:
-      213: -3531444873556477249
-    second: Animacion%20Bloqueo%20Ale%202_8
-  - first:
-      213: 5961876083836310673
-    second: Bloqueo final ale_9
-  - first:
-      213: -6520729149487865964
-    second: Bloqueo final ale_8
+      213: 6928479942832185674
+    second: Creando Sala_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -125,76 +95,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bloqueo final_6
+      name: Creando Sala_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 50
-        width: 32
-        height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b69d64b27a8d31150800000000000000
-      internalID: 5842251354126866795
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bloqueo final ale_7
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 50
-        width: 32
-        height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6998a3f880f49410800000000000000
-      internalID: 1483074648305867119
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bloqueo final ale_9
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 194d5fbf5b6dcb250800000000000000
-      internalID: 5961876083836310673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bloqueo final ale_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 50
+        x: 9
+        y: 37
+        width: 81
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,8 +109,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49f9d380367b185a0800000000000000
-      internalID: -6520729149487865964
+      spriteID: a416ee1acc7e62060800000000000000
+      internalID: 6928479942832185674
       vertices: []
       indices: 
       edges: []

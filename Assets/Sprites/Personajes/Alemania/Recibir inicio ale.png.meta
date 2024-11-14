@@ -122,10 +122,10 @@ TextureImporter:
       name: Animacion%20manos%20bajas%20Ale2_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 100
-        width: 23
-        height: 44
+        width: 34
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,10 +143,10 @@ TextureImporter:
       name: Animacion%20manos%20bajas%20Ale2_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 34
         y: 100
-        width: 24
-        height: 43
+        width: 34
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +164,10 @@ TextureImporter:
       name: Animacion%20manos%20bajas%20Ale2_2
       rect:
         serializedVersion: 2
-        x: 75
+        x: 68
         y: 100
-        width: 23
-        height: 42
+        width: 34
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,10 +185,10 @@ TextureImporter:
       name: Animacion%20manos%20bajas%20Ale2_3
       rect:
         serializedVersion: 2
-        x: 112
+        x: 102
         y: 100
-        width: 21
-        height: 40
+        width: 34
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: Animacion%20manos%20bajas%20Ale2_4
       rect:
         serializedVersion: 2
-        x: 10
+        x: 0
         y: 50
-        width: 21
-        height: 40
+        width: 34
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,10 +227,10 @@ TextureImporter:
       name: Animacion%20manos%20bajas%20Ale2_5
       rect:
         serializedVersion: 2
-        x: 44
+        x: 34
         y: 50
-        width: 21
-        height: 39
+        width: 34
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

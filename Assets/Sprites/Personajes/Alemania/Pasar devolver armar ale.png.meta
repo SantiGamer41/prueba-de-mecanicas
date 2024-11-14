@@ -125,12 +125,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Ale2_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 100
-        width: 23
-        height: 44
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,12 +146,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Ale2_1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 32
         y: 100
-        width: 23
-        height: 40
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,12 +167,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Ale2_2
       rect:
         serializedVersion: 2
-        x: 69
+        x: 64
         y: 100
-        width: 24
-        height: 41
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,12 +188,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Ale2_3
       rect:
         serializedVersion: 2
-        x: 103
+        x: 96
         y: 100
-        width: 23
-        height: 44
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,12 +209,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Ale2_4
       rect:
         serializedVersion: 2
-        x: 10
+        x: 0
         y: 50
-        width: 19
-        height: 43
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,12 +230,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Ale2_5
       rect:
         serializedVersion: 2
-        x: 42
+        x: 32
         y: 50
-        width: 20
-        height: 44
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -251,12 +251,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Ale2_6
       rect:
         serializedVersion: 2
-        x: 74
+        x: 64
         y: 50
-        width: 19
-        height: 44
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,12 +272,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Ale2_7
       rect:
         serializedVersion: 2
-        x: 106
+        x: 96
         y: 50
-        width: 19
-        height: 43
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -293,12 +293,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Ale2_8
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 23
-        height: 41
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -314,12 +314,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Ale2_9
       rect:
         serializedVersion: 2
-        x: 39
+        x: 32
         y: 0
-        width: 23
-        height: 40
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
