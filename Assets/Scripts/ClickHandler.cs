@@ -16,19 +16,6 @@ public class ClickHandler : MonoBehaviour
         {
             // Obtener el componente GameManager
             GameManager = gameManagerObject.GetComponent<gameManager>();
-
-            if (GameManager != null)
-            {
-                Debug.Log("GameManager encontrado y componente asignado correctamente");
-            }
-            else
-            {
-                Debug.LogError("No se pudo encontrar el componente GameManager en el objeto");
-            }
-        }
-        else
-        {
-            Debug.LogError("No se pudo encontrar el objeto GameManager en la jerarquía");
         }
     }
 
@@ -38,9 +25,6 @@ public class ClickHandler : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Debug.LogError("Me han clickeado");
-
-
         // Llamar al método para activar el botón en el GameManager
         GameManager.SeleccionarPersonaje(personajeIndice);
         //If (situacion de remate)

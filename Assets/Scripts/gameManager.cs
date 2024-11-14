@@ -181,32 +181,26 @@ public class gameManager : MonoBehaviourPun
 
             GameObject sacador2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition21, spawnRotation);
             sacador2.GetComponent<ClickHandler>().personajeIndice = 5;
-            Debug.LogError(sacador2.GetComponent<ClickHandler>().personajeIndice);
 
             GameObject receptor2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition22, spawnRotation);
             receptor2.GetComponent<ClickHandler>().personajeIndice = 6;
-            Debug.LogError(receptor2.GetComponent<ClickHandler>().personajeIndice);
 
             GameObject rematadorArriba2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition23, spawnRotation);
             rematadorArriba2.GetComponent<ClickHandler>().personajeIndice = 8;
-            Debug.LogError(rematadorArriba2.GetComponent<ClickHandler>().personajeIndice);
 
             GameObject rematadorAbajo2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition24, spawnRotation);
             rematadorAbajo2.GetComponent<ClickHandler>().personajeIndice = 7;
-            Debug.LogError(rematadorAbajo2.GetComponent<ClickHandler>().personajeIndice);
 
             GameObject armador2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition25, spawnRotation);
             armador2.GetComponent<ClickHandler>().personajeIndice = 9;
-            Debug.LogError(armador2.GetComponent<ClickHandler>().personajeIndice);
 
         }
     }
-    //Probamos rpcear
     GameObject IrARecogerPelota(Vector2Int posicion)
     {
         GameObject personajeMasCercano = null;
         float menorDistancia = float.MaxValue; // Empezamos con la mayor distancia posible
-     
+
         foreach (GameObject personaje in personajes)
         {
             if (personaje != null && ball != null && ball.transform.parent == null)
@@ -220,19 +214,58 @@ public class gameManager : MonoBehaviourPun
                 }
             }
         }
+
         Vector3 posicionV3 = new Vector3(posicion.x, posicion.y, 0);
+
         if (personajeMasCercano != null)
         {
             StartCoroutine(MovimientoPersonaje(personajeMasCercano.transform.position, posicionV3, personajeMasCercano));
+
+            int personajeMasCercanoId = personajeMasCercano.GetComponent<PhotonView>().ViewID;
+
+            // Verificar si el ID es válido antes de llamar a RecibirPelota
+            if (personajeMasCercanoId == 0)
+            {
+                Debug.LogError("El PhotonView del personaje más cercano tiene un ID 0.");
+            }
+            else
+            {
+                RecibirPelota(personajeMasCercanoId);
+            }
         }
+        else
+        {
+            Debug.LogError("No se encontró un personaje cercano.");
+        }
+
         return personajeMasCercano;
     }
 
-    //RPCear Los dos jugadores tienen que saber que la pelota se recibió
+
+
+    [PunRPC]
     void RecibirPelota(int id)
     {
         PhotonView photonview = PhotonView.Find(id);
+
+        if (photonview == null)
+        {
+            Debug.LogError($"Error en RecibirPelota: No se encontró un PhotonView con el ID {id}");
+            return;
+        }
+
+
+
         GameObject personajeMasCercano = photonview.gameObject;
+
+        if (personajeMasCercano == null)
+        {
+            Debug.LogError("Error en RecibirPelota: El objeto personajeMasCercano es nulo.");
+            return;
+        }
+
+        Debug.LogError($"Recibiendo pelota en el personaje con ID: {id}, Nombre: {personajeMasCercano.name}");
+
         if (personajeMasCercano != null)
         {
             RecogerPelota(personajeMasCercano);
@@ -247,7 +280,6 @@ public class gameManager : MonoBehaviourPun
                 if (ball.transform.position.x < 18 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
                 {
                     LeantweenScript.AparecerTextoPunto(textoPointP1, textHolder);
-                    Debug.Log("Se mostro el punto");
                     estado = estado.SaqueP1;
                     InstanciarPersonajesEnPosicionesIniciales();
                     ball.transform.parent = personajes[0].transform;
@@ -677,64 +709,67 @@ public class gameManager : MonoBehaviourPun
         }
     }
 
-    
 
-   /*
-    Crear una funcion aparte que tire las posciciones finales y llame a recibir pelota (esto porque Photon no puede pasar IEnumerators)
-   Cosas a pasar en la funcion alternativa:
-   - El jugador saco (para los estados)
-   - El jugador del otro equipo recibio o no
-    */
-private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
-{
-    IsDoingAction = true;
-    bool casillaSeleccionada = false;
-    Vector2Int casillaObjetivo = Vector2Int.zero;
 
-    // Espera hasta que se seleccione una casilla
-    while (!casillaSeleccionada)
+    /*
+     Crear una funcion aparte que tire las posciciones finales y llame a recibir pelota (esto porque Photon no puede pasar IEnumerators)
+    Cosas a pasar en la funcion alternativa:
+    - El jugador saco (para los estados)
+    - El jugador del otro equipo recibio o no
+     */
+    private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2Int gridPosition = GetGridPosition(mouseWorldPosition);
+        IsDoingAction = true;
+        bool casillaSeleccionada = false;
+        Vector2Int casillaObjetivo = Vector2Int.zero;
 
-            if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
+        // Espera hasta que se seleccione una casilla
+        while (!casillaSeleccionada)
+        {
+            if (Input.GetMouseButtonDown(0))
             {
-               List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 3);
-               int randomIndex = Random.Range(0, CasillasPosibles.Count);
-               casillaObjetivo = CasillasPosibles[randomIndex];
-               casillaSeleccionada = true;
+                Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2Int gridPosition = GetGridPosition(mouseWorldPosition);
+
+                if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
+                {
+                    List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 3);
+                    int randomIndex = Random.Range(0, CasillasPosibles.Count);
+                    casillaObjetivo = CasillasPosibles[randomIndex];
+                    casillaSeleccionada = true;
+                }
             }
+
+            yield return null;
         }
 
-        yield return null;
-    }
         yield return new WaitForSeconds(0.1f);
         if (estado == estado.SaqueP2)
         {
-
             StartCoroutine(MovimientoPersonaje(personajes[5].transform.position, new Vector3(12.5f, -0.5f, 0), personajes[5]));
         }
         else if (estado == estado.SaqueP1)
         {
-
             StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
         }
-       GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
+
+        GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
+
+        Debug.LogError(personajeMasCercano.name);
+
         // Mover la pelota a la casilla seleccionada
         float duration = 1.5f;
-    float elapsedTime = 0;
+        float elapsedTime = 0;
 
-    Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
-    Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
+        Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
+        Vector3 endPosition = new Vector3(casillaObjetivo.x + 0.5f, casillaObjetivo.y + 0.5f, 0);
 
-    Debug.Log($"Posición inicial: {startPosition}, Posición final: {endPosition}");
+        Debug.Log($"Posición inicial: {startPosition}, Posición final: {endPosition}");
 
-    // Determina la altura máxima de la parábola
-    float heightMax = 2.5f;
+        // Determina la altura máxima de la parábola
+        float heightMax = 2.5f;
 
-    DesactivarCasillasIluminadas();
+        DesactivarCasillasIluminadas();
         if (Sacador.transform.position.x > 0)
         {
             ball.GetComponent<Animator>().SetBool("IsGoingRight", true);
@@ -743,65 +778,49 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         {
             ball.GetComponent<Animator>().SetBool("IsGoingLeft", true);
         }
-    
-    while (elapsedTime < duration)
-    {
-        DeactivateAllButtons();
 
-        // Interpolación en el eje X e Y
-        float t = elapsedTime / duration;
+        while (elapsedTime < duration)
+        {
+            DeactivateAllButtons();
 
-        // Interpolación en X e Y con una parábola en Z para la altura
-        Vector3 currentPos = Vector3.Lerp(startPosition, endPosition, t);
-        currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
+            // Interpolación en el eje X e Y
+            float t = elapsedTime / duration;
 
-        // Debug de la posición de la pelota en cada frame
-        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
+            // Interpolación en X e Y con una parábola en Z para la altura
+            Vector3 currentPos = Vector3.Lerp(startPosition, endPosition, t);
+            currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
 
-        // Asignar la nueva posición
-        ball.transform.position = currentPos;
+            //Debug para ver la poscicion de la pelota
+            //Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
 
-        elapsedTime += Time.deltaTime;
-        yield return null;
-    }
+            ball.transform.position = currentPos;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
         ball.GetComponent<Animator>().SetBool("IsGoingLeft", false);
         ball.GetComponent<Animator>().SetBool("IsGoingRight", false);
 
-
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
-    Debug.Log($"Pelota llegó a la posición final: {endPosition}");
-     Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
+        Debug.Log($"Pelota llegó a la posición final: {endPosition}");
+
+        // Enviar el id del personaje más cercano para que reciba la pelota
         int personajeMasCercanoId = personajeMasCercano.GetComponent<PhotonView>().ViewID;
-        RecibirPelota(personajeMasCercanoId);
 
-        //photonView.RPC("RecibirPelota", RpcTarget.All, personajeMasCercanoId);
+        Debug.LogError(personajeMasCercanoId);
 
-
+        photonView.RPC("RecibirPelota", RpcTarget.All, personajeMasCercanoId);
 
         if (estadoActual != estado)
         {
             displayPuntosScript.SumarTurnoDisplay();
         }
+
         yield return new WaitForSeconds(1.2f);
         IsDoingAction = false;
-
- /*
-        if (Sacador.transform.position.x > 1)
-        {
-            //Logica para cuando hay punto de saque
-            yield return new WaitForSeconds(2);
-            StartCoroutine(MovimientoPersonaje(personajes[5].transform.position, new Vector3(12.5f, -0.5f, 0), personajes[5]));
-        }
-        else if (Sacador.transform.position.x < 1)
-        {
-            yield return new WaitForSeconds(2);
-            StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
-        }   
-  */  
-    
     }
-private IEnumerator SeleccionDeDevolver(Vector3 start)
+    private IEnumerator SeleccionDeDevolver(Vector3 start)
     {
         IsDoingAction = true;
         bool casillaSeleccionada = false;
@@ -855,7 +874,7 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
 
         // Debug de la posición de la pelota en cada frame
-        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
+        //Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
 
         // Asignar la nueva posición
         ball.transform.position = currentPos;
@@ -907,7 +926,7 @@ private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 p
         currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
 
         // Debug de la posición de la pelota en cada frame
-        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
+        //Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
 
         // Asignar la nueva posición
         ball.transform.position = currentPos;
@@ -968,7 +987,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
         Vector3 startPosition = new Vector3(start.x, start.y, start.z);
         Vector3 endPosition = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
-        //Debug.Log("Pepe" + endPosition);
+
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("Pass");
@@ -988,7 +1007,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
 
         // Debug de la posición de la pelota en cada frame
-        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
+        //Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
 
         // Asignar la nueva posición
         ball.transform.position = currentPos;
@@ -1119,7 +1138,6 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
     public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end, GameObject personaje)
     {
         IsDoingAction = true;
-        Debug.Log(personaje);
         float duration = 1.0f; // Duración de la animación
         float elapsedTime = 0;
 
@@ -1256,10 +1274,19 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
     }
     float CalcularDistancia(GameObject personaje, Vector2Int casillaObjetivo)
     {
-        Vector2Int ballPosition =  casillaObjetivo;
-        Vector2Int personajePosition = GetGridPosition(personaje.transform.GetChild(2).position);
+        // Verifica que el personaje tiene al menos tres hijos
+        if (personaje.transform.childCount > 2)
+        {
+            Vector2Int ballPosition = casillaObjetivo;
+            Vector2Int personajePosition = GetGridPosition(personaje.transform.GetChild(2).position);
 
-        return Vector2Int.Distance(personajePosition, ballPosition);
+            return Vector2Int.Distance(personajePosition, ballPosition);
+        }
+        else
+        {
+            Debug.LogError($"El personaje {personaje.name} no tiene suficientes hijos. childCount: {personaje.transform.childCount}");
+            return float.MaxValue; // Devolvemos un valor alto para indicar que no se puede calcular la distancia
+        }
     }
 
     public void NoRematar()
