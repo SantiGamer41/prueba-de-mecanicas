@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.EventSystems;
+using System;
 
 public enum estado
 {
@@ -146,56 +147,46 @@ public class gameManager : MonoBehaviourPun
 
         if (PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.Instantiate(jugadorPrefab1.name, Vector3.zero, Quaternion.identity);
-            Vector3 spawnPosition11 = new Vector3(-17.5f, -1.6f, 0f);   //Sacador
-            Vector3 spawnPosition12 = new Vector3(-10.5f, -1.3f, 0f);    //Receptor
-            Vector3 spawnPosition13 = new Vector3(-4.5f, -1.3f, 0f);     //Rematdor Arriba
-            Vector3 spawnPosition14 = new Vector3(-4.5f, -5.6f, 0f);    //Rematador Abajo
-            Vector3 spawnPosition15 = new Vector3(-1.4f, -2.6f, 0f);    //Armador
+            // Redimensiona el array para agregar 5 nuevos personajes
+            Array.Resize(ref personajes, personajes.Length + 5);
 
-            GameObject sacador1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition11, Quaternion.identity);
-            sacador1.GetComponent<ClickHandler>().personajeIndice = 0;
+            personajes[personajes.Length - 5] = PhotonNetwork.Instantiate(playerToSpawn.name, new Vector3(-17.5f, -1.6f, 0f), Quaternion.identity);
+            personajes[personajes.Length - 5].GetComponent<ClickHandler>().personajeIndice = 0;
 
-            GameObject receptor1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition12, Quaternion.identity);
-            receptor1.GetComponent<ClickHandler>().personajeIndice = 1;
+            personajes[personajes.Length - 4] = PhotonNetwork.Instantiate(playerToSpawn.name, new Vector3(-10.5f, -1.3f, 0f), Quaternion.identity);
+            personajes[personajes.Length - 4].GetComponent<ClickHandler>().personajeIndice = 1;
 
-            GameObject rematadorArriba1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition13, Quaternion.identity);
-            rematadorArriba1.GetComponent<ClickHandler>().personajeIndice = 3;
+            personajes[personajes.Length - 3] = PhotonNetwork.Instantiate(playerToSpawn.name, new Vector3(-4.5f, -1.3f, 0f), Quaternion.identity);
+            personajes[personajes.Length - 3].GetComponent<ClickHandler>().personajeIndice = 3;
 
-            GameObject rematadorabajo1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition14, Quaternion.identity);
-            rematadorabajo1.GetComponent<ClickHandler>().personajeIndice = 2;
+            personajes[personajes.Length - 2] = PhotonNetwork.Instantiate(playerToSpawn.name, new Vector3(-4.5f, -5.6f, 0f), Quaternion.identity);
+            personajes[personajes.Length - 2].GetComponent<ClickHandler>().personajeIndice = 2;
 
-            GameObject armador1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition15, Quaternion.identity);
-            armador1.GetComponent<ClickHandler>().personajeIndice = 4;
-
+            personajes[personajes.Length - 1] = PhotonNetwork.Instantiate(playerToSpawn.name, new Vector3(-1.4f, -2.6f, 0f), Quaternion.identity);
+            personajes[personajes.Length - 1].GetComponent<ClickHandler>().personajeIndice = 4;
         }
         else
         {
-            PhotonNetwork.Instantiate(jugadorPrefab2.name, Vector3.zero, Quaternion.identity);
-            Quaternion spawnRotation = Quaternion.Euler(0, 180, 0);
-            Vector3 spawnPosition21 = new Vector3(13.5f, -4.6f, 0f);   //Sacador
-            Vector3 spawnPosition22 = new Vector3(12.5f, -1.3f, 0f);    //Receptor
-            Vector3 spawnPosition23 = new Vector3(5.5f, -1.3f, 0f);     //Rematador Arriba
-            Vector3 spawnPosition24 = new Vector3(8.5f, -5.6f, 0f);    //Rematador Abajo
-            Vector3 spawnPosition25 = new Vector3(3.4f, -3.6f, 0f);    //Armador
+            // Redimensiona el array para agregar 5 nuevos personajes
+            Array.Resize(ref personajes, personajes.Length + 5);
 
-            GameObject sacador2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition21, spawnRotation);
-            sacador2.GetComponent<ClickHandler>().personajeIndice = 5;
+            personajes[personajes.Length - 5] = PhotonNetwork.Instantiate(playerToSpawn.name, new Vector3(13.5f, -4.6f, 0f), Quaternion.Euler(0, 180, 0));
+            personajes[personajes.Length - 5].GetComponent<ClickHandler>().personajeIndice = 5;
 
-            GameObject receptor2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition22, spawnRotation);
-            receptor2.GetComponent<ClickHandler>().personajeIndice = 6;
+            personajes[personajes.Length - 4] = PhotonNetwork.Instantiate(playerToSpawn.name, new Vector3(12.5f, -1.3f, 0f), Quaternion.Euler(0, 180, 0));
+            personajes[personajes.Length - 4].GetComponent<ClickHandler>().personajeIndice = 6;
 
-            GameObject rematadorArriba2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition23, spawnRotation);
-            rematadorArriba2.GetComponent<ClickHandler>().personajeIndice = 8;
+            personajes[personajes.Length - 3] = PhotonNetwork.Instantiate(playerToSpawn.name, new Vector3(5.5f, -1.3f, 0f), Quaternion.Euler(0, 180, 0));
+            personajes[personajes.Length - 3].GetComponent<ClickHandler>().personajeIndice = 8;
 
-            GameObject rematadorAbajo2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition24, spawnRotation);
-            rematadorAbajo2.GetComponent<ClickHandler>().personajeIndice = 7;
+            personajes[personajes.Length - 2] = PhotonNetwork.Instantiate(playerToSpawn.name, new Vector3(8.5f, -5.6f, 0f), Quaternion.Euler(0, 180, 0));
+            personajes[personajes.Length - 2].GetComponent<ClickHandler>().personajeIndice = 7;
 
-            GameObject armador2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition25, spawnRotation);
-            armador2.GetComponent<ClickHandler>().personajeIndice = 9;
-
+            personajes[personajes.Length - 1] = PhotonNetwork.Instantiate(playerToSpawn.name, new Vector3(3.4f, -3.6f, 0f), Quaternion.Euler(0, 180, 0));
+            personajes[personajes.Length - 1].GetComponent<ClickHandler>().personajeIndice = 9;
         }
     }
+
     GameObject IrARecogerPelota(Vector2Int posicion)
     {
         GameObject personajeMasCercano = null;
@@ -752,7 +743,7 @@ public class gameManager : MonoBehaviourPun
                 if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
                 {
                     List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 3);
-                    int randomIndex = Random.Range(0, CasillasPosibles.Count);
+                    int randomIndex = UnityEngine.Random.Range(0, CasillasPosibles.Count);
                     casillaObjetivo = CasillasPosibles[randomIndex];
                     casillaSeleccionada = true;
                 }
@@ -855,7 +846,7 @@ public class gameManager : MonoBehaviourPun
                 if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
                 {
                     List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 3);
-                    int randomIndex = Random.Range(0, CasillasPosibles.Count);
+                    int randomIndex = UnityEngine.Random.Range(0, CasillasPosibles.Count);
                     casillaObjetivo = CasillasPosibles[randomIndex];
                     casillaSeleccionada = true;
                 }
@@ -1065,7 +1056,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
                 if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
                 {
                     List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 2);
-                    int randomIndex = Random.Range(0, CasillasPosibles.Count);
+                    int randomIndex = UnityEngine.Random.Range(0, CasillasPosibles.Count);
                     casillaObjetivo = CasillasPosibles[randomIndex];
                     casillaSeleccionada = true;
                 }
