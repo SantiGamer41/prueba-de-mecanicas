@@ -735,7 +735,15 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
     float heightMax = 2.5f;
 
     DesactivarCasillasIluminadas();
-
+        if (Sacador.transform.position.x > 0)
+        {
+            ball.GetComponent<Animator>().SetBool("IsGoingRight", true);
+        }
+        else
+        {
+            ball.GetComponent<Animator>().SetBool("IsGoingLeft", true);
+        }
+    
     while (elapsedTime < duration)
     {
         DeactivateAllButtons();
@@ -756,7 +764,9 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         elapsedTime += Time.deltaTime;
         yield return null;
     }
-    
+        ball.GetComponent<Animator>().SetBool("IsGoingLeft", false);
+        ball.GetComponent<Animator>().SetBool("IsGoingRight", false);
+
 
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
