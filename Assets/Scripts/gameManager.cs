@@ -573,16 +573,34 @@ public class gameManager : MonoBehaviourPun
             isMovingMode = false;
         }
     }
-    /*private void MoverPelotaA(Vector3 nuevaPosicion)
-    {
-        if (ball != null)
-        {
-        ball.transform.position = nuevaPosicion;
-        }
-    }
-    */
 
-     public void Sacar()
+    public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end, GameObject personaje)
+    {
+        IsDoingAction = true;
+        float duration = 1.0f; // Duración de la animación
+        float elapsedTime = 0;
+
+        // Ajusta la posición inicial al centro de la casilla
+        Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
+        Vector3 endPosition = new Vector3(end.x, end.y - 0.5f, end.z); // end ya está ajustado en MoverPersonajeA
+
+        DeactivateAllButtons();
+        while (elapsedTime < duration)
+        {
+            DeactivateAllButtons();
+            personaje.GetComponentInChildren<Animator>().SetBool("IsMoving", true);
+            personaje.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        personaje.transform.position = endPosition; // Asegurar que el personaje termine exactamente en la posición final
+        personaje.GetComponentInChildren<Animator>().SetBool("IsMoving", false);
+        IsDoingAction = false;
+    }
+
+
+    public void Sacar()
      {
       //Primero mostramos las casillas del lado contrario
       MostrarLadoContrario();
@@ -1133,31 +1151,6 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         IsBlocking = true;
         yield return null;
         
-    }
-
-    public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end, GameObject personaje)
-    {
-        IsDoingAction = true;
-        float duration = 1.0f; // Duración de la animación
-        float elapsedTime = 0;
-
-        // Ajusta la posición inicial al centro de la casilla
-        Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
-        Vector3 endPosition = new Vector3(end.x, end.y -0.5f, end.z); // end ya está ajustado en MoverPersonajeA
-
-        DeactivateAllButtons();
-        while (elapsedTime < duration)
-        {
-            DeactivateAllButtons();
-            personaje.GetComponentInChildren<Animator>().SetBool("IsMoving", true);
-            personaje.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        personaje.transform.position = endPosition; // Asegurar que el personaje termine exactamente en la posición final
-        personaje.GetComponentInChildren<Animator>().SetBool("IsMoving", false);
-        IsDoingAction = false;
     }
 
     private void DesactivarCasillasIluminadas()
