@@ -22,9 +22,12 @@ public class marcadorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Prueba complementaria
+        //HAY QUE UNIRLO EN LOS LUGARES ESPEIFICOS
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            SumarMarcadorLeft();
+            SumarPuntosLeft();
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -33,7 +36,8 @@ public class marcadorScript : MonoBehaviour
         }
     }
 
-    public void SumarMarcadorLeft()
+
+    private void ActualizarMarcadorLeft()
     {
         if (puntosLeft < MarcadorLeft.Length)
         {
@@ -43,21 +47,14 @@ public class marcadorScript : MonoBehaviour
             {
                 MarcadorLeft[puntosLeft - 1].SetActive(false);
             }
-
-            puntosLeft++;
         }
-
-        //viewMarcador.RPC("SumarMarcadorLeft_RPC", RpcTarget.All);
+        puntosLeft++; 
     }
 
-    [PunRPC]
-    public void SumarMarcadorLeft_RPC()
+ 
+    private void ActualizarMarcadorRight()
     {
-        
-    }
 
-    public void SumarMarcadorRight()
-    {
         if (puntosRight < MarcadorRight.Length)
         {
             MarcadorRight[puntosRight].SetActive(true);
@@ -66,17 +63,31 @@ public class marcadorScript : MonoBehaviour
             {
                 MarcadorRight[puntosRight - 1].SetActive(false);
             }
-
-            puntosRight++; // Aumenta el puntaje de la derecha
         }
-
-        //viewMarcador.RPC("SumarMarcadorRight_RPC", RpcTarget.All);
+        puntosRight++;
     }
+
+    public void SumarPuntosLeft()
+    {
+        viewMarcador.RPC("SumarMarcadorLeft_RPC", RpcTarget.All);
+    }
+
+    public void SumarMarcadorRight()
+    {
+        viewMarcador.RPC("SumarMarcadorRight_RPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void SumarMarcadorLeft_RPC()
+    {
+        ActualizarMarcadorLeft();
+    }
+
 
     [PunRPC]
     public void SumarMarcadorRight_RPC()
     {
-        
+        ActualizarMarcadorRight();
     }
 
 }
