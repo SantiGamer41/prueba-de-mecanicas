@@ -125,12 +125,12 @@ TextureImporter:
       name: Animacion%20idle2%20Arg_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 100
-        width: 23
-        height: 44
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,12 +146,12 @@ TextureImporter:
       name: Animacion%20idle2%20Arg_1
       rect:
         serializedVersion: 2
-        x: 41
+        x: 34
         y: 100
-        width: 23
-        height: 44
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,12 +167,12 @@ TextureImporter:
       name: Animacion%20idle2%20Arg_2
       rect:
         serializedVersion: 2
-        x: 75
+        x: 68
         y: 100
-        width: 23
-        height: 43
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,12 +188,12 @@ TextureImporter:
       name: Animacion%20idle2%20Arg_3
       rect:
         serializedVersion: 2
-        x: 109
+        x: 102
         y: 100
-        width: 23
-        height: 43
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,12 +209,12 @@ TextureImporter:
       name: Animacion%20idle2%20Arg_4
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 50
-        width: 23
-        height: 42
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,12 +230,12 @@ TextureImporter:
       name: Animacion%20idle2%20Arg_5
       rect:
         serializedVersion: 2
-        x: 42
+        x: 34
         y: 50
-        width: 23
-        height: 42
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -251,12 +251,12 @@ TextureImporter:
       name: Animacion%20idle2%20Arg_6
       rect:
         serializedVersion: 2
-        x: 75
+        x: 68
         y: 50
-        width: 23
-        height: 43
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,12 +272,12 @@ TextureImporter:
       name: Animacion%20idle2%20Arg_7
       rect:
         serializedVersion: 2
-        x: 109
+        x: 102
         y: 50
-        width: 23
-        height: 43
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -293,12 +293,12 @@ TextureImporter:
       name: Animacion%20idle2%20Arg_8
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 0
-        width: 23
-        height: 44
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -314,12 +314,12 @@ TextureImporter:
       name: Animacion%20idle2%20Arg_9
       rect:
         serializedVersion: 2
-        x: 41
+        x: 34
         y: 0
-        width: 23
-        height: 44
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
