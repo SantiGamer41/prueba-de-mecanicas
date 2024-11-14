@@ -1238,10 +1238,18 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
     }
     float CalcularDistancia(GameObject personaje, Vector2Int casillaObjetivo)
     {
-        Vector2Int ballPosition =  casillaObjetivo;
-        Vector2Int personajePosition = GetGridPosition(personaje.transform.GetChild(2).position);
+        if (personaje.transform.childCount > 2)
+        {
+            Vector2Int ballPosition = casillaObjetivo;
+            Vector2Int personajePosition = GetGridPosition(personaje.transform.GetChild(2).position);
 
-        return Vector2Int.Distance(personajePosition, ballPosition);
+            return Vector2Int.Distance(personajePosition, ballPosition);
+        }
+        else
+        {
+            Debug.LogError($"El personaje {personaje.name} no tiene suficientes hijos. childCount: {personaje.transform.childCount}");
+            return float.MaxValue; // Devolvemos un valor alto para indicar que no se puede calcular la distancia
+        }
     }
 
     public void NoRematar()
