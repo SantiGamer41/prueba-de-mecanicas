@@ -1,34 +1,19 @@
 fileFormatVersion: 2
-guid: bea18a234f2be2d458c6d7150585e013
+guid: f8778d09c74fa9741a0e0bbab00a7430
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3487296837685923440
-    second: Animacion%20manos%20bajas%20Chi_0
+      213: 4177471029832825575
+    second: Salvavidas 3_0
   - first:
-      213: 7222183963546748466
-    second: Animacion%20manos%20bajas%20Chi_1
+      213: 50503565891231738
+    second: Salvavidas 3_1
   - first:
-      213: 9037083151016232526
-    second: Animacion%20manos%20bajas%20Chi_2
+      213: 1505396593629816748
+    second: Salvavidas 3_2
   - first:
-      213: 3087063574815613715
-    second: Animacion%20manos%20bajas%20Chi_3
-  - first:
-      213: 841789308696398642
-    second: Animacion%20manos%20bajas%20Chi_4
-  - first:
-      213: -4524536969558591415
-    second: Animacion%20manos%20bajas%20Chi_5
-  - first:
-      213: -8329857986777161641
-    second: Animacion%20manos%20bajas%20Chi_6
-  - first:
-      213: 6094710684169546607
-    second: Animacion%20manos%20bajas%20Chi_7
-  - first:
-      213: -248993324907895363
-    second: Animacion%20manos%20bajas%20Chi_8
+      213: 1885766683387978881
+    second: Salvavidas 3_3
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -119,64 +104,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20Chi_6
+      name: Salvavidas 3_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 50
-        width: 34
-        height: 50
+        x: 0
+        y: 27
+        width: 29
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75062b46b46666c80800000000000000
-      internalID: -8329857986777161641
+      spriteID: 7eabba8b4cb59f930800000000000000
+      internalID: 4177471029832825575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20Chi_7
+      name: Salvavidas 3_1
       rect:
         serializedVersion: 2
-        x: 102
-        y: 50
-        width: 34
-        height: 50
+        x: 29
+        y: 27
+        width: 29
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6b24ba7313c49450800000000000000
-      internalID: 6094710684169546607
+      spriteID: aff56d0c9bc63b000800000000000000
+      internalID: 50503565891231738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animacion%20manos%20bajas%20Chi_8
+      name: Salvavidas 3_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 34
-        height: 50
+        width: 29
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db5eb65e3e56b8cf0800000000000000
-      internalID: -248993324907895363
+      spriteID: ca76369d93e34e410800000000000000
+      internalID: 1505396593629816748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salvavidas 3_3
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1846b9caec69b2a10800000000000000
+      internalID: 1885766683387978881
       vertices: []
       indices: 
       edges: []

@@ -149,12 +149,12 @@ TextureImporter:
       name: Animacion%20Salto%20Recibir%20Chi_0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 150
-        width: 23
-        height: 43
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,12 +170,12 @@ TextureImporter:
       name: Animacion%20Salto%20Recibir%20Chi_1
       rect:
         serializedVersion: 2
-        x: 50
+        x: 43
         y: 150
-        width: 29
-        height: 36
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: Animacion%20Salto%20Recibir%20Chi_2
       rect:
         serializedVersion: 2
-        x: 88
-        y: 151
-        width: 36
-        height: 34
+        x: 86
+        y: 150
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -212,12 +212,12 @@ TextureImporter:
       name: Animacion%20Salto%20Recibir%20Chi_3
       rect:
         serializedVersion: 2
-        x: 130
-        y: 152
-        width: 40
-        height: 30
+        x: 129
+        y: 150
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -233,12 +233,12 @@ TextureImporter:
       name: Animacion%20Salto%20Recibir%20Chi_4
       rect:
         serializedVersion: 2
-        x: 175
-        y: 151
-        width: 40
-        height: 26
+        x: 172
+        y: 150
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -254,12 +254,12 @@ TextureImporter:
       name: Animacion%20Salto%20Recibir%20Chi_5
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 100
-        width: 41
-        height: 24
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -275,12 +275,12 @@ TextureImporter:
       name: Animacion%20Salto%20Recibir%20Chi_6
       rect:
         serializedVersion: 2
-        x: 46
+        x: 43
         y: 100
-        width: 40
-        height: 19
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,9 +299,9 @@ TextureImporter:
         x: 86
         y: 100
         width: 43
-        height: 20
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -319,10 +319,10 @@ TextureImporter:
         serializedVersion: 2
         x: 129
         y: 100
-        width: 42
-        height: 22
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -341,9 +341,9 @@ TextureImporter:
         x: 172
         y: 100
         width: 43
-        height: 21
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -362,9 +362,9 @@ TextureImporter:
         x: 0
         y: 50
         width: 43
-        height: 20
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -383,9 +383,9 @@ TextureImporter:
         x: 43
         y: 50
         width: 43
-        height: 20
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -404,9 +404,9 @@ TextureImporter:
         x: 86
         y: 50
         width: 43
-        height: 20
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -422,12 +422,12 @@ TextureImporter:
       name: Animacion%20Salto%20Recibir%20Chi_13
       rect:
         serializedVersion: 2
-        x: 134
+        x: 129
         y: 50
-        width: 37
-        height: 22
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -443,12 +443,12 @@ TextureImporter:
       name: Animacion%20Salto%20Recibir%20Chi_14
       rect:
         serializedVersion: 2
-        x: 185
+        x: 172
         y: 50
-        width: 27
-        height: 26
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -464,12 +464,12 @@ TextureImporter:
       name: Animacion%20Salto%20Recibir%20Chi_15
       rect:
         serializedVersion: 2
-        x: 13
+        x: 0
         y: 0
-        width: 27
-        height: 33
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -485,12 +485,12 @@ TextureImporter:
       name: Animacion%20Salto%20Recibir%20Chi_16
       rect:
         serializedVersion: 2
-        x: 54
+        x: 43
         y: 0
-        width: 24
-        height: 38
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -506,12 +506,12 @@ TextureImporter:
       name: Animacion%20Salto%20Recibir%20Chi_17
       rect:
         serializedVersion: 2
-        x: 97
+        x: 86
         y: 0
-        width: 23
-        height: 43
+        width: 43
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

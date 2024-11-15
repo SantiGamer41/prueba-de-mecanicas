@@ -134,12 +134,12 @@ TextureImporter:
       name: Remate china_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 151
-        width: 23
-        height: 43
+        x: 0
+        y: 150
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: Remate china_1
       rect:
         serializedVersion: 2
-        x: 42
+        x: 34
         y: 150
-        width: 22
-        height: 43
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: Remate china_2
       rect:
         serializedVersion: 2
-        x: 74
-        y: 151
-        width: 25
-        height: 43
+        x: 68
+        y: 150
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: Remate china_3
       rect:
         serializedVersion: 2
-        x: 106
-        y: 153
-        width: 28
-        height: 43
+        x: 102
+        y: 150
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: Remate china_4
       rect:
         serializedVersion: 2
-        x: 3
-        y: 108
-        width: 26
-        height: 40
+        x: 0
+        y: 100
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: Remate china_5
       rect:
         serializedVersion: 2
-        x: 37
-        y: 111
-        width: 25
-        height: 38
+        x: 34
+        y: 100
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: Remate china_6
       rect:
         serializedVersion: 2
-        x: 70
-        y: 110
-        width: 24
-        height: 39
+        x: 68
+        y: 100
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: Remate china_7
       rect:
         serializedVersion: 2
-        x: 105
-        y: 110
-        width: 25
-        height: 39
+        x: 102
+        y: 100
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -302,12 +302,12 @@ TextureImporter:
       name: Remate china_8
       rect:
         serializedVersion: 2
-        x: 3
-        y: 59
-        width: 27
-        height: 39
+        x: 0
+        y: 50
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -324,11 +324,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 34
-        y: 57
-        width: 32
-        height: 39
+        y: 50
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -344,12 +344,12 @@ TextureImporter:
       name: Remate china_10
       rect:
         serializedVersion: 2
-        x: 69
-        y: 54
-        width: 26
-        height: 39
+        x: 68
+        y: 50
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -365,12 +365,12 @@ TextureImporter:
       name: Remate china_11
       rect:
         serializedVersion: 2
-        x: 103
-        y: 52
-        width: 25
-        height: 40
+        x: 102
+        y: 50
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -386,12 +386,12 @@ TextureImporter:
       name: Remate china_12
       rect:
         serializedVersion: 2
-        x: 3
-        y: 1
-        width: 25
-        height: 41
+        x: 0
+        y: 0
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

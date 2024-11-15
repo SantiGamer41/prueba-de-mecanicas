@@ -116,12 +116,12 @@ TextureImporter:
       name: Animacion%20Bloqueo%20Nigeria 1_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 100
-        width: 24
-        height: 46
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -137,12 +137,12 @@ TextureImporter:
       name: Animacion%20Bloqueo%20Nigeria 1_1
       rect:
         serializedVersion: 2
-        x: 37
+        x: 32
         y: 100
-        width: 27
-        height: 42
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -158,12 +158,12 @@ TextureImporter:
       name: Animacion%20Bloqueo%20Nigeria 1_2
       rect:
         serializedVersion: 2
-        x: 69
+        x: 64
         y: 100
-        width: 24
-        height: 43
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -179,12 +179,12 @@ TextureImporter:
       name: Animacion%20Bloqueo%20Nigeria 1_3
       rect:
         serializedVersion: 2
-        x: 106
+        x: 96
         y: 100
-        width: 21
-        height: 46
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -200,12 +200,12 @@ TextureImporter:
       name: Animacion%20Bloqueo%20Nigeria 1_4
       rect:
         serializedVersion: 2
-        x: 7
-        y: 52
-        width: 23
-        height: 45
+        x: 0
+        y: 50
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -221,12 +221,12 @@ TextureImporter:
       name: Animacion%20Bloqueo%20Nigeria 1_5
       rect:
         serializedVersion: 2
-        x: 38
-        y: 52
-        width: 22
-        height: 45
+        x: 32
+        y: 50
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -242,12 +242,12 @@ TextureImporter:
       name: Animacion%20Bloqueo%20Nigeria 1_6
       rect:
         serializedVersion: 2
-        x: 70
+        x: 64
         y: 50
-        width: 21
-        height: 47
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

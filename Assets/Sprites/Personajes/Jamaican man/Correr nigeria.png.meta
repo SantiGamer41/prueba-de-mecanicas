@@ -131,12 +131,12 @@ TextureImporter:
       name: Animacion%20correr%20Nigeria_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 100
-        width: 22
-        height: 46
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,12 +152,12 @@ TextureImporter:
       name: Animacion%20correr%20Nigeria_1
       rect:
         serializedVersion: 2
-        x: 41
+        x: 34
         y: 100
-        width: 25
-        height: 46
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +173,12 @@ TextureImporter:
       name: Animacion%20correr%20Nigeria_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 68
         y: 100
-        width: 29
-        height: 45
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: Animacion%20correr%20Nigeria_3
       rect:
         serializedVersion: 2
-        x: 106
+        x: 102
         y: 100
-        width: 29
-        height: 44
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: Animacion%20correr%20Nigeria_4
       rect:
         serializedVersion: 2
-        x: 3
-        y: 52
-        width: 29
-        height: 43
+        x: 0
+        y: 50
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: Animacion%20correr%20Nigeria_5
       rect:
         serializedVersion: 2
-        x: 38
-        y: 51
-        width: 28
-        height: 45
+        x: 34
+        y: 50
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,12 +257,12 @@ TextureImporter:
       name: Animacion%20correr%20Nigeria_6
       rect:
         serializedVersion: 2
-        x: 75
+        x: 68
         y: 50
-        width: 25
-        height: 46
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,12 +278,12 @@ TextureImporter:
       name: Animacion%20correr%20Nigeria_7
       rect:
         serializedVersion: 2
-        x: 111
+        x: 102
         y: 50
-        width: 22
-        height: 46
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,12 +299,12 @@ TextureImporter:
       name: Animacion%20correr%20Nigeria_8
       rect:
         serializedVersion: 2
-        x: 10
+        x: 0
         y: 0
-        width: 20
-        height: 46
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -320,12 +320,12 @@ TextureImporter:
       name: Animacion%20correr%20Nigeria_9
       rect:
         serializedVersion: 2
-        x: 44
+        x: 34
         y: 0
-        width: 20
-        height: 45
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -341,12 +341,12 @@ TextureImporter:
       name: Animacion%20correr%20Nigeria_10
       rect:
         serializedVersion: 2
-        x: 78
+        x: 68
         y: 0
-        width: 20
-        height: 44
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -362,12 +362,12 @@ TextureImporter:
       name: Animacion%20correr%20Nigeria_11
       rect:
         serializedVersion: 2
-        x: 112
+        x: 102
         y: 0
-        width: 20
-        height: 45
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
