@@ -71,7 +71,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         CreandoSalaButton.SetActive(false);
         nombreRoom.text = "Nombre de la sala: " + PhotonNetwork.CurrentRoom.Name;
         UpdateListaJugadores();
-        nombreBoton.text = "Crear Sala";
     }
 
 
