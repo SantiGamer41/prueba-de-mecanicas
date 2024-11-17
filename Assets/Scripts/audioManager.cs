@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class audioManager : MonoBehaviour
 {
     public static audioManager Instance;
     public AudioSource musicSource;
+
+    
 
     private void Awake()
     {
@@ -27,6 +30,8 @@ public class audioManager : MonoBehaviour
         musicSource.Play();
     }
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +41,6 @@ public class audioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 }
