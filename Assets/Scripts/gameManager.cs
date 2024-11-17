@@ -21,6 +21,7 @@ public class gameManager : MonoBehaviourPun
     [Header("Scripts")]
     DisplayPuntosScript displayPuntosScript;
     public leantweenScript LeantweenScript;
+    public CameraShake cameraShakeScript;
     [Header("UI")]
     private estado estadoActual;
     [Space(25)]
@@ -1034,6 +1035,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(0.12f);
         Time.timeScale = 1.0f;
+        cameraShakeScript.Shake(0.5f, 5f);
         LeantweenScript.AparecerTextoPunto(textoSpike, textHolderPopUpLeft);
         while (elapsedTime < duration)
         {
@@ -1288,7 +1290,23 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         yield return null;
         }
         ball.transform.position = endPosition;
-
+        if(endPosition.x > 1)
+        {
+        LeantweenScript.AparecerTextoPunto(textoPointP1, textHolder);
+        Debug.Log("Se mostro el punto");
+        estado = estado.SaqueP1;
+        InstanciarPersonajesEnPosicionesIniciales();
+        ball.transform.parent = personajes[0].transform;
+        ball.transform.localPosition = new Vector3(7, 12, 0);
+        }
+        else
+        {
+            LeantweenScript.AparecerTextoPunto(textoPointP2,textHolder);
+            estado = estado.SaqueP2;
+            InstanciarPersonajesEnPosicionesIniciales();
+            ball.transform.parent = personajes[5].transform;
+            ball.transform.localPosition = new Vector3(-7, 12, 0);
+        }
         Debug.Log("Pelota llegó al punto final.");
         
     }
