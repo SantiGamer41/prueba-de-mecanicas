@@ -205,8 +205,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1373616816}
-        m_TargetAssemblyTypeName: audioManager, Assembly-CSharp
+      - m_Target: {fileID: 446434859}
+        m_TargetAssemblyTypeName: muteButton, Assembly-CSharp
         m_MethodName: OnMuteClick
         m_Mode: 1
         m_Arguments:

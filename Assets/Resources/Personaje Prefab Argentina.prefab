@@ -184,8 +184,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
-  m_SynchronizeLayers: []
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsMoving
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsRecieving
+  - Type: 9
+    SynchronizeType: 1
+    Name: Pass
+  - Type: 9
+    SynchronizeType: 1
+    Name: Spike
+  - Type: 4
+    SynchronizeType: 1
+    Name: receive
+  - Type: 9
+    SynchronizeType: 1
+    Name: endreceive
+  - Type: 4
+    SynchronizeType: 1
+    Name: Block
+  - Type: 9
+    SynchronizeType: 1
+    Name: endblock
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &7149067201123429325
 GameObject:
   m_ObjectHideFlags: 0
