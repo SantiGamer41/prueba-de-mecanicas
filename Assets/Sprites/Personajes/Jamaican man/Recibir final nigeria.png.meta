@@ -104,12 +104,12 @@ TextureImporter:
       name: Manos bajas inicio nigeria_6
       rect:
         serializedVersion: 2
-        x: 78
+        x: 68
         y: 50
-        width: 21
-        height: 42
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -125,12 +125,12 @@ TextureImporter:
       name: Manos bajas inicio nigeria_7
       rect:
         serializedVersion: 2
-        x: 110
+        x: 102
         y: 50
-        width: 24
-        height: 42
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,12 +146,12 @@ TextureImporter:
       name: Manos bajas inicio nigeria_8
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 0
-        width: 27
-        height: 42
+        width: 34
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

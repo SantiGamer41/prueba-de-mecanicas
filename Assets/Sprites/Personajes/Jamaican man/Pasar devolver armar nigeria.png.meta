@@ -125,12 +125,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Nigeria_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 100
-        width: 24
-        height: 46
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,12 +146,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Nigeria_1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 32
         y: 100
-        width: 25
-        height: 42
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,12 +167,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Nigeria_2
       rect:
         serializedVersion: 2
-        x: 69
+        x: 64
         y: 100
-        width: 24
-        height: 43
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,12 +188,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Nigeria_3
       rect:
         serializedVersion: 2
-        x: 103
+        x: 96
         y: 100
-        width: 23
-        height: 46
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,12 +209,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Nigeria_4
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 50
-        width: 20
-        height: 45
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,12 +230,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Nigeria_5
       rect:
         serializedVersion: 2
-        x: 40
+        x: 32
         y: 50
-        width: 22
-        height: 46
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -251,12 +251,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Nigeria_6
       rect:
         serializedVersion: 2
-        x: 72
+        x: 64
         y: 50
-        width: 21
-        height: 46
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,12 +272,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Nigeria_7
       rect:
         serializedVersion: 2
-        x: 104
+        x: 96
         y: 50
-        width: 21
-        height: 45
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -293,12 +293,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Nigeria_8
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 23
-        height: 43
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -314,12 +314,12 @@ TextureImporter:
       name: Animacion%20Pasar_devolver_armar%20Nigeria_9
       rect:
         serializedVersion: 2
-        x: 39
+        x: 32
         y: 0
-        width: 25
-        height: 42
+        width: 32
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

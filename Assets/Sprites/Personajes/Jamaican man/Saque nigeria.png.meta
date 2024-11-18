@@ -161,10 +161,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 210
-        width: 25
-        height: 46
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,10 +182,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_1
       rect:
         serializedVersion: 2
-        x: 52
+        x: 45
         y: 210
-        width: 23
-        height: 46
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_2
       rect:
         serializedVersion: 2
-        x: 100
+        x: 90
         y: 210
-        width: 24
-        height: 46
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +224,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_3
       rect:
         serializedVersion: 2
-        x: 145
+        x: 135
         y: 210
-        width: 27
-        height: 46
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,10 +245,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_4
       rect:
         serializedVersion: 2
-        x: 190
+        x: 180
         y: 210
-        width: 27
-        height: 47
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,10 +266,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_5
       rect:
         serializedVersion: 2
-        x: 10
+        x: 0
         y: 140
-        width: 27
-        height: 54
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,10 +287,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_10
       rect:
         serializedVersion: 2
-        x: 51
-        y: 141
-        width: 32
-        height: 60
+        x: 45
+        y: 140
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,10 +308,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_11
       rect:
         serializedVersion: 2
-        x: 94
-        y: 143
-        width: 36
-        height: 65
+        x: 90
+        y: 140
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,10 +329,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_12
       rect:
         serializedVersion: 2
-        x: 138
-        y: 148
-        width: 37
-        height: 59
+        x: 135
+        y: 140
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,10 +350,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_13
       rect:
         serializedVersion: 2
-        x: 183
-        y: 151
-        width: 38
-        height: 55
+        x: 180
+        y: 140
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,10 +371,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_14
       rect:
         serializedVersion: 2
-        x: 2
-        y: 80
-        width: 40
-        height: 53
+        x: 0
+        y: 70
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,10 +392,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_16
       rect:
         serializedVersion: 2
-        x: 48
-        y: 80
-        width: 39
-        height: 48
+        x: 45
+        y: 70
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,10 +413,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_17
       rect:
         serializedVersion: 2
-        x: 93
-        y: 79
-        width: 39
-        height: 42
+        x: 90
+        y: 70
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -435,9 +435,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 135
-        y: 77
-        width: 32
-        height: 42
+        y: 70
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,10 +455,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_19
       rect:
         serializedVersion: 2
-        x: 181
-        y: 74
-        width: 26
-        height: 42
+        x: 180
+        y: 70
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,10 +476,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_20
       rect:
         serializedVersion: 2
-        x: 1
-        y: 2
-        width: 27
-        height: 43
+        x: 0
+        y: 0
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -497,10 +497,10 @@ TextureImporter:
       name: Animacion%20Saque%20Nigeria_21
       rect:
         serializedVersion: 2
-        x: 48
-        y: 1
-        width: 25
-        height: 44
+        x: 45
+        y: 0
+        width: 45
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

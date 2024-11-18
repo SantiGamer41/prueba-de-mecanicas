@@ -134,12 +134,12 @@ TextureImporter:
       name: Animacion%20Remate%20Nigeria_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 107
-        width: 24
-        height: 46
+        x: 0
+        y: 106
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: Animacion%20Remate%20Nigeria_1
       rect:
         serializedVersion: 2
-        x: 42
+        x: 34
         y: 106
-        width: 23
-        height: 46
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: Animacion%20Remate%20Nigeria_2
       rect:
         serializedVersion: 2
-        x: 74
-        y: 107
-        width: 25
-        height: 46
+        x: 68
+        y: 106
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: Animacion%20Remate%20Nigeria_3
       rect:
         serializedVersion: 2
-        x: 106
-        y: 109
-        width: 28
-        height: 46
+        x: 102
+        y: 106
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: Animacion%20Remate%20Nigeria_4
       rect:
         serializedVersion: 2
-        x: 139
-        y: 114
-        width: 26
-        height: 43
+        x: 136
+        y: 106
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: Animacion%20Remate%20Nigeria_5
       rect:
         serializedVersion: 2
-        x: 3
-        y: 64
-        width: 25
-        height: 41
+        x: 0
+        y: 53
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: Animacion%20Remate%20Nigeria_6
       rect:
         serializedVersion: 2
-        x: 36
-        y: 63
-        width: 25
-        height: 41
+        x: 34
+        y: 53
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: Animacion%20Remate%20Nigeria_7
       rect:
         serializedVersion: 2
-        x: 71
-        y: 63
-        width: 25
-        height: 42
+        x: 68
+        y: 53
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -302,12 +302,12 @@ TextureImporter:
       name: Animacion%20Remate%20Nigeria_8
       rect:
         serializedVersion: 2
-        x: 105
-        y: 62
-        width: 27
-        height: 42
+        x: 102
+        y: 53
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -324,11 +324,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 136
-        y: 60
-        width: 32
-        height: 42
+        y: 53
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -344,12 +344,12 @@ TextureImporter:
       name: Animacion%20Remate%20Nigeria_10
       rect:
         serializedVersion: 2
-        x: 1
-        y: 4
-        width: 26
-        height: 42
+        x: 0
+        y: 0
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -365,12 +365,12 @@ TextureImporter:
       name: Animacion%20Remate%20Nigeria_11
       rect:
         serializedVersion: 2
-        x: 35
-        y: 2
-        width: 27
-        height: 43
+        x: 34
+        y: 0
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -386,12 +386,12 @@ TextureImporter:
       name: Animacion%20Remate%20Nigeria_12
       rect:
         serializedVersion: 2
-        x: 71
-        y: 1
-        width: 25
-        height: 44
+        x: 68
+        y: 0
+        width: 34
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
