@@ -1,0 +1,805 @@
+fileFormatVersion: 2
+guid: 3394f75c3c8e0d84d833bbe64ee7d537
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 168815118122358580
+    second: Animacion ola_0
+  - first:
+      213: -1862973891200837129
+    second: Animacion ola_1
+  - first:
+      213: 8941706563666045698
+    second: Animacion ola_2
+  - first:
+      213: -767952348575602548
+    second: Animacion ola_3
+  - first:
+      213: 1109979975550728560
+    second: Animacion ola_4
+  - first:
+      213: -7137531226180095033
+    second: Animacion ola_5
+  - first:
+      213: -5530028717236371251
+    second: Animacion ola_6
+  - first:
+      213: 1755728819905681263
+    second: Animacion ola_7
+  - first:
+      213: 7371255513118093820
+    second: Animacion ola_8
+  - first:
+      213: 5680095640171000176
+    second: Animacion ola_9
+  - first:
+      213: 3380225556393540660
+    second: Animacion ola_9
+  - first:
+      213: -7663641798442047351
+    second: Animacion ola_8
+  - first:
+      213: 6629133641313012247
+    second: Animacion ola_12
+  - first:
+      213: 1999840930011703708
+    second: Animacion ola_13
+  - first:
+      213: -6160026066518001718
+    second: Animacion ola_14
+  - first:
+      213: -2974818524844129945
+    second: Animacion ola_15
+  - first:
+      213: -6714969074309531341
+    second: Animacion ola_16
+  - first:
+      213: -4620178877188670839
+    second: Animacion ola_17
+  - first:
+      213: 5905299200291146320
+    second: Animacion ola_18
+  - first:
+      213: 5815056455231773416
+    second: Animacion ola_19
+  - first:
+      213: -3904734825579541371
+    second: Animacion ola_20
+  - first:
+      213: -393777810751146785
+    second: Animacion ola_21
+  - first:
+      213: 2566086424739525137
+    second: Animacion ola_21
+  - first:
+      213: 829087641503269607
+    second: Animacion ola_20
+  - first:
+      213: -1568777701567660422
+    second: Animacion ola_24
+  - first:
+      213: 2604928921963448213
+    second: Animacion ola_25
+  - first:
+      213: 1600939491857512738
+    second: Animacion ola_26
+  - first:
+      213: -8374570077881183965
+    second: Animacion ola_27
+  - first:
+      213: 2416860254171494884
+    second: Animacion ola_28
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Animacion ola_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1809
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437166c9470c75200800000000000000
+      internalID: 168815118122358580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_1
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 1809
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f9952dcd136526e0800000000000000
+      internalID: -1862973891200837129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_2
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 1809
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20be7159eb2571c70800000000000000
+      internalID: 8941706563666045698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_3
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 1809
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8869b2686fa755f0800000000000000
+      internalID: -767952348575602548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1576
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0797f7628e0776f00800000000000000
+      internalID: 1109979975550728560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_5
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 1576
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c3f6428a2562fc90800000000000000
+      internalID: -7137531226180095033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_6
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 1576
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc0ca675e246143b0800000000000000
+      internalID: -5530028717236371251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_7
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 1576
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f67d4683f0a9d5810800000000000000
+      internalID: 1755728819905681263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_11
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 1343
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf13b08a5d5fb4660800000000000000
+      internalID: 7371255513118093820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_10
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 1343
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07133aae3e0c3de40800000000000000
+      internalID: 5680095640171000176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_9
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 1343
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43cb88dfb39f8ee20800000000000000
+      internalID: 3380225556393540660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1343
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 988a606536645a590800000000000000
+      internalID: -7663641798442047351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1110
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71acd039ce96ffb50800000000000000
+      internalID: 6629133641313012247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_13
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 1110
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9962a0fabcd0cb10800000000000000
+      internalID: 1999840930011703708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_14
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 1110
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac73c020ee0338aa0800000000000000
+      internalID: -6160026066518001718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_15
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 1110
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7610a6b105257b6d0800000000000000
+      internalID: -2974818524844129945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 877
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 339fb005433afc2a0800000000000000
+      internalID: -6714969074309531341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_17
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 877
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98af76a3ac3d1efb0800000000000000
+      internalID: -4620178877188670839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_18
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 877
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a80c5c556d3f150800000000000000
+      internalID: 5905299200291146320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_19
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 877
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea9eea590b33b050800000000000000
+      internalID: 5815056455231773416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_23
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 644
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c0c334d589fc9c0800000000000000
+      internalID: -3904734825579541371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_22
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 644
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd43fbdda25098af0800000000000000
+      internalID: -393777810751146785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_21
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 644
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1123d81f1029c9320800000000000000
+      internalID: 2566086424739525137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 644
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2087731d2818b00800000000000000
+      internalID: 829087641503269607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 411
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7e718efdf49a3ae0800000000000000
+      internalID: -1568777701567660422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_25
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 411
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 597c5c29d01962420800000000000000
+      internalID: 2604928921963448213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_26
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 411
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 229bf075cfda73610800000000000000
+      internalID: 1600939491857512738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_27
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 411
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 321d64172ec87cb80800000000000000
+      internalID: -8374570077881183965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animacion ola_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 178
+        width: 411
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e9f6a998996a8120800000000000000
+      internalID: 2416860254171494884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
