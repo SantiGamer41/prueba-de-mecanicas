@@ -40,6 +40,7 @@ public class gameManager : MonoBehaviourPun
     public GameObject textHolder;
     public GameObject textHolderPopUpLeft;
     public GameObject textHolderPopUpRight;
+    public ParticleSystem particulas;
     private int maxMovementRange;
     public float ballPickupRange = 2.5f;
     private bool enRango = false;
@@ -687,7 +688,8 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
 
     // Determina la altura máxima de la parábola
     float heightMax = 2.5f;
-
+    //particulas.duration = 1.5f;
+    particulas.Play();
     DesactivarCasillasIluminadas();
 
     while (elapsedTime < duration)
@@ -728,20 +730,20 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         yield return new WaitForSeconds(1.2f);
         IsDoingAction = false;
 
- /*
-        if (Sacador.transform.position.x > 1)
-        {
-            //Logica para cuando hay punto de saque
-            yield return new WaitForSeconds(2);
-            StartCoroutine(MovimientoPersonaje(personajes[5].transform.position, new Vector3(12.5f, -0.5f, 0), personajes[5]));
-        }
-        else if (Sacador.transform.position.x < 1)
-        {
-            yield return new WaitForSeconds(2);
-            StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
-        }   
-  */  
-    
+        /*
+               if (Sacador.transform.position.x > 1)
+               {
+                   //Logica para cuando hay punto de saque
+                   yield return new WaitForSeconds(2);
+                   StartCoroutine(MovimientoPersonaje(personajes[5].transform.position, new Vector3(12.5f, -0.5f, 0), personajes[5]));
+               }
+               else if (Sacador.transform.position.x < 1)
+               {
+                   yield return new WaitForSeconds(2);
+                   StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
+               }   
+         */
+        //particulas.duration = 1;
     }
 private IEnumerator SeleccionDeDevolver(Vector3 start)
     {
@@ -1035,7 +1037,8 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(0.12f);
         Time.timeScale = 1.0f;
-        cameraShakeScript.Shake(0.5f, 5f);
+        particulas.Play();
+        cameraShakeScript.Shake(0.5f, 1f);
         LeantweenScript.AparecerTextoPunto(textoSpike, textHolderPopUpLeft);
         while (elapsedTime < duration)
         {
