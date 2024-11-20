@@ -202,7 +202,7 @@ public class gameManager : MonoBehaviourPun
 
         if (personajeMasCercano != null)
         {
-            RecogerPelota(personajeMasCercano);
+            photonView.RPC("RecogerPelotaRPC", RpcTarget.All, personajeMasCercano.GetPhotonView().ViewID);
             return true;
         }
         else
@@ -391,6 +391,24 @@ public class gameManager : MonoBehaviourPun
         }
         return false;
     }
+
+    [PunRPC]
+    void RecogerPelotaRPC(int personajeMasCercanoViewID)
+    {
+        // Obtener el GameObject del personaje más cercano usando su ViewID
+        GameObject personajeMasCercano = PhotonView.Find(personajeMasCercanoViewID)?.gameObject;
+
+        // Verificar si el personaje más cercano es nulo
+        if (personajeMasCercano == null)
+        {
+            Debug.LogError("No se pudo encontrar el GameObject con el ViewID: " + personajeMasCercanoViewID);
+            return; // Salir de la función si no se encuentra el GameObject
+        }
+
+        // Llamar a la función que maneja la lógica de recoger la pelota
+        RecogerPelota(personajeMasCercano);
+    }
+
 
     void RecogerPelota(GameObject personaje)
     {
