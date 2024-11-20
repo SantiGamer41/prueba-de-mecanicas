@@ -63,6 +63,8 @@ public class gameManager : MonoBehaviourPun
     public GameObject textoPointP1;
     public GameObject textoPointP2;
     public GameObject textoSpike;
+    public GameObject textoServe;
+    public GameObject textoBlock;
     [Space(25)]
     private Vector2Int startTile;
     [Header("Animator")]
@@ -660,6 +662,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         yield return null;
     }
         yield return new WaitForSeconds(0.1f);
+        LeantweenScript.AparecerTextoPunto(textoServe, textHolderPopUpRight);
         if (estado == estado.SaqueP2)
         {
 
@@ -1277,6 +1280,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(0.12f);
         Time.timeScale = 1.0f;
+        LeantweenScript.AparecerTextoPunto(textoBlock, textHolderPopUpRight);
         while (elapsedTime < halfDuration)
         {
         ball.transform.position = Vector3.Lerp(startPosition, midPosition, elapsedTime / halfDuration);
@@ -1292,6 +1296,9 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         elapsedTime += Time.deltaTime;
         yield return null;
         }
+
+        personajeBloqueando.GetComponentInChildren<Animator>().SetBool("Block", false);
+
         ball.transform.position = endPosition;
         if(endPosition.x > 1)
         {

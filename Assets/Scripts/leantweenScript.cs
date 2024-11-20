@@ -23,8 +23,8 @@ public class leantweenScript : MonoBehaviour
     public void AparecerTextoPunto(GameObject texto,  GameObject textHolder)
     {
 
-        LeanTween.move (texto, textHolder.GetComponent<RectTransform>().position, 1.0f);
-        LeanTween.scale(texto, new Vector2(2.20f, 2.20f), 1.0f);
+        LeanTween.move (texto, textHolder.GetComponent<RectTransform>().position, 0.5f);
+        LeanTween.scale(texto, new Vector2(1.20f, 1.20f), 0.5f);
         
        
         LeanTween.scale(texto, new Vector2(0f, 0f), 1.0f).setDelay(2);
