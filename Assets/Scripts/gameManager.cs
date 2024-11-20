@@ -566,17 +566,17 @@ public class gameManager : MonoBehaviourPun
      //{
          DesactivarCasillasIluminadas();
 
-    int limiteX = 1;
+    
 
         foreach (var tilePosition in casillasPorPosicion.Keys)
         {
         // Si el personaje está en la mitad izquierda o exactamente en el limiteX
-            if (personajeActual.transform.position.x <= limiteX && tilePosition.x > limiteX)
+            if (personajeActual.transform.position.x <= 3 && tilePosition.x > 3)
             {
                 casillasPorPosicion[tilePosition].SetActive(true);
             }
         // Si el personaje está en la mitad derecha
-            else if (personajeActual.transform.position.x > limiteX && tilePosition.x < limiteX)
+            else if (personajeActual.transform.position.x > -2 && tilePosition.x < -2)
             {
                 casillasPorPosicion[tilePosition].SetActive(true);
             }
@@ -694,6 +694,14 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
     //particulas.duration = 1.5f;
     particulas.Play();
     DesactivarCasillasIluminadas();
+        if (Sacador.transform.position.x < 0)
+        {
+            ball.GetComponent<Animator>().SetBool("RotatingLeft", true);
+        }
+        else
+        {
+            ball.GetComponent<Animator>().SetBool("RotatingLeft", true);
+        }
 
     while (elapsedTime < duration)
     {
@@ -1279,7 +1287,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         yield return new WaitForSeconds(0.7f);
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(0.12f);
-        Time.timeScale = 1.0f;
+        Time.timeScale = 0.4f;
         LeantweenScript.AparecerTextoPunto(textoBlock, textHolderPopUpRight);
         while (elapsedTime < halfDuration)
         {
@@ -1298,7 +1306,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         }
 
         personajeBloqueando.GetComponentInChildren<Animator>().SetBool("Block", false);
-
+        
         ball.transform.position = endPosition;
         if(endPosition.x > 1)
         {
@@ -1318,7 +1326,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             ball.transform.localPosition = new Vector3(-7, 12, 0);
         }
         Debug.Log("Pelota llegó al punto final.");
-        
+        Time.timeScale = 1f;
     }
 
     
