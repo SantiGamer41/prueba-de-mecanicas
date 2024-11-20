@@ -26355,6 +26355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   estado: 0
   LeantweenScript: {fileID: 1878058943}
+  cameraShakeScript: {fileID: 0}
   personajes:
   - {fileID: 831166051}
   - {fileID: 375273556}

@@ -175,6 +175,28 @@ public class gameManager : MonoBehaviourPun
         }
         return personajeMasCercano;
     }
+
+    [PunRPC]
+    void RecibirPelotaRPC(int personajeMasCercanoViewID)
+    {
+        // Obtener el GameObject del personaje más cercano usando su ViewID
+        GameObject personajeMasCercano = PhotonView.Find(personajeMasCercanoViewID).gameObject;
+
+        // Llamar a la función que maneja la lógica de recepción de la pelota
+        bool enRango = RecibirPelota(personajeMasCercano);
+
+        // Hacer algo con el resultado
+        if (enRango)
+        {
+            // Aquí puedes agregar lógica adicional si es necesario
+            Debug.Log($"{gameObject.name} ha recibido la pelota de {personajeMasCercano.name}.");
+        }
+        else
+        {
+            Debug.Log($"{gameObject.name} no está en rango para recibir la pelota.");
+        }
+    }
+
     bool RecibirPelota(GameObject personajeMasCercano)
     {
 
@@ -716,7 +738,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         ball.transform.position = endPosition;
     Debug.Log($"Pelota llegó a la posición final: {endPosition}");
      Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
-       enRango = RecibirPelota(personajeMasCercano);
+        photonView.RPC("RecibirPelotaRPC", RpcTarget.All, personajeMasCercano.GetPhotonView().ViewID);
 
 
 
