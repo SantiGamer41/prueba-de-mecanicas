@@ -142,7 +142,6 @@ public class gameManager : MonoBehaviourPun
         {
             PhotonNetwork.Instantiate(jugadorPrefab1.name, Vector3.zero, Quaternion.identity);
             Vector3 spawnPosition = new Vector3(-17.54f, -3.68f, 0f);
-            PhotonNetwork.Instantiate(jugadorPruebaPrefab.name, spawnPosition, Quaternion.identity);
         }
         else
         {
