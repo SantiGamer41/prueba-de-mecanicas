@@ -1,40 +1,40 @@
 fileFormatVersion: 2
-guid: 7cdf8eba5ca1cf945b2133e8556bea6e
+guid: af681412153eb5245a212ef2114383a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1531254782968377175
-    second: Sombrilla 2-3_0
+      213: 849234872890740776
+    second: 3-4 Sombrilla J2_0
   - first:
-      213: 1580749539180742235
-    second: Sombrilla 2-3_1
+      213: -5479925675370553931
+    second: 3-4 Sombrilla J2_1
   - first:
-      213: -4890024347921889253
-    second: Sombrilla 2-3_2
+      213: 5541599954348488965
+    second: 3-4 Sombrilla J2_2
   - first:
-      213: 4035991985508268790
-    second: Sombrilla 2-3_3
+      213: -6834697951086342068
+    second: 3-4 Sombrilla J2_3
   - first:
-      213: -3731695727773034985
-    second: Sombrilla 2-3_4
+      213: 3146384287268985851
+    second: 3-4 Sombrilla J2_4
   - first:
-      213: -7609842987229859790
-    second: Sombrilla 2-3_5
+      213: 8140101384113755858
+    second: 3-4 Sombrilla J2_5
   - first:
-      213: -5777594127781375054
-    second: Sombrilla 2-3_6
+      213: -1937101316762331781
+    second: 3-4 Sombrilla J2_6
   - first:
-      213: -1514010486556322584
-    second: Sombrilla 2-3_7
+      213: -1754598799000092708
+    second: 3-4 Sombrilla J2_7
   - first:
-      213: -429606212400244057
-    second: Sombrilla 2-3_8
+      213: 8281433636345505933
+    second: 3-4 Sombrilla J2_8
   - first:
-      213: 2825019592692657657
-    second: Sombrilla 2-3_9
+      213: 5309044689083848519
+    second: 3-4 Sombrilla J2_9
   - first:
-      213: 7894447843983285695
-    second: Sombrilla 2-3_10
+      213: 5674118238818386474
+    second: 3-4 Sombrilla J2_10
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -125,7 +125,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sombrilla 2-3_0
+      name: 3-4 Sombrilla J2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75fa277bc1c104510800000000000000
-      internalID: 1531254782968377175
+      spriteID: 820d6811e9619cb00800000000000000
+      internalID: 849234872890740776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sombrilla 2-3_1
+      name: 3-4 Sombrilla J2_1
       rect:
         serializedVersion: 2
         x: 41
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b560bb9a453ffe510800000000000000
-      internalID: 1580749539180742235
+      spriteID: 5bddef3d1a463f3b0800000000000000
+      internalID: -5479925675370553931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sombrilla 2-3_2
+      name: 3-4 Sombrilla J2_2
       rect:
         serializedVersion: 2
         x: 82
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b18ca1793c4232cb0800000000000000
-      internalID: -4890024347921889253
+      spriteID: 509334e3cc7b7ec40800000000000000
+      internalID: 5541599954348488965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sombrilla 2-3_3
+      name: 3-4 Sombrilla J2_3
       rect:
         serializedVersion: 2
         x: 123
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fa3b84c359b20830800000000000000
-      internalID: 4035991985508268790
+      spriteID: c40986edc664621a0800000000000000
+      internalID: -6834697951086342068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sombrilla 2-3_4
+      name: 3-4 Sombrilla J2_4
       rect:
         serializedVersion: 2
         x: 0
@@ -223,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 716de38c18a563cc0800000000000000
-      internalID: -3731695727773034985
+      spriteID: bfbd989c6d33aab20800000000000000
+      internalID: 3146384287268985851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sombrilla 2-3_5
+      name: 3-4 Sombrilla J2_5
       rect:
         serializedVersion: 2
         x: 41
@@ -244,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 230baad2f18646690800000000000000
-      internalID: -7609842987229859790
+      spriteID: 2d614cba41377f070800000000000000
+      internalID: 8140101384113755858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sombrilla 2-3_6
+      name: 3-4 Sombrilla J2_6
       rect:
         serializedVersion: 2
         x: 82
@@ -265,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b3553570ccd1dfa0800000000000000
-      internalID: -5777594127781375054
+      spriteID: b7590789d980e15e0800000000000000
+      internalID: -1937101316762331781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sombrilla 2-3_7
+      name: 3-4 Sombrilla J2_7
       rect:
         serializedVersion: 2
         x: 123
@@ -286,14 +286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e4189aeb772dfae0800000000000000
-      internalID: -1514010486556322584
+      spriteID: cdfb54640b966a7e0800000000000000
+      internalID: -1754598799000092708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sombrilla 2-3_8
+      name: 3-4 Sombrilla J2_8
       rect:
         serializedVersion: 2
         x: 0
@@ -307,14 +307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7aa159c0d6bb90af0800000000000000
-      internalID: -429606212400244057
+      spriteID: d88685de3009de270800000000000000
+      internalID: 8281433636345505933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sombrilla 2-3_9
+      name: 3-4 Sombrilla J2_9
       rect:
         serializedVersion: 2
         x: 41
@@ -328,14 +328,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fde6f91a5c743720800000000000000
-      internalID: 2825019592692657657
+      spriteID: 747548524048da940800000000000000
+      internalID: 5309044689083848519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sombrilla 2-3_10
+      name: 3-4 Sombrilla J2_10
       rect:
         serializedVersion: 2
         x: 82
@@ -349,8 +349,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbdd87ecc76be8d60800000000000000
-      internalID: 7894447843983285695
+      spriteID: a22c556b9748ebe40800000000000000
+      internalID: 5674118238818386474
       vertices: []
       indices: 
       edges: []
