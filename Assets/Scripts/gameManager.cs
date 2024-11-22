@@ -803,10 +803,17 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
 
     // Llama a la RPC para mover la pelota en todos los clientes
     photonView.RPC("MoverPelota", RpcTarget.All, startPosition, endPosition);
+    yield return new WaitForSeconds(2.5f);
 
     // Asegúrate de que la pelota se reciba en todos los clientes
-    photonView.RPC("RecibirPelotaRPC", RpcTarget.All, personajeMasCercano.GetPhotonView().ViewID);
-
+    if(personajeMasCercano != null)
+     {
+        photonView.RPC("RecibirPelotaRPC", RpcTarget.All, personajeMasCercano.GetPhotonView().ViewID);
+     }
+     else
+     {
+        photonView.RPC("PuntoRPC",RpcTarget.All);
+     }
     DesactivarCasillasIluminadas();
     DeactivateAllButtons();
     personajeActual.GetComponentInChildren<Animator>().SetTrigger("endreceive");
@@ -1072,7 +1079,15 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
 
-        RecibirPelota(personajeMasCercano);
+        if(personajeMasCercano != null)
+     {
+        photonView.RPC("RecibirPelotaRPC", RpcTarget.All, personajeMasCercano.GetPhotonView().ViewID);
+     }
+     else
+     {
+        photonView.RPC("PuntoRPC",RpcTarget.All);
+     }
+     
         }
 
         if (estadoActual != estado)
