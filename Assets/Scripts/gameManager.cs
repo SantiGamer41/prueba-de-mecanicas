@@ -177,79 +177,40 @@ public class gameManager : MonoBehaviourPun
 
     [PunRPC]
     void RecibirPelotaRPC(int personajeMasCercanoViewID)
+{
+    // Obtener el PhotonView del personaje más cercano usando su ViewID
+    PhotonView photonViewPersonajeMasCercano = PhotonView.Find(personajeMasCercanoViewID);
+    
+    // Verificar si se encontró el PhotonView
+    if (photonViewPersonajeMasCercano == null)
     {
-        // Obtener el GameObject del personaje más cercano usando su ViewID
-        GameObject personajeMasCercano = PhotonView.Find(personajeMasCercanoViewID).gameObject;
-
-        // Llamar a la función que maneja la lógica de recepción de la pelota
-        bool enRango = RecibirPelota(personajeMasCercano);
-
-        // Hacer algo con el resultado
-        if (enRango)
-        {
-            // Aquí puedes agregar lógica adicional si es necesario
-            Debug.Log($"{gameObject.name} ha recibido la pelota de {personajeMasCercano.name}.");
-        }
-        else
-        {
-            Debug.Log($"{gameObject.name} no está en rango para recibir la pelota.");
-        }
+        Debug.LogError($"No se encontró el PhotonView con ID {personajeMasCercanoViewID}");
+        return; // Salir si no se encuentra el PhotonView
     }
 
-    bool RecibirPelota(GameObject personajeMasCercano)
-    {
+    // Obtener el GameObject asociado al PhotonView
+    GameObject personajeMasCercano = photonViewPersonajeMasCercano.gameObject;
 
-        if (personajeMasCercano != null)
-        {
-            photonView.RPC("RecogerPelotaRPC", RpcTarget.All, personajeMasCercano.GetPhotonView().ViewID);
-            return true;
-        }
-        else
-        {
-            IsDoingAction = false;
-            // Si no hay personajes en rango, ejecutamos la lógica del saque
-            if (ball.transform.position.x > 1)
-            {
-                if (ball.transform.position.x < 18 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
-                {
-                    LeantweenScript.AparecerTextoPunto(textoPointP1, textHolder);
-                    Debug.Log("Se mostro el punto");
-                    estado = estado.SaqueP1;
-                    InstanciarPersonajesEnPosicionesIniciales();
-                    ball.transform.parent = personajes[0].transform;
-                    ball.transform.localPosition = new Vector3(7, 12, 0);
-                }
-                else
-                {
-                    LeantweenScript.AparecerTextoPunto(textoPointP2,textHolder);
-                    estado = estado.SaqueP2;
-                    InstanciarPersonajesEnPosicionesIniciales();
-                    ball.transform.parent = personajes[5].transform;
-                    ball.transform.localPosition = new Vector3(-7, 12, 0);
-                }
-            }
-            else if(ball.transform.position.x < 1)
-            {
-                if (ball.transform.position.x > -16 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
-                {
-                    LeantweenScript.AparecerTextoPunto(textoPointP2,textHolder);
-                    estado = estado.SaqueP2;
-                    InstanciarPersonajesEnPosicionesIniciales();
-                    ball.transform.parent = personajes[5].transform;
-                    ball.transform.localPosition = new Vector3(-7, 12, 0);
-                }
-                else
-                {
-                    LeantweenScript.AparecerTextoPunto(textoPointP1,textHolder);
-                    estado = estado.SaqueP1;
-                    InstanciarPersonajesEnPosicionesIniciales();
-                    ball.transform.parent = personajes[0].transform;
-                    ball.transform.localPosition = new Vector3(7, 12, 0);
-                }
-            }
-            return false;
-        }
+    // Llamar a la función que maneja la lógica de recepción de la pelota
+    bool enRango = RecibirPelota(personajeMasCercano);
+
+    // Hacer algo con el resultado
+    
+    
+}
+
+bool RecibirPelota(GameObject personajeMasCercano)
+{
+    if (personajeMasCercano != null)
+    {
+        photonView.RPC("RecogerPelotaRPC", RpcTarget.All, personajeMasCercano.GetPhotonView().ViewID);
+        return true;
     }
+    else
+    {
+        return false;
+    }
+}
 
     private void InstanciarCasillas()
     {
@@ -272,10 +233,14 @@ public class gameManager : MonoBehaviourPun
     
 
 
-    private void InstanciarPersonajesEnPosicionesIniciales()
+[PunRPC]
+    public void InstanciarPersonajesEnPosicionesIniciales()
     {
+        Debug.LogError("Se llama Instanceo");
+
         if (estado == estado.SaqueP1)
         {
+            Debug.LogError("Se compara estado");
             for (int i = 0; i < personajes.Length && i < posicionesInicialesSaque1.Length; i++)
             {
                 Vector3 worldPosition = new Vector3(posicionesInicialesSaque1[i].x + 0.5f, posicionesInicialesSaque1[i].y, 0f);
@@ -285,6 +250,7 @@ public class gameManager : MonoBehaviourPun
         }
         else if (estado == estado.SaqueP2)
         {
+            Debug.LogError("Se compara estado");
             for (int i = 0; i < personajes.Length && i < posicionesInicialesSaque2.Length; i++)
             {
                 Vector3 worldPosition = new Vector3(posicionesInicialesSaque2[i].x + 0.5f, posicionesInicialesSaque2[i].y, 0f);
@@ -710,6 +676,7 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
             StartCoroutine(MovimientoPersonaje(personajes[0].transform.position, new Vector3(-12.5f, -6.5f, 0), personajes[0]));
         }
        GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
+       Debug.LogError("el personaje mas cercano es" + personajeMasCercano);
         // Mover la pelota a la casilla seleccionada
         float duration = 1.5f;
     float elapsedTime = 0;
@@ -756,8 +723,15 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
         ball.transform.position = endPosition;
     Debug.Log($"Pelota llegó a la posición final: {endPosition}");
      Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
+     if(personajeMasCercano != null)
+     {
         photonView.RPC("RecibirPelotaRPC", RpcTarget.All, personajeMasCercano.GetPhotonView().ViewID);
-
+     }
+     else
+     {
+        photonView.RPC("PuntoRPC",RpcTarget.All);
+     }
+     
 
 
         if (estadoActual != estado)
@@ -1136,7 +1110,6 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
     public IEnumerator MovimientoPersonaje(Vector3 start, Vector3 end, GameObject personaje)
     {
         IsDoingAction = true;
-        Debug.Log(personaje);
         float duration = 1.0f; // Duración de la animación
         float elapsedTime = 0;
 
@@ -1357,5 +1330,68 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         
     }
 
+    [PunRPC]
+    public void PuntoRPC()
+    {
+        if (enRango == false)
+    {
+        Debug.LogError("Else rpc");
+        IsDoingAction = false;
+
+        // Verificar si la bola está inicializada
+        if (ball == null)
+        {
+            Debug.LogError("La bola no está inicializada.");
+            return; // Salir si la bola no está inicializada
+        }
+
+        Debug.Log($"Estado actual: {estado}, Posición de la bola: {ball.transform.position}");
+
+        // Lógica para el saque basado en la posición de la bola
+        if (ball.transform.position.x > 1)
+        {
+            if (ball.transform.position.x < 18 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
+            {
+                LeantweenScript.AparecerTextoPunto(textoPointP1, textHolder);
+                Debug.Log("Se mostró el punto");
+                estado = estado.SaqueP1;
+                
+                ball.transform.parent = personajes[0].transform;
+                ball.transform.localPosition = new Vector3(7, 12, 0);
+                photonView.RPC("InstanciarPersonajesEnPosicionesIniciales", RpcTarget.All);
+            }
+            else
+            {
+                LeantweenScript.AparecerTextoPunto(textoPointP2, textHolder);
+                estado = estado.SaqueP2;
+               
+                ball.transform.parent = personajes[5].transform;
+                ball.transform.localPosition = new Vector3(-7, 12, 0);
+                photonView.RPC("InstanciarPersonajesEnPosicionesIniciales", RpcTarget.All);
+            }
+        }
+        else if (ball.transform.position.x < 1)
+        {
+            if (ball.transform.position.x > -16 && ball.transform.position.y < 1 && ball.transform.position.y > -8) 
+            {
+                LeantweenScript.AparecerTextoPunto(textoPointP2, textHolder);
+                estado = estado.SaqueP2;
+                
+                ball.transform.parent = personajes[5].transform;
+                ball.transform.localPosition = new Vector3(-7, 12, 0);
+                photonView.RPC("InstanciarPersonajesEnPosicionesIniciales", RpcTarget.All);
+            }
+            else
+            {
+                LeantweenScript.AparecerTextoPunto(textoPointP1, textHolder);
+                estado = estado.SaqueP1;
+                
+                ball.transform.parent = personajes[0].transform;
+                ball.transform.localPosition = new Vector3(7, 12, 0);
+                photonView.RPC("InstanciarPersonajesEnPosicionesIniciales", RpcTarget.All);
+            }
+        }
+    }
+    }
     
 }
