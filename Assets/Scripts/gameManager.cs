@@ -912,6 +912,7 @@ private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 p
     }
         ball.transform.parent = armador.transform;
         ball.transform.localPosition = posicionArmadoDePelota;
+        /*
         foreach (GameObject p in personajes)
         {
             Animator otherAnimator = p.GetComponentInChildren<Animator>();
@@ -922,6 +923,7 @@ private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 p
             }
         }
         //Congelaranimaciones
+        */
     }
     
 private IEnumerator SeleccionDeArmado(Vector3 start)
