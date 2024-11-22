@@ -425,7 +425,7 @@ public class gameManager : MonoBehaviourPun
         {
             ball.transform.localPosition = new Vector3(-7, 12, 0);
         }
-        
+        /*
         foreach (GameObject p in personajes)
         {
             Animator otherAnimator = p.GetComponentInChildren<Animator>();
@@ -435,7 +435,7 @@ public class gameManager : MonoBehaviourPun
                 otherAnimator.speed = 0;
             }
         }
-
+        */
         // Cambiar el estado en función de la posición de la pelota
         if (ball.transform.position.x < 1)
         {
@@ -782,67 +782,82 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
   */  
     
     }
+
 private IEnumerator SeleccionDeDevolver(Vector3 start)
-    {
-        IsDoingAction = true;
-        bool casillaSeleccionada = false;
-        float correccion;
-    if(personajeActual.transform.position.x < 0)
-    {
-     correccion = -1.2f;
-    }
-    else                
-    {
-     correccion = 1.2f;
-    }
-        Vector2Int casillaObjetivo = Vector2Int.zero;
+{
+    IsDoingAction = true;
+    bool casillaSeleccionada = false;
+    float correccion;
 
-        // Espera hasta que se seleccione una casilla
-        while (!casillaSeleccionada)
+    if (personajeActual.transform.position.x < 0)
+    {
+        correccion = -1.2f;
+    }
+    else
+    {
+        correccion = 1.2f;
+    }
+
+    Vector2Int casillaObjetivo = Vector2Int.zero;
+
+    // Espera hasta que se seleccione una casilla
+    while (!casillaSeleccionada)
+    {
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
+            Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2Int gridPosition = GetGridPosition(mouseWorldPosition);
+
+            if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
             {
-                Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2Int gridPosition = GetGridPosition(mouseWorldPosition);
-
-                if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
-                {
-                    List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 3);
-                    int randomIndex = Random.Range(0, CasillasPosibles.Count);
-                    casillaObjetivo = CasillasPosibles[randomIndex];
-                    casillaSeleccionada = true;
-                }
+                List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 3);
+                int randomIndex = Random.Range(0, CasillasPosibles.Count);
+                casillaObjetivo = CasillasPosibles[randomIndex];
+                casillaSeleccionada = true;
             }
-
-            yield return null;
         }
 
-        // Mover la pelota a la casilla seleccionada
-        DescongelarAnimaciones();
-        float duration = 2.5f;
-        float elapsedTime = 0;
-        GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
-        Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
-        Vector3 endPosition = new Vector3(casillaObjetivo.x, casillaObjetivo.y + 0.5f, 0);
-        if(personajeMasCercano != null)
-        {
-            Debug.Log("Se aplico la correccion");
-            startPosition =  new Vector3(start.x, start.y + 0.5f, start.z);
-            endPosition =  new Vector3(casillaObjetivo.x + correccion, casillaObjetivo.y + 1.8f, 0);
-        }
-        DesactivarCasillasIluminadas();
-        DeactivateAllButtons();
-        personajeActual.GetComponentInChildren<Animator>().SetTrigger("endreceive");
-        personajeActual.GetComponentInChildren<Animator>().SetBool("receive", false);
-        float heightMax = 4.0f;
+        yield return null;
+    }
 
-        DesactivarCasillasIluminadas();
-        
+    // Mover la pelota a la casilla seleccionada
+    DescongelarAnimaciones();
+    GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
+    Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
+    Vector3 endPosition = new Vector3(casillaObjetivo.x + correccion, casillaObjetivo.y + 1.8f, 0);
 
-        while (elapsedTime < duration)
-        {
-        DeactivateAllButtons();
+    // Llama a la RPC para mover la pelota en todos los clientes
+    photonView.RPC("MoverPelota", RpcTarget.All, startPosition, endPosition);
 
+    // Asegúrate de que la pelota se reciba en todos los clientes
+    photonView.RPC("RecibirPelotaRPC", RpcTarget.All, personajeMasCercano.GetPhotonView().ViewID);
+
+    DesactivarCasillasIluminadas();
+    DeactivateAllButtons();
+    personajeActual.GetComponentInChildren<Animator>().SetTrigger("endreceive");
+    personajeActual.GetComponentInChildren<Animator>().SetBool("receive", false);
+
+    if (estadoActual != estado)
+    {
+        displayPuntosScript.SumarTurnoDisplay();
+    }
+    IsDoingAction = false;
+}
+
+[PunRPC]
+public void MoverPelota(Vector3 startPosition, Vector3 endPosition)
+{
+    StartCoroutine(MoverPelotaCoroutine(startPosition, endPosition));
+}
+
+private IEnumerator MoverPelotaCoroutine(Vector3 startPosition, Vector3 endPosition)
+{
+    float duration = 2.5f;
+    float elapsedTime = 0;
+    float heightMax = 4.0f;
+
+    while (elapsedTime < duration)
+    {
         // Interpolación en el eje X e Y
         float t = elapsedTime / duration;
 
@@ -850,27 +865,16 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         Vector3 currentPos = Vector3.Lerp(startPosition, endPosition, t);
         currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
 
-        // Debug de la posición de la pelota en cada frame
-        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
-
         // Asignar la nueva posición
         ball.transform.position = currentPos;
 
         elapsedTime += Time.deltaTime;
         yield return null;
-        }
-
-        // Asegura que la pelota termine exactamente en la posición final
-        ball.transform.position = endPosition;
-         Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
-        RecibirPelota(personajeMasCercano);
-
-        if (estadoActual != estado)
-        {
-            displayPuntosScript.SumarTurnoDisplay();
-        }
-        IsDoingAction = false;
     }
+
+    // Asegura que la pelota termine exactamente en la posición final
+    ball.transform.position = endPosition;
+}
 private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 posicionArmadoDePelota, int correccionDePase)
 {
         float duration = 1.5f; // Duración de la animación
