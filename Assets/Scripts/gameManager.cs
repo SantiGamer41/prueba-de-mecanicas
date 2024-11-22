@@ -493,7 +493,7 @@ public class gameManager : MonoBehaviourPun
     {
         isMovingMode = false;
         ball.transform.SetParent(null);
-        Pasar();
+        photonView.RPC("Pasar", RpcTarget.All);
         DescongelarAnimaciones();
     }
     public void OnBotonArmarClick()
@@ -549,6 +549,7 @@ public class gameManager : MonoBehaviourPun
         StartCoroutine(SeleccionDeDevolver(ball.transform.position));
     }
 
+[PunRPC]
     public void Pasar()
     {
         if(ball.transform.position.x > 1)
