@@ -59,6 +59,9 @@ MonoBehaviour:
   - ActualizarMarcadorRight_RPC
   - pruebaRPC
   - UnirArrays
+  - AplicarSpritesRPC
+  - JugadoresDerechos
+  - JugadoresIzquierdos
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

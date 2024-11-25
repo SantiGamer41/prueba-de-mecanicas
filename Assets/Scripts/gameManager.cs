@@ -133,6 +133,8 @@ public class gameManager : MonoBehaviourPun
         if (PhotonNetwork.IsConnected)
         {
             SpawnJugadores();
+
+            
             AplicarSprites();
         }
 
@@ -145,26 +147,80 @@ public class gameManager : MonoBehaviourPun
         
     }
 
-
-    private List<GameObject> jugadoresLocales = new List<GameObject>(); // Lista local de jugadores instanciados
-
     public void AplicarSprites()
     {
+        // Obtener el índice del avatar del jugador
         int playerAvatarIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"];
 
-        // Verificar que el índice esté dentro del rango
-        if (playerAvatarIndex < 0 || playerAvatarIndex >= playerSkins.Length)
+        if (view.IsMine)
         {
-            Debug.LogError("Índice de avatar fuera de rango.");
-            return;
+            view.RPC("JugadoresIzquierdos", RpcTarget.All, playerAvatarIndex);
         }
+        else
+        {
+            view.RPC("JugadoresDerechos", RpcTarget.All, playerAvatarIndex);
+        }
+    }
 
-        // Obtener el sprite correspondiente al jugador local
-        Sprite playerSprite = playerSkins[playerAvatarIndex];
-        Debug.Log($"Jugador local index de avatar: {playerAvatarIndex}, Sprite: {playerSprite.name}");
+    [PunRPC]
+    public void JugadoresIzquierdos(int playerAvatarIndex)
+    {
+            // Aplicar sprites y animaciones a los personajes
+            for (int i = 0; i < 5; i++)
+            {
+                // Encontrar el transform 'Personaje' en el objeto correspondiente
+                Transform personajeTransform = personajes[i].transform.Find("Personaje");
 
-        // Asignar el RuntimeAnimatorController y aplicar el sprite a todos los personajes
-        for (int i = 0; i < personajes.Length; i++)
+                if (personajeTransform != null)
+                {
+                    // Obtener el Animator del hijo 'Personaje'
+                    Animator animator = personajeTransform.GetComponent<Animator>();
+                    if (animator != null)
+                    {
+                        // Asignar el RuntimeAnimatorController basado en el playerAvatarIndex
+                        if (playerAvatarIndex < animators.Length)
+                        {
+                            animator.runtimeAnimatorController = animators[playerAvatarIndex];
+                            Debug.Log($"RuntimeAnimatorController asignado al Animator del personaje {i}: {animators[playerAvatarIndex].name}");
+                        }
+                        else
+                        {
+                            Debug.LogError($"Índice {playerAvatarIndex} fuera de rango para el array animators.");
+                        }
+
+                        // Aplicar el sprite
+                        SpriteRenderer spriteRenderer = personajeTransform.GetComponent<SpriteRenderer>();
+                        if (spriteRenderer != null)
+                        {
+                            spriteRenderer.sprite = playerSkins[playerAvatarIndex]; // Asignar el sprite correspondiente
+                            Debug.Log($"Sprite aplicado al personaje {i}: {playerSkins[playerAvatarIndex].name}");
+                        }
+                        else
+                        {
+                            Debug.LogError($"SpriteRenderer no encontrado en el hijo 'Personaje' del personaje {i}.");
+                        }
+
+                        // Activar la animación correspondiente
+                        animator.SetInteger("AvatarIndex", playerAvatarIndex);
+                        Debug.Log($"Animator configurado para el personaje {i} con AvatarIndex: {playerAvatarIndex}");
+                    }
+                    else
+                    {
+                        Debug.LogError($"Animator no encontrado en el hijo 'Personaje' del personaje {i}.");
+                    }
+                }
+                else
+                {
+                    Debug.LogError($"Transform 'Personaje' no encontrado para el personaje {i}.");
+                }
+            }
+        
+    }
+
+    [PunRPC]
+    public void JugadoresDerechos(int playerAvatarIndex)
+    {
+        for (int i = 5; i < 10; i++)
         {
             // Encontrar el transform 'Personaje' en el objeto correspondiente
             Transform personajeTransform = personajes[i].transform.Find("Personaje");
@@ -178,7 +234,7 @@ public class gameManager : MonoBehaviourPun
                     // Asignar el RuntimeAnimatorController basado en el playerAvatarIndex
                     if (playerAvatarIndex < animators.Length)
                     {
-                        animator.runtimeAnimatorController = animators[playerAvatarIndex]; // Asigna el controlador basado en el índice del avatar
+                        animator.runtimeAnimatorController = animators[playerAvatarIndex];
                         Debug.Log($"RuntimeAnimatorController asignado al Animator del personaje {i}: {animators[playerAvatarIndex].name}");
                     }
                     else
@@ -190,15 +246,15 @@ public class gameManager : MonoBehaviourPun
                     SpriteRenderer spriteRenderer = personajeTransform.GetComponent<SpriteRenderer>();
                     if (spriteRenderer != null)
                     {
-                        spriteRenderer.sprite = playerSprite;
-                        Debug.Log($"Sprite aplicado al personaje {i}: {playerSprite.name}");
+                        spriteRenderer.sprite = playerSkins[playerAvatarIndex]; // Asignar el sprite correspondiente
+                        Debug.Log($"Sprite aplicado al personaje {i}: {playerSkins[playerAvatarIndex].name}");
                     }
                     else
                     {
                         Debug.LogError($"SpriteRenderer no encontrado en el hijo 'Personaje' del personaje {i}.");
                     }
 
-                    // Aquí puedes activar la animación correspondiente
+                    // Activar la animación correspondiente
                     animator.SetInteger("AvatarIndex", playerAvatarIndex);
                     Debug.Log($"Animator configurado para el personaje {i} con AvatarIndex: {playerAvatarIndex}");
                 }
@@ -213,7 +269,6 @@ public class gameManager : MonoBehaviourPun
             }
         }
     }
-
 
 
     public void SpawnJugadores()

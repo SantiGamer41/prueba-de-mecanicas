@@ -51800,7 +51800,6 @@ MonoBehaviour:
   - {fileID: -4795266110116942785, guid: 6d5f6241ace259f4badfe3a92ac86ab5, type: 3}
   - {fileID: -8612184337276016645, guid: 49db9cbfb93296b47a4f6aad2dc1a923, type: 3}
   - {fileID: -2637310204567641886, guid: e231b275074abe4429cda84ae06ab87f, type: 3}
-  playerAnimators: []
   animators:
   - {fileID: 9100000, guid: 56d2e1c7284f1fe47ad081b862d62c8a, type: 2}
   - {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
