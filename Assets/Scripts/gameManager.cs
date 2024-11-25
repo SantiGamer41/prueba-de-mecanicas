@@ -26,7 +26,7 @@ public class gameManager : MonoBehaviourPun
     private estado estadoActual;
     [Space(25)]
     [Header("Personajes")]
-    public GameObject[] personajes = new GameObject[11];
+    public GameObject[] personajes;
     [Space(25)]
     [HideInInspector]
     public GameObject personajeActual;
@@ -72,7 +72,9 @@ public class gameManager : MonoBehaviourPun
     public GameObject jugadorPrefab1;
     public GameObject jugadorPrefab2;
 
-    public GameObject[] playerPrefabs;
+    public Sprite[] playerSkins;
+
+    public RuntimeAnimatorController[] animators;
 
 
     PhotonView view;
@@ -131,7 +133,9 @@ public class gameManager : MonoBehaviourPun
         if (PhotonNetwork.IsConnected)
         {
             SpawnJugadores();
+            AplicarSprites();
         }
+
 
         
     }
@@ -144,9 +148,79 @@ public class gameManager : MonoBehaviourPun
 
     private List<GameObject> jugadoresLocales = new List<GameObject>(); // Lista local de jugadores instanciados
 
+    public void AplicarSprites()
+    {
+        int playerAvatarIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"];
+
+        // Verificar que el índice esté dentro del rango
+        if (playerAvatarIndex < 0 || playerAvatarIndex >= playerSkins.Length)
+        {
+            Debug.LogError("Índice de avatar fuera de rango.");
+            return;
+        }
+
+        // Obtener el sprite correspondiente al jugador local
+        Sprite playerSprite = playerSkins[playerAvatarIndex];
+        Debug.Log($"Jugador local index de avatar: {playerAvatarIndex}, Sprite: {playerSprite.name}");
+
+        // Asignar el RuntimeAnimatorController y aplicar el sprite a todos los personajes
+        for (int i = 0; i < personajes.Length; i++)
+        {
+            // Encontrar el transform 'Personaje' en el objeto correspondiente
+            Transform personajeTransform = personajes[i].transform.Find("Personaje");
+
+            if (personajeTransform != null)
+            {
+                // Obtener el Animator del hijo 'Personaje'
+                Animator animator = personajeTransform.GetComponent<Animator>();
+                if (animator != null)
+                {
+                    // Asignar el RuntimeAnimatorController basado en el playerAvatarIndex
+                    if (playerAvatarIndex < animators.Length)
+                    {
+                        animator.runtimeAnimatorController = animators[playerAvatarIndex]; // Asigna el controlador basado en el índice del avatar
+                        Debug.Log($"RuntimeAnimatorController asignado al Animator del personaje {i}: {animators[playerAvatarIndex].name}");
+                    }
+                    else
+                    {
+                        Debug.LogError($"Índice {playerAvatarIndex} fuera de rango para el array animators.");
+                    }
+
+                    // Aplicar el sprite
+                    SpriteRenderer spriteRenderer = personajeTransform.GetComponent<SpriteRenderer>();
+                    if (spriteRenderer != null)
+                    {
+                        spriteRenderer.sprite = playerSprite;
+                        Debug.Log($"Sprite aplicado al personaje {i}: {playerSprite.name}");
+                    }
+                    else
+                    {
+                        Debug.LogError($"SpriteRenderer no encontrado en el hijo 'Personaje' del personaje {i}.");
+                    }
+
+                    // Aquí puedes activar la animación correspondiente
+                    animator.SetInteger("AvatarIndex", playerAvatarIndex);
+                    Debug.Log($"Animator configurado para el personaje {i} con AvatarIndex: {playerAvatarIndex}");
+                }
+                else
+                {
+                    Debug.LogError($"Animator no encontrado en el hijo 'Personaje' del personaje {i}.");
+                }
+            }
+            else
+            {
+                Debug.LogError($"Transform 'Personaje' no encontrado para el personaje {i}.");
+            }
+        }
+    }
+
+
+
     public void SpawnJugadores()
     {
-        GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
+
+        /*
+        GameObject playerToSpawn = playerPrefab[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -246,7 +320,9 @@ public class gameManager : MonoBehaviourPun
                 personajes = personajesList.ToArray();
             }
         }
+        */
     }
+        
 
     GameObject IrARecogerPelota(Vector2Int posicion)
     {

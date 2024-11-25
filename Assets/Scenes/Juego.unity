@@ -695,7 +695,7 @@ PrefabInstance:
     - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: m_Name
-      value: Personaje9
+      value: Personaje
       objectReference: {fileID: 0}
     - target: {fileID: 7149067199659091669, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -25129,7 +25129,7 @@ PrefabInstance:
     - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: m_Name
-      value: Personaje10
+      value: Personaje
       objectReference: {fileID: 0}
     - target: {fileID: 7149067199659091669, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -25689,6 +25689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ObservedComponents.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_Name
+      value: Personaje
       objectReference: {fileID: 0}
     - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -48092,7 +48097,7 @@ PrefabInstance:
     - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: m_Name
-      value: Personaje2
+      value: Personaje
       objectReference: {fileID: 0}
     - target: {fileID: 7149067199659091669, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -48273,7 +48278,7 @@ PrefabInstance:
     - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: m_Name
-      value: Personaje7
+      value: Personaje
       objectReference: {fileID: 0}
     - target: {fileID: 7149067199659091669, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -48409,7 +48414,7 @@ Animator:
   m_GameObject: {fileID: 675778836}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -48551,7 +48556,7 @@ PrefabInstance:
     - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: m_Name
-      value: Personaje4
+      value: Personaje
       objectReference: {fileID: 0}
     - target: {fileID: 7149067199659091669, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -49109,7 +49114,7 @@ Animator:
   m_GameObject: {fileID: 900216340}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -49155,7 +49160,7 @@ PrefabInstance:
     - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: m_Name
-      value: Personaje5
+      value: Personaje
       objectReference: {fileID: 0}
     - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -49335,7 +49340,7 @@ PrefabInstance:
     - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: m_Name
-      value: Personaje3
+      value: Personaje
       objectReference: {fileID: 0}
     - target: {fileID: 7149067199659091669, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -49635,7 +49640,7 @@ PrefabInstance:
     - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: m_Name
-      value: Personaje8
+      value: Personaje
       objectReference: {fileID: 0}
     - target: {fileID: 7149067199659091669, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -51416,7 +51421,7 @@ Animator:
   m_GameObject: {fileID: 1311079936}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -51656,7 +51661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1387118542
 Transform:
   m_ObjectHideFlags: 0
@@ -51755,7 +51760,6 @@ MonoBehaviour:
   - {fileID: 621050157}
   - {fileID: 1750846197}
   - {fileID: 132511775}
-  - {fileID: 1062053392}
   personajeActual: {fileID: 0}
   personajeBloqueando: {fileID: 0}
   ball: {fileID: 1598535763}
@@ -51789,13 +51793,21 @@ MonoBehaviour:
     type: 3}
   jugadorPrefab2: {fileID: 7236577798630731076, guid: dc6619f7dcd7a3f499de1403ef17350d,
     type: 3}
-  playerPrefabs:
-  - {fileID: 7149067201123429325, guid: d19e613bea5ebc34aaa636a663620e01, type: 3}
-  - {fileID: 7149067201123429325, guid: 7efa164241e49364392abb7d080736ed, type: 3}
-  - {fileID: 7149067201123429325, guid: 28c9da0d0bea9ec41b5e004f7bcfdd46, type: 3}
-  - {fileID: 7149067201123429325, guid: 02bcab78eff1baf428d00fd44bd0d144, type: 3}
-  - {fileID: 7149067201123429325, guid: 96468869c614635408443d4a37d83f78, type: 3}
-  - {fileID: 7149067201123429325, guid: 6c1f70384b4a7b9428777c1f2352d03d, type: 3}
+  playerSkins:
+  - {fileID: 21300000, guid: 63e55380b8878f848b026a58b44083c5, type: 3}
+  - {fileID: -7842377618209551681, guid: ebcece98ca8739741a3d60eba293111b, type: 3}
+  - {fileID: 1703904228782272729, guid: f9f5cd07e9bc15d47b02c8ceadd52dc8, type: 3}
+  - {fileID: -4795266110116942785, guid: 6d5f6241ace259f4badfe3a92ac86ab5, type: 3}
+  - {fileID: -8612184337276016645, guid: 49db9cbfb93296b47a4f6aad2dc1a923, type: 3}
+  - {fileID: -2637310204567641886, guid: e231b275074abe4429cda84ae06ab87f, type: 3}
+  playerAnimators: []
+  animators:
+  - {fileID: 9100000, guid: 56d2e1c7284f1fe47ad081b862d62c8a, type: 2}
+  - {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
+  - {fileID: 9100000, guid: 94abb294fd1883f4d90d193e55ece5a6, type: 2}
+  - {fileID: 9100000, guid: 15a4f80af5a13374b8ca334d8346ce72, type: 2}
+  - {fileID: 9100000, guid: 34ae21accd61b0a43923eb86ba842828, type: 2}
+  - {fileID: 9100000, guid: d3d743be620f2bc47b745db6029e902b, type: 2}
 --- !u!4 &1413959868
 Transform:
   m_ObjectHideFlags: 0
@@ -51942,7 +51954,7 @@ Animator:
   m_GameObject: {fileID: 1428126866}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -52301,7 +52313,7 @@ Animator:
   m_GameObject: {fileID: 1508825428}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -52328,7 +52340,7 @@ Animator:
   m_GameObject: {fileID: 1510899582}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -52355,7 +52367,7 @@ Animator:
   m_GameObject: {fileID: 1511473966}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -52382,7 +52394,7 @@ Animator:
   m_GameObject: {fileID: 1514011616}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -53535,7 +53547,7 @@ Animator:
   m_GameObject: {fileID: 1679853518}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -54524,7 +54536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1890176721
 Transform:
   m_ObjectHideFlags: 0
@@ -54906,7 +54918,7 @@ PrefabInstance:
     - target: {fileID: 7149067199659091667, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: m_Name
-      value: Personaje6
+      value: Personaje
       objectReference: {fileID: 0}
     - target: {fileID: 7149067199659091669, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -55505,7 +55517,7 @@ Animator:
   m_GameObject: {fileID: 2129981177}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 600cba09dbffff64d95e4a5f758cf884, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
