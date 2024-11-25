@@ -132,9 +132,6 @@ public class gameManager : MonoBehaviourPun
 
         if (PhotonNetwork.IsConnected)
         {
-            SpawnJugadores();
-
-            
             AplicarSprites();
         }
 
@@ -149,7 +146,6 @@ public class gameManager : MonoBehaviourPun
 
     public void AplicarSprites()
     {
-        // Obtener el índice del avatar del jugador
         int playerAvatarIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"];
 
         if (view.IsMine)
@@ -165,54 +161,33 @@ public class gameManager : MonoBehaviourPun
     [PunRPC]
     public void JugadoresIzquierdos(int playerAvatarIndex)
     {
-            // Aplicar sprites y animaciones a los personajes
             for (int i = 0; i < 5; i++)
             {
-                // Encontrar el transform 'Personaje' en el objeto correspondiente
                 Transform personajeTransform = personajes[i].transform.Find("Personaje");
 
                 if (personajeTransform != null)
                 {
-                    // Obtener el Animator del hijo 'Personaje'
                     Animator animator = personajeTransform.GetComponent<Animator>();
                     if (animator != null)
                     {
-                        // Asignar el RuntimeAnimatorController basado en el playerAvatarIndex
                         if (playerAvatarIndex < animators.Length)
                         {
                             animator.runtimeAnimatorController = animators[playerAvatarIndex];
-                            Debug.Log($"RuntimeAnimatorController asignado al Animator del personaje {i}: {animators[playerAvatarIndex].name}");
-                        }
-                        else
-                        {
-                            Debug.LogError($"Índice {playerAvatarIndex} fuera de rango para el array animators.");
                         }
 
-                        // Aplicar el sprite
                         SpriteRenderer spriteRenderer = personajeTransform.GetComponent<SpriteRenderer>();
+
                         if (spriteRenderer != null)
                         {
-                            spriteRenderer.sprite = playerSkins[playerAvatarIndex]; // Asignar el sprite correspondiente
-                            Debug.Log($"Sprite aplicado al personaje {i}: {playerSkins[playerAvatarIndex].name}");
-                        }
-                        else
-                        {
-                            Debug.LogError($"SpriteRenderer no encontrado en el hijo 'Personaje' del personaje {i}.");
+                            spriteRenderer.sprite = playerSkins[playerAvatarIndex];
+
                         }
 
-                        // Activar la animación correspondiente
                         animator.SetInteger("AvatarIndex", playerAvatarIndex);
-                        Debug.Log($"Animator configurado para el personaje {i} con AvatarIndex: {playerAvatarIndex}");
                     }
-                    else
-                    {
-                        Debug.LogError($"Animator no encontrado en el hijo 'Personaje' del personaje {i}.");
-                    }
+                    
                 }
-                else
-                {
-                    Debug.LogError($"Transform 'Personaje' no encontrado para el personaje {i}.");
-                }
+                
             }
         
     }
@@ -222,160 +197,30 @@ public class gameManager : MonoBehaviourPun
     {
         for (int i = 5; i < 10; i++)
         {
-            // Encontrar el transform 'Personaje' en el objeto correspondiente
             Transform personajeTransform = personajes[i].transform.Find("Personaje");
 
             if (personajeTransform != null)
             {
-                // Obtener el Animator del hijo 'Personaje'
                 Animator animator = personajeTransform.GetComponent<Animator>();
                 if (animator != null)
                 {
-                    // Asignar el RuntimeAnimatorController basado en el playerAvatarIndex
                     if (playerAvatarIndex < animators.Length)
                     {
                         animator.runtimeAnimatorController = animators[playerAvatarIndex];
-                        Debug.Log($"RuntimeAnimatorController asignado al Animator del personaje {i}: {animators[playerAvatarIndex].name}");
-                    }
-                    else
-                    {
-                        Debug.LogError($"Índice {playerAvatarIndex} fuera de rango para el array animators.");
                     }
 
-                    // Aplicar el sprite
                     SpriteRenderer spriteRenderer = personajeTransform.GetComponent<SpriteRenderer>();
+
                     if (spriteRenderer != null)
                     {
-                        spriteRenderer.sprite = playerSkins[playerAvatarIndex]; // Asignar el sprite correspondiente
-                        Debug.Log($"Sprite aplicado al personaje {i}: {playerSkins[playerAvatarIndex].name}");
-                    }
-                    else
-                    {
-                        Debug.LogError($"SpriteRenderer no encontrado en el hijo 'Personaje' del personaje {i}.");
+                        spriteRenderer.sprite = playerSkins[playerAvatarIndex];
                     }
 
-                    // Activar la animación correspondiente
                     animator.SetInteger("AvatarIndex", playerAvatarIndex);
-                    Debug.Log($"Animator configurado para el personaje {i} con AvatarIndex: {playerAvatarIndex}");
-                }
-                else
-                {
-                    Debug.LogError($"Animator no encontrado en el hijo 'Personaje' del personaje {i}.");
+
                 }
             }
-            else
-            {
-                Debug.LogError($"Transform 'Personaje' no encontrado para el personaje {i}.");
-            }
         }
-    }
-
-
-    public void SpawnJugadores()
-    {
-
-        /*
-        GameObject playerToSpawn = playerPrefab[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            // Posiciones específicas para el equipo 1
-            Vector3 spawnPosition11 = new Vector3(-17.5f, -1.6f, 0f);   // Sacador
-            Vector3 spawnPosition12 = new Vector3(-10.5f, -1.3f, 0f);   // Receptor
-            Vector3 spawnPosition13 = new Vector3(-4.5f, -1.3f, 0f);    // Rematador Arriba
-            Vector3 spawnPosition14 = new Vector3(-4.5f, -5.6f, 0f);    // Rematador Abajo
-            Vector3 spawnPosition15 = new Vector3(-1.4f, -2.6f, 0f);    // Armador
-
-            // Instanciar cada jugador manualmente
-            GameObject sacador1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition11, Quaternion.identity);
-            sacador1.GetComponent<ClickHandler>().personajeIndice = 0;
-            jugadoresLocales.Add(sacador1);
-
-            GameObject receptor1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition12, Quaternion.identity);
-            receptor1.GetComponent<ClickHandler>().personajeIndice = 1;
-            jugadoresLocales.Add(receptor1);
-
-            GameObject rematadorArriba1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition13, Quaternion.identity);
-            rematadorArriba1.GetComponent<ClickHandler>().personajeIndice = 2;
-            jugadoresLocales.Add(rematadorArriba1);
-
-            GameObject rematadorAbajo1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition14, Quaternion.identity);
-            rematadorAbajo1.GetComponent<ClickHandler>().personajeIndice = 3;
-            jugadoresLocales.Add(rematadorAbajo1);
-
-            GameObject armador1 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition15, Quaternion.identity);
-            armador1.GetComponent<ClickHandler>().personajeIndice = 4;
-            jugadoresLocales.Add(armador1);
-        }
-        else
-        {
-            // Posiciones específicas para el equipo 2
-            Quaternion spawnRotation = Quaternion.Euler(0, 180, 0);
-            Vector3 spawnPosition21 = new Vector3(13.5f, -4.6f, 0f);   // Sacador
-            Vector3 spawnPosition22 = new Vector3(12.5f, -1.3f, 0f);   // Receptor
-            Vector3 spawnPosition23 = new Vector3(5.5f, -1.3f, 0f);    // Rematador Arriba
-            Vector3 spawnPosition24 = new Vector3(8.5f, -5.6f, 0f);    // Rematador Abajo
-            Vector3 spawnPosition25 = new Vector3(3.4f, -3.6f, 0f);    // Armador
-
-            // Instanciar cada jugador manualmente
-            GameObject sacador2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition21, spawnRotation);
-            sacador2.GetComponent<ClickHandler>().personajeIndice = 5;
-            jugadoresLocales.Add(sacador2);
-
-            GameObject receptor2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition22, spawnRotation);
-            receptor2.GetComponent<ClickHandler>().personajeIndice = 6;
-            jugadoresLocales.Add(receptor2);
-
-            GameObject rematadorArriba2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition23, spawnRotation);
-            rematadorArriba2.GetComponent<ClickHandler>().personajeIndice = 7;
-            jugadoresLocales.Add(rematadorArriba2);
-
-            GameObject rematadorAbajo2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition24, spawnRotation);
-            rematadorAbajo2.GetComponent<ClickHandler>().personajeIndice = 8;
-            jugadoresLocales.Add(rematadorAbajo2);
-
-            GameObject armador2 = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPosition25, spawnRotation);
-            armador2.GetComponent<ClickHandler>().personajeIndice = 9;
-            jugadoresLocales.Add(armador2);
-        }
-
-        List<int> viewIDs = new List<int>();
-        foreach (GameObject jugador in jugadoresLocales)
-        {
-            viewIDs.Add(jugador.GetComponent<PhotonView>().ViewID);
-        }
-
-        photonView.RPC("UnirArrays", RpcTarget.All, viewIDs.ToArray());
-    }
-
-    [PunRPC]
-    public void UnirArrays(int[] viewIDs)
-    {
-        // Convertir los ViewIDs en GameObjects y añadirlos al array principal
-        foreach (int viewID in viewIDs)
-        {
-            GameObject jugador = PhotonView.Find(viewID).gameObject;
-            bool existe = false;
-
-            // Verificar si ya está en el array
-            foreach (GameObject existente in personajes)
-            {
-                if (existente == jugador)
-                {
-                    existe = true;
-                    break;
-                }
-            }
-
-            // Si no está, añadir al array
-            if (!existe)
-            {
-                List<GameObject> personajesList = new List<GameObject>(personajes);
-                personajesList.Add(jugador);
-                personajes = personajesList.ToArray();
-            }
-        }
-        */
     }
         
 
