@@ -132,6 +132,7 @@ public class ClickHandler : MonoBehaviour
             //Equipo 2
             case 9:
                 GameManager.botonSacar.gameObject.SetActive(false);
+                    GameManager.botonBloquear.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonPasar.gameObject.SetActive(false);
                     if (GameManager.ball.transform.parent == GameManager.personajes[9].transform)
@@ -146,6 +147,7 @@ public class ClickHandler : MonoBehaviour
                     break;
             case 8:
                 GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonBloquear.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonArmar.gameObject.SetActive(false);
                     if (GameManager.ball.transform.parent == GameManager.ballHolderAlto.transform)
@@ -159,6 +161,7 @@ public class ClickHandler : MonoBehaviour
                     break;
             case 7:
                 GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonBloquear.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonArmar.gameObject.SetActive(false);
                     if (GameManager.ball.transform.parent == GameManager.ballHolderBajo.transform)
@@ -172,27 +175,31 @@ public class ClickHandler : MonoBehaviour
                     break;
             case 6:
                 GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonBloquear.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonArmar.gameObject.SetActive(false);
                     GameManager.NoRematar();
                     break;
             case 5:
                 GameManager.botonSacar.gameObject.SetActive(false);
+                GameManager.botonBloquear.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonArmar.gameObject.SetActive(false);
                     GameManager.NoRematar();
                     break;
             //Equipo 1
             case 4:
+            GameManager.DeactivateAllButtons();
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
                 GameManager.NoRematar();
                     break;
             case 3:
+            GameManager.DeactivateAllButtons();
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
                 GameManager.NoRematar();
-                 if (GameManager.ball.transform.parent == GameManager.ballHolderAlto.transform)
+                 if (GameManager.IsBlocking == false)
                     {
                     GameManager.botonBloquear.gameObject.SetActive(true);
                     }
@@ -203,24 +210,27 @@ public class ClickHandler : MonoBehaviour
                     break;
                     
             case 2:
+            GameManager.DeactivateAllButtons();
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
                 GameManager.NoRematar();
-                 if (GameManager.ball.transform.parent == GameManager.ballHolderBajo.transform)
+                 if (GameManager.IsBlocking == false)
                     {
                     GameManager.botonBloquear.gameObject.SetActive(true);
                     }
                     else
                     {
                     GameManager.botonBloquear.gameObject.SetActive(false);
-                    }                
+                    }     
                     break;
             case 1:
+            GameManager.DeactivateAllButtons();
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
                 GameManager.NoRematar();
                     break;
             case 0:
+            GameManager.DeactivateAllButtons();
                 GameManager.botonSacar.gameObject.SetActive(false);
                 GameManager.ActivarBotonMoverPersonaje();
                 GameManager.NoRematar();
@@ -234,26 +244,47 @@ public class ClickHandler : MonoBehaviour
             switch (personajeIndice)
             {
                 case 9:
+                GameManager.DeactivateAllButtons();
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
                     GameManager.NoRematar();
                     break;
                 case 8:
+                GameManager.DeactivateAllButtons();
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
                     GameManager.NoRematar();
+                    if (GameManager.IsBlocking == false)
+                    {
+                    GameManager.botonBloquear.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                    GameManager.botonBloquear.gameObject.SetActive(false);
+                    }
                     break;
                 case 7:
+                GameManager.DeactivateAllButtons();
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
                     GameManager.NoRematar();
+                    if (GameManager.IsBlocking == false)
+                    {
+                    GameManager.botonBloquear.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                    GameManager.botonBloquear.gameObject.SetActive(false);
+                    }
                     break;
                 case 6:
+                GameManager.DeactivateAllButtons();
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.ActivarBotonMoverPersonaje();
                     GameManager.NoRematar();
                     break;
                 case 5:
+                GameManager.DeactivateAllButtons();
                     GameManager.botonSacar.gameObject.SetActive(false);
                     if (GameManager.ball.transform.parent == GameManager.personajes[5])
                     {
@@ -267,6 +298,7 @@ public class ClickHandler : MonoBehaviour
                     break;
                 //Equipo 1
                 case 4:
+                    GameManager.botonBloquear.gameObject.SetActive(false);
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonPasar.gameObject.SetActive(false);
@@ -281,6 +313,7 @@ public class ClickHandler : MonoBehaviour
                     GameManager.NoRematar();
                     break;
                 case 3:
+                    GameManager.botonBloquear.gameObject.SetActive(false);
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonArmar.gameObject.SetActive(false);
@@ -294,6 +327,7 @@ public class ClickHandler : MonoBehaviour
                     }
                     break;
                 case 2:
+                    GameManager.botonBloquear.gameObject.SetActive(false);
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonArmar.gameObject.SetActive(false);
@@ -307,12 +341,14 @@ public class ClickHandler : MonoBehaviour
                     }
                     break;
                 case 1:
+                    GameManager.botonBloquear.gameObject.SetActive(false);
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonArmar.gameObject.SetActive(false);
                     GameManager.NoRematar();
                     break;
                 case 0:
+                    GameManager.botonBloquear.gameObject.SetActive(false);
                     GameManager.botonSacar.gameObject.SetActive(false);
                     GameManager.botonMoverPersonaje.gameObject.SetActive(false);
                     GameManager.botonArmar.gameObject.SetActive(false);

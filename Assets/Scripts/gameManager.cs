@@ -44,7 +44,8 @@ public class gameManager : MonoBehaviourPun
     public float ballPickupRange = 2.5f;
     private bool enRango = false;
     private bool IsServing;
-    private bool IsBlocking = false;
+    [HideInInspector]
+    public bool IsBlocking = false;
     [Space(25)]
     private bool isMovingMode = false;
     [Header("Botónes")]
@@ -537,7 +538,7 @@ bool RecibirPelota(GameObject personajeMasCercano)
     public void Rematar()
     {
         MostrarLadoContrario();
-        StartCoroutine(SeleccionDeRemate(ball.transform.position));
+        StartCoroutine(SeleccionDeRemate(ball.transform.position, personajeActual));
     }
 
     public void Bloquear()
@@ -594,12 +595,17 @@ bool RecibirPelota(GameObject personajeMasCercano)
     public void MostrarOpcionesDeArmar()
     {
         DesactivarCasillasIluminadas();
+        Vector3 altap1 = new Vector3(personajes[3].transform.position.x + 1, personajes[3].transform.position.y + 4, personajes[3].transform.position.z);
+        Vector3 altap2 = new Vector3(personajes[8].transform.position.x - 2, personajes[8].transform.position.y + 4, personajes[8].transform.position.z);
+        Vector3 bajap1 = new Vector3(personajes[2].transform.position.x + 1, personajes[2].transform.position.y + 4, personajes[2].transform.position.z);
+        Vector3 bajap2 = new Vector3(personajes[7].transform.position.x - 2, personajes[7].transform.position.y + 4, personajes[7].transform.position.z);
+       
+
+        Vector2Int tileAltaP1 = GetGridPosition(altap1);
+        Vector2Int tileBajaP1 = GetGridPosition(bajap1);
         
-        Vector2Int tileAltaP1 = new Vector2Int(-3, 3);
-        Vector2Int tileBajaP1 = new Vector2Int(-3, -3);
-        
-        Vector2Int tileAltaP2 = new Vector2Int(4, 3);
-        Vector2Int tileBajaP2 = new Vector2Int(3, -5);
+        Vector2Int tileAltaP2 = GetGridPosition(altap2);
+        Vector2Int tileBajaP2 = GetGridPosition(bajap2);
         if(ball.transform.parent == personajes[9].transform)
         {
         //if (personajes[8].transform.position )
@@ -916,11 +922,15 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
     
 private IEnumerator SeleccionDeArmado(Vector3 start)
 {
-        Vector2Int tileAltaP1 = new Vector2Int(-3, 3);
-        Vector2Int tileBajaP1 = new Vector2Int(-3, -4);
+        Vector3 altap1 = new Vector3(personajes[3].transform.position.x + 1, personajes[3].transform.position.y + 4, personajes[3].transform.position.z);
+        Vector3 altap2 = new Vector3(personajes[8].transform.position.x - 2, personajes[8].transform.position.y + 4, personajes[8].transform.position.z);
+        Vector3 bajap1 = new Vector3(personajes[2].transform.position.x + 1, personajes[2].transform.position.y + 4, personajes[2].transform.position.z);
+        Vector3 bajap2 = new Vector3(personajes[7].transform.position.x - 2, personajes[7].transform.position.y + 4, personajes[7].transform.position.z);
+        Vector2Int tileAltaP1 = GetGridPosition(altap1);
+        Vector2Int tileBajaP1 = GetGridPosition(bajap1);
         
-        Vector2Int tileAltaP2 = new Vector2Int(3, 3);
-        Vector2Int tileBajaP2 = new Vector2Int(3, -5);
+        Vector2Int tileAltaP2 = GetGridPosition(altap2);
+        Vector2Int tileBajaP2 = GetGridPosition(bajap2);
 
         ball.transform.SetParent(null);
         bool casillaSeleccionada = false;
@@ -973,7 +983,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         currentPos.y += Mathf.Sin(t * Mathf.PI) * heightMax;
 
         // Debug de la posición de la pelota en cada frame
-        Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
+        //Debug.Log($"Tiempo: {elapsedTime}, Posición de la pelota: {currentPos}, t: {t}");
 
         // Asignar la nueva posición
         ball.transform.position = currentPos;
@@ -996,7 +1006,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         //Vector2 Skibidi.Transform
         //Console.Lenght mewing;
 
-    public IEnumerator SeleccionDeRemate(Vector3 start)
+    public IEnumerator SeleccionDeRemate(Vector3 start, GameObject rematador)
     {
         IsDoingAction = true;
         bool casillaSeleccionada = false;
@@ -1033,17 +1043,30 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         }
         Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
         DescongelarAnimaciones();
-        if (IsBlocking == true)
+         probabilidadDeBloqueo = Random.Range(0f, 1f);
+        Debug.LogError(probabilidadDeBloqueo);
+        if (IsBlocking == true && personajeBloqueando.transform.position.y < -4 && rematador.transform.position.y < -4 && probabilidadDeBloqueo > 0.35f)
         {
-           probabilidadDeBloqueo = Random.Range(0f, 1f);
-            Debug.Log(probabilidadDeBloqueo);
-            if(probabilidadDeBloqueo > 0f)
-            {
-                StartCoroutine(PelotaBloqueada(personajeActual));
-            }
+            Debug.Log(personajeBloqueando.transform.position.y);
+            Debug.Log(rematador.transform.position.y);
+            Debug.LogError("Caso 1");
+            StartCoroutine(PelotaBloqueada(personajeActual));  
+        }
+        else if(IsBlocking == true && personajeBloqueando.transform.position.y > -4 && rematador.transform.position.y > -4 && probabilidadDeBloqueo > 0.35f)
+        {
+            Debug.Log(personajeBloqueando.transform.position.y);
+            Debug.Log(rematador.transform.position.y);
+            Debug.LogError("Caso 2");
+            StartCoroutine(PelotaBloqueada(personajeActual)); 
         }
         else
         {
+        Debug.LogError("Caso 3");
+        IsBlocking = false;
+        personajes[2].GetComponentInChildren<Animator>().SetBool("Block", false);
+        personajes[3].GetComponentInChildren<Animator>().SetBool("Block", false);
+        personajes[7].GetComponentInChildren<Animator>().SetBool("Block", false);
+        personajes[8].GetComponentInChildren<Animator>().SetBool("Block", false);    
         //if(pro)
         // Mover la pelota a la casilla seleccionada
         float duration = 1.0f;
@@ -1296,20 +1319,44 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         float duration = 0.5f;
         float halfDuration = duration / 2f;
         float elapsedTime = 0;
+         if (ball.transform.position.x < 0)
+        {
+            if (ball.transform.position.y < -1)
+            {
+                personajeBloqueando = personajes[7];
+            }
+            else
+            {
+                personajeBloqueando = personajes[8];
+            }
+        }
+        else
+        {
+            if (ball.transform.position.y < -1)
+            {
+                personajeBloqueando = personajes[2];
+            }
+            else
+            {
+                personajeBloqueando = personajes[3];
+            }
+        }
 
         Vector3 startPosition = ball.transform.position;
+        Debug.Log(startPosition);
         Vector3 midPosition = new Vector3(
-        (startPosition.x + personajeBloqueando.transform.position.x) / 2,
+        personajeBloqueando.transform.position.x,
         startPosition.y + 2.0f,
         startPosition.z);
-        Vector3 endPosition = new Vector3(startPosition.x + startPosition.y - 2.0f,  startPosition.z);
+        Vector3 endPosition = startPosition;
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         rematador.GetComponentInChildren<Animator>().SetTrigger("Spike");
         yield return new WaitForSeconds(0.7f);
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(0.12f);
-        Time.timeScale = 1.0f;
+        Time.timeScale = 0.4f;
+        //LeantweenScript.AparecerTextoPunto(textoBlock, textHolderPopUpRight);
         while (elapsedTime < halfDuration)
         {
         ball.transform.position = Vector3.Lerp(startPosition, midPosition, elapsedTime / halfDuration);
@@ -1325,6 +1372,12 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         elapsedTime += Time.deltaTime;
         yield return null;
         }
+
+        personajes[2].GetComponentInChildren<Animator>().SetBool("Block", false);
+        personajes[3].GetComponentInChildren<Animator>().SetBool("Block", false);
+        personajes[7].GetComponentInChildren<Animator>().SetBool("Block", false);
+        personajes[8].GetComponentInChildren<Animator>().SetBool("Block", false);
+        
         ball.transform.position = endPosition;
         if(endPosition.x > 1)
         {
@@ -1344,7 +1397,8 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
             ball.transform.localPosition = new Vector3(-7, 12, 0);
         }
         Debug.Log("Pelota llegó al punto final.");
-        
+        Time.timeScale = 1f;
+        IsBlocking = false;
     }
 
     [PunRPC]
