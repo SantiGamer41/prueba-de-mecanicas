@@ -932,7 +932,8 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         Vector2Int tileAltaP2 = GetGridPosition(altap2);
         Vector2Int tileBajaP2 = GetGridPosition(bajap2);
 
-        ball.transform.SetParent(null);
+        view.RPC("sacarParentRPC", RpcTarget.All);
+        
         bool casillaSeleccionada = false;
         Vector2Int casillaObjetivo = Vector2Int.zero;
 
@@ -992,19 +993,35 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         yield return null;
     }
         //yield return new WaitForSeconds(1);
+        photonView.RPC("ActualizarEstadoBola", RpcTarget.All, ball.transform.position);
+    }
+
+    [PunRPC]
+    public void ActualizarEstadoBola(Vector3 ballPosition)
+    {
+        Debug.LogError("Se llama RPC actualizar");
+        // Cambia la dirección del sprite
         personajeActual.GetComponentInChildren<SpriteRenderer>().flipX = !personajeActual.GetComponentInChildren<SpriteRenderer>().flipX;
-        if (ball.transform.position.y > 2 )
+
+        // Cambia el padre de la bola según su posición
+        if (ballPosition.y > 2)
         {
             ball.transform.parent = ballHolderAlto.transform;
         }
-        else if(ball.transform.position.y < -2 )
+        else if (ballPosition.y < -2)
         {
             ball.transform.parent = ballHolderBajo.transform;
         }
+
+        // Actualiza el estado de la acción
         IsDoingAction = false;
     }
-        //Vector2 Skibidi.Transform
-        //Console.Lenght mewing;
+        [PunRPC]
+        public void sacarParentRPC()
+        {
+            Debug.LogError("Se llama RPC pancho");
+            ball.transform.SetParent(null);
+        }
 
     public IEnumerator SeleccionDeRemate(Vector3 start, GameObject rematador)
     {

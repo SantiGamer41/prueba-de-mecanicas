@@ -26503,6 +26503,7 @@ MonoBehaviour:
   textHolderPopUpLeft: {fileID: 1987715719}
   textHolderPopUpRight: {fileID: 1978641891}
   ballPickupRange: 2.5
+  IsBlocking: 0
   botones:
   - {fileID: 322083824}
   - {fileID: 1217195554}
@@ -29724,6 +29725,11 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneViewId
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174034646614467436, guid: e0b99a8ffae669e46b6e45b88e69f911,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8132064501420424041, guid: e0b99a8ffae669e46b6e45b88e69f911,
         type: 3}
