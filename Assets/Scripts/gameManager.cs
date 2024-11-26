@@ -445,14 +445,14 @@ bool RecibirPelota(GameObject personajeMasCercano)
     public void OnBotonSacarClick()
     {
         isMovingMode = false;
-        ball.transform.SetParent(null); //mover a la funcion que se photonee
+        view.RPC("sacarParentRPC", RpcTarget.All);
         Sacar();
     }
 
     public void OnBotonDevolverClick()
     {
         isMovingMode = false;
-        ball.transform.SetParent(null);
+        view.RPC("sacarParentRPC", RpcTarget.All);
         Devolver();
     }
 
@@ -473,7 +473,7 @@ bool RecibirPelota(GameObject personajeMasCercano)
     public void OnBotonRematarClick()
     {
         isMovingMode = false;
-        ball.transform.SetParent(null);
+        view.RPC("sacarParentRPC", RpcTarget.All);
         Rematar();
     }
     public void OnBotonBloquearClick()
