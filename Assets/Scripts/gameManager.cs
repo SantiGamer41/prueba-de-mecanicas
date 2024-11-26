@@ -1029,14 +1029,12 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         bool casillaSeleccionada = false;
         float probabilidadDeBloqueo;
         float correccion;
-    if(personajeActual.transform.position.x < 0)
-    {
-     correccion = -1.2f;
-    }
-    else                
-    {
-     correccion = 1.2f;
-    }
+
+        Debug.LogError("Se llama la funcion");
+
+        // Determina la corrección según la posición del rematador
+        correccion = rematador.transform.position.x < 0 ? -1.2f : 1.2f;
+
         Vector2Int casillaObjetivo = Vector2Int.zero;
 
         // Espera hasta que se seleccione una casilla
@@ -1050,53 +1048,56 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
                 if (casillasPorPosicion.ContainsKey(gridPosition) && casillasPorPosicion[gridPosition].activeSelf)
                 {
                     List<Vector2Int> CasillasPosibles = GetReachableTiles(gridPosition, 2);
-                    int randomIndex = Random.Range(0, CasillasPosibles.Count);
-                    casillaObjetivo = CasillasPosibles[randomIndex];
-                    casillaSeleccionada = true;
+                    if (CasillasPosibles.Count > 0) // Asegúrate de que hay casillas posibles
+                    {
+                        int randomIndex = Random.Range(0, CasillasPosibles.Count);
+                        casillaObjetivo = CasillasPosibles[randomIndex];
+                        casillaSeleccionada = true;
+                    }
                 }
             }
 
             yield return null;
         }
+
         Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
         DescongelarAnimaciones();
-         probabilidadDeBloqueo = Random.Range(0f, 1f);
+        probabilidadDeBloqueo = Random.Range(0f, 1f);
         Debug.LogError(probabilidadDeBloqueo);
-        if (IsBlocking == true && personajeBloqueando.transform.position.y < -4 && rematador.transform.position.y < -4 && probabilidadDeBloqueo > 0.35f)
+
+        // Lógica de bloqueo
+        if (IsBlocking && probabilidadDeBloqueo > 0.35f)
         {
-            Debug.Log(personajeBloqueando.transform.position.y);
-            Debug.Log(rematador.transform.position.y);
-            Debug.LogError("Caso 1");
-            StartCoroutine(PelotaBloqueada(personajeActual));  
+            if ((personajeBloqueando.transform.position.y < -4 && rematador.transform.position.y < -4) ||
+                (personajeBloqueando.transform.position.y > -4 && rematador.transform.position.y > -4))
+            {
+                Debug.LogError("Caso de bloqueo");
+                StartCoroutine(PelotaBloqueada(personajeActual));
+                yield break; // Salir de la función si la pelota está bloqueada
+            }
         }
-        else if(IsBlocking == true && personajeBloqueando.transform.position.y > -4 && rematador.transform.position.y > -4 && probabilidadDeBloqueo > 0.35f)
-        {
-            Debug.Log(personajeBloqueando.transform.position.y);
-            Debug.Log(rematador.transform.position.y);
-            Debug.LogError("Caso 2");
-            StartCoroutine(PelotaBloqueada(personajeActual)); 
-        }
-        else
-        {
-        Debug.LogError("Caso 3");
+
+        Debug.LogError("Caso 3 - No bloqueada");
         IsBlocking = false;
-        personajes[2].GetComponentInChildren<Animator>().SetBool("Block", false);
-        personajes[3].GetComponentInChildren<Animator>().SetBool("Block", false);
-        personajes[7].GetComponentInChildren<Animator>().SetBool("Block", false);
-        personajes[8].GetComponentInChildren<Animator>().SetBool("Block", false);    
-        //if(pro)
+        // Desactivar animaciones de bloqueo
+        foreach (var personaje in personajes)
+        {
+            personaje.GetComponentInChildren<Animator>().SetBool("Block", false);
+        }
+
         // Mover la pelota a la casilla seleccionada
         float duration = 1.0f;
         float elapsedTime = 0;
         GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
         Vector3 startPosition = new Vector3(start.x, start.y + 0.5f, start.z);
         Vector3 endPosition = new Vector3(casillaObjetivo.x, casillaObjetivo.y + 0.5f, 0);
-        if(personajeMasCercano != null)
+
+        if (personajeMasCercano != null)
         {
-            Debug.Log("Se aplico la correccion");
-            startPosition =  new Vector3(start.x, start.y + 0.5f, start.z);
-            endPosition =  new Vector3(casillaObjetivo.x + correccion, casillaObjetivo.y + 1.8f, 0);
-        }   
+            Debug.Log("Se aplicó la corrección");
+            endPosition = new Vector3(casillaObjetivo.x + correccion, casillaObjetivo.y + 1.8f, 0);
+        }
+
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("Spike");
@@ -1104,38 +1105,43 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(0.12f);
         Time.timeScale = 1.0f;
-        cameraShakeScript.Shake(0.5f, 5f);
+        //cameraShakeScript.Shake(0.5f, 5f);
         LeantweenScript.AparecerTextoPunto(textoSpike, textHolderPopUpLeft);
+
+        // Movimiento de la pelota
         while (elapsedTime < duration)
         {
             DeactivateAllButtons();
             ball.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
 
+            // Rotación de la pelota
             Quaternion startRotation = ball.transform.rotation; // rotación inicial
-                Quaternion endRotation = Quaternion.Euler(0, 360, 0); // rotación final (ejemplo de 360 grados en Y)
-                ball.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / duration);
-                yield return null;
+            Quaternion endRotation = Quaternion.Euler(0, 360, 0); // rotación final (ejemplo de 360 grados en Y)
+            ball.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / duration);
+            yield return null;
         }
 
         // Asegura que la pelota termine exactamente en la posición final
         ball.transform.position = endPosition;
 
-        if(personajeMasCercano != null)
-     {
-        photonView.RPC("RecibirPelotaRPC", RpcTarget.All, personajeMasCercano.GetPhotonView().ViewID);
-     }
-     else
-     {
-        photonView.RPC("PuntoRPC",RpcTarget.All);
-     }
-     
+        // Notificar a otros jugadores sobre la recepción de la pelota
+        if (personajeMasCercano != null)
+        {
+            photonView.RPC("RecibirPelotaRPC", RpcTarget.All, personajeMasCercano.GetPhotonView().ViewID);
+        }
+        else
+        {
+            photonView.RPC("PuntoRPC", RpcTarget.All);
         }
 
+        // Actualiza el estado de puntos si es necesario
         if (estadoActual != estado)
         {
             displayPuntosScript.SumarTurnoDisplay();
         }
+
+        // Finaliza la acción
         IsDoingAction = false;
     }
 
