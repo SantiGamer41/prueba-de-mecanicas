@@ -81,7 +81,7 @@ public class gameManager : MonoBehaviourPun
     public RuntimeAnimatorController[] animators;
 
     private Animator _animator;
-    private PhotonAnimatorView _photonAnimatorView;
+    private PhotonAnimatorView photonAnimatorView;
 
 
     private Vector2Int[] posicionesInicialesSaque1 = new Vector2Int[]
@@ -188,6 +188,23 @@ public class gameManager : MonoBehaviourPun
                     }
 
                     animator.SetInteger("AvatarIndex", playerAvatarIndex);
+
+                    /*
+                    Para sincronizar animaciones
+
+                    foreach (var animatorControllerParameter in animator.parameters)
+                    {
+                        try
+                        {
+                            photonAnimatorView.SetParameterSynchronized(animatorControllerParameter.name, PhotonAnimatorView.ParameterType.Trigger, PhotonAnimatorView.SynchronizeType.Discrete);
+                        }
+                        catch (System.Exception ex)
+                        {
+                            Debug.LogError($"Error al sincronizar el parámetro {animatorControllerParameter.name}: {ex.Message}");
+                        }
+                    }
+                    */
+
                 }
 
             }
@@ -221,7 +238,21 @@ public class gameManager : MonoBehaviourPun
                     }
 
                     animator.SetInteger("AvatarIndex", playerAvatarIndex);
+                    /*
+                    Para sincronizar animaciones
 
+                    foreach (var animatorControllerParameter in animator.parameters)
+                    {
+                        try
+                        {
+                            photonAnimatorView.SetParameterSynchronized(animatorControllerParameter.name, PhotonAnimatorView.ParameterType.Trigger, PhotonAnimatorView.SynchronizeType.Discrete);
+                        }
+                        catch (System.Exception ex)
+                        {
+                            Debug.LogError($"Error al sincronizar el parámetro {animatorControllerParameter.name}: {ex.Message}");
+                        }
+                    }
+                    */
                 }
             }
         }
