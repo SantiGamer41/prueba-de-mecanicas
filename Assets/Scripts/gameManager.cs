@@ -700,13 +700,13 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
     //particulas.duration = 1.5f;
     particulas.Play();
     DesactivarCasillasIluminadas();
-        if (Sacador.transform.position.x < 0)
+        if (Sacador.transform.position.x > 0)
         {
             ball.GetComponent<Animator>().SetBool("RotatingLeft", true);
         }
         else
         {
-            ball.GetComponent<Animator>().SetBool("RotatingLeft", true);
+            ball.GetComponent<Animator>().SetBool("RotatingRight", true);
         }
 
     while (elapsedTime < duration)
@@ -736,7 +736,9 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
     Debug.Log($"Pelota llegó a la posición final: {endPosition}");
      Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
        enRango = RecibirPelota(personajeMasCercano);
-
+     
+     ball.GetComponent<Animator>().SetBool("RotatingLeft", false);
+     ball.GetComponent<Animator>().SetBool("RotatingRight", false);
 
 
         if (estadoActual != estado)
@@ -817,7 +819,15 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         float heightMax = 4.0f;
 
         DesactivarCasillasIluminadas();
-        
+        if (ball.transform.position.x > 0)
+        {
+            ball.GetComponent<Animator>().SetBool("RotatingLeft", true);
+        }
+        else
+        {
+            ball.GetComponent<Animator>().SetBool("RotatingRight", true);
+        }
+
 
         while (elapsedTime < duration)
         {
@@ -844,6 +854,8 @@ private IEnumerator SeleccionDeDevolver(Vector3 start)
         ball.transform.position = endPosition;
          Vector3 casillaObjetivoV3 = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
         RecibirPelota(personajeMasCercano);
+        ball.GetComponent<Animator>().SetBool("RotatingLeft", false);
+        ball.GetComponent<Animator>().SetBool("RotatingRight", false);
 
         if (estadoActual != estado)
         {
@@ -869,6 +881,15 @@ private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 p
         float heightMax = 2.5f;
 
     DesactivarCasillasIluminadas();
+    if (ball.transform.position.x > 0)
+        {
+            ball.GetComponent<Animator>().SetBool("RotatingLeft", true);
+        }
+        else
+        {
+            ball.GetComponent<Animator>().SetBool("RotatingRight", true);
+        }
+
 
     while (elapsedTime < duration)
     {
@@ -889,6 +910,8 @@ private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 p
         elapsedTime += Time.deltaTime;
         yield return null;
     }
+        ball.GetComponent<Animator>().SetBool("RotatingLeft", false);
+        ball.GetComponent<Animator>().SetBool("RotatingRight", false);
         ball.transform.parent = armador.transform;
         ball.transform.localPosition = posicionArmadoDePelota;
        /* foreach (GameObject p in personajes)
@@ -977,11 +1000,11 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
     }
         //yield return new WaitForSeconds(1);
         personajeActual.GetComponentInChildren<SpriteRenderer>().flipX = !personajeActual.GetComponentInChildren<SpriteRenderer>().flipX;
-        if (ball.transform.position.y > 2 )
+        if (casillaObjetivo == tileAltaP1 || casillaObjetivo == tileAltaP2)
         {
             ball.transform.parent = ballHolderAlto.transform;
         }
-        else if(ball.transform.position.y < -2 )
+        else if(casillaObjetivo == tileBajaP1 || casillaObjetivo == tileBajaP2)
         {
             ball.transform.parent = ballHolderBajo.transform;
         }
@@ -1031,13 +1054,29 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         Debug.LogError(probabilidadDeBloqueo);
         if (IsBlocking == true && personajeBloqueando.transform.position.y < -4 && rematador.transform.position.y < -4 && probabilidadDeBloqueo > 0.35f)
         {
+            if (ball.transform.position.x > 0)
+            {
+            ball.GetComponent<Animator>().SetBool("RotatingLeft", true);
+            }
+            else
+            {
+            ball.GetComponent<Animator>().SetBool("RotatingRight", true);
+            }
             Debug.Log(personajeBloqueando.transform.position.y);
             Debug.Log(rematador.transform.position.y);
             Debug.LogError("Caso 1");
             StartCoroutine(PelotaBloqueada(personajeActual));  
         }
         else if(IsBlocking == true && personajeBloqueando.transform.position.y > -4 && rematador.transform.position.y > -4 && probabilidadDeBloqueo > 0.35f)
-        {
+        {   
+            if (ball.transform.position.x > 0)
+            {
+            ball.GetComponent<Animator>().SetBool("RotatingLeft", true);
+            }
+            else
+            {
+            ball.GetComponent<Animator>().SetBool("RotatingRight", true);
+            }
             Debug.Log(personajeBloqueando.transform.position.y);
             Debug.Log(rematador.transform.position.y);
             Debug.LogError("Caso 2");
@@ -1074,6 +1113,14 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         particulas.Play();
         cameraShakeScript.Shake(0.5f, 1f);
         LeantweenScript.AparecerTextoPunto(textoSpike, textHolderPopUpLeft);
+        if (ball.transform.position.x > 0)
+            {
+            ball.GetComponent<Animator>().SetBool("RotatingLeft", true);
+            }
+            else
+            {
+            ball.GetComponent<Animator>().SetBool("RotatingRight", true);
+            }
         while (elapsedTime < duration)
         {
             DeactivateAllButtons();
@@ -1091,7 +1138,8 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
         RecibirPelota(personajeMasCercano);
         }
-        
+        ball.GetComponent<Animator>().SetBool("RotatingLeft", false);
+        ball.GetComponent<Animator>().SetBool("RotatingRight", false);
 
         if (estadoActual != estado)
         {
@@ -1345,6 +1393,8 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         yield return null;
         }
         ball.transform.position = midPosition;
+        ball.GetComponent<Animator>().SetBool("RotatingLeft", false);
+        ball.GetComponent<Animator>().SetBool("RotatingRight", false);
 
         elapsedTime = 0;
         while (elapsedTime < halfDuration)
