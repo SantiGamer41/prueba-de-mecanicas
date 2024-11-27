@@ -62,6 +62,14 @@ MonoBehaviour:
   - AplicarSpritesRPC
   - JugadoresDerechos
   - JugadoresIzquierdos
+  - ActualizarEstadoBola
+  - Bloquear
+  - InstanciarPersonajesEnPosicionesIniciales
+  - Pasar
+  - PuntoRPC
+  - RecibirPelotaRPC
+  - RecogerPelotaRPC
+  - sacarParentRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
