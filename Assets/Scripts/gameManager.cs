@@ -460,7 +460,7 @@ bool RecibirPelota(GameObject personajeMasCercano)
     {
         isMovingMode = false;
         ball.transform.SetParent(null);
-        photonView.RPC("Pasar", RpcTarget.All);
+        view.RPC("Pasar", RpcTarget.All);
         DescongelarAnimaciones();
     }
     public void OnBotonArmarClick()
@@ -479,7 +479,7 @@ bool RecibirPelota(GameObject personajeMasCercano)
     public void OnBotonBloquearClick()
     {
         isMovingMode = false;
-        Bloquear();
+       view.RPC("Bloquear", RpcTarget.All);
     }
     public void MoverPersonajeA(Vector3 nuevaPosicion)
     {
@@ -541,10 +541,11 @@ bool RecibirPelota(GameObject personajeMasCercano)
         StartCoroutine(SeleccionDeRemate(ball.transform.position, personajeActual));
     }
 
+    [PunRPC]
     public void Bloquear()
     {
         //if (estado == estado.AtaqueP2DefensaP1 && ball.transform.parent == ballHolderAlto)
-        StartCoroutine(SeleccionDeBloqueo(personajeActual, personajeActual.transform.position, new Vector3 (personajeActual.transform.position.x, personajeActual.transform.position.y + 1.0f, personajeActual.transform.position.z)));
+        StartCoroutine(SeleccionDeBloqueo(personajeActual, personajeActual.transform.position, new Vector3(personajeActual.transform.position.x, personajeActual.transform.position.y + 1.0f, personajeActual.transform.position.z)));
     }
 
 
@@ -1147,6 +1148,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
     private IEnumerator SeleccionDeBloqueo(GameObject personaje, Vector3 start, Vector3 end)
     {
+        Debug.LogError("Funcion seleccionBloqueo");
         personajeBloqueando = personaje;
        /* float duration = 1.0f; // Duración de la animación
         float elapsedTime = 0;
@@ -1402,23 +1404,9 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         personajes[8].GetComponentInChildren<Animator>().SetBool("Block", false);
         
         ball.transform.position = endPosition;
-        if(endPosition.x > 1)
-        {
-        LeantweenScript.AparecerTextoPunto(textoPointP1, textHolder);
-        Debug.Log("Se mostro el punto");
-        estado = estado.SaqueP1;
-        InstanciarPersonajesEnPosicionesIniciales();
-        ball.transform.parent = personajes[0].transform;
-        ball.transform.localPosition = new Vector3(7, 12, 0);
-        }
-        else
-        {
-            LeantweenScript.AparecerTextoPunto(textoPointP2,textHolder);
-            estado = estado.SaqueP2;
-            InstanciarPersonajesEnPosicionesIniciales();
-            ball.transform.parent = personajes[5].transform;
-            ball.transform.localPosition = new Vector3(-7, 12, 0);
-        }
+
+        photonView.RPC("PuntoRPC", RpcTarget.All);
+
         Debug.Log("Pelota llegó al punto final.");
         Time.timeScale = 1f;
         IsBlocking = false;
