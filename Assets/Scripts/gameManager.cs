@@ -200,8 +200,7 @@ public class gameManager : MonoBehaviourPun
 
                     animator.SetInteger("AvatarIndex", playerAvatarIndex);
 
-                    /*
-                    Para sincronizar animaciones
+                   
 
                     foreach (var animatorControllerParameter in animator.parameters)
                     {
@@ -214,7 +213,7 @@ public class gameManager : MonoBehaviourPun
                             Debug.LogError($"Error al sincronizar el parámetro {animatorControllerParameter.name}: {ex.Message}");
                         }
                     }
-                    */
+                    
 
                 }
 
@@ -250,8 +249,7 @@ public class gameManager : MonoBehaviourPun
                     }
 
                     animator.SetInteger("AvatarIndex", playerAvatarIndex);
-                    /*
-                    Para sincronizar animaciones
+                    
 
                     foreach (var animatorControllerParameter in animator.parameters)
                     {
@@ -264,7 +262,7 @@ public class gameManager : MonoBehaviourPun
                             Debug.LogError($"Error al sincronizar el parámetro {animatorControllerParameter.name}: {ex.Message}");
                         }
                     }
-                    */
+                    
                 }
             }
         }
