@@ -21,7 +21,8 @@ public class gameManager : MonoBehaviourPun
     [Header("Scripts")]
     DisplayPuntosScript displayPuntosScript;
     public leantweenScript LeantweenScript;
-    public marcadorScript marcadorScript;
+    marcadorScript marcadorScript;
+    public photonPlayerSFX sfxScript;
     //public CameraShake cameraShakeScript;
     [Header("UI")]
     private estado estadoActual;
@@ -124,6 +125,12 @@ public class gameManager : MonoBehaviourPun
         estado = estado.SaqueP1;
         estadoActual = estado;
         IsDoingAction = false;
+
+        displayPuntosScript = FindObjectOfType<DisplayPuntosScript>();
+        marcadorScript = FindObjectOfType<marcadorScript>();
+
+        view = GetComponent<PhotonView>();
+
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
@@ -131,9 +138,7 @@ public class gameManager : MonoBehaviourPun
         InstanciarPersonajesEnPosicionesIniciales();
         //MostrarOpcionesDeArmar();
 
-        displayPuntosScript = FindObjectOfType<DisplayPuntosScript>();
-        marcadorScript = FindObjectOfType<marcadorScript>();
-        view = GetComponent<PhotonView>();
+        
 
 
         if (PhotonNetwork.IsConnected)
@@ -147,7 +152,7 @@ public class gameManager : MonoBehaviourPun
 
     private void Update()
     {
-
+    
     }
 
     public void AplicarSprites()
@@ -348,7 +353,7 @@ public class gameManager : MonoBehaviourPun
     [PunRPC]
     public void InstanciarPersonajesEnPosicionesIniciales()
     {
-        Debug.LogError("Se llama Instanceo");
+        sfxScript.PlayPitido();
 
         if (estado == estado.SaqueP1)
         {
@@ -795,6 +800,9 @@ public class gameManager : MonoBehaviourPun
         }
         GameObject personajeMasCercano = IrARecogerPelota(casillaObjetivo);
         Debug.LogError("el personaje mas cercano es" + personajeMasCercano);
+
+        sfxScript.PlayRemate();
+
         // Mover la pelota a la casilla seleccionada
         float duration = 1.5f;
         float elapsedTime = 0;
@@ -1216,6 +1224,7 @@ public class gameManager : MonoBehaviourPun
         yield return new WaitForSeconds(0.7f);
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(0.12f);
+        sfxScript.PlayRemate();
         Time.timeScale = 1.0f;
         //cameraShakeScript.Shake(0.5f, 5f);
         LeantweenScript.AparecerTextoPunto(textoSpike, textHolderPopUpLeft);

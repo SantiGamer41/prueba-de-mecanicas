@@ -24763,6 +24763,8 @@ GameObject:
   - component: {fileID: 308957253}
   - component: {fileID: 308957252}
   - component: {fileID: 308957254}
+  - component: {fileID: 308957255}
+  - component: {fileID: 308957256}
   m_Layer: 0
   m_Name: GAMESFX
   m_TagString: Untagged
@@ -24893,6 +24895,51 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &308957255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308957251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fdd0bab53d0a84089097de778c7877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 308957254}
+  rematesSFX:
+  - {fileID: 8300000, guid: 3cfc0a139cc59e042a2238f78326b0b3, type: 3}
+  - {fileID: 8300000, guid: 211e9be47be754144b96d09e05bbb017, type: 3}
+  - {fileID: 8300000, guid: 695a387338b6e7d4db309c46553bee20, type: 3}
+  piquesSFX:
+  - {fileID: 8300000, guid: f70362294fc4a294d87e17bcbc5a7d5e, type: 3}
+  - {fileID: 8300000, guid: 3392e92767b85e94199d626518cd3954, type: 3}
+  - {fileID: 8300000, guid: a25bfd71ecd112848a48ae0ab3c8f606, type: 3}
+  - {fileID: 8300000, guid: 6289fe710d3fabc4e9a9ce2663426191, type: 3}
+  pitidoSFX: {fileID: 8300000, guid: d220063d1d63c6e46a1bb02dc337b88b, type: 3}
+--- !u!114 &308957256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308957251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 36
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &322083824
 GameObject:
   m_ObjectHideFlags: 0
@@ -51955,7 +52002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   estado: 0
   LeantweenScript: {fileID: 1878058943}
-  marcadorScript: {fileID: 0}
+  sfxScript: {fileID: 308957255}
   personajes:
   - {fileID: 831166051}
   - {fileID: 375273556}

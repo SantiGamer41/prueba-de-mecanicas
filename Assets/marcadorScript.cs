@@ -25,18 +25,6 @@ public class marcadorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Prueba complementaria
-        //HAY QUE UNIRLO EN LOS LUGARES ESPEIFICOS
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SumarPuntosLeft();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            SumarMarcadorRight();
-        }
 
         if(puntosLeft >= 6)
         {
