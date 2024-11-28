@@ -21,6 +21,7 @@ public class gameManager : MonoBehaviourPun
     [Header("Scripts")]
     DisplayPuntosScript displayPuntosScript;
     public leantweenScript LeantweenScript;
+    public marcadorScript marcadorScript;
     //public CameraShake cameraShakeScript;
     [Header("UI")]
     private estado estadoActual;
@@ -131,6 +132,7 @@ public class gameManager : MonoBehaviourPun
         //MostrarOpcionesDeArmar();
 
         displayPuntosScript = FindObjectOfType<DisplayPuntosScript>();
+        marcadorScript = FindObjectOfType<marcadorScript>();
         view = GetComponent<PhotonView>();
 
 
@@ -845,7 +847,7 @@ public class gameManager : MonoBehaviourPun
         }
         else
         {
-            photonView.RPC("PuntoRPC", RpcTarget.All);
+            Punto();
         }
 
 
@@ -956,7 +958,7 @@ public class gameManager : MonoBehaviourPun
         }
         else
         {
-            photonView.RPC("PuntoRPC", RpcTarget.All);
+            Punto();
         }
 
         // Desactivar botones y animaciones
@@ -1242,7 +1244,7 @@ public class gameManager : MonoBehaviourPun
         }
         else
         {
-            photonView.RPC("PuntoRPC", RpcTarget.All);
+            Punto();
         }
 
         // Actualiza el estado de puntos si es necesario
@@ -1514,12 +1516,40 @@ public class gameManager : MonoBehaviourPun
 
         ball.transform.position = endPosition;
 
-        photonView.RPC("PuntoRPC", RpcTarget.All);
+        Punto();
 
         Debug.Log("Pelota llegó al punto final.");
         Time.timeScale = 1f;
         IsBlocking = false;
     }
+
+    public void Punto()
+    {
+        if (ball.transform.position.x > 1)
+        {
+            if (ball.transform.position.x < 18 && ball.transform.position.y < 1 && ball.transform.position.y > -8)
+            {
+                marcadorScript.SumarPuntosLeft();
+            }
+            else
+            {
+                marcadorScript.SumarMarcadorRight();
+            }
+        }
+        else if (ball.transform.position.x < 1)
+        {
+            if (ball.transform.position.x > -16 && ball.transform.position.y < 1 && ball.transform.position.y > -8)
+            {
+                marcadorScript.SumarMarcadorRight();
+            }
+            else
+            {
+                marcadorScript.SumarPuntosLeft();
+            }
+        }
+        photonView.RPC("PuntoRPC", RpcTarget.All);
+    }
+
 
     [PunRPC]
     public void PuntoRPC()
@@ -1546,16 +1576,15 @@ public class gameManager : MonoBehaviourPun
                     LeantweenScript.AparecerTextoPunto(textoPointP1, textHolder);
                     Debug.Log("Se mostró el punto");
                     estado = estado.SaqueP1;
-
                     ball.transform.parent = personajes[0].transform;
                     ball.transform.localPosition = new Vector3(7, 12, 0);
                     photonView.RPC("InstanciarPersonajesEnPosicionesIniciales", RpcTarget.All);
+                    
                 }
                 else
                 {
                     LeantweenScript.AparecerTextoPunto(textoPointP2, textHolder);
                     estado = estado.SaqueP2;
-
                     ball.transform.parent = personajes[5].transform;
                     ball.transform.localPosition = new Vector3(-7, 12, 0);
                     photonView.RPC("InstanciarPersonajesEnPosicionesIniciales", RpcTarget.All);
@@ -1567,7 +1596,6 @@ public class gameManager : MonoBehaviourPun
                 {
                     LeantweenScript.AparecerTextoPunto(textoPointP2, textHolder);
                     estado = estado.SaqueP2;
-
                     ball.transform.parent = personajes[5].transform;
                     ball.transform.localPosition = new Vector3(-7, 12, 0);
                     photonView.RPC("InstanciarPersonajesEnPosicionesIniciales", RpcTarget.All);
@@ -1576,7 +1604,6 @@ public class gameManager : MonoBehaviourPun
                 {
                     LeantweenScript.AparecerTextoPunto(textoPointP1, textHolder);
                     estado = estado.SaqueP1;
-
                     ball.transform.parent = personajes[0].transform;
                     ball.transform.localPosition = new Vector3(7, 12, 0);
                     photonView.RPC("InstanciarPersonajesEnPosicionesIniciales", RpcTarget.All);

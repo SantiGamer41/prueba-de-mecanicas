@@ -13,6 +13,9 @@ public class marcadorScript : MonoBehaviour
     public int puntosLeft = 1;
     public int puntosRight = 1;
 
+    public GameObject panelGanador;
+    public Text txt_Ganador;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,18 @@ public class marcadorScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             SumarMarcadorRight();
+        }
+
+        if(puntosLeft >= 6)
+        {
+            panelGanador.SetActive(true);
+            txt_Ganador.text = ("Ganador: Jugador Izquierda");
+        }
+
+        if(puntosRight >= 6)
+        {
+            panelGanador.SetActive(true);
+            txt_Ganador.text = ("Ganador: Jugador Derecha");
         }
     }
 
