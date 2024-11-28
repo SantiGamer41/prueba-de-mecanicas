@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class ClickHandler : MonoBehaviour
 {
     public gameManager GameManager; // Referencia al GameManager
     public int personajeIndice;
+
+    PhotonView viewCH;
 
     private void OnMouseDown()
     {
@@ -18,55 +21,134 @@ public class ClickHandler : MonoBehaviour
             switch (personajeIndice)
             {
                 case 9:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonDevolver.gameObject.SetActive(false);
-                GameManager.botonPasar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonDevolver.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
+
                 case 8:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonDevolver.gameObject.SetActive(false);
-                GameManager.botonPasar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonDevolver.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 7:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonDevolver.gameObject.SetActive(false);
-                GameManager.botonPasar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonDevolver.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 6:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonDevolver.gameObject.SetActive(false);
-                GameManager.botonPasar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonDevolver.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 5:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonDevolver.gameObject.SetActive(false);
-                GameManager.botonPasar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonDevolver.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
-                //Equipo 1
+                    //Equipo 1
+            
+            
                 case 4:
-                GameManager.DeactivateAllButtons();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                        
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
+
+
                 case 3:
-                GameManager.DeactivateAllButtons();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
+
                 case 2:
-                GameManager.DeactivateAllButtons();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 1:
-                GameManager.DeactivateAllButtons();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 0:
-                GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                GameManager.botonDevolver.gameObject.SetActive(false);
-                GameManager.botonPasar.gameObject.SetActive(false);
-                    GameManager.botonArmar.gameObject.SetActive(false);
-                    GameManager.ActivarBotonSacar();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.botonDevolver.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        GameManager.botonArmar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonSacar();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
+
                     break;
+            
             }
         }
         else if (GameManager.estado == estado.SaqueP2) //Saque P2
@@ -74,54 +156,124 @@ public class ClickHandler : MonoBehaviour
             switch (personajeIndice)
             {
                 case 4:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonDevolver.gameObject.SetActive(false);
-                GameManager.botonPasar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonDevolver.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 3:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonDevolver.gameObject.SetActive(false);
-                GameManager.botonPasar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonDevolver.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 2:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonDevolver.gameObject.SetActive(false);
-                GameManager.botonPasar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonDevolver.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 1:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonDevolver.gameObject.SetActive(false);
-                GameManager.botonPasar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonDevolver.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 0:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonDevolver.gameObject.SetActive(false);
-                GameManager.botonPasar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonDevolver.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 //Equipo 2
                 case 9:
-                GameManager.DeactivateAllButtons();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 8:
-                GameManager.DeactivateAllButtons();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 7:
-                GameManager.DeactivateAllButtons();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 6:
-                GameManager.DeactivateAllButtons();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 5:
-                GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                GameManager.botonDevolver.gameObject.SetActive(false);
-                GameManager.botonPasar.gameObject.SetActive(false);
-                    GameManager.botonArmar.gameObject.SetActive(false);
-                    GameManager.ActivarBotonSacar();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.botonDevolver.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        GameManager.botonArmar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonSacar();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
             }
         }
@@ -131,110 +283,182 @@ public class ClickHandler : MonoBehaviour
             {
             //Equipo 2
             case 9:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonBloquear.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                    GameManager.botonPasar.gameObject.SetActive(false);
-                    if (GameManager.ball.transform.parent == GameManager.personajes[9].transform)
+                    if (!PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonArmar.gameObject.SetActive(true);
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        if (GameManager.ball.transform.parent == GameManager.personajes[9].transform)
+                        {
+                            GameManager.botonArmar.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            GameManager.botonArmar.gameObject.SetActive(false);
+                        }
+                        GameManager.NoRematar();
+                        
                     }
-                    else
+                    if (PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonArmar.gameObject.SetActive(false);
+                        GameManager.DeactivateAllButtons();
                     }
-                    GameManager.NoRematar();
                     break;
-            case 8:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonBloquear.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                    GameManager.botonArmar.gameObject.SetActive(false);
-                    if (GameManager.ball.transform.parent == GameManager.ballHolderAlto.transform)
+                case 8:
+                    if (!PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonRematar.gameObject.SetActive(true);
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.botonArmar.gameObject.SetActive(false);
+                        if (GameManager.ball.transform.parent == GameManager.ballHolderAlto.transform)
+                        {
+                            GameManager.botonRematar.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            GameManager.botonRematar.gameObject.SetActive(false);
+                        }
                     }
-                    else
+                    if (PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonRematar.gameObject.SetActive(false);
+                        GameManager.DeactivateAllButtons();
                     }
                     break;
             case 7:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonBloquear.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                    GameManager.botonArmar.gameObject.SetActive(false);
-                    if (GameManager.ball.transform.parent == GameManager.ballHolderBajo.transform)
+                    if (!PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonRematar.gameObject.SetActive(true);
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.botonArmar.gameObject.SetActive(false);
+                        if (GameManager.ball.transform.parent == GameManager.ballHolderBajo.transform)
+                        {
+                            GameManager.botonRematar.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            GameManager.botonRematar.gameObject.SetActive(false);
+                        }
                     }
-                    else
+                    if (PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonRematar.gameObject.SetActive(false);
+                        GameManager.DeactivateAllButtons();
                     }
                     break;
             case 6:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonBloquear.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                    GameManager.botonArmar.gameObject.SetActive(false);
-                    GameManager.NoRematar();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.botonArmar.gameObject.SetActive(false);
+                        GameManager.NoRematar();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
             case 5:
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.botonBloquear.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                    GameManager.botonArmar.gameObject.SetActive(false);
-                    GameManager.NoRematar();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.botonArmar.gameObject.SetActive(false);
+                        GameManager.NoRematar();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
             //Equipo 1
             case 4:
-            GameManager.DeactivateAllButtons();
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
-                GameManager.NoRematar();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                        GameManager.NoRematar();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
             case 3:
-            GameManager.DeactivateAllButtons();
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
-                GameManager.NoRematar();
-                 if (GameManager.IsBlocking == false)
+                    if (PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonBloquear.gameObject.SetActive(true);
+                        GameManager.DeactivateAllButtons();
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                        GameManager.NoRematar();
+                        if (GameManager.IsBlocking == false)
+                        {
+                            GameManager.botonBloquear.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            GameManager.botonBloquear.gameObject.SetActive(false);
+                        }
                     }
-                    else
+                    if (!PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.DeactivateAllButtons();
                     }
                     break;
                     
             case 2:
-            GameManager.DeactivateAllButtons();
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
-                GameManager.NoRematar();
-                 if (GameManager.IsBlocking == false)
+                    if (PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonBloquear.gameObject.SetActive(true);
+                        GameManager.DeactivateAllButtons();
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                        GameManager.NoRematar();
+                        if (GameManager.IsBlocking == false)
+                        {
+                            GameManager.botonBloquear.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            GameManager.botonBloquear.gameObject.SetActive(false);
+                        }
                     }
-                    else
+                    if (!PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonBloquear.gameObject.SetActive(false);
-                    }     
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
             case 1:
-            GameManager.DeactivateAllButtons();
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
-                GameManager.NoRematar();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                        GameManager.NoRematar();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
             case 0:
-            GameManager.DeactivateAllButtons();
-                GameManager.botonSacar.gameObject.SetActive(false);
-                GameManager.ActivarBotonMoverPersonaje();
-                GameManager.NoRematar();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                        GameManager.NoRematar();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
+                    
         
             }
 
@@ -244,115 +468,185 @@ public class ClickHandler : MonoBehaviour
             switch (personajeIndice)
             {
                 case 9:
-                GameManager.DeactivateAllButtons();
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.ActivarBotonMoverPersonaje();
-                    GameManager.NoRematar();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                        GameManager.NoRematar();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 8:
-                GameManager.DeactivateAllButtons();
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.ActivarBotonMoverPersonaje();
-                    GameManager.NoRematar();
-                    if (GameManager.IsBlocking == false)
+                    if (!PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonBloquear.gameObject.SetActive(true);
+                        GameManager.DeactivateAllButtons();
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                        GameManager.NoRematar();
+                        if (GameManager.IsBlocking == false)
+                        {
+                            GameManager.botonBloquear.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            GameManager.botonBloquear.gameObject.SetActive(false);
+                        }
                     }
-                    else
+                    if (PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.DeactivateAllButtons();
                     }
                     break;
                 case 7:
-                GameManager.DeactivateAllButtons();
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.ActivarBotonMoverPersonaje();
-                    GameManager.NoRematar();
-                    if (GameManager.IsBlocking == false)
+                    if (!PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonBloquear.gameObject.SetActive(true);
+                        GameManager.DeactivateAllButtons();
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                        GameManager.NoRematar();
+                        if (GameManager.IsBlocking == false)
+                        {
+                            GameManager.botonBloquear.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            GameManager.botonBloquear.gameObject.SetActive(false);
+                        }
                     }
-                    else
+                    if (PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.DeactivateAllButtons();
                     }
                     break;
                 case 6:
-                GameManager.DeactivateAllButtons();
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.ActivarBotonMoverPersonaje();
-                    GameManager.NoRematar();
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.ActivarBotonMoverPersonaje();
+                        GameManager.NoRematar();
+                    }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 5:
-                GameManager.DeactivateAllButtons();
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    if (GameManager.ball.transform.parent == GameManager.personajes[5])
+                    if (!PhotonNetwork.IsMasterClient)
                     {
-                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.DeactivateAllButtons();
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        if (GameManager.ball.transform.parent == GameManager.personajes[5])
+                        {
+                            GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        }
+                        else
+                        {
+                            GameManager.ActivarBotonMoverPersonaje();
+                        }
+                        GameManager.NoRematar();
                     }
-                    else
+                    if (PhotonNetwork.IsMasterClient)
                     {
-                        GameManager.ActivarBotonMoverPersonaje();
+                        GameManager.DeactivateAllButtons();
                     }
-                    GameManager.NoRematar();
                     break;
                 //Equipo 1
                 case 4:
-                    GameManager.botonBloquear.gameObject.SetActive(false);
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                    GameManager.botonPasar.gameObject.SetActive(false);
-                    if (GameManager.ball.transform.parent == GameManager.personajes[4].transform)
+                    if (PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonArmar.gameObject.SetActive(true);
+                        GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.botonPasar.gameObject.SetActive(false);
+                        if (GameManager.ball.transform.parent == GameManager.personajes[4].transform)
+                        {
+                            GameManager.botonArmar.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            GameManager.botonArmar.gameObject.SetActive(false);
+                        }
+                        GameManager.NoRematar();
                     }
-                    else
+                    if (!PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonArmar.gameObject.SetActive(false);
+                        GameManager.DeactivateAllButtons();
                     }
-                    GameManager.NoRematar();
                     break;
                 case 3:
-                    GameManager.botonBloquear.gameObject.SetActive(false);
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                    GameManager.botonArmar.gameObject.SetActive(false);
-                    if (GameManager.ball.transform.parent == GameManager.ballHolderAlto.transform)
+                    if (PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonRematar.gameObject.SetActive(true);
+                        GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.botonArmar.gameObject.SetActive(false);
+                        if (GameManager.ball.transform.parent == GameManager.ballHolderAlto.transform)
+                        {
+                            GameManager.botonRematar.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            GameManager.botonRematar.gameObject.SetActive(false);
+                        }
                     }
-                    else
+                    if (!PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonRematar.gameObject.SetActive(false);
+                        GameManager.DeactivateAllButtons();
                     }
                     break;
                 case 2:
-                    GameManager.botonBloquear.gameObject.SetActive(false);
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                    GameManager.botonArmar.gameObject.SetActive(false);
-                    if (GameManager.ball.transform.parent == GameManager.ballHolderBajo.transform)
+                    if (PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonRematar.gameObject.SetActive(true);
+                        GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.botonArmar.gameObject.SetActive(false);
+                        if (GameManager.ball.transform.parent == GameManager.ballHolderBajo.transform)
+                        {
+                            GameManager.botonRematar.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            GameManager.botonRematar.gameObject.SetActive(false);
+                        }
                     }
-                    else
+                    if (!PhotonNetwork.IsMasterClient)
                     {
-                    GameManager.botonRematar.gameObject.SetActive(false);
+                        GameManager.DeactivateAllButtons();
                     }
                     break;
                 case 1:
-                    GameManager.botonBloquear.gameObject.SetActive(false);
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                    GameManager.botonArmar.gameObject.SetActive(false);
-                    GameManager.NoRematar();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.botonArmar.gameObject.SetActive(false);
+                        GameManager.NoRematar();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
                 case 0:
-                    GameManager.botonBloquear.gameObject.SetActive(false);
-                    GameManager.botonSacar.gameObject.SetActive(false);
-                    GameManager.botonMoverPersonaje.gameObject.SetActive(false);
-                    GameManager.botonArmar.gameObject.SetActive(false);
-                    GameManager.NoRematar();
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.botonBloquear.gameObject.SetActive(false);
+                        GameManager.botonSacar.gameObject.SetActive(false);
+                        GameManager.botonMoverPersonaje.gameObject.SetActive(false);
+                        GameManager.botonArmar.gameObject.SetActive(false);
+                        GameManager.NoRematar();
+                    }
+                    if (!PhotonNetwork.IsMasterClient)
+                    {
+                        GameManager.DeactivateAllButtons();
+                    }
                     break;
 
             }

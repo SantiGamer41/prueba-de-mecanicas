@@ -803,6 +803,8 @@ private IEnumerator SeleccionDeSaque(Vector3 start, GameObject Sacador)
             yield return null;
         }
 
+        view.RPC("sacarParentRPC", RpcTarget.All);
+
         // Mover la pelota a la casilla seleccionada
         float duration = 1.5f;
         float elapsedTime = 0;
@@ -965,7 +967,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
 
         Vector3 startPosition = new Vector3(start.x, start.y, start.z);
         Vector3 endPosition = new Vector3(casillaObjetivo.x, casillaObjetivo.y, 0);
-        //Debug.Log("Pepe" + endPosition);
+
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         personajeActual.GetComponentInChildren<Animator>().SetTrigger("Pass");
@@ -1307,6 +1309,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
       {
             //Debug.Log(botones[i].name);
             botones[i].SetActive(false);
+            Debug.LogError("Se llama la funcion desactivar botones");
       }
     }
     float CalcularDistancia(GameObject personaje, Vector2Int casillaObjetivo)
