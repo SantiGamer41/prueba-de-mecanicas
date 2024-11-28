@@ -682,6 +682,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3797702183924270007, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5553185290907412718, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: sceneViewId
@@ -25154,6 +25159,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3797702183924270007, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5553185290907412718, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: sceneViewId
@@ -25808,6 +25818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797702183924270007, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5553185290907412718, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -48213,6 +48228,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3797702183924270007, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5553185290907412718, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: sceneViewId
@@ -48393,6 +48413,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797702183924270007, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5553185290907412718, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -48687,6 +48712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797702183924270007, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5553185290907412718, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -49298,6 +49328,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3797702183924270007, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5553185290907412718, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
       propertyPath: sceneViewId
@@ -49487,6 +49522,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797702183924270007, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5553185290907412718, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -49787,6 +49827,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797702183924270007, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5553185290907412718, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
@@ -55176,6 +55221,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797702183924270007, guid: d19e613bea5ebc34aaa636a663620e01,
+        type: 3}
+      propertyPath: m_UseLocal
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5553185290907412718, guid: d19e613bea5ebc34aaa636a663620e01,
         type: 3}
