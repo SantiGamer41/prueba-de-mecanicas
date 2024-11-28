@@ -529,7 +529,7 @@ public class gameManager : MonoBehaviourPun
     public void Armar()
     {
         MostrarOpcionesDeArmar();
-        StartCoroutine(SeleccionDeArmado(ball.transform.position));
+        StartCoroutine(SeleccionDeArmado(ball.transform.position, personajeActual));
     }
 
     public void Rematar()
@@ -927,7 +927,7 @@ private IEnumerator SeleccionDePase(Vector3 start, GameObject armador, Vector3 p
         //Congelaranimaciones
     }
     
-private IEnumerator SeleccionDeArmado(Vector3 start)
+private IEnumerator SeleccionDeArmado(Vector3 start, GameObject armador)
 {
         Vector3 altap1 = new Vector3(personajes[3].transform.position.x + 1, personajes[3].transform.position.y + 4, personajes[3].transform.position.z);
         Vector3 altap2 = new Vector3(personajes[8].transform.position.x - 2, personajes[8].transform.position.y + 4, personajes[8].transform.position.z);
@@ -973,7 +973,7 @@ private IEnumerator SeleccionDeArmado(Vector3 start)
         //Debug.Log("Pepe" + endPosition);
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
-        personajeActual.GetComponentInChildren<Animator>().SetTrigger("Pass");
+        armador.GetComponentInChildren<Animator>().SetTrigger("Pass");
         float heightMax = 1.5f;
 
     DesactivarCasillasIluminadas();
