@@ -1375,9 +1375,9 @@ private IEnumerator SeleccionDeArmado(Vector3 start, GameObject armador)
         Debug.Log(startPosition);
         Vector3 midPosition = new Vector3(
         personajeBloqueando.transform.position.x,
-        startPosition.y + 2.0f,
+        startPosition.y + 0.5f,
         startPosition.z);
-        Vector3 endPosition = startPosition;
+        Vector3 endPosition = new Vector3 (startPosition.x, startPosition.y-2,0);
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
         rematador.GetComponentInChildren<Animator>().SetTrigger("Spike");

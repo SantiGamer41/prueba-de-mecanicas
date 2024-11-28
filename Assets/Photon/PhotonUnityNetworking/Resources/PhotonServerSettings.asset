@@ -47,6 +47,8 @@ MonoBehaviour:
   - ContadorSumaRPC
   - SumarTurnoDisplayRPC
   - SpawnJugadoresRPC
+  - SumarMarcadorLeft_RPC
+  - SumarMarcadorRight_RPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 0
