@@ -131,6 +131,11 @@ public class gameManager : MonoBehaviourPun
 
         view = GetComponent<PhotonView>();
 
+        if (PhotonNetwork.IsConnected)
+        {
+            AplicarSprites();
+        }
+
         InstanciarCasillas();
         DesactivarCasillasIluminadas();
         DeactivateAllButtons();
@@ -141,10 +146,7 @@ public class gameManager : MonoBehaviourPun
         
 
 
-        if (PhotonNetwork.IsConnected)
-        {
-            AplicarSprites();
-        }
+        
 
         
 
@@ -157,6 +159,7 @@ public class gameManager : MonoBehaviourPun
 
     public void AplicarSprites()
     {
+        Debug.LogError("Se llama aplicar Sprites");
         int playerAvatarIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"];
 
         if (view.IsMine)
@@ -172,6 +175,7 @@ public class gameManager : MonoBehaviourPun
     [PunRPC]
     public void JugadoresIzquierdos(int playerAvatarIndex)
     {
+        Debug.LogError("Se llama izquierdos");
         for (int i = 0; i < 5; i++)
         {
             Transform personajeTransform = personajes[i].transform.Find("Personaje");
@@ -223,6 +227,7 @@ public class gameManager : MonoBehaviourPun
     [PunRPC]
     public void JugadoresDerechos(int playerAvatarIndex)
     {
+        Debug.LogError("Se llama derechos");
         for (int i = 5; i < 10; i++)
         {
             Transform personajeTransform = personajes[i].transform.Find("Personaje");
